@@ -1,0 +1,672 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reactor Characteristics &mdash; AguaClara Textbook v0.0.3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Gas Transfer" href="../Gas_Transfer/Gas_Transfer.html" />
+    <link rel="prev" title="Acid Neutralizing Capacity" href="../Acid_Neutralizing_Capacity/Acid_Neutralizing_Capacity.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AguaClara Textbook
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Title and Preface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Title_and_Preface/Title_and_Preface.html">Laboratory Research in Environmental Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Title_and_Preface/Title_and_Preface.html#laboratory-manual">Laboratory Manual</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 1: Laboratory Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Laboratory_Safety/Laboratory_Safety.html">Laboratory Safety</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 2: Laboratory_Measurements</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Laboratory_Measurements/Laboratory_Measurements.html">Laboratory Measurements and Procedures</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 3: Acid Rain</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Acid_Rain/Acid_Rain.html">Acid Precipitation and Remediation of Acid Lakes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 4: Acid Neutralizing Capacity</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Acid_Neutralizing_Capacity/Acid_Neutralizing_Capacity.html">Acid Neutralizing Capacity</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 5: Reactor Characteristics</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reactor Characteristics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classifications">Classifications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dispersion">Dispersion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boundary-conditions">Boundary Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modeling">Modeling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#completely-mixed-flow-reactor">Completely Mixed Flow Reactor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plug-flow-reactor">Plug Flow Reactor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flow-with-dispersion">Flow with Dispersion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#open-boundary-conditions-one-dimensional-advection-dispersion-equation">Open Boundary conditions: One Dimensional Advection-Dispersion Equation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#closed-boundary-conditions-completely-mixed-flow-reactor-in-series">Closed Boundary Conditions: Completely Mixed Flow Reactor in Series</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reactor-studies">Reactor Studies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#peclet-number-estimation">Peclet Number Estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mass-conservation">Mass Conservation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tracers">Tracers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mass-balance">Mass balance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-the-reactor-for-experiments">Setting up the reactor for experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-protocol">Testing protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reactor-design">Reactor Design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#baffle-design">Baffle Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chlorine-contact-tank-design">Chlorine Contact Tank Design</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#procedures">Procedures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#baffle-installation">Baffle installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pre-laboratory-questions">Pre-Laboratory Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-analysis">Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lab-prep-notes">Lab Prep Notes</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 6: Gas Transfer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Gas_Transfer/Gas_Transfer.html">Gas Transfer</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 7: Activated Carbon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Activated_Carbon/Activated_Carbon.html">Carbon Adsorption</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 8: Nutrient Removal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Nutrient_Removal/Nutrient_Removal.html">Nutrient Removal with Sequencing Batch Reactors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 9: ProCoDA</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ProCoDA/ProCoDA.html">ProCoDA: Process Control and Data Acquisition</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AguaClara Textbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Reactor Characteristics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Reactor_Characteristics/Reactor_Characteristics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="reactor-characteristics">
+<span id="title-reactor-characteristics"></span><h1>Reactor Characteristics<a class="headerlink" href="#reactor-characteristics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<span id="heading-reactor-introduction"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Chemical, biological, and physical processes in nature and in engineered systems usually take place in what we call “reactors.” Reactors are defined by a real or imaginary boundary that physically confines the processes. Lakes, segments of a river, and settling tanks in treatment plants are examples of reactors. Most, but not all, reactors experience continuous flow (in and out). Sequencing batch reactors have a sequence of states including fill, react, and empty. It is important to know the mixing level and residence time in reactors, since they both affect the degree of process reaction that occurs while the fluid (usually water) and its components (often pollutants) pass through the reactor.</p>
+<p>Chlorine contactor tanks are designed to maximize the contact time between chlorine and pathogens before the water is delivered to consumers. Thus the design objective is to maximize the time that it takes for water to travel from the tank influent to the effluent. Tracer studies can be used to determine the hydraulic characteristics of a reactor such as the disinfection contact tanks at water treatment plants. The results from tracer studies are used to obtain accurate estimates of the effective contact time. In this laboratory students will experiment with different reactor designs with the goal of maximizing the contact time.</p>
+</div>
+<div class="section" id="classifications">
+<span id="heading-reactor-classifications"></span><h2>Classifications<a class="headerlink" href="#classifications" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dispersion">
+<h3>Dispersion<a class="headerlink" href="#dispersion" title="Permalink to this headline">¶</a></h3>
+<p>Mixing levels give rise to three categories of reactors; completely mixed flow reactors (CMFR), plug flow reactors (PFR) and flow with dispersion reactors (FDR). The plug flow reactor is an idealized extreme not attainable in practice. All real reactors fall under the category of FDR or CMFR.</p>
+</div>
+<div class="section" id="boundary-conditions">
+<h3>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<p>The reactor inlet and outlet boundary conditions significantly affect the reactor response to the addition of a pulse of tracer. If dispersion is possible across a boundary, then the boundary is open. An example of a reactor with open boundaries is a section of a river. If a tracer is added to a section of a river it is possible for some of the tracer to move upstream, illustrating that an arbitrary section of a river is an open reactor (<a class="reference internal" href="#figure-open-boundaries"><span class="std std-numref">Fig. 7</span></a>). This is equivalent to letting the reactor be defined as a section of a long reactor. One of the characteristics of open boundaries is that some of the tracer introduced at the reactor inlet can be carried upstream and thus the residence time for a conservative tracer can be greater than the hydraulic residence time!</p>
+<div class="figure align-center" id="id1">
+<span id="figure-open-boundaries"></span><a class="reference internal image-reference" href="../_images/open_boundaries.png"><img alt="Open boundaries." src="../_images/open_boundaries.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Schematic of a reactor with open boundary conditions.</span></p>
+</div>
+<p>A closed reactor is one where the reactor has a diffusion or dispersion coefficient different than those of the entrance or exit (<a class="reference internal" href="#figure-closed-boundaries"><span class="std std-numref">Fig. 8</span></a>).  Typically exit and entrance diffusion/dispersion are much less than the diffusion/dispersion in the reactor. An example of a reactor with closed boundaries is a tank with small inlet and outlet pipes.</p>
+<div class="figure align-center" id="id2">
+<span id="figure-closed-boundaries"></span><a class="reference internal image-reference" href="../_images/closed_boundaries.png"><img alt="Open boundaries." src="../_images/closed_boundaries.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Schematic of a reactor with closed boundary conditions.</span></p>
+</div>
+</div>
+<div class="section" id="modeling">
+<span id="heading-reactor-modeling"></span><h3>Modeling<a class="headerlink" href="#modeling" title="Permalink to this headline">¶</a></h3>
+<p>Reactors can be studied by measuring the effluent concentration after the addition of a spike or pulse of a tracer in the influent or after a step function change in input concentration. The resulting response curves can be made non-dimensional by plotting <span class="math notranslate nohighlight">\(\frac{C_t{\rlap{-} V }_r}{C_{tr}{\rlap{-} V }_{tr}}\)</span> as a function of <span class="math notranslate nohighlight">\({t/\theta}\)</span>. where <span class="math notranslate nohighlight">\(\theta\)</span> is the hydraulic residence time. The term <span class="math notranslate nohighlight">\({t/\theta}\)</span> will be defined as <span class="math notranslate nohighlight">\(t^{\star}\)</span>. The non-dimensional response curves from pulse inputs and step inputs are known as E curves and F curves, respectively. The E curve is the exit age distribution and represents the actual output of tracer from a reactor.  The F curve is the cumulative age distribution and represents the cumulative fraction of tracer that has exited a reactor at time <span class="math notranslate nohighlight">\(t^{\star}\)</span>. The E and F curves are related by</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-0">
+<span class="eqno">(50)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-0" title="Permalink to this equation">¶</a></span>\[F_{\left(t^{\star} \right)} =\int _{0}^{t^{\star} }E_{\left(t^{\star} \right)} dt^{\star}\]</div>
+<p>The <span class="math notranslate nohighlight">\(F_{\left(t^{\star} \right)}\)</span> curve can either be obtained by integrating <span class="math notranslate nohighlight">\(E_{\left(t^{\star} \right)}\)</span> or by applying a step function change in influent concentration to a reactor and monitoring the effluent concentration. In that case <span class="math notranslate nohighlight">\(F_{\left(t^{\star} \right)}\)</span> is defined as</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-1">
+<span class="eqno">(51)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-1" title="Permalink to this equation">¶</a></span>\[F_{\left(t^\star\right)}=\frac{C_{\left(t^\star\right)}}{C_{in}}\]</div>
+<p>The following sections will include typical E and F curves for different reactor types.</p>
+</div>
+<div class="section" id="completely-mixed-flow-reactor">
+<h3>Completely Mixed Flow Reactor<a class="headerlink" href="#completely-mixed-flow-reactor" title="Permalink to this headline">¶</a></h3>
+<p>Completely mixed flow regimes can be approximated quite closely in practice. In the case of CMFRs, there is not an analytical solution to the advection-dispersion equation so we revert to a simple mass balance. For a completely mixed reactor a mass balance on a conservative tracer yields the following differential equation:</p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-mass-balance">
+<span class="eqno">(52)<a class="headerlink" href="#equation-eq-reactor-mass-balance" title="Permalink to this equation">¶</a></span>\[\rlap{-} V _{r} \frac{dC}{dt} =\left(C_{in} -C\right)Q\]</div>
+<p>where Q is the volumetric flow rate and <span class="math notranslate nohighlight">\(\rlap{-} V_r\)</span> is the volume of the reactor.</p>
+<p>Equation <a class="reference internal" href="#equation-eq-reactor-mass-balance">(52)</a> can be used to predict a variety of effluent responses to tracer inputs. If a pulse of tracer is discharged directly into a reactor so that the initial concentration of tracer in the reactor is <span class="math notranslate nohighlight">\(C_{0} =\frac{C_{tr} \rlap{-} V _{tr} }{\rlap{-} V _{r} }\)</span> and the input concentration is zero (<span class="math notranslate nohighlight">\(C_{in} = 0\)</span>) the solution to the differential equation is:</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-2">
+<span class="eqno">(53)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-2" title="Permalink to this equation">¶</a></span>\[E_{\left(t\right)}=\frac{C_t{\rlap{-} V }_r}{C_{tr}{\rlap{-} V }_{tr}}=e^{\left(-t/\theta \right)}\]</div>
+<p>or in the dimensionless form</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-3">
+<span class="eqno">(54)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-3" title="Permalink to this equation">¶</a></span>\[E_{\left(t^{\star} \right)} =\frac{C_{\left(t^{\star} \right)} \rlap{-} V _{r} }{C_{tr} \rlap{-} V _{tr} } ={\mathop{e}\nolimits^{\left(-t^{\star} \right)}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(E_{\left(t^{\star} \right)}\)</span> is the exit age or residence time distribution curve, <span class="math notranslate nohighlight">\(\rlap{-} V _{r}\)</span> is the reactor volume, <span class="math notranslate nohighlight">\(\rlap{-} V _{tr}\)</span> is the tracer volume, and <span class="math notranslate nohighlight">\(C_{tr}\)</span> is the tracer concentration.  If a reactor has a completely mixed flow regime its response, <span class="math notranslate nohighlight">\(E_{\left(t^{\star} \right)}\)</span>, to a pulse input should plot as a straight line on a semi-logarithmic plot. Response curves for a CMFR are shown in <a class="reference internal" href="#figure-cmfr-e-and-f"><span class="std std-numref">Fig. 9</span></a>.</p>
+<div class="figure align-center" id="id3">
+<span id="figure-cmfr-e-and-f"></span><a class="reference internal image-reference" href="../_images/CMFR_E_and_F.png"><img alt="CMFR_E_and_F" src="../_images/CMFR_E_and_F.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Exit age (E) and Cumulative exit age (F) curves for completely mixed flow reactors.</span></p>
+</div>
+<p>The time for 10% of the pulse to arrive at the effluent of a CMFR is approximately 0.1 <span class="math notranslate nohighlight">\(t^{\star}\)</span>.</p>
+</div>
+<div class="section" id="plug-flow-reactor">
+<h3>Plug Flow Reactor<a class="headerlink" href="#plug-flow-reactor" title="Permalink to this headline">¶</a></h3>
+<p>Plug flow regimes are impossible to attain because mass transport must be by advection alone. There can be no differential displacement of tracer relative to the average advective velocity. In practice some mixing will occur due to molecular diffusion, turbulent dispersion, and/or fluid shear. For the case of the plug flow reactor the advection-dispersion equation in 1.7 reduces to:</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-4">
+<span class="eqno">(55)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-4" title="Permalink to this equation">¶</a></span>\[\frac{\partial C}{\partial t} =-U\frac{\partial C}{\partial x}\]</div>
+<p>The velocity, U, serves to transform the directional concentration gradient into a temporal concentration gradient. In other words, a conservative substance moves with the advective flow of the fluid. The solutions to this differential equation for a pulse input and for a step input are shown graphically in <a class="reference internal" href="#figure-pfr-pulse-step"><span class="std std-numref">Fig. 10</span></a>. The time for 10% of the pulse to arrive at the effluent of a PFR is <span class="math notranslate nohighlight">\(t^{\star}\)</span> since all of the pulse arrives at the same time.</p>
+<div class="figure align-center" id="id4">
+<span id="figure-pfr-pulse-step"></span><a class="reference internal image-reference" href="../_images/PFR_pulse_step.png"><img alt="PFR_pulse_step" src="../_images/PFR_pulse_step.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Pulse and step input in a plug flow reactor.</span></p>
+</div>
+</div>
+<div class="section" id="flow-with-dispersion">
+<h3>Flow with Dispersion<a class="headerlink" href="#flow-with-dispersion" title="Permalink to this headline">¶</a></h3>
+<p>Real flow reactors that aren’t completely mixed exhibit behavior that is between plug flow and completely mixed. The reactor flow behavior is a function of the relative strength of the mixing process (or dispersion) compared to the advective flow. Analytical solutions that describe these real reactors are more difficult and in most cases a parameter describing the dispersion is fit to the data rather than predicted <em>a priori</em>. Two models for arbitrary mixing levels are described below.</p>
+</div>
+<div class="section" id="open-boundary-conditions-one-dimensional-advection-dispersion-equation">
+<h3>Open Boundary conditions: One Dimensional Advection-Dispersion Equation<a class="headerlink" href="#open-boundary-conditions-one-dimensional-advection-dispersion-equation" title="Permalink to this headline">¶</a></h3>
+<p>The governing differential equation for a conservative (i.e., non-reactive) substance in a reactor that has advective transport (i.e., flow) and some mixing (dispersion) in the direction of flow (x - dimension) is given in equation <a class="reference internal" href="#equation-eq-reactor-diff-advect-disperse">(56)</a>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-diff-advect-disperse">
+<span class="eqno">(56)<a class="headerlink" href="#equation-eq-reactor-diff-advect-disperse" title="Permalink to this equation">¶</a></span>\[\frac{\partial C}{\partial t} ={\rm \; -U}\frac{\partial C}{\partial x} +{\rm \; D}_{{\rm d}} \frac{\partial ^{2} C}{\partial x^{2}}\]</div>
+<dl class="docutils">
+<dt>Where</dt>
+<dd><div class="first last line-block">
+<div class="line">C = concentration of a conservative substance</div>
+<div class="line">U = average fluid velocity in the x direction</div>
+<div class="line">Dd = longitudinal dispersion coefficient</div>
+<div class="line">t = time</div>
+</div>
+</dd>
+</dl>
+<p>The dispersion is described by a single parameter that is the same in the reactor as it is at the inlet and outlet for open boundary conditions. The solution to <a class="reference internal" href="#equation-eq-reactor-diff-advect-disperse">(56)</a> for the case of complete mixing in the y-z plane and advective and dispersive transport only in the x direction for any x and t (after t=0) gives:</p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-advect-disperse">
+<span class="eqno">(57)<a class="headerlink" href="#equation-eq-reactor-advect-disperse" title="Permalink to this equation">¶</a></span>\[{\rm C(x,t)\; }={\rm \; }\frac{M}{A\sqrt{4\pi D_{d} t} } \exp \left[\frac{-x'^{2} }{4D_{d} t} \right]\]</div>
+<dl class="docutils">
+<dt>Where</dt>
+<dd><div class="first last line-block">
+<div class="line">M = mass of conservative material in the spike</div>
+<div class="line"><span class="math notranslate nohighlight">\(D_{d}\)</span> = axial dispersion coefficient [L2/T],</div>
+<div class="line">x’ = x - Ut, U = longitudinal advective velocity in the reactor,</div>
+<div class="line">A is the cross-sectional area of the reactor.</div>
+</div>
+</dd>
+</dl>
+<p>A measure of dispersion can be obtained directly from equation <a class="reference internal" href="#equation-eq-reactor-advect-disperse">(57)</a>. From this equation we expect a maximum value of C at t = x/U. At this time <span class="math notranslate nohighlight">\({\rm C(x,t)\; }={\rm \; }\frac{M}{A\sqrt{4\pi D_{d} t} }\)</span> . If the mass of the tracer input (M) and reactor cross-sectional area (A) are known, then <span class="math notranslate nohighlight">\(D_{d}\)</span> can be estimated. Equation <a class="reference internal" href="#equation-eq-reactor-advect-disperse">(57)</a> can be made dimensionless to more clearly reveal the important parameters. The dispersion coefficient can be made dimensionless by dividing into a velocity and a length.</p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-pe">
+<span class="eqno">(58)<a class="headerlink" href="#equation-eq-reactor-pe" title="Permalink to this equation">¶</a></span>\[Pe=\frac{UL}{D_{d}}\]</div>
+<p>where L is the length of the reactor and U is the mean advective velocity. The dimensionless parameter Pe (Peclet number) is used to characterize the level of dispersion in a reactor. The Peclet number is the ratio of advective to dispersive transport. In the limiting cases when Pe = 0 (very high dispersion) we have a completely mixed regime (CMFR) and when <span class="math notranslate nohighlight">\(Pe = \mathrm{\infty}\)</span>, <span class="math notranslate nohighlight">\(D_{d}\)</span> = 0, no dispersion) we have a plug flow reactor (PFR).</p>
+<p>The time can be normalized by dividing by the hydraulic residence time.</p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-tstar">
+<span class="eqno">(59)<a class="headerlink" href="#equation-eq-reactor-tstar" title="Permalink to this equation">¶</a></span>\[t^{\star} =\frac{tU}{L}\]</div>
+<p>Combining Equations <a class="reference internal" href="#equation-eq-reactor-pe">(58)</a> and <a class="reference internal" href="#equation-eq-reactor-tstar">(59)</a> we obtain <span class="math notranslate nohighlight">\(D_{d} t=t^{\star} PeL^{2}\)</span> for substitution into Equation <a class="reference internal" href="#equation-eq-reactor-advect-disperse">(57)</a>. The concentration can be normalized by the mass of the tracer and the volume, <span class="math notranslate nohighlight">\(\rlap{-} V\)</span>, of the reactor.</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-5">
+<span class="eqno">(60)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-5" title="Permalink to this equation">¶</a></span>\[\rlap{-} V =AL\]</div>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-6">
+<span class="eqno">(61)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-6" title="Permalink to this equation">¶</a></span>\[E_{\left(t^{\star} \right)} =\frac{{\rm C(x,t)}\rlap{-} V }{{\rm M}}\]</div>
+<p>The position in the reactor where the concentration measurements are made can be changed to the reactor effluent by substituting L for x. Substituting Equation <a class="reference internal" href="#equation-eq-reactor-tstar">(59)</a> into the definition of <span class="math notranslate nohighlight">\(x'^{2}\)</span> we obtain:</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-7">
+<span class="eqno">(62)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-7" title="Permalink to this equation">¶</a></span>\[x'^{2} =\left(L-Ut\right)^{2} =\left(1-t^{\star} \right)^{2} L^{2}\]</div>
+<p>The resulting dimensionless form of Equation <a class="reference internal" href="#equation-eq-reactor-advect-disperse">(57)</a> is given in Equation <a class="reference internal" href="#equation-eq-reactor-e-ad">(63)</a>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-e-ad">
+<span class="eqno">(63)<a class="headerlink" href="#equation-eq-reactor-e-ad" title="Permalink to this equation">¶</a></span>\[E_{\left(t^{\star} \right)} =\sqrt{\frac{Pe}{4\pi t^{\star} } } \exp \left[\frac{-\left(1-t^{\star} \right)^{2} Pe}{4t^{\star} } \right]\]</div>
+<p>Response curves for the advection-dispersion equation are shown in <a class="reference internal" href="#figure-e-f-pe-100"><span class="std std-numref">Fig. 11</span></a> and <a class="reference internal" href="#figure-e-f-pe-4"><span class="std std-numref">Fig. 12</span></a>. The exit age curve is highly skewed for low Pe because tracer that is in the reactor longer has more time for dispersion. As the Peclet number increases the dispersion decreases and the response becomes closer to plug flow.</p>
+<div class="figure align-center" id="id5">
+<span id="figure-e-f-pe-100"></span><a class="reference internal image-reference" href="../_images/E_F_Pe_100.png"><img alt="E_F_Pe_100" src="../_images/E_F_Pe_100.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Exit age (E) and cumulative exit age (F) curves for the advection-dispersion equation with Pe of 100.</span></p>
+</div>
+<div class="figure align-center" id="id6">
+<span id="figure-e-f-pe-4"></span><a class="reference internal image-reference" href="../_images/E_F_Pe_4.png"><img alt="E_F_Pe_4" src="../_images/E_F_Pe_4.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Exit age (E) and cumulative exit age (F) curves for the advection-dispersion equation with Pe of 4.</span></p>
+</div>
+<p>Flow through porous media (such as groundwater through soil) is a type of flow with dispersion. The above equations can be applied by recognizing that the relevant water velocity is the pore water velocity. The pore water velocity is <span class="math notranslate nohighlight">\(U = \frac{Q}{A\phi }\)</span> where A is the cross sectional area of the porous media and <span class="math notranslate nohighlight">\(\phi\)</span> (volume of voids/total volume) is the porosity of the porous media.</p>
+<p>The form of equation <a class="reference internal" href="#equation-eq-reactor-advect-disperse">(57)</a> is exactly like the normal distribution curve:</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-8">
+<span class="eqno">(64)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-8" title="Permalink to this equation">¶</a></span>\[\frac{CA}{M} ={\rm \; }\frac{1}{\sigma _{x} \sqrt{2\pi } } \exp \left[\frac{-x^{2} }{4\sigma _{x}^{2} } \right]\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-sigma-dispersion">
+<span class="eqno">(65)<a class="headerlink" href="#equation-eq-reactor-sigma-dispersion" title="Permalink to this equation">¶</a></span>\[\sigma _{x}^{2} =2D_{d} t\]</div>
+<p>Or in dimensionless form:</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-9">
+<span class="eqno">(66)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-9" title="Permalink to this equation">¶</a></span>\[\frac{\sigma _{x}^{2} }{L^{2} } =2t^{\star} Pe\]</div>
+<p>The variance in concentration over space (<span class="math notranslate nohighlight">\(\sigma _{x}^{2}\)</span>) is the variance in concentrations taken from many different positions in the reactor at some single moment in time, t. The variance in x (<span class="math notranslate nohighlight">\(\sigma _{x}^{2}\)</span>) has dimensions of length squared.</p>
+</div>
+<div class="section" id="closed-boundary-conditions-completely-mixed-flow-reactor-in-series">
+<h3>Closed Boundary Conditions: Completely Mixed Flow Reactor in Series<a class="headerlink" href="#closed-boundary-conditions-completely-mixed-flow-reactor-in-series" title="Permalink to this headline">¶</a></h3>
+<p>Completely mixed flow reactors are sometimes connected in series to create a reactor system with flow characteristics in between CMFR and PFR. CMFRs in series increase overall process efficiency because the reactants are at higher concentrations in the first reactors than they would be in a single large CMFR. Thus the total reactor volume can be smaller with a series of CMFRs. Similarly the reaction process can be made more efficient given the same reactor volume if it is divided into a series of CMFRs.</p>
+<p>Non ideal reactors with mixing levels between that of CMFRs and PFRs and reactors containing baffles can also be modeled as a series of CMFRs. In this case the mixing level for the system is represented by the number of CMFRs that are used to represent the non-ideal reactor. The equation describing the concentration of a conservative tracer in the <span class="math notranslate nohighlight">\(N^{th}\)</span> reactor is given in equation <a class="reference internal" href="#equation-eq-reactor-c-n-cmfr">(67)</a>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-c-n-cmfr">
+<span class="eqno">(67)<a class="headerlink" href="#equation-eq-reactor-c-n-cmfr" title="Permalink to this equation">¶</a></span>\[\frac{C_{N} \left(t\right)\rlap{-} V }{M} =\frac{N^N}{\left(N-1\right)!} \left(\frac{t}{\theta} \right)^{N-1} {\mathop{e}\nolimits^{{}^{\left(\frac{-Nt}{\theta} \right)} }}\]</div>
+<p>The non-dimensional form of equation <a class="reference internal" href="#equation-eq-reactor-c-n-cmfr">(67)</a> is given in equation <a class="reference internal" href="#equation-eq-reactor-e-n-cmfr">(68)</a></p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-e-n-cmfr">
+<span class="eqno">(68)<a class="headerlink" href="#equation-eq-reactor-e-n-cmfr" title="Permalink to this equation">¶</a></span>\[{E_{N}}_{\left(t^{\star} \right)} = \frac{N^N}{\left(N-1\right)!} \left(t^{\star} \right)^{N-1} {\mathop{e}\nolimits^{{}^{\left(-Nt^{\star} \right)} }}\]</div>
+<p>It can be shown that equations <a class="reference internal" href="#equation-eq-reactor-e-ad">(63)</a> and <a class="reference internal" href="#equation-eq-reactor-e-n-cmfr">(68)</a> converge for large N when</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-10">
+<span class="eqno">(69)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-10" title="Permalink to this equation">¶</a></span>\[Pe=2N\]</div>
+<p>Equation <a class="reference internal" href="#equation-eq-reactor-c-n-cmfr">(67)</a> is limited to integer values of N. The model can be extended to include non-integer values of N if the factorial function (i.e., (N-1)!) were replaced with the <span class="math notranslate nohighlight">\(\Gamma\)</span> function. This extension is particularly beneficial when fitting data to the models because the <span class="math notranslate nohighlight">\(\Gamma\)</span> function is continuous.</p>
+<p>Response curves for the advection-dispersion equation are shown in <a class="reference internal" href="#figure-e-f-n-2"><span class="std std-numref">Fig. 13</span></a>. Notice that the effluent concentration begins to rise much more quickly in series CMFRs than in the advection-dispersion model for a single CMFR. This distinction between the two models lessens as the number of reactors increases and the <em>Pe</em> increases.</p>
+<div class="figure align-center" id="id7">
+<span id="figure-e-f-n-2"></span><a class="reference internal image-reference" href="../_images/E_F_N_2.png"><img alt="E_F_N_2" src="../_images/E_F_N_2.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Exit age (E) and cumulative exit age (F) curves for series CMFR with N of 2.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="reactor-studies">
+<span id="heading-reactor-studies"></span><h2>Reactor Studies<a class="headerlink" href="#reactor-studies" title="Permalink to this headline">¶</a></h2>
+<p>One of the easiest methods to determine the mixing (dispersion) characteristics of a reactor is to add a spike input of a conservative material and then monitor the concentration of the material in the reactor effluent. The variance of tracer concentration versus time (<span class="math notranslate nohighlight">\(\sigma _{t}^{2}\)</span>, with dimensions of time squared) can be measured by sampling at a single point in the reactor at many different times and can be computed using the following equations.</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-11">
+<span class="eqno">(70)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-11" title="Permalink to this equation">¶</a></span>\[\sigma _{t}^{2} \; =\; \frac{\int _{0}^{\infty }C(t)(t-\bar{t})^{2}  dt}{\int _{0}^{\infty }C(t) dt} =\; \frac{\int _{0}^{\infty }t^{2} \cdot C(t) dt}{\int _{0}^{\infty }C(t) dt} -\; \bar{t}^{2}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-12">
+<span class="eqno">(71)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-12" title="Permalink to this equation">¶</a></span>\[\bar{t}{\rm \; }={\rm \; }\frac{\int _{0}^{\infty }t\; C(t)dt }{\int _{0}^{\infty }C(t)dt }\]</div>
+<p>For discrete data points:</p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-sigma">
+<span class="eqno">(72)<a class="headerlink" href="#equation-eq-reactor-sigma" title="Permalink to this equation">¶</a></span>\[\sigma _{t}^{2} =\; \frac{\sum _{i=0}^{n}t_{i}^{2} \cdot C_{i}  \Delta t}{\sum _{i=0}^{n}C_{i}  \Delta t} -\; \bar{t}^{2}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-tbar">
+<span class="eqno">(73)<a class="headerlink" href="#equation-eq-reactor-tbar" title="Permalink to this equation">¶</a></span>\[\bar{t}=\; \frac{\sum _{i=0}^{n}t_{i} \cdot C_{i}  \Delta t}{\sum _{i=0}^{n}C_{i}  \Delta t}\]</div>
+<p>Inlet and outlet boundary conditions affect the response obtained from a reactor. Closed reactors have little dispersion across their inlet and outlet boundaries whereas open reactors can have significant dispersion across their inlet and outlet boundaries. Typically open systems have no physical boundaries in the direction of flow. An example of an open system would be a river segment. Closed systems have small inlets and outlets that minimize dispersion across the inlet and outlet regions. An example of a closed system is a tank (or a lake) with a small inlet and outlet. The reactor used in the lab is closed. The <span class="math notranslate nohighlight">\(\bar{t}\)</span> in equation <a class="reference internal" href="#equation-eq-reactor-tbar">(73)</a> is the measured average residence time for the tracer in the reactor. For ideal closed reactors the measured residence time, <span class="math notranslate nohighlight">\(\bar{t}\)</span>, is equal to the theoretical hydraulic residence time (? = reactor volume/flow rate). For open reactors <span class="math notranslate nohighlight">\(\bar{t}\)</span> can exceed the hydraulic residence time. If <span class="math notranslate nohighlight">\(\bar{t}\)</span> is less than the hydraulic residence time it may indicate that the reactor contains “dead volume” or “short circuiting” such that some volume of the reactor is effectively unused.</p>
+<p>The above equations suggest that from the reactor response to a spike input we can compute the dispersion coefficient for the reactor. We have two options for measuring reactor response:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>synoptic measurements: at a fixed time sampling many points along the axis of the reactor will yield a Gaussian curve of concentration vs. distance. In practice synoptic measurements are difficult because it requires sampling devices that are time-coordinated. By combining equations <a class="reference internal" href="#equation-eq-reactor-sigma-dispersion">(65)</a>, <a class="reference internal" href="#equation-eq-reactor-sigma">(72)</a>, and <a class="reference internal" href="#equation-eq-reactor-tbar">(73)</a> it is possible to estimate the dispersion coefficient from synoptic measurements.</li>
+<li>single point sampling: measure the concentration at a fixed position along the x axis of the reactor for many times. If the reactor length is fixed at L and measurements are made at the effluent of the reactor (observe the concentration of a tracer at x = L as a function of time) then x is no longer a variable and C(x,t) becomes C(t) only. The response curve obtained through single point sampling is skewed. The curve spread changes during the sampling period and the response curve is skewed.</li>
+</ol>
+</div></blockquote>
+<div class="section" id="peclet-number-estimation">
+<h3>Peclet Number Estimation<a class="headerlink" href="#peclet-number-estimation" title="Permalink to this headline">¶</a></h3>
+<p>For single point sampling of the effluent response curve, skew increases as the dispersion level in the reactor increases. The degree of skew depends on the dispersion coefficient, the velocity in the x-direction, and the length of the reactor. Peclet values in the range <span class="math notranslate nohighlight">\(100\mathrm{&lt;}Pe \mathrm{&lt;} \mathrm{\infty}\)</span> result in a symmetric response curve.</p>
+<p>Response curve skew makes the assumption of a symmetrical normal distribution curve inappropriate and a new relationship between the variance and the dispersion coefficient (or <em>Pe</em>) has to be determined. Boundary conditions affect the determination of the dispersion coefficient. The relationship between the Peclet number and variance for open systems is given by</p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-sigma-open">
+<span class="eqno">(74)<a class="headerlink" href="#equation-eq-reactor-sigma-open" title="Permalink to this equation">¶</a></span>\[\sigma _{t}^{2} =\left(\frac{2}{Pe} +\frac{8}{Pe^{2} } \right)\cdot \theta ^{2}\]</div>
+<p>For closed systems the relationship is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-sigma-closed">
+<span class="eqno">(75)<a class="headerlink" href="#equation-eq-reactor-sigma-closed" title="Permalink to this equation">¶</a></span>\[\sigma _{t}^{2} =\left[\frac{2}{Pe} -\frac{2}{Pe^{2} } \cdot \left(1-{\mathop{e}\nolimits^{-Pe}} \right)\right]\cdot \theta ^{2}\]</div>
+<p>The term <span class="math notranslate nohighlight">\(\frac{2}{Pe}\)</span> in equations <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> and <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> is dominant for Peclet numbers much greater than 10 as is shown in <a class="reference internal" href="#figure-pe-open-and-closed"><span class="std std-numref">Fig. 14</span></a>. The additional terms in equations <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> and <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> are corrections for skewedness in the response curve. These skewedness corrections are not very significant for Peclet numbers greater than 10. Thus for Peclet numbers greater than 10 the Peclet number can be determined using equation <a class="reference internal" href="#equation-eq-reactor-sigma-approx">(76)</a> for both open and closed systems.</p>
+<div class="figure align-center" id="id8">
+<span id="figure-pe-open-and-closed"></span><a class="reference internal image-reference" href="../_images/Pe_open_and_closed.png"><img alt="Pe_open_and_closed" src="../_images/Pe_open_and_closed.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Relationship between equations <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> through <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a>.</span></p>
+</div>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-sigma-approx">
+<span class="eqno">(76)<a class="headerlink" href="#equation-eq-reactor-sigma-approx" title="Permalink to this equation">¶</a></span>\[Pe=\frac{2\theta ^{2} }{\sigma _{t}^{2} }\]</div>
+</div>
+<div class="section" id="mass-conservation">
+<h3>Mass Conservation<a class="headerlink" href="#mass-conservation" title="Permalink to this headline">¶</a></h3>
+<p>When a pulse of conservative tracer is added to a continuous flow reactor, all of the tracer is expected to leave the reactor eventually. The mass of a substance that has left the reactor is given in equation <a class="reference internal" href="#equation-eq-reactor-mout">(77)</a>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-mout">
+<span class="eqno">(77)<a class="headerlink" href="#equation-eq-reactor-mout" title="Permalink to this equation">¶</a></span>\[M_{out} =\sum _{i=0}^{n}QC_{i} \Delta t_{i}\]</div>
+<p>where Q is the flow rate and M is the mass of any substance whose concentration is given by C. If Q and <span class="math notranslate nohighlight">\(\mathrm{\Delta}t\)</span> are constant, then equation <a class="reference internal" href="#equation-eq-reactor-mout">(77)</a> can be rewritten as</p>
+<div class="math notranslate nohighlight" id="equation-eq-reactor-mout-constantq">
+<span class="eqno">(78)<a class="headerlink" href="#equation-eq-reactor-mout-constantq" title="Permalink to this equation">¶</a></span>\[M_{out} =Q\Delta t\sum _{i=0}^{n}C_{i}\]</div>
+<p>Equation <a class="reference internal" href="#equation-eq-reactor-mout-constantq">(78)</a> can be used to determine if all of the tracer was measured in the reactor effluent. Alternately, mass conservation can be checked by plotting the F curve and checking if the plot approaches #. If some of the tracer is in the reactor at the end of the experiment then the following equation can be used to test for mass closure.</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-13">
+<span class="eqno">(79)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-13" title="Permalink to this equation">¶</a></span>\[M_{in} =M_{out} +\Delta M_{stored}\]</div>
+</div>
+</div>
+<div class="section" id="tracers">
+<span id="heading-reactor-tracers"></span><h2>Tracers<a class="headerlink" href="#tracers" title="Permalink to this headline">¶</a></h2>
+<p>A conservative tracer will be used to characterize your reactors. Typical tracers include salt and various dyes. For this experiment we will use ``#40`` Red Dye as the conservative tracer. The red dye concentration will be measured using an optical spectrophotometric probe. The linear range of operation for the probes is from about 0.01 mg/L to 30 mg/L. We will add an amount of red dye near the high end of this range to acquire a dataset that spans multiple orders of magnitude.</p>
+<p>Additional constraints for the tracer are that if a highly concentrated tracer is used, then there will be a significant density difference between the tracer and the water in the reactor. If a very dilute tracer is used then a large volume of tracer will need to be added and the volume of tracer could become a large fraction of the reactor volume and thus the pulse could no longer be modeled as having negligible volume.</p>
+<p>The reactors are 30 cm long and 15 cm wide. If the depth is limited to (a maximum of) 5 cm, then the total volume is 2.25 L and with a peristaltic pumping rate of approximately 380 mL/min, the residence time is approximately 6 minutes.</p>
+<p>The tracer should be added directly into the first chamber of your reactor. The red dye will also make it possible to qualitatively observe the advective and dispersive transport in the reactors.</p>
+<div class="section" id="mass-balance">
+<h3>Mass balance<a class="headerlink" href="#mass-balance" title="Permalink to this headline">¶</a></h3>
+<p>Collect data that makes it possible to perform a mass balance on red dye. Note that if it is expedient to shorten an experimental run such that there is a significant quantity of the tracer residual in the reactor, that the mass of the residual (stored) tracer can be measured by pouring the reactor contents into a container and measuring the mass or volume of the mixture. The concentration of red dye in the mixture can be measured be connecting back to the optical probe.</p>
+</div>
+</div>
+<div class="section" id="setting-up-the-reactor-for-experiments">
+<span id="heading-reactor-setting-up-the-reactor-for-experiments"></span><h2>Setting up the reactor for experiments<a class="headerlink" href="#setting-up-the-reactor-for-experiments" title="Permalink to this headline">¶</a></h2>
+<p>See the section on <a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-photometer"><span class="std std-ref">calibrate photometer</span></a> to set up the photometer</p>
+<p>In these experiments, we will be pumping tap water from a 20 L Jerrican to the influent of your reactor. Place your reactor on a stir plate and make sure that the 3/8’’ push-connect fitting is on the effluent side of your reactor (some may have 3/8’’ holes on both sides). The effluent of the reactor should be a straight short tube to the drain.</p>
+<p>Use a second pump head with #17 tubing to pull a sample from near the effluent weir through the photometer and then to the drain.</p>
+<p>Before running an experiment, it is important to determine whether your setup works. Turn the pump to approximately 380 mL/min and get water flowing through the system and off to waste. Two important things to check:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Is your sensor reading a stable voltage of approximately +3.5V? If not, you might have some air bubbles trapped in the sensor cell. Tap it gently to release the air.</li>
+<li>Is the effluent weir working properly or is the reactor gaining volume? We want to maintain a constant volume throughout the experiment, so let the pump run for ten minutes or so and confirm that the volume is stable (put a line or a piece of tape to mark the water level).</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="testing-protocol">
+<span id="heading-reactor-testing-protocol"></span><h2>Testing protocol<a class="headerlink" href="#testing-protocol" title="Permalink to this headline">¶</a></h2>
+<p>To ensure that everything is working properly I recommend that you begin by first testing a CMFR. Use the CMFR data to verify that you obtain mass balance and that you obtain the expected exit age response.</p>
+<p>For each test make sure that you accurately measure the reactor volume, residual reactor red dye concentration, and the flow rate. The reactor volume can be approximated by taking the mass of the reactor, as you did to estimate the volume of your lakes.  Measure the residual concentration of red dye in the reactor by measuring the completely mixed concentration (this is just the concentration at the end of the experiment for the CMFR, but you will have to remove the baffles and mix for the baffled reactors). The flow rate can be accurately determined by measuring the volume of a timed sample from the pump.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Log data to file so that you have a record of the red dye concentration in the effluent of the reactor as a function of time.</li>
+<li>Prepare to save a text note into the data file indicating the exact moment when you will actually start the experiment.</li>
+<li>Add a volume of red dye ``#40`` stock that will give a maximum concentration of textbf{approximately} 30 mg/L near the influent of the reactor. Immediately enter the text note to record when the experiment began. For the CMFR you can easily calculate this. For other reactors you may need to try and if necessary repeat the experiment if the tracer concentration goes above the 50 mg/L or if the maximum tracer concentration is below 10 mg/L.</li>
+<li>Collect data until the majority of the tracer has exited.</li>
+<li>Stop the experiment and pour the contents of the reactor into a container. Weigh the container to determine the exact volume of the reactor.</li>
+<li>Sample the contents of the mixed reactor with the photometer to obtain the average concentration in the reactor at the end of your experiment. This will enable you to do a mass balance on the red dye.</li>
+</ol>
+</div></blockquote>
+<div class="figure align-center" id="id9">
+<span id="figure-reactor-photo-front"></span><a class="reference internal image-reference" href="../_images/Reactor_photo_front.png"><img alt="Reactor photo front" src="../_images/Reactor_photo_front.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Front view of the reactor setup.</span></p>
+</div>
+<p>The reactor setup is designed to maintain a constant depth in the tank with an overflow weir. The second pump channel is used to sample the effluent through the photometer without sending air bubbles into the photometer.</p>
+<div class="figure align-center" id="id10">
+<span id="figure-reactor-photo-top"></span><a class="reference internal image-reference" href="../_images/Reactor_photo_top.png"><img alt="Reactor photo front" src="../_images/Reactor_photo_top.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Top view of the reactor setup.</span></p>
+</div>
+</div>
+<div class="section" id="reactor-design">
+<span id="heading-reactor-design"></span><h2>Reactor Design<a class="headerlink" href="#reactor-design" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="baffle-design">
+<h3>Baffle Design<a class="headerlink" href="#baffle-design" title="Permalink to this headline">¶</a></h3>
+<p>Baffles can be added to tanks to decrease the ability of the solution to travel quickly from the tank inlet to the tank outlet. The goal of the baffle design depends on whether the tank is designed for a reaction or for separation. The baffles in reactors should generally be designed to achieve mixing in each of the baffled zones. The baffles in tanks designed for separation (clarifiers) should be designed to achieve uniform flow (a much more difficult goal to achieve). Mixing within each baffled zone could be achieved with a propeller mixer or by appropriately sized pores in the baffles. If pore mixing is desired the energy for mixing is provided by the kinetic energy of the fluid flowing through the pores.</p>
+<p>The flow characteristics of a baffled tank are complex and would require computational fluid dynamics (CFD) to model. In lieu of developing a CFD model we will turn to dimensional analysis to help us characterize the mixing efficiency of a baffled reactor segment. The independent parameter that we will measure to characterize the reactor is its Peclet number or the number of N CMFRs in series.</p>
+<p>The design goal is to determine the diameter and spacing of the pores required to achieve adequate mixing. The fluid flow out of the pores is jet flow. The jets entrain and mix with the surrounding fluid. To develop effective mixing the jet should be turbulent. The transition between turbulent and laminar behavior for jets occurs at a jet Reynolds number of a few hundred (Personal communication with Dr. Cowen).</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-14">
+<span class="eqno">(80)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-14" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}Re_{jet} =\frac{V_{jet} d_{jet} }{\nu }\\Re_{jet} =\frac{4Q_{jet} }{\pi d_{jet} \nu }\\Re_{jet} =\frac{4Q_{reactor} }{n_{ports} \pi d_{jet} \nu }\end{aligned}\end{align} \]</div>
+<p>The optimal pore spacing for maximum mixing could be based on the spread of the jet in the distance to the next baffle.  Jets expand in the radial direction at a rate of approximately 10% of the distance the jet travels axially. Thus the pore spacing could be in a rectangular grid with the distance between pores equal to 10% of the distance between baffles. This spacing may be smaller than practical since it will require a large number of pores.</p>
+<p>An additional constraint on pore design is that the head loss through the pores not be excessive. The hydraulic grade line (and thus depth of each baffled reactor) will drop by a distance equal to the head loss through the pores. The head loss through the pores is given by the orifice equation</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-15">
+<span class="eqno">(81)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-15" title="Permalink to this equation">¶</a></span>\[Q_{orifice} =K_{orifice} A_{orifice} \sqrt{2g\Delta h}\]</div>
+<p>where the orifice coefficient, <span class="math notranslate nohighlight">\(K_{orifice}\)</span>, has a value of approximately 0.6, the area of the orifice is <span class="math notranslate nohighlight">\(A_{orifice}\)</span>, and the head loss through the orifice is <span class="math notranslate nohighlight">\(\Delta h\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-16">
+<span class="eqno">(82)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-16" title="Permalink to this equation">¶</a></span>\[Q_{orifice} =K_{orifice} \frac{\pi d_{orifice}^{2} }{4} \sqrt{2g\Delta h}\]</div>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-17">
+<span class="eqno">(83)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-17" title="Permalink to this equation">¶</a></span>\[Q_{reactor} =n_{orifice} K_{orifice} \frac{\pi d_{orifice}^{2} }{4} \sqrt{2g\Delta h}\]</div>
+<p>where <span class="math notranslate nohighlight">\(n_{orifice}\)</span> is the number of pores. Solving for the pore diameter we obtain.</p>
+<div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-18">
+<span class="eqno">(84)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-18" title="Permalink to this equation">¶</a></span>\[d_{orifice} =\sqrt{\frac{4Q_{reactor} }{\pi n_{orifice} K_{orifice} \sqrt{2g\Delta h} } }\]</div>
+</div>
+<div class="section" id="chlorine-contact-tank-design">
+<h3>Chlorine Contact Tank Design<a class="headerlink" href="#chlorine-contact-tank-design" title="Permalink to this headline">¶</a></h3>
+<p>The design objective for chlorine contact tanks is to maximize the inactivation of pathogens by maximizing the contact time between the chlorine and the pathogens before the water is sent to the distribution system. This objective has been codified by the EPA with the contact time for a tank defined as the time for the effluent of the tank to reach 10% of the influent value after a step change in the influent.</p>
+<span id="table-reactor-baffling"></span><table border="1" class="colwidths-given docutils align-center" id="id11">
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">Comparison of <span class="math notranslate nohighlight">\(t^{\star}\)</span> at F=0.1 for non-ideal reactors (Malcolm Pirnie, 1991).</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Baffling Condition</th>
+<th class="head">Guidance manual value of <span class="math notranslate nohighlight">\(t^{star}\)</span> at F=0.1</th>
+<th class="head">Extent of Baffles</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Unbaffled (CMFR)</td>
+<td>0.1</td>
+<td>No baffles, agitated basin with low length to width ratio, high inlet and outlet flow velocities</td>
+</tr>
+<tr class="row-odd"><td>Poorly baffled</td>
+<td>0.3</td>
+<td>Single or multiple unbaffled inlets and outlets, no intrabasin baffles</td>
+</tr>
+<tr class="row-even"><td>Average</td>
+<td>0.5</td>
+<td>Baffled inlet or outlet with some intrabasin baffles</td>
+</tr>
+<tr class="row-odd"><td>Superior</td>
+<td>0.7</td>
+<td>Perforated inlet baffles, serpentine or perforated intrabasin baffles, outlet weir or perforated launders</td>
+</tr>
+<tr class="row-even"><td>Perfect (PFR)</td>
+<td>1.0</td>
+<td>Very high length to width ratio (pipeline flow), perforated inlet, outlet and intrabasin baffles</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="procedures">
+<span id="heading-reactor-procedures"></span><h2>Procedures<a class="headerlink" href="#procedures" title="Permalink to this headline">¶</a></h2>
+<p>The reactor you will be working with can be easily modified by installing various configurations of perforated or staggered baffles. Your objectives are</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>to modify the reactor to obtain a maximum value of <span class="math notranslate nohighlight">\(t^{\star}\)</span> at F = 0.1.</li>
+<li>to document your progress toward this goal by obtaining appropriate experimental data</li>
+<li>to compare your experimental data with appropriate models</li>
+</ol>
+</div></blockquote>
+<p>Note that you are allowed to collaborate with other teams to obtain the results from additional tests. All data sharing must be documented in your report.</p>
+<div class="section" id="baffle-installation">
+<h3>Baffle installation<a class="headerlink" href="#baffle-installation" title="Permalink to this headline">¶</a></h3>
+<p>The baffles can be installed by rolling a 3 mm diameter roll of putty and applying the putty to the bottom and one side of the baffle. Carefully install the baffle by rotating it into place (so the putty on the one side doesn’t have to slide) and then pressing it down (so the putty on the bottom doesn’t have to slide). Install the two bolts with wing nuts to hold the baffle in place. Add a roll of putty to the corner formed at the unsealed side of the baffle and press the putty into place.</p>
+</div>
+</div>
+<div class="section" id="pre-laboratory-questions">
+<span id="heading-reactor-pre-laboratory-questions"></span><h2>Pre-Laboratory Questions<a class="headerlink" href="#pre-laboratory-questions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Calculate the <strong>incremental</strong> volume of a 100 g/L red dye stock that would need to be added to 1 L of water to produce 0, 1, 2, 5, 10, 20, 30, 40, and 50 mg/L calibration points. Calculate a numpy array containing the <strong>cumulative</strong> volume of red dye required. Strip the units from the array using .magnitude. Then create a copy of the array with a zero appended (np.append) in front and the last element deleted (np.delete). Then use numpy subtract to get the different between the two arrays to calculate the incremental volume that you need to add.</li>
+<li>Calculate the change in hydraulic grade line between baffled sections of a reactor with a flow rate of 380 mL/min. The reactor baffles are perforated with 6 holes 1 mm in diameter. Is the flow through these orifices in series or in parallel? Do you multiply the head loss for one orifice by the number of orifices to get the total head loss? Use the pc.head_orifice function to calculate the head loss through an orifice. The <em>vena contracta</em> for the orifice can be found at exp.RATIO_VC_ORIFICE. Why would 6 holes 1 mm in diameter not be a good design for this reactor?</li>
+<li>On a single graph plot the exit age distribution (<span class="math notranslate nohighlight">\(E_{(t\star)}\)</span>) for a reactor that operates as a 1-dimensional advection-dispersion reactor with Peclet numbers of 1, 10, and 100 (there will be three plots on the graph and thus a legend is required). The x-axis should be <span class="math notranslate nohighlight">\(t^\star\)</span> from 0.0 to 3.0. Comment on the shapes of the curves as a function of the Peclet number.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="data-analysis">
+<span id="heading-reactor-data-analysis"></span><h2>Data Analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h2>
+<p>You will analyze all of the datasets in the same way. Use a consistent set of units throughout your data analysis and include the units in your python code and discussion!</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Use multivariable nonlinear regression to obtain the best fit between the experimental data and the two models by minimizing the sum of the squared errors. Use EPA.Solver_AD_Pe and EPA.Solver_CMFR_N. These functions will minimize the error by varying the values of average residence time, (mass of tracer/reactor volume), and either the number of CMFR in series or the Peclet number.</li>
+<li>Generate a plot showing the experimental data as points and the model results as thin lines for each of your experiments. Explain which model fits best and discuss those results based on your expectations.</li>
+<li>Compare the trends in the estimated values of N and Pe across your set of experiments. How did your chosen reactor modifications effect dispersion?</li>
+<li>Report the values of <span class="math notranslate nohighlight">\(t^{\star}\)</span> at F = 0.1 for each of your experiments. Do they meet your expectations?</li>
+<li>Evaluate whether there is any evidence of “dead volumes” or “short circuiting” in your reactor.</li>
+<li>Make a recommendation for the design of a full scale chlorine contact tank. As part of your recommendation discuss the parameter you chose to vary as part of your experimentation and what the optimal value was determined to be.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="references">
+<span id="heading-reactor-references"></span><h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>Weber, W. J. J. and F. A. Digiano. 1996. Process Dynamics in Environmental Systems. New York, John Wiley &amp; Sons, Inc.</p>
+<p>Malcolm Pirnie, Inc., and HDR Engineering, Inc. Guidance Manual for Compliance with the Filtration and Disinfection Requirements for Public Water Systems Using Surface Water Sources. AWWA, Denver CO, 1991.</p>
+</div>
+<div class="section" id="lab-prep-notes">
+<span id="heading-reactor-lab-prep-notes"></span><h2>Lab Prep Notes<a class="headerlink" href="#lab-prep-notes" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Create 100 mL of 100 g/L red dye stock (thus use 10 g of red dye) and distribute in small vials to each lab bench.</li>
+<li>Use # 18 tubing for inlet and #17 for photometer sampling.</li>
+<li>The maximum concentration of red dye that the photometer can measure accurately is 50 mg/L.</li>
+<li>Organize team research so they don’t use the same materials and so they answer different questions.</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Gas_Transfer/Gas_Transfer.html" class="btn btn-neutral float-right" title="Gas Transfer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Acid_Neutralizing_Capacity/Acid_Neutralizing_Capacity.html" class="btn btn-neutral" title="Acid Neutralizing Capacity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, AguaClara Cornell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'v0.0.3',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/mathjax_config.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

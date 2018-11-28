@@ -1,17 +1,9 @@
-Results of doctest builder run on 2018-08-29 09:40:11
+Results of doctest builder run on 2018-11-28 21:34:58
 =====================================================
-
-Document: Textbook_Creation_Help/example_aguaclara_rst
-------------------------------------------------------
-1 items passed all tests:
-   9 tests in default
-9 tests in 1 items.
-9 passed and 0 failed.
-Test passed.
 
 Doctest summary
 ===============
-    9 tests
+    0 tests
     0 failures in tests
     0 failures in setup code
     0 failures in cleanup code

@@ -1,9 +1,10 @@
 .. _toc:
 
-====================================
-Welcome to the Aguaclara Textbook!
-====================================
-This textbook is written and maintained in `Github <https://github.com/AguaClara/Textbook>`_ via `Sphinx <http://www.sphinx-doc.org/en/master/>`_. It uses and refers to AguaClara code and functions in `aide_design <https://github.com/AguaClara/aide_design>`_. Listed below are the versions of the programs we use:
+**********************************************************************
+Welcome to the Environmental Engineering Laboratory Research Textbook!
+**********************************************************************
+
+This textbook is written and maintained in `Github <https://github.com/monroews/EnvEngLabTextbook>`_ via `Sphinx <http://www.sphinx-doc.org/en/master/>`_. It uses and refers to AguaClara code and functions in `aide_design <https://github.com/AguaClara/aide_design>`_. Listed below are the versions of the programs we use:
 
 .. _software_versions:
 .. csv-table:: These are the software versions used to compile this textbook
@@ -16,111 +17,75 @@ This textbook is written and maintained in `Github <https://github.com/AguaClara
    "Anaconda", "4.5.4"
    "Python", "3.6.5"
 
-.. toctree::
-  :caption: Acknowledgements
-  :maxdepth: 1
-
-  Acknowledgements.rst
-  Authors.rst
 
 .. toctree::
-  :caption: Contributor's guide
+  :caption: Title and Preface
   :maxdepth: 1
 
-  Textbook_Creation_Help/rst_intro.rst
-  Textbook_Creation_Help/example_aguaclara_rst.rst
-  Textbook_Creation_Help/parameter_convention_list.rst
+  Title_and_Preface/Title_and_Preface.rst
 
 
 .. toctree::
-  :caption: Chapter 1: Introduction
+  :caption: Chapter 1: Laboratory Safety
   :maxdepth: 1
 
-  Introduction/Introduction.rst
+  Laboratory_Safety/Laboratory_Safety.rst
 
 
 .. toctree::
-  :caption: Chapter 1.1: Review: Fluid Mechanics and Python
+  :caption: Chapter 2: Laboratory_Measurements
   :maxdepth: 1
 
-  Review/Review_Fluid_Mechanics.rst
-  Review/Review_Fluid_Mechanics_Derivations.rst
+  Laboratory_Measurements/Laboratory_Measurements.rst
+
+.. toctree::
+  :caption: Chapter 3: Acid Rain
+  :maxdepth: 1
+
+  Acid_Rain/Acid_Rain.rst
+
+.. toctree::
+  :caption: Chapter 4: Acid Neutralizing Capacity
+  :maxdepth: 1
+
+  Acid_Neutralizing_Capacity/Acid_Neutralizing_Capacity.rst
+
+.. toctree::
+  :caption: Chapter 5: Reactor Characteristics
+  :maxdepth: 1
+
+  Reactor_Characteristics/Reactor_Characteristics.rst
 
 
 .. toctree::
-  :caption: Chapter 3: Flow Control and Measurement
+  :caption: Chapter 6: Gas Transfer
   :maxdepth: 1
 
-  Flow_Control_and_Measurement/FCM_Intro.rst
-  Flow_Control_and_Measurement/FCM_Design.rst
-  Flow_Control_and_Measurement/FCM_Derivations.rst
-
-.. toctree::
-  :caption: Chapter 4: Rapid Mix
-  :maxdepth: 1
-
-  Rapid_Mix/RM_Intro.rst
-  Rapid_Mix/RM_Design.rst
-  Rapid_Mix/RM_Derivations.rst
-  Rapid_Mix/RM_Examples.rst
-  Rapid_Mix/RM_Theory_and_Future_Work.rst
-
-.. toctree::
-  :caption: Chapter 5: Flocculation
-  :maxdepth: 1
-
-  Flocculation/Floc_Intro.rst
-  Flocculation/Floc_Design.rst
-  Flocculation/Floc_Derivations.rst
-  Flocculation/Floc_Theory_and_Future_Work.rst
-
-.. toctree::
-  :caption: Chapter 6: Sedimentation
-  :maxdepth: 1
-
-  Sedimentation/Sed_Intro.rst
-  Sedimentation/Sed_Design.rst
-  Sedimentation/Sed_Examples.rst
-  Sedimentation/Sed_Theory_and_Future_Work.rst
-
-.. toctree::
-  :caption: Chapter 8: Filtration
-  :maxdepth: 1
-
-  Filtration/Filtration_Intro.rst
-  Filtration/Filtration_Design.rst
-  Filtration/Filtration_Derivations.rst
-  Filtration/Filtration_Theory_and_Future_Work.rst
-
-.. toctree::
-  :caption: Chapter 9: Dissolved Gas
-  :maxdepth: 1
-
-  Dissolved_Gas/DG_Intro.rst
+  Gas_Transfer/Gas_Transfer.rst
 
 
 .. toctree::
-  :caption: Chapter 10: Fluoride
+  :caption: Chapter 7: Activated Carbon
   :maxdepth: 1
 
-  Fluoride/Fluoride_Intro.rst
-
+  Activated_Carbon/Activated_Carbon.rst
 
 .. toctree::
-  :caption: Chapter 11: Wastewater
+  :caption: Chapter 8: Nutrient Removal
   :maxdepth: 1
 
-  WasteWater/WW_Theory_and_Future_Work.rst
+  Nutrient_Removal/Nutrient_Removal.rst
 
 .. toctree::
-  :caption: Chapter 12: Troubleshooting
+  :caption: Chapter 9: ProCoDA
   :maxdepth: 1
 
-  Troubleshooting/Troubleshooting.rst
+  ProCoDA/ProCoDA.rst
 
 
-`PDF and LaTeX versions <https://github.com/AguaClara/Textbook/releases/latest>`_ [#pdf_warning]_.
+
+`PDF and LaTeX versions <https://github.com/monroews/EnvEngLabTextbook/releases/latest>`_ [#pdf_warning]_.
 
 .. rubric:: **Notes**
 
-.. [#pdf_warning] PDF and LaTeX versions may contain visual oddities because it is generated automatically. The website is the recommended way to read this textbook. `Please visit our GitHub site <https://github.com/AguaClara/Textbook>`_ to submit an issue, contribute, or comment.
+.. [#pdf_warning] PDF and LaTeX versions may contain visual oddities because it is generated automatically. The website is the recommended way to read this textbook. `Please visit our GitHub site <https://github.com/monroews/EnvEngLabTextbook>`_ to submit an issue, contribute, or comment.

@@ -1,0 +1,696 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Gas Transfer &mdash; AguaClara Textbook v0.0.3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Carbon Adsorption" href="../Activated_Carbon/Activated_Carbon.html" />
+    <link rel="prev" title="Reactor Characteristics" href="../Reactor_Characteristics/Reactor_Characteristics.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AguaClara Textbook
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Title and Preface</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Title_and_Preface/Title_and_Preface.html">Laboratory Research in Environmental Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Title_and_Preface/Title_and_Preface.html#laboratory-manual">Laboratory Manual</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 1: Laboratory Safety</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Laboratory_Safety/Laboratory_Safety.html">Laboratory Safety</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 2: Laboratory_Measurements</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Laboratory_Measurements/Laboratory_Measurements.html">Laboratory Measurements and Procedures</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 3: Acid Rain</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Acid_Rain/Acid_Rain.html">Acid Precipitation and Remediation of Acid Lakes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 4: Acid Neutralizing Capacity</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Acid_Neutralizing_Capacity/Acid_Neutralizing_Capacity.html">Acid Neutralizing Capacity</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 5: Reactor Characteristics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Reactor_Characteristics/Reactor_Characteristics.html">Reactor Characteristics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 6: Gas Transfer</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gas Transfer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#theory">Theory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gas-transfer-coefficient">Gas Transfer Coefficient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#oxygen-transfer-efficiency">Oxygen Transfer Efficiency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deoxygenation">Deoxygenation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#experimental-objectives">Experimental Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dissolved-oxygen-probes">Dissolved Oxygen Probes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calibration">Calibration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#experimental-methods">Experimental Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initial-setup">Initial Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-the-air-flow-controller">Test the air flow controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#measure-the-gas-transfer">Measure the Gas Transfer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pre-laboratory-questions">Pre-Laboratory Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-analysis">Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lab-prep-notes">Lab Prep Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#class-plan">Class Plan</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#airflow-control">Airflow Control</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 7: Activated Carbon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Activated_Carbon/Activated_Carbon.html">Carbon Adsorption</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 8: Nutrient Removal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Nutrient_Removal/Nutrient_Removal.html">Nutrient Removal with Sequencing Batch Reactors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chapter 9: ProCoDA</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ProCoDA/ProCoDA.html">ProCoDA: Process Control and Data Acquisition</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AguaClara Textbook</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Gas Transfer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Gas_Transfer/Gas_Transfer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gas-transfer">
+<span id="title-gas-transfer"></span><h1>Gas Transfer<a class="headerlink" href="#gas-transfer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<span id="heading-gas-transfer-introduction"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Exchange of gases between aqueous and gaseous phases is an essential element of many environmental processes. Wastewater treatment plants require enhanced transfer of oxygen into activated sludge tanks to maintain aerobic degradation. Water treatment plants require gas transfer to dissolve chlorine gas or ozone. Gas transfer can also be used to remove unwanted volatile chemicals such as carbon tetrachloride, tetrachloroethylene, trichloroethylene, chloroform, bromodichloromethane, and bromoform from water (Zander et al., 1989). Exchange of a dissolved compound with the atmosphere is controlled by the extent of mixing in the aqueous and gaseous phase, the surface area of the interface, the concentration of the compound in the two phases, and the equilibrium distribution of the compound. Technologies that have been developed to enhance gas transfer include: aeration diffusers, packed-tower air stripping, and membrane stripping. Each of these technologies creates a high interface surface area to enhance gas transfer.</p>
+</div>
+<div class="section" id="theory">
+<span id="heading-gas-transfer-theory"></span><h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h2>
+<p>Oxygen transfer is important in many environmental systems. Oxygen transfer is controlled by the partial pressure of oxygen in the atmosphere (0.21 atm) and the corresponding equilibrium concentration in water (approximately 10 mg/L). According to Henry’s Law, the equilibrium concentration of oxygen in water is proportional to the partial pressure of oxygen in the atmosphere.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">aide_design.play</span> <span class="k">import</span><span class="o">*</span>
+<span class="c1"># the code below will eventually be in the AguaClara core and should be called directly</span>
+<span class="k">def</span> <span class="nf">O2_sat</span><span class="p">(</span><span class="n">P_air</span><span class="p">,</span> <span class="n">temp</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;This equation returns saturated oxygen concentration in mg/L. It is valid</span>
+<span class="sd">  for 278 K &lt; T &lt; 318 K</span>
+<span class="sd">  Parameters</span>
+<span class="sd">  ----------</span>
+<span class="sd">  Pressure_air : float</span>
+<span class="sd">      air pressure with appropriate units.</span>
+<span class="sd">  Temperature :</span>
+<span class="sd">      water temperature with appropriate units</span>
+<span class="sd">  Returns</span>
+<span class="sd">  -------</span>
+<span class="sd">  Saturated oxygen concentration in mg/L</span>
+<span class="sd">  Examples</span>
+<span class="sd">  --------</span>
+<span class="sd">  &gt;&gt;&gt; O2_sat(1*u.atm , 300*u.kelvin)</span>
+<span class="sd">  8.093157231428425 milligram/liter</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">fraction_O2</span> <span class="o">=</span> <span class="mf">0.21</span>
+  <span class="n">P_O2</span> <span class="o">=</span> <span class="n">P_air</span> <span class="o">*</span> <span class="n">fraction_O2</span>
+  <span class="k">return</span> <span class="p">((</span><span class="n">P_O2</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atm</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span><span class="p">)</span> <span class="o">*</span>
+          <span class="n">u</span><span class="o">.</span><span class="n">mg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">L</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1727</span> <span class="o">/</span> <span class="n">temp</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">K</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span> <span class="o">-</span> <span class="mf">2.105</span><span class="p">))</span>
+
+<span class="n">P_air</span> <span class="o">=</span> <span class="mf">101.3</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">kPa</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">degC</span>
+<span class="n">C_Oxygen</span> <span class="o">=</span> <span class="n">O2_sat</span><span class="p">(</span><span class="n">P_air</span><span class="p">,</span><span class="n">temp</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">C_Oxygen</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Temperature (degrees Celsius)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Oxygen concentration (mg/L)&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Gas_Transfer/Images/Oxygen_vs_T&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id2">
+<span id="figure-oxygen-vs-t"></span><a class="reference internal image-reference" href="../_images/Oxygen_vs_T.png"><img alt="oxygen vs T" src="../_images/Oxygen_vs_T.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Dissolved oxygen concentrations in equilibrium with the atmosphere.</span></p>
+</div>
+<p>Natural bodies of water may be either supersaturated or undersaturated with oxygen depending on the relative magnitude of the sources and sinks of oxygen. Algae can be a significant source of oxygen during active photosynthesis and can produce supersaturation. Algae also deplete oxygen levels during the night.</p>
+<p>At high levels of supersaturation dissolved gas will form microbubbles that eventually coalesce, rise, and burst at the water surface. The bubbles provide a very efficient transfer of supersaturated dissolved gas to the gaseous phase, a process that can be observed when the partial pressure of carbon dioxide is decreased by opening a carbonated beverage. Bubble formation by supersaturated gasses also occurs in the environment when cold water in equilibrium with the atmosphere is warmed rapidly. The equilibrium dissolved oxygen concentration decreases as the water is warmed (<a class="reference internal" href="#figure-oxygen-vs-t"><span class="std std-numref">Fig. 17</span></a>).</p>
+<p>Supersaturation of dissolved gases can also occur when water carrying gas bubbles from a waterfall or spillway plunges into a deep pool. The pressure increases with depth in the pool and gasses carried deep into the pool dissolve in the water. When the water eventually approaches the surface the pressure decreases and the dissolved gases come out of solution and form bubbles. Bubble formation by supersaturated gases can kill fish (similar to the bends in humans) as the bubbles form in the bloodstream.</p>
+<div class="section" id="gas-transfer-coefficient">
+<span id="heading-gas-transfer-coefficient"></span><h3>Gas Transfer Coefficient<a class="headerlink" href="#gas-transfer-coefficient" title="Permalink to this headline">¶</a></h3>
+<p>The gas transfer rate can be modeled as the product of a driving force (the difference between the equilibrium concentration and the actual concentration) and an overall volumetric gas transfer coefficient (a function of the geometry, mixing levels of the system and the solubility of the compound). In equation form</p>
+<div class="math notranslate nohighlight" id="equation-eq-gas-first-order">
+<span class="eqno">(85)<a class="headerlink" href="#equation-eq-gas-first-order" title="Permalink to this equation">¶</a></span>\[\frac{dC}{dt} =\hat{k}_{v,l} \left(C^{*} -C\right)\]</div>
+<p>where C is the dissolved gas concentration, C* is the equilibrium dissolved gas concentration, and <span class="math notranslate nohighlight">\(\hat{k}_{v,l}\)</span> is the overall volumetric gas transfer coefficient . Although <span class="math notranslate nohighlight">\(\hat{k}_{v,l}\)</span> has dimensions of 1/T, it is a function of the interface surface area (A), the liquid volume (V), the oxygen diffusion coefficient in water (D), and the thickness of the laminar boundary layer (?) through which the gas must diffuse before the much faster turbulent mixing process can disperse the dissolved gas throughout the reactor.</p>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-0">
+<span class="eqno">(86)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-0" title="Permalink to this equation">¶</a></span>\[\hat{k}_{v,l} =f(D,\delta ,A,V)\]</div>
+<div class="figure align-center" id="id3">
+<span id="figure-single-film-model"></span><a class="reference internal image-reference" href="../_images/Single_film_model.png"><img alt="internal figure" src="../_images/Single_film_model.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Single film model of interphase mass transfer of oxygen.</span></p>
+</div>
+<p>The overall volumetric gas transfer coefficient is system specific and thus must be evaluated separately for each system of interest (Weber and Digiano, 1996).</p>
+<p>A schematic of the gas transfer process is shown in <a class="reference internal" href="#figure-single-film-model"><span class="std std-numref">Fig. 18</span></a>. Fickian diffusion controls the gas transfer in the laminar boundary layer. The oxygen concentration in the bulk of the fluid is assumed to be homogeneous due to mixing and the oxygen concentration above the liquid is assumed to be that of the atmosphere.</p>
+<p>The gas transfer coefficient will increase with the interface area and the diffusion coefficient and will decrease with the reactor volume and the thickness of the boundary layer. The functional form of the relationship is given by</p>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-1">
+<span class="eqno">(87)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-1" title="Permalink to this equation">¶</a></span>\[\hat{k}_{v,l} =\frac{AD}{V\delta }\]</div>
+<p>Equation <a class="reference internal" href="#equation-eq-gas-first-order">(85)</a> can be integrated with appropriate initial conditions to obtain the concentration of oxygen as a function of time. However, care must be taken to ensure that the overall volumetric gas transfer coefficient is not a function of the dissolved oxygen concentration. This dependency can occur where air is pumped through diffusers on the bottom of activated sludge tanks. Rising air bubbles are significantly depleted of oxygen as they rise through the activated sludge tank and the extent of oxygen depletion is a function of the concentration of oxygen in the activated sludge. Integrating equation <a class="reference internal" href="#equation-eq-gas-first-order">(85)</a> with initial conditions of C = C0 at t = t0</p>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-2">
+<span class="eqno">(88)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-2" title="Permalink to this equation">¶</a></span>\[\int _{C_{0} }^{C}\frac{dC}{C^{*} -C}  =\int _{t_{0} }^{t}\hat{k}_{v,l} dt\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-gas-linearized">
+<span class="eqno">(89)<a class="headerlink" href="#equation-eq-gas-linearized" title="Permalink to this equation">¶</a></span>\[\ln \frac{C^{*} -C}{C^{*} -C_{0} } =-\hat{k}_{v,l} (t-t_{0} )\]</div>
+<p>Equation <a class="reference internal" href="#equation-eq-gas-linearized">(89)</a> can be evaluated using linear regression so that <span class="math notranslate nohighlight">\(\hat{k}_{v,l}\)</span> is the slope of the line.</p>
+<p>The simple gas transfer model given in equation <a class="reference internal" href="#equation-eq-gas-linearized">(89)</a> is appropriate when the gas transfer coefficient is independent of the dissolved gas concentration. This requirement can be met in systems where the gas bubbles do not change concentration significantly as they rise through the water column. This condition is met when the water column is shallow, the bubbles have large diameters, or the difference between the concentration of dissolved gas and the equilibrium concentration is small.</p>
+</div>
+<div class="section" id="oxygen-transfer-efficiency">
+<span id="heading-gas-transfer-oxygen-transfer-efficiency"></span><h3>Oxygen Transfer Efficiency<a class="headerlink" href="#oxygen-transfer-efficiency" title="Permalink to this headline">¶</a></h3>
+<p>An important parameter in the design of aeration systems for the activated sludge process is the energy cost of compressing air to be pumped though diffusers. The pumping costs are a function of the pressure and the airflow rate. The pressure is a function of the hydrostatic pressure (based on the depth of submergence of the diffusers) and the head loss in the pipes and through the diffuser. The required airflow rate is a function of the BOD of the wastewater and the efficiency with which oxygen is transferred from the gas phase to the liquid phase. This oxygen transfer efficiency (OTE) is a function of the type of diffuser, the diffuser depth of submergence, as well as temperature and ionic strength of the activated sludge. Oxygen transfer is a remarkably inefficient process; only a small fraction of the oxygen carried by the rising bubbles diffuses into the activated sludge. The most efficient systems use membrane diffusers and achieve an OTE of approximately 10%.</p>
+<p>The manufacturer typically provides oxygen transfer efficiency for a specific diffuser. In this laboratory we will measure oxygen transfer efficiency for the aeration stone that we will be using in an activated sludge tank. The molar transfer rate of oxygen through the diffuser is</p>
+<div class="math notranslate nohighlight" id="equation-eq-gas-air-supply">
+<span class="eqno">(90)<a class="headerlink" href="#equation-eq-gas-air-supply" title="Permalink to this equation">¶</a></span>\[\dot{n}_{gas\; o_{2} } =\frac{Q_{air} P_{air} f_{O_{2} } }{RT}\]</div>
+<dl class="docutils">
+<dt>where</dt>
+<dd><div class="first last line-block">
+<div class="line"><span class="math notranslate nohighlight">\(f_{O_2}\)</span> is the molar fraction of air that is oxygen (0.21),</div>
+<div class="line"><span class="math notranslate nohighlight">\(Q_{air}\)</span> is the volumetric flow rate of air into the diffuser,</div>
+<div class="line"><span class="math notranslate nohighlight">\(P_{air}\)</span> is the air pressure immediately upstream from the diffuser,</div>
+<div class="line"><span class="math notranslate nohighlight">\(R\)</span> is the universal gas constant and</div>
+<div class="line"><span class="math notranslate nohighlight">\(T\)</span> is absolute temperature.</div>
+</div>
+</dd>
+</dl>
+<p>If the airflow rate is already given with units of moles/s then the molar transfer rate of oxygen can be obtained by multiplying by the molar fraction of air that is oxygen.</p>
+<p>The molar rate of dissolution into the aqueous phase is</p>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-3">
+<span class="eqno">(91)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-3" title="Permalink to this equation">¶</a></span>\[\dot{n}_{aq\; o_{2} } =\frac{\rlap{-} V}{MW_{O_{2} } } \frac{dC}{dt}\]</div>
+<dl class="docutils">
+<dt>where</dt>
+<dd><div class="first last line-block">
+<div class="line"><span class="math notranslate nohighlight">\(MW_{O_2}\)</span> is the molecular weight of oxygen,</div>
+<div class="line"><span class="math notranslate nohighlight">\(\rlap{-} V\)</span> is the reactor volume, and</div>
+<div class="line"><span class="math notranslate nohighlight">\(\frac{dC}{dt}\)</span> is the change in aqueous oxygen concentration with time.</div>
+</div>
+</dd>
+</dl>
+<p>The rate of change of oxygen concentration is a function of the dissolved oxygen concentration and is a maximum when the dissolved oxygen concentration is zero. Oxygen transfer efficiency could be measured for any dissolved oxygen concentration. A better method of analysis is to substitute the right side of equation <a class="reference internal" href="#equation-eq-gas-first-order">(85)</a> for <span class="math notranslate nohighlight">\(\frac{dC}{dt}\)</span> .</p>
+<div class="math notranslate nohighlight" id="equation-eq-gas-o2-dissolved">
+<span class="eqno">(92)<a class="headerlink" href="#equation-eq-gas-o2-dissolved" title="Permalink to this equation">¶</a></span>\[\dot{n}_{aq\; o_{2} } =\frac{V\hat{k}_{v,l} \left(C^{*} -C\right)}{MW_{O_{2} } }\]</div>
+<p>The oxygen transfer efficiency is the ratio of equation <a class="reference internal" href="#equation-eq-gas-o2-dissolved">(92)</a> to equation <a class="reference internal" href="#equation-eq-gas-air-supply">(90)</a>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-gas-ote">
+<span class="eqno">(93)<a class="headerlink" href="#equation-eq-gas-ote" title="Permalink to this equation">¶</a></span>\[OTE=\frac{\hat{k}_{v,l} \left(C^{*} -C\right)VRT}{MW_{O_{2} } Q_{air} P_{air} f_{O_{2} } }\]</div>
+<p>Measurement of OTE using equation <a class="reference internal" href="#equation-eq-gas-ote">(93)</a> requires that the gas transfer coefficient, air flow rate, air pressure, and the air temperature be measured. (<span class="math notranslate nohighlight">\(P_{air}\)</span> and <span class="math notranslate nohighlight">\(Q_{air}\)</span> have to correlate and in this experiment the best combination is atmospheric pressure and the flow rate given by the pump.)</p>
+<p>If the molar airflow rate is controlled then OTE is based on the ratio of equation <a class="reference internal" href="#equation-eq-gas-o2-dissolved">(92)</a> to the molar transfer rate of supplied oxygen.</p>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-4">
+<span class="eqno">(94)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-4" title="Permalink to this equation">¶</a></span>\[OTE=\frac{\dot{n}_{aq\; o_{2} } }{f_{O_{2} } \dot{n}_{air} } =\frac{V\hat{k}_{v,l} \left(C^{*} -C\right)}{f_{O_{2} } \dot{n}_{air} MW_{O_{2} } }\]</div>
+</div>
+<div class="section" id="deoxygenation">
+<span id="heading-gas-transfer-deoxygenation"></span><h3>Deoxygenation<a class="headerlink" href="#deoxygenation" title="Permalink to this headline">¶</a></h3>
+<p>To measure the reaeration rate it is necessary to first remove the oxygen from the reactor. This can be accomplished by bubbling the solution with a gas that contains no oxygen. Nitrogen gas is typically used to remove oxygen from laboratory reactors. Alternately, a reductant can be used. Sulfite is a strong reductant that will reduce dissolved oxygen in the presence of a catalyst.</p>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-5">
+<span class="eqno">(95)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-5" title="Permalink to this equation">¶</a></span>\[{O}_{{2}} +{2SO}_{{3}}^{-{2}} \stackrel{{cobalt}}{\longrightarrow}{2SO}_{{4}}^{-{2}}\]</div>
+<p>The mass of sodium sulfite required to deoxygenate 1 mg of oxygen is calculated from the stoichiometry of equation <a class="reference internal" href="#equation-eq-gas-first-order">(85)</a>.</p>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-6">
+<span class="eqno">(96)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-6" title="Permalink to this equation">¶</a></span>\[\frac{{mole\; O}_{{2}} }{{32000\; mg\; O}_{{2}} } \cdot \frac{{2\; mole\; Na}_{{2}} {SO}_{{3}} }{{mole\; O}_{{2}} } \cdot \frac{{126,000\; mg\; Na}_{{2}} {SO}_{{3}} }{{mole\; Na}_{{2}} {SO}_{{3}} } =\frac{{\; 7.875\; mg\; Na}_{{2}} {SO}_{{3}} }{{mg\; O}_{{2}} }\]</div>
+<p>If complete deoxygenation is desired a 10% excess of sulfite can be added. The sulfite will continue to react with oxygen as oxygen is transferred into the solution. The oxygen concentration can be measured with a dissolved oxygen probe or can be estimated if the temperature is known and equilibrium with the atmosphere assumed (<a class="reference internal" href="#figure-oxygen-vs-t"><span class="std std-numref">Fig. 17</span></a>).</p>
+</div>
+</div>
+<div class="section" id="experimental-objectives">
+<span id="heading-gas-transfer-experimental-objectives"></span><h2>Experimental Objectives<a class="headerlink" href="#experimental-objectives" title="Permalink to this headline">¶</a></h2>
+<p>The objectives of this lab are to:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Illustrate the dependence of gas transfer on gas flow rate.</li>
+<li>Develop a functional relationship between gas flow rate and gas transfer.</li>
+<li>Measure the oxygen transfer efficiency of a course bubble diffuser.</li>
+<li>Explain the theory and use of dissolved oxygen probes.</li>
+</ol>
+</div></blockquote>
+<p>A small reactor that meets the conditions of a constant gas transfer coefficient will be used to characterize the dependence of the gas transfer coefficient on the gas flow rate through a simple diffuser. The gas transfer coefficient is a function of the gas flow rate because the interface surface area i.e., the surface area of the air bubbles) increases as the gas flow rate increases.</p>
+</div>
+<div class="section" id="dissolved-oxygen-probes">
+<span id="heading-gas-transfer-dissolved-oxygen-probes"></span><h2>Dissolved Oxygen Probes<a class="headerlink" href="#dissolved-oxygen-probes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Theory<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The dissolved oxygen probes make use of the fact that an applied potential of 0.8 V can reduce <span class="math notranslate nohighlight">\(O_2\)</span> to <span class="math notranslate nohighlight">\(H_2O\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-7">
+<span class="eqno">(97)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-7" title="Permalink to this equation">¶</a></span>\[4 e^- + 4 H^+ + O_2 \mathrm{\to} 2 H_2O\]</div>
+<p>The cell is separated from solution by a gas permeable membrane that allows <span class="math notranslate nohighlight">\(O_2\)</span> to pass through. The concentration of <span class="math notranslate nohighlight">\(O_2\)</span> in the cell is kept very low by reduction to <span class="math notranslate nohighlight">\(H_2O\)</span>. The rate at which oxygen diffuses through the gas permeable membrane is proportional to the difference in oxygen concentration across the membrane. The concentration of oxygen in the cell is <span class="math notranslate nohighlight">\(\mathrm{\approx}0\)</span> and thus the rate at which oxygen diffuses through the membrane is proportional to the oxygen concentration in the solution.</p>
+<p>Oxygen is reduced to water at a silver (Ag) cathode of the probe. Oxygen reduction produces a current that is measured by the meter.</p>
+</div>
+<div class="section" id="calibration">
+<h3>Calibration<a class="headerlink" href="#calibration" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ref:</th><td class="field-body"><cite>Calibrate the dissolved oxygen probe &lt;heading_ProCoDA_Dissolved_Oxygen&gt;</cite> after you have assembled the apparatus.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="experimental-methods">
+<span id="heading-gas-transfer-experimental-methods"></span><h2>Experimental Methods<a class="headerlink" href="#experimental-methods" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="id4">
+<span id="figure-gas-schematic"></span><a class="reference internal image-reference" href="../_images/Schematic1.png"><img alt="internal figure" src="../_images/Schematic1.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Apparatus used to measure reaeration rate.</span></p>
+</div>
+<p>The reactors are 600 mL containers (<a class="reference internal" href="#figure-gas-schematic"><span class="std std-numref">Fig. 19</span></a>). The DO probe should be placed in a location so as to minimize the risk of air bubbles lodging on the membrane on the bottom of the probe. The aeration stone is connected to a source of regulated air flow. A 7-kPa pressure sensor (optional) can be used to measure the air pressure immediately upstream from the diffuser stone. A 200-kPa pressure sensor is used to measure the air pressure in the accumulator.</p>
+<div class="section" id="initial-setup">
+<h3>Initial Setup<a class="headerlink" href="#initial-setup" title="Permalink to this headline">¶</a></h3>
+<p>Follow these steps to set up the experiment.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Assemble the apparatus (don’t forget the 1.5 mm x 5 cm restriction).</li>
+<li>Install the head loss orifice as close to the valve as possible (plug it directly into the valve!).</li>
+<li>The ProCoDA II software will be used to control the air flow rate for the aeration experiment. The software will use external code to calculate the calibration constant for the flow restriction, to control valve 1 (the air supply valve), and to regulate the flow of air into the accumulator. The calibration uses the ideal gas law to determine the flow rate as a function of the difference in pressure between the source and the accumulator. Once this calibration is obtained a separate code will set the fraction of time that valve 1 needs to be open to obtain the desired flow rate of air into the accumulator.</li>
+<li>Use the <img alt="Open_method" src="../_images/Config_open_save_export.png" /> on the ProCoDA configuration tab to load a method file containing the configuration necessary to control airflow. The file is at <code class="docutils literal notranslate"><span class="pre">S:\Courses\4530\GasTransfer2.pcm</span></code>. You will need to adjust the channels for the accumulator pressure and the DO probe to match where you plugged them in your ProCoDA box. You will also need to make sure that your valves are connected to the correct ports on the ProCoDA box.</li>
+<li>Navigate to the Process Operation tab.</li>
+<li>Set the <strong>operator selected state</strong> to toggle.  The solenoid valves should click rhythmically if they are working properly.</li>
+<li>Install a membrane on the oxygen probe.</li>
+<li>Add 4 L of tap water to the reactor.</li>
+<li>Set the mode of operation <img alt="Mode_of_operation" src="../_images/Mode_of_operation.png" /> to automatic operation and the <em>operator selected state</em> to “prepare to calibrate”. The software should quickly cycle through the calibration step and then begin attempting to control the air flow rate to the target value.  Note:  the purpose of the prepare to calibrate state is to vent excess pressure from the accumulator.  The state will not change to calibrate until the pressure drops below a predefined threshold.  To speed this up, you may open the top of the air accumulator to release the air <em>before starting the automatic calibration</em>.</li>
+<li>Set the stirrer speed to achieve a vortex on the surface of the water.</li>
+<li>Calibrate the DO probe if you haven’t already. Use <span class="math notranslate nohighlight">\(22^{\circ}C\)</span> as the temperature.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="test-the-air-flow-controller">
+<h3>Test the air flow controller<a class="headerlink" href="#test-the-air-flow-controller" title="Permalink to this headline">¶</a></h3>
+<p>In the following test, the air flow controller should provide a constant flow of air into the accumulator. You can assess how well the air flow controller is working based on the slope of the pressure as a function of time.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Set the <strong>mode of operation</strong> to Manual Locked in State.</li>
+<li>Set the <strong>operator selected state</strong> to off</li>
+<li>Open the accumulator cap to empty the accumulator.</li>
+<li>Close the accumulator cap.</li>
+<li>Close the needle valve.</li>
+<li>We can set the air flow rate based on our calibration be navigating to the Configuration tab and selecting edit rules. We want to control the air flow rate, so select air flow rate from the set points and variables list. Set the air flow rate to a value of 200u (200 <span class="math notranslate nohighlight">\(\mu M\)</span>/s).</li>
+<li>Begin logging data from the 200kPa pressure sensor (accumulator pressure) at a 1 s interval using the datalog button on the configuration tab. Data is being logged when the icon is green.</li>
+<li>Navigate back to process operation tab and set the <strong>operator selected state</strong> to aerate.</li>
+<li>End logging data when the accumulator pressure is approximately equal to the source pressure.</li>
+<li>Analyze the data to see if the airflow rate is close to the expected value. This can be done using the data obtained and the ideal gas law.  Plot the accumulator air pressure as a function of time.  The slope of the best fit linear line is in units of Pa/s.  The volume of the accumulator is 1 liter.  Solving the ideal gas law for n gives a result in units of moles/s. You set the air flow rate for 200 <span class="math notranslate nohighlight">\(\mu M/s\)</span> and that is what you are expecting from this calculation.</li>
+<li>If the error is greater than 20% look for leaks and recalibrate the airflow controller.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="measure-the-gas-transfer">
+<h3>Measure the Gas Transfer<a class="headerlink" href="#measure-the-gas-transfer" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Call the instructor and/or TA to check the system configuration.</li>
+<li>The instructor or TA will add 0.1 mg <span class="math notranslate nohighlight">\(CoCl_2 \cdot 6H_2O\)</span> (note this only needs to be added once because it is the catalyst). A stock solution of <span class="math notranslate nohighlight">\(CoCl_2 \cdot 6H_2O\)</span> (1 mg/mL – thus add 100 <span class="math notranslate nohighlight">\(\mu L\)</span>) has been prepared to facilitate measurement of small cobalt doses. (Use gloves when handling cobalt!)</li>
+<li>Prepare to record the dissolved oxygen concentration using ProCoDA software. Use 5-second data intervals and log the data to <code class="docutils literal notranslate"><span class="pre">S:\Courses\4530\Group</span> <span class="pre">#\gastran\x</span></code> where x is the flow rate in <span class="math notranslate nohighlight">\(\mu M/s\)</span> for later analysis. Include the actual flow rate in the file name.</li>
+<li>Set the airflow rate to the desired flow rate.  Each group will investigate six flowrates.  The instructor will assign the flowrates on the day of the lab exercise.</li>
+<li>Set the <strong>operator selected state</strong> to aerate.</li>
+<li>Set the needle valve so the pressure in the accumulator is approximately 75% of the source pressure.</li>
+<li>Wait until the accumulator pressure reaches steady state.</li>
+<li>Turn the air off by changing the operator selected state to OFF.</li>
+<li>Add enough sodium sulfite to deoxygenate the solution. A stock solution of sodium sulfite (100 mg/mL) has been prepared to facilitate measurement of small sulfite doses. Calculate this dose based on the measured dissolved oxygen concentration. (4 L of water at <span class="math notranslate nohighlight">\(C_{oxygen}\; mg \; O_2/L = 4\; C_{oxygen}\; mg\; O_2\)</span>, therefore add <span class="math notranslate nohighlight">\(4 (7.875) C_{oxygen}\)</span> mg sodium sulfite or <span class="math notranslate nohighlight">\(4(7.875)(C_{oxygen})/100 mL\)</span> of stock solution.)</li>
+<li>Turn the air on by changing the <strong>operator selected state</strong> to Aerate.</li>
+<li>Monitor the dissolved oxygen concentration until it reaches 50% of saturation value or 10 minutes (whichever is shorter).</li>
+<li>Repeat steps 3-11 to collect data from at least two additional flow rates.</li>
+<li>Consolidate the files into one spreadsheet file with a separate sheet for each flow rate.</li>
+<li>Collect data from the whole class to analyze the full spectrum of flow rates investigated.</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="pre-laboratory-questions">
+<span id="heading-gas-transfer-pre-laboratory-questions"></span><h2>Pre-Laboratory Questions<a class="headerlink" href="#pre-laboratory-questions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Calculate the mass of sodium sulfite needed to reduce all the dissolved oxygen in 600 mL of pure water in equilibrium with the atmosphere and at <span class="math notranslate nohighlight">\(22^\circ C\)</span>.</li>
+<li>Describe your expectations for dissolved oxygen concentration as a function of time during a reaeration experiment.  Assume you have added enough sodium sulfite to consume all of the oxygen at the start of the experiment. What would the shape of the curve look like?</li>
+<li>Why is <span class="math notranslate nohighlight">\(\hat{k}_{v,l}\)</span> not zero when the gas flow rate is zero? How can oxygen transfer into the reactor even when no air is pumped into the diffuser?</li>
+<li>Describe your expectations for <span class="math notranslate nohighlight">\(\hat{k}_{v,l}\)</span> as a function of gas flow rate. Do you expect a straight line? Why?</li>
+<li>A dissolved oxygen probe was placed in a small vial in such a way that the vial was sealed. The water in the vial was sterile. Over a period of several hours the dissolved oxygen concentration gradually decreased to zero. Why? (You need to know how dissolved oxygen probes work!)</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="data-analysis">
+<span id="heading-gas-transfer-data-analysis"></span><h2>Data Analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h2>
+<p>This lab requires a significant amount of repetitive data analysis. Plan how you will organize the analysis to be as easy as possible.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Calculate the air flow rate from testing the air flow controller and compare with the target value.</li>
+<li>Eliminate the data from each data set when the dissolved oxygen concentration was less than 0.5 mg/L. This will ensure that all of the sulfite has reacted.</li>
+<li>Plot a representative data set showing dissolved oxygen vs. time.</li>
+<li>Calculate <span class="math notranslate nohighlight">\(C^{\star}\)</span> based on the average water temperature, barometric pressure, and the following equation. <span class="math notranslate nohighlight">\(C^{\star} =P_{O_{2}} {\mathop{e}\nolimits^{\left(\frac{1727}{T} -2.105\right)}}\)</span> where T is in Kelvin, <span class="math notranslate nohighlight">\(P_{O_{2} }\)</span> is the partial pressure of oxygen in atmospheres, and <span class="math notranslate nohighlight">\(C^{\star}\)</span> is in mg/L. This equation is valid for 278 K &lt; T &lt; 318 K.</li>
+<li>Estimate <span class="math notranslate nohighlight">\(\hat{k}_{v,l}\)</span> using linear regression and equation <a class="reference internal" href="#equation-eq-gas-linearized">(89)</a> for each data set.</li>
+<li>Create a graph with a representative plot showing the linearized data, <span class="math notranslate nohighlight">\(\left(\ln \frac{C^{\star} -C}{C^{\star} -C_{0} } \right)\)</span> vs. time, and the best-fit line.</li>
+<li>Plot the reaeration model on the same graph as the dissolved oxygen vs. time data.  This is done by solving equation for C.</li>
+<li>Plot <span class="math notranslate nohighlight">\(\hat{k}_{v,l}\)</span> as a function of airflow rate (<span class="math notranslate nohighlight">\(\mu mole/s\)</span>).</li>
+<li>Look at each dataset and if necessary (to make more linear plots) eliminate more data from the beginning (or end) of the dataset. You will be able to see when the oxygen level is affected by residual sulfite at the beginning of the experiments.</li>
+<li>Plot OTE as a function of airflow rate (?mole/s) with the oxygen deficit (<span class="math notranslate nohighlight">\(C^{\star} -C\)</span>) set at 6 mg/L.</li>
+<li>Plot the molar rate of oxygen dissolution into the aqueous phase (<span class="math notranslate nohighlight">\(\mu mole/s\)</span>) as a function of airflow rate (<span class="math notranslate nohighlight">\(\mu mole/s\)</span>).</li>
+<li>Comment on results and compare with your expectations and with theory.</li>
+<li>Verify that your report and graphs meet the requirements.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="references">
+<span id="heading-gas-transfer-references"></span><h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>Weber, W. J. J. and F. A. Digiano. 1996. Process Dynamics in Environmental Systems. New York, John Wiley &amp; Sons, Inc.Zander, A. K.; M. J. Semmens and R. M. Narbaitz. 1989. <strong>Removing VOCs by membrane stripping</strong> American Water Works Association Journal 81: 76-81.</div></blockquote>
+</div>
+<div class="section" id="lab-prep-notes">
+<span id="heading-gas-transfer-lab-prep-notes"></span><h2>Lab Prep Notes<a class="headerlink" href="#lab-prep-notes" title="Permalink to this headline">¶</a></h2>
+<span id="table-gas-reagent-list"></span><table border="1" class="colwidths-given docutils align-center" id="id5">
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">Reagent list.</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="40%" />
+<col width="40%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Description</th>
+<th class="head">Supplier</th>
+<th class="head">Catalog number</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><span class="math notranslate nohighlight">\(Na_2SO_3\)</span></td>
+<td>Fisher Scientific</td>
+<td>S430-500</td>
+</tr>
+<tr class="row-odd"><td><span class="math notranslate nohighlight">\(CoCl_2 \cdot 6H_2O\)</span></td>
+<td>Fisher Scientific</td>
+<td>C371-100</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Prepare the sodium sulfite immediately before class and distribute to groups in 15 mL PP bottles to minimize oxygen dissolution and reaction with the sulfite.</li>
+<li>The cobalt solution can be prepared anytime and stored long term.</li>
+<li>Install the membranes on the DO probes and confirm that all probes are operational.</li>
+<li>Provide clamps to mount DO probes on magnetic stirrers.</li>
+<li>Determine maximum airflow rate that is reasonable given small reactor volume.</li>
+</ol>
+</div></blockquote>
+<span id="table-air-flow-rates"></span><table border="1" class="docutils align-center" id="id6">
+<caption><span class="caption-number">Table 7 </span><span class="caption-text">Suggested flow rates.</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Group       Flows</th>
+<th class="head">(<span class="math notranslate nohighlight">\(mu M/s\)</span>)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>200, 250, 300</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>350, 400, 450</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>500, 600, 700</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>800, 900, 1000</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>1200, 1500, 2000</td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>3000, 4000, 5000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="class-plan">
+<h3>Class Plan<a class="headerlink" href="#class-plan" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Show how to calibrate DO probe using Calibrator.</li>
+<li>Assign groups different gas flow rates</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="airflow-control">
+<span id="heading-gas-transfer-airflow-control"></span><h2>Airflow Control<a class="headerlink" href="#airflow-control" title="Permalink to this headline">¶</a></h2>
+<p>The ProCoDA software can be configured to control the flow of air into the reactor. The hardware required is shown in <a class="reference internal" href="#figure-gas-schematic"><span class="std std-numref">Fig. 19</span></a>. The control algorithm is based on the theoretical relationship between head loss and flow rate for the air flowing into the accumulator. We can empirically measure the head loss coefficient and then use the theoretical relationship to determine what fraction of time the influent valve should be open to obtain the desired flow rate. We can use the change in pressure in the accumulator when the influent valve is open to determine how fast air was flowing into the accumulator. In order to develop an appropriate head loss model we need to know if the flow into the accumulator is laminar or turbulent.</p>
+<div class="math notranslate nohighlight" id="equation-eq-gas-re">
+<span class="eqno">(98)<a class="headerlink" href="#equation-eq-gas-re" title="Permalink to this equation">¶</a></span>\[{Re}=\frac{\rho VD}{\mu }\]</div>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-8">
+<span class="eqno">(99)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-8" title="Permalink to this equation">¶</a></span>\[{Re}=\frac{4\rho Q}{\pi d\mu }\]</div>
+<p>If we hold pressure and temperature constant and then take the derivative of the ideal gas law we obtain.</p>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-9">
+<span class="eqno">(100)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-9" title="Permalink to this equation">¶</a></span>\[P\rlap{--}\dot{V}=\dot{n}RT\]</div>
+<p>and since change in volume with respect to time is a flow rate we have</p>
+<div class="math notranslate nohighlight" id="equation-eq-gas-qair">
+<span class="eqno">(101)<a class="headerlink" href="#equation-eq-gas-qair" title="Permalink to this equation">¶</a></span>\[Q=\frac{\dot{n}RT}{P}\]</div>
+<p>Density of an ideal gas is given by</p>
+<div class="math notranslate nohighlight" id="equation-eq-gas-density">
+<span class="eqno">(102)<a class="headerlink" href="#equation-eq-gas-density" title="Permalink to this equation">¶</a></span>\[\rho =\frac{PM_{gas} }{RT}\]</div>
+<p>Substituting these relationships into equation <a class="reference internal" href="#equation-eq-gas-re">(98)</a> for Reynolds number we obtain</p>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-10">
+<span class="eqno">(103)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-10" title="Permalink to this equation">¶</a></span>\[{Re}=\frac{4\dot{n}M_{gas} }{\pi d\mu }\]</div>
+<p>For the air flow controller used in the lab the following values are obtained</p>
+<blockquote>
+<div><span class="math notranslate nohighlight">\(\dot{n}\)</span> max flow is about 10,000 <span class="math notranslate nohighlight">\(\mu M/s\)</span> <span class="math notranslate nohighlight">\(M_{gas}\)</span> is 0.029 kg/M, and <span class="math notranslate nohighlight">\(\mu\)</span> is <span class="math notranslate nohighlight">\(1.8 x 10^{-5} Ns/m^2\)</span>.</div></blockquote>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-11">
+<span class="eqno">(104)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-11" title="Permalink to this equation">¶</a></span>\[{Re}=\frac{4\left(10000\times 10^{-6} \frac{M}{s} \right)\left(0.029\frac{kg}{M} \right)}{\pi \left(1\times 10^{-3} m\right)\left(1.8\times 10^{-5} \frac{N\cdot s}{m^{2} } \right)} =20,500\]</div>
+<p>The flow into the air accumulator will almost certainly be turbulent and thus we can use the turbulent flow equations for minor losses to describe head loss. The equation for minor losses is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-gas-minor-losses">
+<span class="eqno">(105)<a class="headerlink" href="#equation-eq-gas-minor-losses" title="Permalink to this equation">¶</a></span>\[h_{minor} =K\frac{8Q^{2} }{g\pi ^{2} D^{4} }\]</div>
+<p>To use equation <a class="reference internal" href="#equation-eq-gas-minor-losses">(105)</a> for air we substitute pressure change for <span class="math notranslate nohighlight">\(h_{minor}\)</span>, equation <a class="reference internal" href="#equation-eq-gas-qair">(101)</a> for flow rate, and equation <a class="reference internal" href="#equation-eq-gas-density">(102)</a> for density.</p>
+<div class="math notranslate nohighlight" id="equation-eq-gas-minor-losses-for-gas">
+<span class="eqno">(106)<a class="headerlink" href="#equation-eq-gas-minor-losses-for-gas" title="Permalink to this equation">¶</a></span>\[\Delta p=K\frac{8M_{gas} RT\dot{n}^{2} }{\pi ^{2} D^{4} P}\]</div>
+<p>This change of pressure is occurring between the air supply and the accumulator. The pressure, P, in equation <a class="reference internal" href="#equation-eq-gas-minor-losses-for-gas">(106)</a> helps determine the velocity of the air and thus head loss is a function of the pressure. The pressure varies between the pressure of the lab air supply, <span class="math notranslate nohighlight">\(P_s\)</span>, and the pressure in the air accumulator, <span class="math notranslate nohighlight">\(P_a\)</span>. As a reasonable first approximation we use the average pressure of the supply and the accumulator for P, the difference in pressure for <span class="math notranslate nohighlight">\(\Delta p\)</span>, and solve equation <a class="reference internal" href="#equation-eq-gas-minor-losses-for-gas">(106)</a> for the molar flow rate.</p>
+<div class="math notranslate nohighlight" id="equation-eq-gas-molar-flow-of-air">
+<span class="eqno">(107)<a class="headerlink" href="#equation-eq-gas-molar-flow-of-air" title="Permalink to this equation">¶</a></span>\[\dot{n}=\frac{\pi D^{2} }{4\sqrt{KM_{gas} RT} } \sqrt{\left(P_{s} -P_{a} \right)\left(P_{s} +P_{a} \right)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\dot{n}\)</span> is the molar flow rate.</p>
+<p>Multiplying terms and noting that the supply pressure is relatively constant, but that the accumulator pressure varies as it charges according to the ideal gas law we obtain.</p>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-12">
+<span class="eqno">(108)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-12" title="Permalink to this equation">¶</a></span>\[\frac{dn}{dt} =\frac{\pi D^{2} }{4\sqrt{KM_{gas} RT} } \sqrt{P_{s}^{2} -\frac{n^{2} R^{2} T^{2} }{V^{2} } }\]</div>
+<p>Separating terms and integrating from an initial condition with <span class="math notranslate nohighlight">\(n_1\)</span> moles to a final condition with <span class="math notranslate nohighlight">\(n_2\)</span> moles in the accumulator.</p>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-13">
+<span class="eqno">(109)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-13" title="Permalink to this equation">¶</a></span>\[\frac{\rlap{--}V}{RT} \int _{n_{1} }^{n_{2} }\frac{dn}{\sqrt{\frac{P_{s}^{2} V^{2} }{R^{2} T^{2} } -n^{2} } }  =\int _{0}^{t}\frac{\pi D^{2} }{4\sqrt{KM_{gas} RT} } dt\]</div>
+<p>After integrating we obtain the following equation.</p>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-14">
+<span class="eqno">(110)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-14" title="Permalink to this equation">¶</a></span>\[\frac{\rlap{--}V}{RT} \left(\sin ^{-1} \frac{n_{2} RT}{P_{s} V} -\sin ^{-1} \frac{n_{1} RT}{P_{s} V} \right)=\frac{\pi D^{2} t}{4\sqrt{KM_{gas} RT} }\]</div>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-15">
+<span class="eqno">(111)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-15" title="Permalink to this equation">¶</a></span>\[t=\frac{4\sqrt{KM_{gas} RT} }{\pi D^{2} } \left(\sin ^{-1} \frac{n_{2} RT}{P_{s} V} -\sin ^{-1} \frac{n_{1} RT}{P_{s} V} \right)\frac{\rlap{--}V}{RT}\]</div>
+<p>Since we will be measuring the pressure in the accumulator we can now substitute that pressure for the terms containing moles of air to obtain an equation that is in a linear form such that a single term containing K and D can be obtained by linear regression.</p>
+<div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-16">
+<span class="eqno">(112)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-16" title="Permalink to this equation">¶</a></span>\[t=\frac{4\sqrt{KM_{gas} RT} }{\pi D^{2} } \left(\sin ^{-1} \frac{P_{a_{2} } }{P_{s} } -\sin ^{-1} \frac{P_{a_{1} } }{P_{s} } \right)\frac{\rlap{--}V}{RT}\]</div>
+<p>Taking a data set obtained by filling the accumulator, finding the unknown term <span class="math notranslate nohighlight">\(\frac{4\sqrt{KM_{gas} RT} }{\pi D^{2} }\)</span> by linear regression and then plotting the resulting model next to the data we obtain <a class="reference internal" href="#figure-airflow-controller-calibration"><span class="std std-numref">Fig. 20</span></a>.</p>
+<div class="figure align-center" id="id7">
+<span id="figure-airflow-controller-calibration"></span><a class="reference internal image-reference" href="../_images/Airflow_controller_calibration.png"><img alt="airflow controller calibration" src="../_images/Airflow_controller_calibration.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">The model describing the filling of the accumulator fits the data very well.</span></p>
+</div>
+<p>The final step is to calculate the fraction of time that the valve must be open in order to obtain a desired flow rate into the accumulator. Take the target air flow rate <span class="math notranslate nohighlight">\(\dot{n}_{target}\)</span> and divide by the molar flow rate given by equation <a class="reference internal" href="#equation-eq-gas-molar-flow-of-air">(107)</a> to get the fraction of time the valve must be open to get the desired average flow rate.</p>
+<div class="math notranslate nohighlight" id="equation-eq-gas-fvalve">
+<span class="eqno">(113)<a class="headerlink" href="#equation-eq-gas-fvalve" title="Permalink to this equation">¶</a></span>\[f_{valve} =\frac{\dot{n}_{t\arg et} }{\dot{n}} =\frac{\dot{n}_{t\arg et} }{\frac{\pi D^{2} }{4\sqrt{KM_{gas} RT} } \sqrt{P_{s}^{2} -P_{a}^{2} } }\]</div>
+<p>Equation <a class="reference internal" href="#equation-eq-gas-fvalve">(113)</a> assumes that inertial effects during flow startup are not significant. Application of equation <a class="reference internal" href="#equation-eq-gas-fvalve">(113)</a> results in slightly more air being delivered than requested. The reason for this error is that when the valve is closed the volume between the location of the head loss and the valve fills to the pressure of the source. This volume of air quickly discharges through the valve as soon as the valve is opened. This error can be minimized by using small valves and by keeping the head loss orifice as close to the valve as possible.</p>
+<p>Equation <a class="reference internal" href="#equation-eq-gas-fvalve">(113)</a> is used by the air flow control.vi to calculate the fraction of time that the valve should be open. The ability of the control algorithm to create a desired flow rate can be measured by setting the flow rate and closing the effluent valves from the accumulator. The result is that the accumulator will gradually fill and as it fills <span class="math notranslate nohighlight">\(f_{valve}\)</span> will gradually increase so the flow rate into the accumulator remains constant. The slope of the pressure vs. time line is proportional to the flow rate.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Activated_Carbon/Activated_Carbon.html" class="btn btn-neutral float-right" title="Carbon Adsorption" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Reactor_Characteristics/Reactor_Characteristics.html" class="btn btn-neutral" title="Reactor Characteristics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, AguaClara Cornell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'v0.0.3',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/mathjax_config.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
