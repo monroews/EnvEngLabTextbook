@@ -25,12 +25,12 @@ Adsorption is a unit operation in which surface-active materials in true solutio
 Under isothermal conditions the equilibrium partitioning between solution and solid phase is a function of concentration. In this experiment the isotherm data will be analyzed using both Freundlich
 
 .. math::
-    q^{\star} =KC^{1/n}  (\label{1})
+    q^{\star} =KC^{\frac{1}{n}}
 
 and Langmuir models
 
 .. math::
-   q^{\star} =\frac{Kq_{\max }^{\star} C}{1+KC} (\label{2})
+   q^{\star} =\frac{Kq_{\max }^{\star} C}{1+KC}
 
 The Freundlich parameters K and n can be fit using a power law relationship and Langmuir parameters K and :math:`q_{\max }^{\star}` can be fit using nonlinear regression.
 
