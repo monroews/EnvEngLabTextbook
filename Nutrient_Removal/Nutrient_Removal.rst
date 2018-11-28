@@ -35,7 +35,7 @@ References
   Cicek, N., J. P. Franco, et al. (1998). “Using a Membrane bioreactor to reclaim wastewater.” Journal American Water Works Association 90(11): 105-113.
   Metcalf & Eddy, I., G. Tchobanoglous, et al. (2003). Wastewater Engineering: Treatment and Reuse. New York, McGraw Hill.
   Rittmann, B. E. and P. L. McCarty (2001). Environmental Biotechnology: Principles and Applications. New York, McGraw Hill.
-  R. Mikler, W. Kramer, O. Doblhoff - Dier, K. Bayer (04/07/95) Strategies For Optimal Dissolved Oxygen (Do) Control http://www.boku.ac.at/iam/poster/doxygen.htm
+  R. Mikler, W. Kramer, O. Doblhoff - Dier, K. Bayer (04/07/95) Strategies For Optimal Dissolved Oxygen (Do) Control https://doi.org/10.1016/B978-0-08-042377-7.50059-3
 
 
 

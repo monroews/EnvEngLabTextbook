@@ -115,8 +115,9 @@ Use a thermistor to measure the temperature of distilled water. The thermistors 
 Pipette Technique
 -----------------
 
- #. Use Figure 2-2 to estimate the mass of 990 :math:`\mu L` of distilled water (at the measured temperature).
- #. Use a 100-1000 :math:`\mu L` digital pipette to transfer 990 :math:`\mu L` of distilled water to a tared weighing boat on either the AdventurerPro or Galaxy analytical balance. Record the mass of the water and compare with the expected value (Figure 2-2). Repeat this step if necessary until your pipetting error is less than 2\%, then measure the mass of 5 replicate 990 :math:`\mu L` pipette samples. Calculate the mean (:math:`\bar{x}`), standard deviation (s), and coefficient of variation, :math:`\frac{s}{\bar{x}}`, for your measurements. The coefficient of variation (c.v.) is a good measure of the precision of your technique. For this test a c.v. :math:`\mathrm{<}`1\% should be achievable.
+ #. Use :refnum:`figure_Density_vs_T` or ``density = pc.density_water(Temp)`` to estimate the mass of 990 :math:`\mu L` of distilled water (at the measured temperature).
+ #. Use a 100-1000 :math:`\mu L` digital pipette to transfer 990 :math:`\mu L` of distilled water to a tared weighing boat on a balance with mg resolution. Record the mass of the water and compare with the expected value (see :refnum:`figure_Density_vs_T`). Repeat this step if necessary until your pipetting error is less than 2\%, then measure the mass of 5 replicate 990 :math:`\mu L` pipette samples. Calculate the mean (:math:`\bar{x}`), standard deviation (s), and coefficient of variation, :math:`\frac{s}{\bar{x}}`, for your measurements. The coefficient of variation (c.v.) is a good measure of the precision of your technique. For this test a c.v. :math:`\mathrm{<}`1\% should be achievable.
+
 
 Measure Density
 ---------------
