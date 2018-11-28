@@ -13,7 +13,7 @@ Objectives
 The objectives of this experiment are to:
 
  #. Determine the equilibrium isotherm for an organic dye (red dye \# 40) on a particular type of GAC;
- #. Investigate the breakthrough characteristics of red dye \#40 on this GAC in a continuous-flow carbon contactor at a single loading rate.
+ #. Investigate the breakthrough characteristics of red dye \``#40`` on this GAC in a continuous-flow carbon contactor at a single loading rate.
 
 .. _heading_Carbon_Adsorption_Background:
 
@@ -92,7 +92,7 @@ Isotherm Procedures
 Red Dye \# 40 Calibration Curve (week 1)
 ----------------------------------------
 
- #. Prepare the following Red Dye \#40 concentrations from the 10 g/L stock using distilled water for dilution: 0.5, 1.5, 5, 15, 50, 150, 500 mg/L.
+ #. Prepare the following Red Dye \``#40`` concentrations from the 10 g/L stock using distilled water for dilution: 0.5, 1.5, 5, 15, 50, 150, 500 mg/L.
  #. Analyze the standards using the Spectrophotometer that will be used to monitor the carbon contactor. (Make sure to include units and to enter a general description of the type of sample.)
  #. Clean the sample cell with 5\% bleach before analyzing dilute samples again!
  #. Prepare a second set of standards and analyze them as samples.
@@ -112,7 +112,7 @@ Each group will prepare the following samples so the replicates can be combined 
 .. _table_Isotherm:
 
 .. csv-table:: Isotherm sample preparation guide.
-    :header: "Recommended Mass of AC (mg)",	"Actual Mass of AC (mg)",	"Red Dye #40 initial concentration (mg/L)",	"Volume of 10 g/L Red Dye in 100 mL (mL)",	"Red Dye #40 final concentration (mg/L)"
+    :header: "Recommended Mass of AC (mg)",	"Actual Mass of AC (mg)",	"Red Dye ``#40`` initial concentration (mg/L)",	"Volume of 10 g/L Red Dye in 100 mL (mL)",	"Red Dye ``#40`` final concentration (mg/L)"
     :widths: 20, 20, 20, 20, 20
     :align: center
 
@@ -135,7 +135,7 @@ Adsorption Isotherm Sample Analysis (week 2)
 --------------------------------------------
 
  #. Measure the UV-Vis absorption spectra of the supernatants as samples using the spectrophotometer.
- #. Use spectral analysis to determine the Red Dye \#40 concentrations in each of the supernatants using the activated carbon and red dye \#40 standards.
+ #. Use spectral analysis to determine the Red Dye \``#40`` concentrations in each of the supernatants using the activated carbon and red dye \``#40`` standards.
  #. Investigate improving sample preparation by centrifuging at 14000 rpm and then transferring the supernatant to spectrophotometer cuvettes.
 
 .. _heading_Carbon_Adsorption_Contactor_Procedures:
@@ -156,7 +156,7 @@ Continuous-Flow Carbon Contactor Setup (week 1)
 -----------------------------------------------
 
 
-Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pump with \#14 tubing at approximately 10 rpm. Prepare 2-20 L jerricans with 50 mg/L of Red dye \#40. Use reverse osmosis water to dilute the dye. The carbon contactor will be operated in down flow mode. The specifications for the carbon contactors are given in Table :numref:`table_carbon_contactor_settings`. Set up a daily sample schedule.
+Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pump with \#14 tubing at approximately 10 rpm. Prepare 2-20 L jerricans with 50 mg/L of Red dye \``#40``. Use reverse osmosis water to dilute the dye. The carbon contactor will be operated in down flow mode. The specifications for the carbon contactors are given in Table :numref:`table_carbon_contactor_settings`. Set up a daily sample schedule.
 
  #. Pump distilled water into the column from the bottom to a depth of 10 cm.
  #. Pour 27 g of activated carbon into a beaker containing distilled water.
@@ -194,7 +194,7 @@ Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pu
 Operate the Contactor (starting week 1 for 2 to 3 weeks)
 --------------------------------------------------------
 
- #. Start pumping Red Dye \#40.
+ #. Start pumping Red Dye \``#40``.
  #. Measure the flow rate daily using a balance to get mass of water in approximately 1 minute.
  #. Collect and label a 100 mL sample daily.
  #. It is probably impractical to try and achieve :math:`C/C_0 = 1`, but past experiments have usually run long enough to attain at least :math:`C/C_0 = 0.8`, which provides enough of the breakthrough curve to allow modeling of its shape.
@@ -210,7 +210,7 @@ Isotherm Results and Discussion
 
 Combine the data from all groups when doing the following analysis.
 
- #. Calculate the quantity of Red Dye \#40 that was transferred to the surface of the activated carbon for each bottle in grams/gram of GAC.
+ #. Calculate the quantity of Red Dye \``#40`` that was transferred to the surface of the activated carbon for each bottle in grams/gram of GAC.
  #. Plot the data in a standard adsorption isotherm format (i.e., quantity sorbed, g/g, versus aqueous concentration, g/L).
  #. Attempt to fit both the Freundlich and Langmuir isotherm models to the data. Report the values of the respective constants in each case, and plot the fitted model curves on the same graph as the data. (Remember to use smooth lines for models and data points for data.) Use nonlinear regression to obtain the Langmuir isotherm parameters.
  #. Discuss the correspondence between the experimental data and the Freundlich and Langmuir isotherms.
@@ -224,9 +224,9 @@ Contactor Results and Analysis
  #. Attempt to model the shape of your breakthrough-curve data, using the mass-transfer model presented in lecture:
 
 
-[Note that the generalized isotherm is described by specifying one point on it (:math:`C_0`, Q) and corresponding value for a curve parameter (r). Alternative choices of :math:`C_0` will yield corresponding --- but different --- sets of Q and r-values that result in identical generalized isotherm curves. Therefore, the proper choice of :math:`C_0` for convenient, later application to breakthrough-curve modeling would be the average measured value of the column's influent Red Dye \#40 concentration --- and not the initial Red Dye \#40 concentration employed in the isotherm determination. That way, the values of Q and r obtained will be the correct ones to employ in the mass-transfer model.]
+[Note that the generalized isotherm is described by specifying one point on it (:math:`C_0`, Q) and corresponding value for a curve parameter (r). Alternative choices of :math:`C_0` will yield corresponding --- but different --- sets of Q and r-values that result in identical generalized isotherm curves. Therefore, the proper choice of :math:`C_0` for convenient, later application to breakthrough-curve modeling would be the average measured value of the column's influent Red Dye \``#40`` concentration --- and not the initial Red Dye \``#40`` concentration employed in the isotherm determination. That way, the values of Q and r obtained will be the correct ones to employ in the mass-transfer model.]
 
-Alternatively, note that the Langmuir isotherm fit can be conveniently employed. The Langmuir is a special case of the generalized isotherm, where :math:`r=\frac{1}{1+KC_{0} }` (with K being the Langmuir constant). Q can be estimated from the Langmuir isotherm by substituting the column's influent Red Dye \#40 concentration for :math:`C_0`.
+Alternatively, note that the Langmuir isotherm fit can be conveniently employed. The Langmuir is a special case of the generalized isotherm, where :math:`r=\frac{1}{1+KC_{0} }` (with K being the Langmuir constant). Q can be estimated from the Langmuir isotherm by substituting the column's influent Red Dye \``#40`` concentration for :math:`C_0`.
 
 What value of k', the effective mass-transfer coefficient, gives best fit to the shape of your breakthrough curve? [Note: If the observed midpoint of breakthrough was significantly displaced in time (or volume treated) from that predicted from your isotherm, you should use your experimentally observed S value, rather than the theoretically predicted one. That way, you'll only have to deal with effects of k' on shape, rather than absolute position, of breakthrough.] If we had generated breakthrough curves at several values of hydraulic loading, we could empirically relate :math:`k'` to hydraulic loading for evaluating design and operating alternatives.
 
@@ -248,25 +248,25 @@ Lab Prep Notes
     :align: center
 
     activated carbon,	,
-    red dye #40, ,
+    red dye ``#40``, ,
 
 
  #. Verify that all necessary supplies are in place for the pumps, tanks, column, valves, and tubing.
- #. Prepare the Red Dye \#40 stock solution.
+ #. Prepare the Red Dye \``#40`` stock solution.
  #. Prepare a 5\% bleach solution (5 mL bleach diluted to 100 mL with distilled water) for cleaning the photometer sample cell and sample lines.
 
 Procedure to remove air from the top of the column
 --------------------------------------------------
 
- #. Close the Red Dye \#40 influent valve.
+ #. Close the Red Dye \``#40`` influent valve.
  #. Open the distilled water influent valve.
- #. Wait for the influent line to clear of Red Dye \#40.
+ #. Wait for the influent line to clear of Red Dye \``#40``.
  #. Turn off the pump.
  #. Reverse the column flow direction.
  #. Turn on the pump until the air is removed.
  #. Turn off the pump.
  #. Reverse the column flow direction.
- #. Turn on the pump and switch the influent to Red Dye \#40.
+ #. Turn on the pump and switch the influent to Red Dye \``#40``.
 
 .. _heading_Carbon_Adsorption_Recommendations_from_previous_years:
 
@@ -275,9 +275,9 @@ Recommendations from previous years
 
 The column that was run at the slower flow rate had a much steeper breakthrough curve. However, it took 2 weeks to breakthrough. Thus it is recommended that a shorter column be used (15 cm rather than 60 cm) so that the breakthrough occurs in a reasonable amount of time with a slower flow rate.
 
-Methylene blue may not be an ideal contaminant since it is a stain that absorbs strongly. It may be preferable to use red dye \#40.
+Methylene blue may not be an ideal contaminant since it is a stain that absorbs strongly. It may be preferable to use red dye \``#40``.
 
-We used red dye \#40 and obtained similar results. The problem with this lab is that mass transfer of solute into the activated carbon pores is rate limiting and the rate decreases as the pores fill. We used 100 mg of activated carbon in all isotherm bottles and varied the red dye concentration from 500, 250,100,75, to 50 mg/L. The range between 100 and 50 mg/L should be divided further for more data. Samples below 50 mg/L were clear.
+We used red dye \``#40`` and obtained similar results. The problem with this lab is that mass transfer of solute into the activated carbon pores is rate limiting and the rate decreases as the pores fill. We used 100 mg of activated carbon in all isotherm bottles and varied the red dye concentration from 500, 250,100,75, to 50 mg/L. The range between 100 and 50 mg/L should be divided further for more data. Samples below 50 mg/L were clear.
 
 The turbidity standard helps, but the spectrophotometer does pick up adsorbed red dye with a slightly different spectra than dissolved red dye. The best approach would be to filter the samples to remove the activated carbon fines.
 
