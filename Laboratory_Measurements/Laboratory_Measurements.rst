@@ -181,7 +181,7 @@ Submit one spreadsheet containing the data sheet, exported absorbance data, grap
 
 
  #. Fill out the Excel data sheet available from the course syllabus. Make sure that all calculated values are entered in the spreadsheet as equations. Failure to use the spreadsheet to do the calculations will not receive full credit. Note that this is likely the only assignment that we will do using Excel. All remaining analysis for the course will be done in Atom using Python!
- #. Create a graph of absorbance vs. concentration of red dye #40 in Atom using the exported data file. Does absorbance increase linearly with concentration of the red dye?
+ #. Create a graph of absorbance vs. concentration of red dye ````#40```` in Atom using the exported data file. Does absorbance increase linearly with concentration of the red dye?
  #. What is the value of the extinction coefficient, :math:`\varepsilon`?
  #. Did you use interpolation or extrapolation to get the concentration of the unknown?
  #. What measurement controls the accuracy of the density measurement for the NaCl solution?
@@ -202,7 +202,7 @@ Lab Prep Notes
 
 Setup
 =====
- #. Prepare stock red dye #40 solution and distribute to student workstations in 20 mL vials.
+ #. Prepare stock red dye ``#40`` solution and distribute to student workstations in 20 mL vials.
  #. Prepare 1 L of unknown in concentration range of standards. Divide into six 150 mL bottles (one for each student bench (teams/2)).
  #. Verify that spectrophotometers are working (prepare a calibration curve as a test).
  #. Verify that balances calibrate easily.
