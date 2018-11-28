@@ -359,7 +359,7 @@ Calibration steps
  #. Turn the LED off and when the voltage is stable and approximately -1.3 V click on |photometer_read_dark|.
  #. Turn the LED on with the blank solution in the photometer and click on |photometer_read_blank|. Remember the voltage should be approximately +3.5 V.
 
-An example calibration routine is given below. We suggest preparing a 40 g/L stock solution of Red Dye #40 to make a calibration curve for the photometer. Calculate the volume of red dye that will be needed to generate a calibration with points at 0, 1, 2, 5, 10, 20, 30, 40, and 50 mg/L. Remember that you will be adding the dye cumulatively and thus you need the incremental volumes. The first calibration point is 0 mg/L. This is the same as the blank.
+An example calibration routine is given below. We suggest preparing a 40 g/L stock solution of Red Dye ``#40`` to make a calibration curve for the photometer. Calculate the volume of red dye that will be needed to generate a calibration with points at 0, 1, 2, 5, 10, 20, 30, 40, and 50 mg/L. Remember that you will be adding the dye cumulatively and thus you need the incremental volumes. The first calibration point is 0 mg/L. This is the same as the blank.
 
   #. Click on read standard next to the 0 mg/L row before adding any red dye.
   #. Add red dye to make the concentration in the calibration system be 1 mg/L. If necessary, hit "Add Standard" and enter the concentration of the standard you are reading. This approach allows you to see how well the data is fitting to a straight line as you add the standards.
