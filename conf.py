@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# AguaClara Textbook documentation build configuration file, created by
+# EnvEngLab Textbook documentation build configuration file, created by
 # sphinx-quickstart on Fri Jun 22 18:21:19 2018.
 #
 # This file is execfile()d with the current directory set to its
