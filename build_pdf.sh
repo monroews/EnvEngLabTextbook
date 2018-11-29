@@ -17,5 +17,5 @@ if ! command -v conda > /dev/null; then # Install conda if you don't have it.
   conda install tectonic;
 fi
 pipenv run make latex
-tectonic _build/latex/AguaClaraTextbook.tex -p -o _build/ &&
+tectonic _build/latex/EnvEngLabTextbook.tex -p -o _build/ &&
 zip -rj _build/zipped_latex.zip _build/latex/*
