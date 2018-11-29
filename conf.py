@@ -57,9 +57,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'AguaClara Textbook'
-copyright = '2018, AguaClara Cornell'
-author = 'AguaClara Cornell'
+project = 'Environmental Engineering Laboratory Research Textbook'
+copyright = '2018, Monroe Weber-Shirk'
+author = 'Monroe L. Weber-Shirk, Leonard W. Lion, James J. Bisogni, Jr., Damian E Helbling'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -134,7 +134,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'AguaClaraTextbook'
+htmlhelp_basename = 'EnvEngLabTextbook'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -168,8 +168,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'AguaClaraTextbook.tex', 'AguaClara Textbook Documentation',
-     'AguaClara Cornell', 'manual'),
+    (master_doc, 'EnvEngLabTextbook.tex', 'Environmental Laboratory Documentation',
+     'Monroe Weber-Shirk', 'manual'),
 ]
 
 
@@ -178,7 +178,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'aguaclaratextbook', 'AguaClara Textbook Documentation',
+    (master_doc, 'EnvEngLabTextbook', 'Environmental Laboratory Documentation',
      [author], 1)
 ]
 
@@ -189,8 +189,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'AguaClaraTextbook', 'AguaClara Textbook Documentation',
-     author, 'AguaClaraTextbook', 'One line description of project.',
+    (master_doc, 'EnvEngLabTextbook', 'Environmental Laboratory Documentation',
+     'Monroe Weber-Shirk', 'EnvEngLabTextbook', 'One line description of project.',
      'Miscellaneous'),
 ]
 
