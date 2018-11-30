@@ -33,7 +33,7 @@ This textbook is written and maintained in `Github <https://github.com/monroews/
 
 
 .. toctree::
-  :caption: Chapter 2: Laboratory_Measurements
+  :caption: Chapter 2: Laboratory Measurements
   :maxdepth: 1
 
   Laboratory_Measurements/Laboratory_Measurements.rst
@@ -56,19 +56,17 @@ This textbook is written and maintained in `Github <https://github.com/monroews/
 
   Reactor_Characteristics/Reactor_Characteristics.rst
 
-
 .. toctree::
-  :caption: Chapter 6: Gas Transfer
-  :maxdepth: 1
-
-  Gas_Transfer/Gas_Transfer.rst
-
-
-.. toctree::
-  :caption: Chapter 7: Activated Carbon
+  :caption: Chapter 6: Activated Carbon
   :maxdepth: 1
 
   Activated_Carbon/Activated_Carbon.rst
+
+.. toctree::
+  :caption: Chapter 7: Gas Transfer
+  :maxdepth: 1
+
+  Gas_Transfer/Gas_Transfer.rst
 
 .. toctree::
   :caption: Chapter 8: Nutrient Removal
