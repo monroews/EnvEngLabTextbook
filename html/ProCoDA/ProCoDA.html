@@ -103,6 +103,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../Reactor_Characteristics/Reactor_Characteristics.html">Reactor Characteristics</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Chapter 6: Activated Carbon</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Carbon_Adsorption/Carbon_Adsorption.html">Carbon Adsorption</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Chapter 7: Gas Transfer</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../Gas_Transfer/Gas_Transfer.html">Gas Transfer</a></li>
@@ -248,7 +252,7 @@
 <p>ProCoDA software allows the user to automate data collection and to control many parts of the experimental apparatus. This enables researchers to focus on experimental design and data analysis. Process control software can control the speed of peristaltic pumps, regulate flow through solenoid valves, and measure (or control with feedback) water quality parameters such as temperature, pressure, and dissolved oxygen.</p>
 <p>The ProCoDA software is designed to allow complete automation of experiments including running a series of tests where a parameter is adjusted to a different value for each test. ProCoDA is a state machine. That means that you can create a series of states. Each state has it’s own logic for which state to go to next and what to do while in that state. A simple example of a state machine is a washing machine. Washing machine states could include</p>
 <span id="table-procoda-washing-machine-states"></span><table border="1" class="colwidths-given docutils align-center" id="id1">
-<caption><span class="caption-number">Table 9 </span><span class="caption-text">Washing machine states</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 12 </span><span class="caption-text">Washing machine states</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="33%" />
 <col width="33%" />
@@ -316,7 +320,7 @@
 <p>The ProCoDA software is designed to receive data from two types of digital sources. Sensors or meters that have their own digital communication interface can transmit their data to the ProCoDA software through external code that is written specifically for each meter. For example this method is used to acquire data from HF Scientific turbidimeters. Sensors that can be configured to produce an analog voltage such as pressure, pH and dissolved oxygen are monitored with a National Instruments USB data acquisition board.</p>
 <p>Sensors are wired using Category 5 or 6 Ethernet cable using our own <a class="reference internal" href="#table-procoda-sensor-wiring"><span class="std std-ref">analog</span></a> wiring standard. Two wires are used to carry the sensor output voltage designated as S- and S+. Five wires are used for different voltage power supplies, and one wire is used for the power supply ground. Sensors are wired to connect to the power supply that they require. Thus, the sensor is powered and monitored through a single port. This scheme is used for a variety of sensors including pressure, strain gage, pH, dissolved oxygen, photometer, and temperature. For several of the sensors the power supplies are also used to power a signal conditioning circuit to transform the sensor output into a voltage that can easily be monitored with a data acquisition system.</p>
 <span id="table-procoda-sensor-wiring"></span><table border="1" class="colwidths-given docutils align-center" id="id2">
-<caption><span class="caption-number">Table 10 </span><span class="caption-text">Wiring standard used for combining power supplies and analog data acquisition in a Category 5 Ethernet cable</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 13 </span><span class="caption-text">Wiring standard used for combining power supplies and analog data acquisition in a Category 5 Ethernet cable</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="33%" />
 <col width="33%" />
@@ -395,7 +399,7 @@
 The ProCoDA software converts the voltage output from the pressure sensors into the physical units of water column height or pressure using linear conversion algorithms. The sensors can also be zeroed or set to a measured value using a one point calibration.</p>
 <div class="figure align-center" id="id3">
 <span id="figure-pressure-sensor"></span><a class="reference internal image-reference" href="../_images/pressure_sensor.jpg"><img alt="Pressure sensor" src="../_images/pressure_sensor.jpg" style="width: 200px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Differential pressure sensors are used to measure water depth, head loss, and air pressure.</span></p>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Differential pressure sensors are used to measure water depth, head loss, and air pressure.</span></p>
 </div>
 <p>Steps to set up a pressure sensor.</p>
 <blockquote>
@@ -429,7 +433,7 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <p>pH sensors produce a voltage output in the range that would normally be easy to measure using standard data acquisition hardware. Unfortunately, the impedance requirement for a pH sensor is orders of magnitude higher than the inputs of standard data acquisition hardware and thus a signal conditioning circuit must be used to amplify the pH sensor output. The circuit consists of unity gain amplifiers that have less than 0.1 pA input leakage current.</p>
 <div class="figure align-center" id="id4">
 <span id="figure-ph-circuit-png"></span><a class="reference internal image-reference" href="../_images/pH_circuit.png"><img alt="pH circuit" src="../_images/pH_circuit.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Circuit diagram for the signal conditioning circuit that takes the output from a pH (or other ion selective) electrode and amplifies the signal so that it can be measured by the data acquisition system. This is required because pH probes have a very high impedance that is too high for standard data acquisition systems to measure.</span></p>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Circuit diagram for the signal conditioning circuit that takes the output from a pH (or other ion selective) electrode and amplifies the signal so that it can be measured by the data acquisition system. This is required because pH probes have a very high impedance that is too high for standard data acquisition systems to measure.</span></p>
 </div>
 <p>pH measurements require calibration in known buffers.</p>
 <blockquote>
@@ -467,7 +471,7 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <span id="heading-procoda-dissolved-oxygen"></span><h3>Dissolved Oxygen <img alt="sensor_DO" src="../_images/sensor_DO.png" /><a class="headerlink" href="#dissolved-oxygen-sensor-do" title="Permalink to this headline">¶</a></h3>
 <p>Dissolved oxygen diffuses across a gas-permeable membrane into a solution where all oxygen is immediately converted to water by an electrolysis circuit.</p>
 <div class="math notranslate nohighlight" id="equation-procoda-procoda-0">
-<span class="eqno">(114)<a class="headerlink" href="#equation-procoda-procoda-0" title="Permalink to this equation">¶</a></span>\[4e^- + 4H^+ + O_2 \to 2H_2O\]</div>
+<span class="eqno">(121)<a class="headerlink" href="#equation-procoda-procoda-0" title="Permalink to this equation">¶</a></span>\[4e^- + 4H^+ + O_2 \to 2H_2O\]</div>
 <p>The current required to reduce the oxygen that is diffusing across the membrane is measured by a circuit. Dissolved oxygen probes produce a current in the pA range that is proportional to the oxygen concentration in the bulk solution. The signal conditioning circuit is designed to convert this very small current into a measurable voltage and to isolate the probe from the effects of fluctuations in the voltage level of the solution containing the probe. This isolation is critical if the solution is monitored with additional probes or if the solution is electrically connected to a building plumbing system or to any other voltage source.</p>
 <p>When using the DO probe make sure that there <em>aren’t any air bubbles</em> on the probe membrane. If you are aerating the sample place the probe as far from the air bubbles as possible. Air bubbles on the membrane will cause inaccurate readings.</p>
 <blockquote>
@@ -492,7 +496,7 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <p>To calibrate the photometer, you will need to connect the peristaltic pump, a 1 L bottle, and the photometer in a closed loop. Use enough tubing so that the flow path of the photometer is oriented in the vertical direction with flow <em>up</em> through the photometer (this ensures that air bubbles are carried up and out of the photometer). Add 1 L (or a known volume) of tap water to the bottle and turn the pump on at 380 mL/min. The high flow rate is to speed up the response time when the concentration is changed. The goal is to have a known volume of solution circulating through the calibration system.</p>
 <div class="figure align-center" id="id5">
 <span id="figure-sensor-photometer-cal-schematic-png"></span><a class="reference internal image-reference" href="../_images/sensor_photometer_cal_schematic.png"><img alt="internal figure" src="../_images/sensor_photometer_cal_schematic.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Experimental setup for calibrating photometer. Flow must be up through the photometer to ensure that any air bubbles are removed. It may be necessary to lightly tap the photometer to help release any trapped air bubbles.</span></p>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Experimental setup for calibrating photometer. Flow must be up through the photometer to ensure that any air bubbles are removed. It may be necessary to lightly tap the photometer to help release any trapped air bubbles.</span></p>
 </div>
 <p>Calibration steps</p>
 <blockquote>
@@ -519,10 +523,10 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 </div></blockquote>
 <p>The photometer calibrator calculates the absorbance using the equation.</p>
 <div class="math notranslate nohighlight" id="equation-procoda-procoda-1">
-<span class="eqno">(115)<a class="headerlink" href="#equation-procoda-procoda-1" title="Permalink to this equation">¶</a></span>\[A = -log \frac{V_{Sample} - V_{Dark}}{V_{Blank} - V_{Dark}}\]</div>
+<span class="eqno">(122)<a class="headerlink" href="#equation-procoda-procoda-1" title="Permalink to this equation">¶</a></span>\[A = -log \frac{V_{Sample} - V_{Dark}}{V_{Blank} - V_{Dark}}\]</div>
 <p>This equation can be used to convert raw voltage data into absorbance readings. The absorbance is converted into a concentration by using Beer’s law.</p>
 <div class="math notranslate nohighlight" id="equation-procoda-procoda-2">
-<span class="eqno">(116)<a class="headerlink" href="#equation-procoda-procoda-2" title="Permalink to this equation">¶</a></span>\[A = \varepsilon bC\]</div>
+<span class="eqno">(123)<a class="headerlink" href="#equation-procoda-procoda-2" title="Permalink to this equation">¶</a></span>\[A = \varepsilon bC\]</div>
 <dl class="docutils">
 <dt>where</dt>
 <dd><div class="first line-block">
@@ -585,15 +589,15 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <h3>Increment functions<a class="headerlink" href="#increment-functions" title="Permalink to this headline">¶</a></h3>
 <p>A common experimental task is to systematically vary a parameter (for example, coagulant dose) over a wide range to measure the response (for example, settled water turbidity) of a system. ProCoDA external functions provide linear and power law options for incrementing over a range of values.</p>
 <div class="math notranslate nohighlight" id="equation-procoda-procoda-3">
-<span class="eqno">(117)<a class="headerlink" href="#equation-procoda-procoda-3" title="Permalink to this equation">¶</a></span>\[y_{linear} = slope \cdot x + intercept\]</div>
+<span class="eqno">(124)<a class="headerlink" href="#equation-procoda-procoda-3" title="Permalink to this equation">¶</a></span>\[y_{linear} = slope \cdot x + intercept\]</div>
 <div class="math notranslate nohighlight" id="equation-procoda-procoda-4">
-<span class="eqno">(118)<a class="headerlink" href="#equation-procoda-procoda-4" title="Permalink to this equation">¶</a></span>\[y_{power} = coefficient \cdot base^x\]</div>
-<p>The two increment functions are dependent on the state cycles. In the example shown in <a class="reference internal" href="#figure-increment-functions"><span class="std std-numref">Fig. 24</span></a> the state was set to cycle between states 1, 2, and 3 with the exception of a manual reset to state 0 and then to state 1 to illustrate how the increment function is reset. The power law function is useful when it is desirable to explore a larger parameter space. However, care must be taken to ensure that the controlled processes have the ability to deliver the desired range of the varied parameter.</p>
+<span class="eqno">(125)<a class="headerlink" href="#equation-procoda-procoda-4" title="Permalink to this equation">¶</a></span>\[y_{power} = coefficient \cdot base^x\]</div>
+<p>The two increment functions are dependent on the state cycles. In the example shown in <a class="reference internal" href="#figure-increment-functions"><span class="std std-numref">Fig. 25</span></a> the state was set to cycle between states 1, 2, and 3 with the exception of a manual reset to state 0 and then to state 1 to illustrate how the increment function is reset. The power law function is useful when it is desirable to explore a larger parameter space. However, care must be taken to ensure that the controlled processes have the ability to deliver the desired range of the varied parameter.</p>
 <p>ProCoDA can be configured to stop an experiment after the reaching the maximum value of the parameter by using the external code called “count states”. Count states counts the number of times a “state to count” has been entered. This can be used to set an exit condition on a state. If no exit condition is created to end an experiment the increment function will reset the parameter to its initial value and begin the increment process again.</p>
 <p>It is possible to systematically vary more than one parameter. To do this it is essential that different copies of the increment function code be used for each parameter. This is because increment function code includes a memory to track its own state and if it is used by ProCoDA to do multiple things it will give unexpected results!</p>
 <div class="figure align-center" id="id6">
 <span id="figure-increment-functions"></span><a class="reference internal image-reference" href="../_images/increment_functions.png"><img alt="Increment functions" src="../_images/increment_functions.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Increment functions showing how the output varies as a function of the state. In this example the state cycled between states 1, 2, and 3. The increment state was 2, the number of replicates was 2, the reset state was 0, the y intercept was 200, the slope was 50, and the maximum value of x was 4. The power law relationship used a coefficient of 100 and a base of 1.5.</span></p>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Increment functions showing how the output varies as a function of the state. In this example the state cycled between states 1, 2, and 3. The increment state was 2, the number of replicates was 2, the reset state was 0, the y intercept was 200, the slope was 50, and the maximum value of x was 4. The power law relationship used a coefficient of 100 and a base of 1.5.</span></p>
 </div>
 </div>
 <div class="section" id="states">
