@@ -155,11 +155,13 @@ Prepare red dye standards of several concentrations
 
 .. |photometer_open_save_export| image:: ../ProCoDA/Images/photometer_open_save_export.png
 
- #. A red dye stock solution of 10 g/L has been prepared. Use it to prepare 100 mL of each of the following concentrations: 1 mg/L, 2 mg/L, 5 mg/L, 10 mg/L, 20 mg/L, 50 mg/L, 100 mg/L, and possibly 200 mg/L.  Record your calculations in the attached spreadsheet.
- #. Note any errors in transfer of mass as you prepare these dilutions (the color will make it easy to see).
+A red dye stock solution of 10 g/L has been prepared.
 
-Measure a standard curve and an unknown
----------------------------------------
+ #.  Use the red dye stock solution to prepare 100 mL of each of the following concentrations: 1 mg/L, 2 mg/L, 5 mg/L, 10 mg/L, 20 mg/L, 50 mg/L, 100 mg/L, and possibly 200 mg/L.  Record your calculations in the attached spreadsheet. Use pipettes and volumetric flasks to create accurate dilutions.
+ #. Note any errors in transfer of mass as you prepare these dilutions (the color will make it easy to see). Make sure to transfer every drop!
+
+Create a standard curve and measure an unknown
+----------------------------------------------
 
   #. Create a calibration curve using the standards created above and the :ref:`photometer calibration method <heading_ProCoDA_Photometer>`.
   #. Make sure to both save **AND** export the calibration data from ProCoDA (|photometer_open_save_export|)
