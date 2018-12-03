@@ -398,7 +398,7 @@ Equation :eq:`eq_Reactor_Mout_constantQ` can be used to determine if all of the 
 Tracers
 =======
 
-A conservative tracer will be used to characterize your reactors. Typical tracers include salt and various dyes. For this experiment we will use ``#40`` Red Dye as the conservative tracer. The red dye concentration will be measured using an optical spectrophotometric probe. The linear range of operation for the probes is from about 0.01 mg/L to 30 mg/L. We will add an amount of red dye near the high end of this range to acquire a dataset that spans multiple orders of magnitude.
+A conservative tracer will be used to characterize your reactors. Typical tracers include salt and various dyes. For this experiment we will use \#40 Red Dye as the conservative tracer. The red dye concentration will be measured using an optical spectrophotometric probe. The linear range of operation for the probes is from about 0.01 mg/L to 30 mg/L. We will add an amount of red dye near the high end of this range to acquire a dataset that spans multiple orders of magnitude.
 
 Additional constraints for the tracer are that if a highly concentrated tracer is used, then there will be a significant density difference between the tracer and the water in the reactor. If a very dilute tracer is used then a large volume of tracer will need to be added and the volume of tracer could become a large fraction of the reactor volume and thus the pulse could no longer be modeled as having negligible volume.
 
@@ -443,7 +443,7 @@ For each test make sure that you accurately measure the reactor volume, residual
 
  #. Log data to file so that you have a record of the red dye concentration in the effluent of the reactor as a function of time.
  #. Prepare to save a text note into the data file indicating the exact moment when you will actually start the experiment.
- #. Add a volume of red dye ``#40`` stock that will give a maximum concentration of *approximately* 30 mg/L near the influent of the reactor. Immediately enter the text note to record when the experiment began. For the CMFR you can easily calculate this. For other reactors you may need to try and if necessary repeat the experiment if the tracer concentration goes above the 50 mg/L or if the maximum tracer concentration is below 10 mg/L.
+ #. Add a volume of red dye \#40 stock that will give a maximum concentration of *approximately* 30 mg/L near the influent of the reactor. Immediately enter the text note to record when the experiment began. For the CMFR you can easily calculate this. For other reactors you may need to try and if necessary repeat the experiment if the tracer concentration goes above the 50 mg/L or if the maximum tracer concentration is below 10 mg/L.
  #. Collect data until the majority of the tracer has exited.
  #. Stop the experiment and pour the contents of the reactor into a container. Weigh the container to determine the exact volume of the reactor.
  #. Sample the contents of the mixed reactor with the photometer to obtain the average concentration in the reactor at the end of your experiment. This will enable you to do a mass balance on the red dye.

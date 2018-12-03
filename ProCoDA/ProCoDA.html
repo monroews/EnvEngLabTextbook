@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ProCoDA: Process Control and Data Acquisition &mdash; Environmental Engineering Laboratory Research Textbook v0.0.7 documentation</title>
+  <title>ProCoDA: Process Control and Data Acquisition &mdash; Environmental Engineering Laboratory Research Textbook v0.0.8 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                v0.0.7
+                v0.0.8
               </div>
             
           
@@ -109,7 +109,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Chapter 6: Activated Carbon</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Carbon_Adsorption/Carbon_Adsorption.html">Carbon Adsorption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Adsorption/Adsorption.html">Adsorption</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Chapter 7: Gas Transfer</span></p>
 <ul>
@@ -475,7 +475,7 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <span id="heading-procoda-dissolved-oxygen"></span><h3>Dissolved Oxygen <img alt="sensor_DO" src="../_images/sensor_DO.png" /><a class="headerlink" href="#dissolved-oxygen-sensor-do" title="Permalink to this headline">¶</a></h3>
 <p>Dissolved oxygen diffuses across a gas-permeable membrane into a solution where all oxygen is immediately converted to water by an electrolysis circuit.</p>
 <div class="math notranslate nohighlight" id="equation-procoda-procoda-0">
-<span class="eqno">(121)<a class="headerlink" href="#equation-procoda-procoda-0" title="Permalink to this equation">¶</a></span>\[4e^- + 4H^+ + O_2 \to 2H_2O\]</div>
+<span class="eqno">(122)<a class="headerlink" href="#equation-procoda-procoda-0" title="Permalink to this equation">¶</a></span>\[4e^- + 4H^+ + O_2 \to 2H_2O\]</div>
 <p>The current required to reduce the oxygen that is diffusing across the membrane is measured by a circuit. Dissolved oxygen probes produce a current in the pA range that is proportional to the oxygen concentration in the bulk solution. The signal conditioning circuit is designed to convert this very small current into a measurable voltage and to isolate the probe from the effects of fluctuations in the voltage level of the solution containing the probe. This isolation is critical if the solution is monitored with additional probes or if the solution is electrically connected to a building plumbing system or to any other voltage source.</p>
 <p>When using the DO probe make sure that there <em>aren’t any air bubbles</em> on the probe membrane. If you are aerating the sample place the probe as far from the air bubbles as possible. Air bubbles on the membrane will cause inaccurate readings.</p>
 <blockquote>
@@ -515,7 +515,7 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <li>Turn the LED on with the blank solution in the photometer and click on <img alt="photometer_read_blank" src="../_images/photometer_read_blank.png" />. Remember the voltage should be approximately +3.5 V.</li>
 </ol>
 </div></blockquote>
-<p>An example calibration routine is given below. We suggest preparing a 40 g/L stock solution of Red Dye <code class="docutils literal notranslate"><span class="pre">#40</span></code> to make a calibration curve for the photometer. Calculate the volume of red dye that will be needed to generate a calibration with points at 0, 1, 2, 5, 10, 20, 30, 40, and 50 mg/L. Remember that you will be adding the dye cumulatively and thus you need the incremental volumes. The first calibration point is 0 mg/L. This is the same as the blank.</p>
+<p>An example calibration routine is given below. We suggest preparing a 40 g/L stock solution of Red Dye #40 to make a calibration curve for the photometer. Calculate the volume of red dye that will be needed to generate a calibration with points at 0, 1, 2, 5, 10, 20, 30, 40, and 50 mg/L. Remember that you will be adding the dye cumulatively and thus you need the incremental volumes. The first calibration point is 0 mg/L. This is the same as the blank.</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li>Click on read standard next to the 0 mg/L row before adding any red dye.</li>
@@ -527,10 +527,10 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 </div></blockquote>
 <p>The photometer calibrator calculates the absorbance using the equation.</p>
 <div class="math notranslate nohighlight" id="equation-procoda-procoda-1">
-<span class="eqno">(122)<a class="headerlink" href="#equation-procoda-procoda-1" title="Permalink to this equation">¶</a></span>\[A = -log \frac{V_{Sample} - V_{Dark}}{V_{Blank} - V_{Dark}}\]</div>
+<span class="eqno">(123)<a class="headerlink" href="#equation-procoda-procoda-1" title="Permalink to this equation">¶</a></span>\[A = -log \frac{V_{Sample} - V_{Dark}}{V_{Blank} - V_{Dark}}\]</div>
 <p>This equation can be used to convert raw voltage data into absorbance readings. The absorbance is converted into a concentration by using Beer’s law.</p>
 <div class="math notranslate nohighlight" id="equation-procoda-procoda-2">
-<span class="eqno">(123)<a class="headerlink" href="#equation-procoda-procoda-2" title="Permalink to this equation">¶</a></span>\[A = \varepsilon bC\]</div>
+<span class="eqno">(124)<a class="headerlink" href="#equation-procoda-procoda-2" title="Permalink to this equation">¶</a></span>\[A = \varepsilon bC\]</div>
 <dl class="docutils">
 <dt>where</dt>
 <dd><div class="first line-block">
@@ -593,9 +593,9 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <h3>Increment functions<a class="headerlink" href="#increment-functions" title="Permalink to this headline">¶</a></h3>
 <p>A common experimental task is to systematically vary a parameter (for example, coagulant dose) over a wide range to measure the response (for example, settled water turbidity) of a system. ProCoDA external functions provide linear and power law options for incrementing over a range of values.</p>
 <div class="math notranslate nohighlight" id="equation-procoda-procoda-3">
-<span class="eqno">(124)<a class="headerlink" href="#equation-procoda-procoda-3" title="Permalink to this equation">¶</a></span>\[y_{linear} = slope \cdot x + intercept\]</div>
+<span class="eqno">(125)<a class="headerlink" href="#equation-procoda-procoda-3" title="Permalink to this equation">¶</a></span>\[y_{linear} = slope \cdot x + intercept\]</div>
 <div class="math notranslate nohighlight" id="equation-procoda-procoda-4">
-<span class="eqno">(125)<a class="headerlink" href="#equation-procoda-procoda-4" title="Permalink to this equation">¶</a></span>\[y_{power} = coefficient \cdot base^x\]</div>
+<span class="eqno">(126)<a class="headerlink" href="#equation-procoda-procoda-4" title="Permalink to this equation">¶</a></span>\[y_{power} = coefficient \cdot base^x\]</div>
 <p>The two increment functions are dependent on the state cycles. In the example shown in <a class="reference internal" href="#figure-increment-functions"><span class="std std-numref">Fig. 25</span></a> the state was set to cycle between states 1, 2, and 3 with the exception of a manual reset to state 0 and then to state 1 to illustrate how the increment function is reset. The power law function is useful when it is desirable to explore a larger parameter space. However, care must be taken to ensure that the controlled processes have the ability to deliver the desired range of the varied parameter.</p>
 <p>ProCoDA can be configured to stop an experiment after the reaching the maximum value of the parameter by using the external code called “count states”. Count states counts the number of times a “state to count” has been entered. This can be used to set an exit condition on a state. If no exit condition is created to end an experiment the increment function will reset the parameter to its initial value and begin the increment process again.</p>
 <p>It is possible to systematically vary more than one parameter. To do this it is essential that different copies of the increment function code be used for each parameter. This is because increment function code includes a memory to track its own state and if it is used by ProCoDA to do multiple things it will give unexpected results!</p>
@@ -725,7 +725,7 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v0.0.7',
+            VERSION:'v0.0.8',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
