@@ -81,15 +81,6 @@ The mass of the adsorbate in the column per plan view area at breakthrough is gi
    plt.show()
 
 
-.. _figure_Density_vs_T:
-
-.. figure:: Images/Density_vs_T.png
-   :width: 300px
-   :align: center
-   :alt: Density of water vs. temperature.
-
-   Density of water vs. temperature.
-
 
 
 The Freundlich parameters K and n can be fit using a power law relationship and Langmuir parameters K and :math:`q_{\max }^{\star}` can be fit using nonlinear regression.
