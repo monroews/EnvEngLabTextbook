@@ -57,7 +57,7 @@ This textbook is written and maintained in `Github <https://github.com/monroews/
   Reactor_Characteristics/Reactor_Characteristics.rst
 
 .. toctree::
-  :caption: Chapter 6: Activated Carbon
+  :caption: Chapter 6: Adsorption
   :maxdepth: 1
 
   Adsorption/Adsorption.rst

@@ -230,7 +230,7 @@ References
  Safety in Academic Chemistry Laboratories. A publication of the American Chemical Society Committee on Chemical Safety. Fifth edition. 1990
 
 
-Pre-Laboratory Questions
+Prelab Questions
 ========================
 
  #. Why are contact lenses hazardous in the laboratory?
