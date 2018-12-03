@@ -60,7 +60,7 @@ This textbook is written and maintained in `Github <https://github.com/monroews/
   :caption: Chapter 6: Activated Carbon
   :maxdepth: 1
 
-  Carbon_Adsorption/Carbon_Adsorption.rst
+  Adsorption/Adsorption.rst
 
 .. toctree::
   :caption: Chapter 7: Gas Transfer
