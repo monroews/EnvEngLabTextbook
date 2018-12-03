@@ -356,7 +356,7 @@ A more accurate technique to measure ANC is the Gran plot analysis. This is the 
 
 .. _heading_Acid_Rain_PreLab:
 
-Pre-Laboratory Questions
+Prelab Questions
 ========================
 
  #. How many grams of :math:`NaHCO_3` would be required to keep the ANC levels in a lake above 50 :math:`\mu eq/L` for 3 hydraulic residence times given an influent pH of 3.0 and a lake volume of 4 L, if the current lake ANC is 0 :math:`\mu eq/L`?

@@ -153,19 +153,26 @@ Measure Density
 Prepare red dye standards of several concentrations
 ---------------------------------------------------
 
- #. A red dye stock solution of 1 g/L has been prepared. Use it to prepare 100 mL of each of the following concentrations: 1 mg/L, 2 mg/L, 3 mg/L, 4 mg/L, and 5 mg/L.  Record your calculations in the attached spreadsheet.
+.. |photometer_open_save_export| image:: ../ProCoDA/Images/photometer_open_save_export.png
+
+ #. A red dye stock solution of 10 g/L has been prepared. Use it to prepare 100 mL of each of the following concentrations: 1 mg/L, 2 mg/L, 5 mg/L, 10 mg/L, 20 mg/L, 50 mg/L, 100 mg/L, and possibly 200 mg/L.  Record your calculations in the attached spreadsheet.
  #. Note any errors in transfer of mass as you prepare these dilutions (the color will make it easy to see).
 
 Measure a standard curve and an unknown
 ---------------------------------------
 
- .. todo:: need to create a method here!
+  #. Create a calibration curve using the standards created above and the :ref:`photometer calibration method <heading_ProCoDA_Photometer>`.
+  #. Make sure to both save **AND** export the calibration data from ProCoDA (|photometer_open_save_export|)
+  #. Was the calibration linear? If not, which standards caused it to depart from linearity?
+     #. The high concentration standards may be beyond the linear range for the sensor. This can occur if the amount of light reaching the sensor is too low to create an output voltage that is proportional to the light. Remember that an absorbance of 2 means that 99% of the light is adsorbed by the dye! If the absorbance for the highest standard isn't in the line of the lower concentration samples, then delete the highest standards sequentially until you get a high correlation coefficient (R) as calculated by the ProCoDA photometer software.
+     #. If the correlation coefficient is less than 0.99 then it suggests that your standards weren't accurately prepared. See if you can identify what you did incorrectly with your pipette or dilution technique and consider (talk with a TA) preparing new standards.
+  #. Save **AND** export the calibration data from ProCoDA (|photometer_open_save_export|). These calibration curves will be useful later in this course!
+  #. Measure the concentration of the unknown concentration of red dye. Note that you can do this directly in ProCoDA in the Graphs tab.
 
-One method would be to connect a 50 mL syringe to the top outlet of the photometer and a 15 cm length of 1/4" OD tubing to the inlet of the photometer. Then use the syringe to pull a sample from a volumetric flask into the photometer.
 
 .. _heading_Laboratory_Measurements_and_Procedures_Pre-Laboratory_Questions:
 
-Pre-Laboratory Questions
+Prelab Questions
 ========================
 
  #. You need 100 mL of a 1 :math:`\mu M` solution of zinc that you will use as a standard to calibrate an atomic adsorption spectrophotometer. Find a source of zinc ions combined either with chloride or nitrate (you can use the internet or any other source of information). What is the molecular formula of the compound that you found? Zinc disposal down the sanitary sewer is restricted at Cornell and the solutions you prepare may need to be disposed of as hazardous waste. As an environmental engineering student you strive to minimize waste production. How would you prepare this standard using techniques readily available in the environmental laboratory so that you minimize the production of solutions that you don't need? Note that we have pipettes that can dispense volumes between 10 :math:`\mu L` and 1 mL and that we have 100 mL and 1 L volumetric flasks. Include enough information so that you could prepare the standard without doing any additional calculations. Consider your ability to accurately weigh small masses. Explain your procedure for any dilutions. Note that the stock solution concentration should be an easy multiple of your desired solution concentration so you don't have to attempt to pipette a volume that the digital pipettes can't be set for such as 13.6 :math:`\mu L`.
@@ -202,8 +209,8 @@ Lab Prep Notes
 
 Setup
 =====
- #. Prepare stock red dye \#40 solution and distribute to student workstations in 20 mL vials.
+ #. Prepare stock red dye \#40 solution (10 g/L) and distribute to student workstations in 20 mL vials.
  #. Prepare 1 L of unknown in concentration range of standards. Divide into six 150 mL bottles (one for each student bench (teams/2)).
- #. Verify that spectrophotometers are working (prepare a calibration curve as a test).
  #. Verify that balances calibrate easily.
  #. Disassemble, clean, and lubricate all pipettes.
+ #. Distribute all supplies needed for the lab.
