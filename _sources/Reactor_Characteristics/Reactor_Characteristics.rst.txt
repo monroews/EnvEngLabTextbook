@@ -560,7 +560,7 @@ The baffles can be installed by rolling a 3 mm diameter roll of putty and applyi
 
 .. _heading_Reactor_Pre-Laboratory_Questions:
 
-Pre-Laboratory Questions
+Prelab Questions
 ========================
 
  #. Calculate the **incremental** volume of a 100 g/L red dye stock that would need to be added to 1 L of water to produce 0, 1, 2, 5, 10, 20, 30, 40, and 50 mg/L calibration points. Calculate a numpy array containing the **cumulative** volume of red dye required. Strip the units from the array using .magnitude. Then create a copy of the array with a zero appended (np.append) in front and the last element deleted (np.delete). Then use numpy subtract to get the different between the two arrays to calculate the incremental volume that you need to add.

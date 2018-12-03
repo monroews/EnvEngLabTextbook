@@ -316,7 +316,7 @@ Measure the Gas Transfer
 
 .. _heading_Gas_Transfer_Pre-Laboratory_Questions:
 
-Pre-Laboratory Questions
+Prelab Questions
 ========================
 
  #. Calculate the mass of sodium sulfite needed to reduce all the dissolved oxygen in 600 mL of pure water in equilibrium with the atmosphere and at :math:`22^\circ C`.
