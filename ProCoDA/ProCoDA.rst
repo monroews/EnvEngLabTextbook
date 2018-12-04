@@ -337,7 +337,35 @@ Photometer |sensor_photometer|
 .. |photometer_read_blank| image:: Images/photometer_read_blank.png
 .. |photometer_read_dark| image:: Images/photometer_read_dark.png
 
-To calibrate the photometer, you will need to connect the peristaltic pump, a 1 L bottle, and the photometer in a closed loop. Use enough tubing so that the flow path of the photometer is oriented in the vertical direction with flow *up* through the photometer (this ensures that air bubbles are carried up and out of the photometer). Add 1 L (or a known volume) of tap water to the bottle and turn the pump on at 380 mL/min. The high flow rate is to speed up the response time when the concentration is changed. The goal is to have a known volume of solution circulating through the calibration system.
+The photometer is a flow cell with an path length of 19 mm. The flow cell has 1/8 inch NPT threads for connections to experimental or sample streams from processes. The photometer uses an LED as its light source.
+
+
+.. code:: python
+
+   """ importing """
+   from aide_design.play import*
+   b_cell = (3/4 * u.inch).to(u.mm)
+   print(b_cell)
+
+.. _figure_Photometer_exploded:
+
+.. figure:: Images/Photometer_exploded.jpg
+   :width: 300px
+   :align: center
+   :alt: Photometer exploded
+
+   The photometer flow cell is a sealed chamber with round glass plates on both sides. There is a 465 nm LED (blue light) on the right of this image. A photodetector on the left produces a voltage that varies linearly with the intensity of the light that passes through the sample cell.
+
+.. _figure_Photometer_w_signal_conditioning:
+
+.. figure:: Images/Photometer_w_signal_conditioning.jpg
+    :width: 200px
+    :align: center
+    :alt: photometer with signal conditioning
+
+    The photometer must always be held in a vertical orientation to ensure that air bubbles are carried out of the sample cell. The sensor output is conditioned for monitoring by ProCoDA in the black box.    
+
+To calibrate the photometer, you will need to connect the peristaltic pump, a 1 L bottle, and the photometer in a closed loop. Use enough tubing so that the flow path of the photometer is oriented in the vertical direction with flow **up** through the photometer (this ensures that air bubbles are carried up and out of the photometer). Add 1 L (or a known volume) of tap water to the bottle and turn the pump on at 380 mL/min. The high flow rate is to speed up the response time when the concentration is changed. The goal is to have a known volume of solution circulating through the calibration system.
 
 .. _figure_sensor_photometer_cal_schematic.png:
 
@@ -346,7 +374,7 @@ To calibrate the photometer, you will need to connect the peristaltic pump, a 1 
     :align: center
     :alt: internal figure
 
-    Experimental setup for calibrating photometer. Flow must be up through the photometer to ensure that any air bubbles are removed. It may be necessary to lightly tap the photometer to help release any trapped air bubbles.
+    Experimental setup for calibrating photometer. Flow must be **up** through the photometer to ensure that any air bubbles are removed. It may be necessary to lightly tap the photometer to help release any trapped air bubbles.
 
 Calibration steps
 

@@ -58,60 +58,81 @@ The mass of the adsorbate in the column per plan view area at breakthrough is gi
 
 .. math::
 
-    M_{max} = M_{adsorbent} q C_0 V_a t
+    M_{dye} = M_{adsorbent} q_{0}
+    v_mtz =  C_0 V_a t *A
 
  | where
- | :math:`M_{Al}` and :math:`M_{GAC}` are the masses of the adsorbents per plan view surface area of the column
+ | :math:`M_{AC}` and :math:`M_{GAC}` are the masses of the adsorbents per plan view surface area of the column
  | :math:`v_a` is the approach velocity of the water above the sand bed
  | :math:`\phi` is the porosity of the sand bed
  | :math:`L` is the depth of the sand bed
  | :math:`C_0` is the influent concentration of the adsorbate (red dye \#40)
 
-.. code:: python
+The mass transfer zone travels at velocity :math:`v_{mtz}` through the fixed bed as the absorbent slowly fills to the equilibrium density, :math:`q_0`, based on the influent concentration, :math:`C_0`.
 
-   """ importing """
-   from aide_design.play import*
-   v_a = 1 u.mm/u.s
-   Temp = np.linspace(0,30)*u.degC
-   density = pc.density_water(Temp)
-   fig, ax = plt.subplots()
-   ax.plot(Temp,density)
-   ax.set(xlabel='Temperature (degrees Celsius)', ylabel=r'Density of water (kg/$m^3$)')
-   fig.savefig('Laboratory_Measurements/Images/Density_vs_T')
-   plt.show()
+.. _figure_mass_transport_zone:
 
+.. figure:: Images/mtz.png
+    :target: https://youtu.be/ziLug9EEwM4
+    :width: 400px
+    :align: center
 
+    Movie illustrating how the effluent concentration of the absorbate changes with time as the mass transfer zone moves through the fixed bed.
 
+The velocity of the mass transfer zone (mtz or the adsorption front) can be obtained by a mass balance on the system. If we set our frame of reference (and our control volume) to be centered on the mass transfer zone, then the average velocity (over the pore fraction of the control surface) of fluid entering the mtz is equal to pore water velocity minus the velocity of the mtz. The fluid phase concentration of the adsorbate entering the control surface is :math:`C_0` and the fraction of the control surface where fluid is passing through is the porosity, :math:`\phi`.
 
-The Freundlich parameters K and n can be fit using a power law relationship and Langmuir parameters K and :math:`q_{\max }^{\star}` can be fit using nonlinear regression.
-
-The carbon contactor will be analyzed using the results from the equilibrium isotherm study and the mass-transfer model,
+The average velocity of the solid phase exiting through the control surface is :math:`-v_{mtz}`. The bulk density of the adsorbate is :math:`q_0 \rho_{bulk \; adsorbent}` where :math:`\rho_{bulk \; adsorbent}` is the mass of adsorbent per volume of the packed bed. The mass rate of adsorbate passing through the control surface in liquid phase must precisely balance the mass rate of adsorbate passing through the control surface in the solid phase because the mtz is stationary.
 
 .. math::
 
-   S=\frac{v_a C_{0} }{\phi C_{0} +\rho _{b} Q}
+    [(v_{pore} - v_{mtz})C_0\phi] - [(v_{mtz})q_0 \rho_{bulk \; adsorbent}] = 0
+
+We can apply continuity to find the relationship between the velocity in the pores and velocity above the porous fixed bed. The plan view area of the fixed bed cancels out.
 
 .. math::
 
-    \eta =\frac{\rho _b Q}{k'C_0 }\left[1+\frac{1}{1-r} ln\frac{\frac{ C }{C_0}} {\left(1-\frac{ C }{C_0} \right)^r}  \right]
+    \phi v_{pore} = v_a
 
-
+Eliminate :math:`v_{pore}` from the equation
 
 .. math::
 
-   \eta =t- \frac{x}{S}
+    (v_a C_0 - v_{mtz}C_0\phi) - [(v_{mtz})q_0 \rho_{bulk \; adsorbent}] = 0
 
-where
 
- | :math:`v_a` =  superficial velocity or approach velocity
- | :math:`S` = front velocity
- | :math:`C_0` = influent concentration
- | :math:`\phi` = effective bed porosity
- | :math:`Q = q^\star` when :math:`C = C_0`
- | :math:`k'` is the effective mass-transfer coefficient
- | :math:`x` is the depth of the activated carbon bed
 
-The effective bed porosity can be calculated from
+Now solve for :math:`v_{mtz}`.
+
+.. math::
+    :label: eq_Adsorb_v_mtz
+
+    v_{mtz}=\frac{v_a C_0}{C_0\phi + q_0 \rho_{bulk \; adsorbent}}
+
+In equation :refnum:`eq_Adsorb_v_mtz` the term :math:`C_0\phi` represents the liquid phase mass of the adsorbate per unit volume of the fixed bed and the term :math:`q_0 \rho_{bulk \; adsorbent}` represents the solid phase mass of the adsorbate per unit volume of the fixed bed. The second term dominates for fixed bed adsorption reactors that are effective and thus equation :refnum:`eq_Adsorb_v_mtz` simplifies to:
+
+.. math::
+    :label: eq_Adsorb_v_mtz_simple
+
+    v_{mtz} \cong \frac{v_a C_0}{q_0 \rho_{bulk \; adsorbent}}
+
+The time until breakthrough can be obtained by dividing the length of the adsorption column (:math:`L_column`) by the velocity of the mtz (equation :refnum:`eq_Adsorb_v_mtz`)
+
+.. math::
+    :label:
+
+     \frac{L_{column}}{v_{mtz}} = \frac{L_{column}\phi}{v_a} + \frac{L_{column}q_0 \rho_{bulk \; adsorbent}}{v_a C_0}
+
+     t_{mtz} = t_{water} + t_{ads}
+
+Thus the time to breakthrough is the time required for water to flow through the reactor plus the additional time required due to the adsorption process. The retardation factor is defined as the ratio of the time for the mass transfer zone to travel through the bed divided by the time for water to travel through the bed.
+
+.. math::
+
+    R_{adsorption} = \frac{t_{mtz}}{t_{water}} = \frac{v_{water}}{v_{mtz}}
+
+    R_{adsorption}\cong  \frac{v_a q_0 \rho_{bulk \; adsorbent}}{\phi v_a C_0} =\frac{q_0 \rho_{bulk \; adsorbent}}{\phi C_0}
+
+The effective bed porosity, :math:`\phi` can be calculated from
 
 .. math::
 
@@ -122,72 +143,50 @@ where
  | :math:`\rho_b =` apparent bulk density
  | :math:`\rho_{ac}  =  2.1 g/cm^3`
 
-
-Note that modeling may first involve fitting the isotherm data to the generalized isotherm:
+From experiments conducted in the Cornell environmental laboratory around 2003 we have  q_{50 mg/L} = 0.08. Our goal is to design a fixed bed reactor that has a :math:`t_{mtz}` of about 30 minutes. With a 15 cm deep column at 1 mm/s and with a porosity of 0.4 the hydraulic residence time is 1 minute. Given a target retardation factor of 30 we can calculate the bulk density of carbon that we should have in the column. We can achieve this bulk density by
 
 .. math::
-    :label: eq_AC_generalized_isotherm
 
-    q=\frac{Q\frac{C}{C_0}}{r+(1-r)\frac{C}{C_0}}
+    \rho_{bulk \; adsorbent} \cong \frac{R_{adsorption}\phi C_0}{q_0}
 
-where
- | :math:`q` =  concentration of contaminant in solid phase (mass contaminant/mass activated carbon)
+Different teams can try different concentrations of red dye or different masses of activated carbon.
 
-The parameters r and Q should be fit using nonlinear regression on equation :eq:`eq_AC_generalized_isotherm`.
+.. code:: python
 
-.. _heading_Adsorption_Isotherm_Procedures:
-
-Isotherm Procedures
-===================
-
-Red Dye \#40 Calibration Curve (week 1)
-----------------------------------------
-
- #. Prepare the following Red Dye \#40 concentrations from the 10 g/L stock using distilled water for dilution: 0.5, 1.5, 5, 15, 50, 150, 500 mg/L.
- #. Analyze the standards using the Spectrophotometer that will be used to monitor the carbon contactor. (Make sure to include units and to enter a general description of the type of sample.)
- #. Clean the sample cell with 5\% bleach before analyzing dilute samples again!
- #. Prepare a second set of standards and analyze them as samples.
- #. Use the known samples to verify that all of the standards were accurately prepared and measured. This is important because these standards will be used to measure the concentrations in both the isotherm and contactor studies.
-
-
-
-Adsorption Isotherm (week 1)
-----------------------------
-
-Each group will prepare the following samples so the replicates can be combined to obtain more reliable isotherm data.
-
- #. Prepare 12 120-mL glass serum bottles using :numref:`table_Isotherm` as a guide.
- #. Seal with Teflon-lined rubber septa and aluminum crimp caps.
- #. Agitate the bottles vigorously on a wrist-action or orbital shaker for 5 to 7 days.
-
-.. _table_Isotherm:
-
-.. csv-table:: Isotherm sample preparation guide.
-    :header: "Recommended Mass of AC (mg)",	"Actual Mass of AC (mg)",	"Red Dye \#40 initial concentration (mg/L)",	"Volume of 10 g/L Red Dye in 100 mL (mL)",	"Red Dye \#40 final concentration (mg/L)"
-    :widths: 20, 20, 20, 20, 20
-    :align: center
-
-    100, ,0, 0,
-    100, ,50, 0.5,
-    100, ,60, 0.6,
-    100, ,70,	0.7,
-    100, ,85,	0.85,
-    100, ,100,	1,
-    100, ,120,	1.2,
-    100, ,150,	1.5,
-    100, ,190,	1.9,
-    100, ,250,	2.5,
-    100, ,300,	3,
-    100, ,400,	4,
+   """ importing """
+   from aide_design.play import*
+   v_a = 1 * u.mm/u.s
+   porosity = 0.4
+   L_column = 10 * u.cm
+   C_0 = 50 * u.mg/u.L
+   q_0 = 0.08
+   t_water = (L_column*porosity/v_a).to(u.s)
+   t_mtz = 1800*u.s
+   # set the breakthrough time to 30 minutes = 1800 s
+   R_adsorption = t_mtz/t_water
+   Density_bulk = (R_adsorption * porosity * C_0/q_0).to(u.kg/u.m**3)
+   Density_bulk
+   D_column = 1*u.inch
+   A_column = pc.area_circle(D_column)
+   V_column = A_column * L_column
+   M_carbon = (V_column * Density_bulk).to(u.mg)
+   M_carbon
+   V_reddye = (v_a*A_column*t_mtz).to(u.L)
+   V_reddye
+   Q_reddye = (v_a*A_column).to(u.mL/u.min)
+   Q_reddye
+   density_sand = 2650 * u.kg/u.m**3
+   M_sand = (V_column*density_sand*(1-porosity)).to(u.g)
+   M_sand
 
 
 
-Adsorption Isotherm Sample Analysis (week 2)
---------------------------------------------
 
- #. Measure the UV-Vis absorption spectra of the supernatants as samples using the spectrophotometer.
- #. Use spectral analysis to determine the Red Dye \#40 concentrations in each of the supernatants using the activated carbon and red dye \#40 standards.
- #. Investigate improving sample preparation by centrifuging at 14000 rpm and then transferring the supernatant to spectrophotometer cuvettes.
+
+The Freundlich parameters K and n can be fit using a power law relationship and Langmuir parameters K and :math:`q_{\max }^{\star}` can be fit using nonlinear regression.
+
+
+
 
 .. _heading_Adsorption_Contactor_Procedures:
 
@@ -207,7 +206,7 @@ Continuous-Flow Carbon Contactor Setup (week 1)
 -----------------------------------------------
 
 
-Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pump with \#14 tubing at approximately 10 rpm. Prepare 2-20 L jerricans with 50 mg/L of Red dye \#40. Use reverse osmosis water to dilute the dye. The carbon contactor will be operated in down flow mode. The specifications for the carbon contactors are given in Table :numref:`table_carbon_contactor_settings`.
+Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pump with \#14 tubing at approximately 10 rpm. Prepare 20 L jerricans with 50 mg/L of Red dye \#40. Use reverse osmosis water to dilute the dye. The carbon contactor will be operated in down flow mode. The specifications for the carbon contactors are given in Table :numref:`table_carbon_contactor_settings`.
 
 .. _table_carbon_contactor_settings:
 
@@ -217,44 +216,39 @@ Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pu
    :align: center
 
     Influent red dye Concentration,        0.050  g/L
-    Depth of carbon, 15 cm
-    Influent flow rate, 2.5 ml/min
+    Depth of fixed bed, 15 cm
+    Influent flow rate, 30 ml/min
     Column diameter, 2.5 cm
     Carbon bulk density, 0.375 :math:`g/cm^3`
-    Mass of carbon, 27.61 g
+    Mass of carbon, 570 mg
+    Mass of sand (to obtain 15 cm)
     q, 0.080  g/g
-    red dye mass at breakthrough, 2.21  g
-    Mass flux of red dye, 0.00013  g/min
-    Volume of stock required, 44.2 Liters
-    Estimated breakthrough, 17671 min (12.3 days)
     Mass of red dye/20 L, 1.00 g
+    Mass of sand, 80 g
 
-Set up a daily sample schedule.
+Set up the Contactor
+--------------------
 
- #. Pump distilled water into the column from the bottom to a depth of 10 cm.
- #. Pour 27 g of activated carbon into a beaker containing distilled water.
- #. Swirl the carbon until most of the air is released.
- #. Use a funnel and a distilled water wash bottle to wash the distilled water from the beaker into the column.
+ #. Test column and pump and all tubing to ensure that it is leak tight using reverse osmosis water.
+ #. Remove top from column
+ #. Mix 80 g of sand and 570 mg of activated carbon
+ #. Pour mixture of sand and activated carbon into a beaker containing reverse osmosis water.
+ #. Swirl until most of the air is released.
+ #. Use a funnel and a reverse osmosis water wash bottle to wash the mixture from the beaker into the column.
  #. Use a 50 mL syringe to remove excess water from the top of the column if necessary.
  #. Use a long rod to gently stir activated carbon to help release air bubbles.
  #. Assemble the column end fitting.
- #. In up flow mode (at 10 mL/min), discharge the column effluent to waste until most of the fines are removed.
+ #. In up flow mode (at 30 mL/min), discharge the column effluent to waste until most of the fines are removed.
  #. Reverse the direction of flow to down flow.
- #. Measure the depth of the activated carbon in the column.
- #. Setup a sampling technique so that a 100 mL vial is always in place and filling up or overflowing.
+ #. Configure ProCoDA to log the concentration of red dye at 5 second intervals
 
-Operate the Contactor (starting week 1 for 2 to 3 weeks)
---------------------------------------------------------
+Operate the Contactor
+---------------------
 
  #. Start pumping Red Dye \#40.
- #. Measure the flow rate daily using a balance to get mass of water in approximately 1 minute.
- #. Collect and label a 100 mL sample daily.
- #. It is probably impractical to try and achieve :math:`C/C_0 = 1`, but past experiments have usually run long enough to attain at least :math:`C/C_0 = 0.8`, which provides enough of the breakthrough curve to allow modeling of its shape.
+ #. Measure the flow rate using a balance to get mass of water in approximately 1 minute.
+ #. It is impractical to try and achieve :math:`C/C_0 = 1`, but run long enough to attain at least :math:`C/C_0 = 0.8`.
 
-Carbon Contactor Measurements (week 3)
---------------------------------------
-
- #. Use spectral analysis to measure the effluent samples using the techniques developed for the isotherm analysis.
 
 
 Isotherm Results and Discussion
@@ -336,3 +330,8 @@ The turbidity standard helps, but the spectrophotometer does pick up adsorbed re
 We used red dye standards of 500, 150, 50, 15, 5, 1.5, 0.5 mg/L. We used a red dye stock containing 10 g/L.
 
 Decreased flow rate in column to 15 mL/min.
+
+References
+==========
+
+Lawler, D. F., & Benjamin, M. M. (2013). Water quality engineering: physical / chemical treatment processes. Hoboken, N.J.: Wiley. Retrieved from http://search.ebscohost.com/login.aspx?direct=true&scope=site&db=nlebk&db=nlabk&AN=631668
