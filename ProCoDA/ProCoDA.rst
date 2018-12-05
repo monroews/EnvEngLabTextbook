@@ -337,7 +337,7 @@ Photometer |sensor_photometer|
 .. |photometer_read_blank| image:: Images/photometer_read_blank.png
 .. |photometer_read_dark| image:: Images/photometer_read_dark.png
 
-The photometer is a flow cell with an path length of 19 mm. The flow cell has 1/8 inch NPT threads for connections to experimental or sample streams from processes. The photometer uses an LED as its light source.
+The photometer is a flow cell with an optical path length of 19 mm. The flow cell has 1/8 inch NPT threads for connections to experimental or sample streams from processes. The photometer uses an `LED <https://www.digikey.com/product-detail/en/kingbright/WP7113QBC-D/754-1489-ND/2261460>`_ with an emission peak at 465 nm as its light source. The spectral bandwidth defined by 50% of the dominant wavelength is 25 nm.
 
 
 .. code:: python
@@ -363,7 +363,7 @@ The photometer is a flow cell with an path length of 19 mm. The flow cell has 1/
     :align: center
     :alt: photometer with signal conditioning
 
-    The photometer must always be held in a vertical orientation to ensure that air bubbles are carried out of the sample cell. The sensor output is conditioned for monitoring by ProCoDA in the black box.    
+    The photometer must always be held in a vertical orientation to ensure that air bubbles are carried out of the sample cell. The sensor output is conditioned for monitoring by ProCoDA in the black box.
 
 To calibrate the photometer, you will need to connect the peristaltic pump, a 1 L bottle, and the photometer in a closed loop. Use enough tubing so that the flow path of the photometer is oriented in the vertical direction with flow **up** through the photometer (this ensures that air bubbles are carried up and out of the photometer). Add 1 L (or a known volume) of tap water to the bottle and turn the pump on at 380 mL/min. The high flow rate is to speed up the response time when the concentration is changed. The goal is to have a known volume of solution circulating through the calibration system.
 
@@ -377,6 +377,7 @@ To calibrate the photometer, you will need to connect the peristaltic pump, a 1 
     Experimental setup for calibrating photometer. Flow must be **up** through the photometer to ensure that any air bubbles are removed. It may be necessary to lightly tap the photometer to help release any trapped air bubbles.
 
 Calibration steps
+^^^^^^^^^^^^^^^^^
 
  #. Connect the photometer probe to one of the sensor ports of your ProCoDA box.
  #. The photometer will read out voltages in the range of +/- 5V, so we will need to let the software know to expect that range. On the Configuration Tab in the ProCoDA II software, find the section for the NI Input/Output device and hit the |config_select_daq| button. Set the maximum voltage for channel with the photometer to 5V.
@@ -387,7 +388,24 @@ Calibration steps
  #. Turn the LED off and when the voltage is stable and approximately -1.3 V click on |photometer_read_dark|.
  #. Turn the LED on with the blank solution in the photometer and click on |photometer_read_blank|. Remember the voltage should be approximately +3.5 V.
 
-An example calibration routine is given below. We suggest preparing a 40 g/L stock solution of Red Dye \#40 to make a calibration curve for the photometer. Calculate the volume of red dye that will be needed to generate a calibration with points at 0, 1, 2, 5, 10, 20, 30, 40, and 50 mg/L. Remember that you will be adding the dye cumulatively and thus you need the incremental volumes. The first calibration point is 0 mg/L. This is the same as the blank.
+An example continuous flow calibration routine is given below. We suggest preparing a 40 g/L stock solution of Red Dye \#40 to make a calibration curve for the photometer. Calculate the volume of red dye that will be needed to generate a calibration with points at 0, 1, 2, 5, 10, 20, 30, 40, and 50 mg/L. Remember that you will be adding the dye cumulatively and thus you need to calculate the incremental volumes. The first calibration point is 0 mg/L. This is the same as the blank.
+
+Sipper cell flow Calibration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+#. Insert the sipper tube into the standard (x mg/L) and use the syringe to pull the standard through the photometer.
+#. Make sure that any air bubbles have been dislodged from the photometer and the voltage reading is stable.
+#. Click on read standard next to the x mg/L row.
+#. Use the syringe to push the standard back into the bottle
+#. Rinse the photometer with the same water that is used for the blank if sample carry-over is a concern
+#. Repeat for the other standards. The R squared value should be greater than 0.99.
+#. When you are done, click on the save icon in |photometer_open_save_export| to save the calibration as a file. This calibration should be good for as long as the LED lasts, which should be a very long time!
+#. Use the export icon to create a tab delimited file containing all of the calibration data.
+
+
+Continuous flow Calibration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
   #. Click on read standard next to the 0 mg/L row before adding any red dye.
   #. Add red dye to make the concentration in the calibration system be 1 mg/L. If necessary, hit "Add Standard" and enter the concentration of the standard you are reading. This approach allows you to see how well the data is fitting to a straight line as you add the standards.
