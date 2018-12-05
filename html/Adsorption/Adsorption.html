@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Adsorption &mdash; Environmental Engineering Laboratory Research Textbook v0.0.9 documentation</title>
+  <title>Adsorption &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
   
 
   
@@ -57,10 +57,6 @@
 
           
             
-            
-              <div class="version">
-                v0.0.9
-              </div>
             
           
 
@@ -113,17 +109,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Adsorption</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#objectives">Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#isotherm-procedures">Isotherm Procedures</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#red-dye-40-calibration-curve-week-1">Red Dye #40 Calibration Curve (week 1)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#adsorption-isotherm-week-1">Adsorption Isotherm (week 1)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#adsorption-isotherm-sample-analysis-week-2">Adsorption Isotherm Sample Analysis (week 2)</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#contactor-procedures">Contactor Procedures</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#continuous-flow-carbon-contactor-setup-week-1">Continuous-Flow Carbon Contactor Setup (week 1)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#operate-the-contactor-starting-week-1-for-2-to-3-weeks">Operate the Contactor (starting week 1 for 2 to 3 weeks)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#carbon-contactor-measurements-week-3">Carbon Contactor Measurements (week 3)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#isotherm-results-and-discussion">Isotherm Results and Discussion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#carbon-contactor-setup">Carbon Contactor Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-the-contactor">Set up the Contactor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting-and-reflections">Troubleshooting and Reflections</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#contactor-results-and-analysis">Contactor Results and Analysis</a></li>
 </ul>
 </li>
@@ -131,7 +120,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#procedure-to-remove-air-from-the-top-of-the-column">Procedure to remove air from the top of the column</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#recommendations-from-previous-years">Recommendations from previous years</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
@@ -242,47 +231,43 @@
 <p>In this analysis we are neglecting several aspects of the adsorption process. We assume that the time required to reach equilibrium partitioning is very small relative to the hydraulic residence time (<span class="math notranslate nohighlight">\(\theta_{HRT}\)</span> ) of the column. This assumption requires that both liquid phase and solid phase adsorbate mass transport mechanisms are relatively fast. Transport within the solid phase matrix is by the slow process of diffusion. Thus we expect diffusion to increase the time required to reach equilibrium for adsorbents that require diffusion over longer distances. Diffusion time will be greatest for Large diameter granular activated carbon, less for powdered activated carbon, and very fast for coagulant nanoparticles.</p>
 <p>The mass of the adsorbate in the column per plan view area at breakthrough is given by</p>
 <div class="math notranslate nohighlight" id="equation-adsorption-adsorption-1">
-<span class="eqno">(87)<a class="headerlink" href="#equation-adsorption-adsorption-1" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}   M_{max} = M_{adsorbent} q C_0 V_a t\\| where
-| :math:`M_{Al}` and :math:`M_{GAC}` are the masses of the adsorbents per plan view surface area of the column
+<span class="eqno">(87)<a class="headerlink" href="#equation-adsorption-adsorption-1" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}   M_{dye} = M_{adsorbent} q_{0}
+   v_mtz =  C_0 V_a t *A\\| where
+| :math:`M_{AC}` and :math:`M_{GAC}` are the masses of the adsorbents per plan view surface area of the column
 | :math:`v_a` is the approach velocity of the water above the sand bed
 | :math:`\phi` is the porosity of the sand bed
 | :math:`L` is the depth of the sand bed
 | :math:`C_0` is the influent concentration of the adsorbate (red dye \#40)\end{aligned}\end{align} \]</div>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">aide_design.play</span> <span class="k">import</span><span class="o">*</span>
-<span class="n">v_a</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">u</span><span class="o">.</span><span class="n">mm</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span>
-<span class="n">Temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">degC</span>
-<span class="n">density</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">density_water</span><span class="p">(</span><span class="n">Temp</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Temp</span><span class="p">,</span><span class="n">density</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Temperature (degrees Celsius)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Density of water (kg/$m^3$)&#39;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Laboratory_Measurements/Images/Density_vs_T&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
+<p>The mass transfer zone travels at velocity <span class="math notranslate nohighlight">\(v_{mtz}\)</span> through the fixed bed as the absorbent slowly fills to the equilibrium density, <span class="math notranslate nohighlight">\(q_0\)</span>, based on the influent concentration, <span class="math notranslate nohighlight">\(C_0\)</span>.</p>
+<div class="figure align-center" id="id1">
+<span id="figure-mass-transport-zone"></span><a class="reference external image-reference" href="https://youtu.be/ziLug9EEwM4"><img alt="../_images/MTZ.png" src="../_images/MTZ.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Movie illustrating how the effluent concentration of the absorbate changes with time as the mass transfer zone moves through the fixed bed.</span></p>
 </div>
-<p>The Freundlich parameters K and n can be fit using a power law relationship and Langmuir parameters K and <span class="math notranslate nohighlight">\(q_{\max }^{\star}\)</span> can be fit using nonlinear regression.</p>
-<p>The carbon contactor will be analyzed using the results from the equilibrium isotherm study and the mass-transfer model,</p>
+<p>The velocity of the mass transfer zone (mtz or the adsorption front) can be obtained by a mass balance on the system. If we set our frame of reference (and our control volume) to be centered on the mass transfer zone, then the average velocity (over the pore fraction of the control surface) of fluid entering the mtz is equal to pore water velocity minus the velocity of the mtz. The fluid phase concentration of the adsorbate entering the control surface is <span class="math notranslate nohighlight">\(C_0\)</span> and the fraction of the control surface where fluid is passing through is the porosity, <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
+<p>The average velocity of the solid phase exiting through the control surface is <span class="math notranslate nohighlight">\(-v_{mtz}\)</span>. The bulk density of the adsorbate is <span class="math notranslate nohighlight">\(q_0 \rho_{bulk \; adsorbent}\)</span> where <span class="math notranslate nohighlight">\(\rho_{bulk \; adsorbent}\)</span> is the mass of adsorbent per volume of the packed bed. The mass rate of adsorbate passing through the control surface in liquid phase must precisely balance the mass rate of adsorbate passing through the control surface in the solid phase because the mtz is stationary.</p>
 <div class="math notranslate nohighlight" id="equation-adsorption-adsorption-2">
-<span class="eqno">(88)<a class="headerlink" href="#equation-adsorption-adsorption-2" title="Permalink to this equation">¶</a></span>\[S=\frac{v_a C_{0} }{\phi C_{0} +\rho _{b} Q}\]</div>
+<span class="eqno">(88)<a class="headerlink" href="#equation-adsorption-adsorption-2" title="Permalink to this equation">¶</a></span>\[[(v_{pore} - v_{mtz})C_0\phi] - [(v_{mtz})q_0 \rho_{bulk \; adsorbent}] = 0\]</div>
+<p>We can apply continuity to find the relationship between the velocity in the pores and velocity above the porous fixed bed. The plan view area of the fixed bed cancels out.</p>
 <div class="math notranslate nohighlight" id="equation-adsorption-adsorption-3">
-<span class="eqno">(89)<a class="headerlink" href="#equation-adsorption-adsorption-3" title="Permalink to this equation">¶</a></span>\[\eta =\frac{\rho _b Q}{k'C_0 }\left[1+\frac{1}{1-r} ln\frac{\frac{ C }{C_0}} {\left(1-\frac{ C }{C_0} \right)^r}  \right]\]</div>
+<span class="eqno">(89)<a class="headerlink" href="#equation-adsorption-adsorption-3" title="Permalink to this equation">¶</a></span>\[\phi v_{pore} = v_a\]</div>
+<p>Eliminate <span class="math notranslate nohighlight">\(v_{pore}\)</span> from the equation</p>
 <div class="math notranslate nohighlight" id="equation-adsorption-adsorption-4">
-<span class="eqno">(90)<a class="headerlink" href="#equation-adsorption-adsorption-4" title="Permalink to this equation">¶</a></span>\[\eta =t- \frac{x}{S}\]</div>
-<p>where</p>
-<blockquote>
-<div><div class="line-block">
-<div class="line"><span class="math notranslate nohighlight">\(v_a\)</span> =  superficial velocity or approach velocity</div>
-<div class="line"><span class="math notranslate nohighlight">\(S\)</span> = front velocity</div>
-<div class="line"><span class="math notranslate nohighlight">\(C_0\)</span> = influent concentration</div>
-<div class="line"><span class="math notranslate nohighlight">\(\phi\)</span> = effective bed porosity</div>
-<div class="line"><span class="math notranslate nohighlight">\(Q = q^\star\)</span> when <span class="math notranslate nohighlight">\(C = C_0\)</span></div>
-<div class="line"><span class="math notranslate nohighlight">\(k'\)</span> is the effective mass-transfer coefficient</div>
-<div class="line"><span class="math notranslate nohighlight">\(x\)</span> is the depth of the activated carbon bed</div>
-</div>
-</div></blockquote>
-<p>The effective bed porosity can be calculated from</p>
+<span class="eqno">(90)<a class="headerlink" href="#equation-adsorption-adsorption-4" title="Permalink to this equation">¶</a></span>\[(v_a C_0 - v_{mtz}C_0\phi) - [(v_{mtz})q_0 \rho_{bulk \; adsorbent}] = 0\]</div>
+<p>Now solve for <span class="math notranslate nohighlight">\(v_{mtz}\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-adsorb-v-mtz">
+<span class="eqno">(91)<a class="headerlink" href="#equation-eq-adsorb-v-mtz" title="Permalink to this equation">¶</a></span>\[v_{mtz}=\frac{v_a C_0}{C_0\phi + q_0 \rho_{bulk \; adsorbent}}\]</div>
+<p>In equation <a class="reference internal" href="#equation-eq-adsorb-v-mtz">(91)</a> the term <span class="math notranslate nohighlight">\(C_0\phi\)</span> represents the liquid phase mass of the adsorbate per unit volume of the fixed bed and the term <span class="math notranslate nohighlight">\(q_0 \rho_{bulk \; adsorbent}\)</span> represents the solid phase mass of the adsorbate per unit volume of the fixed bed. The second term dominates for fixed bed adsorption reactors that are effective and thus equation <a class="reference internal" href="#equation-eq-adsorb-v-mtz">(91)</a> simplifies to:</p>
+<div class="math notranslate nohighlight" id="equation-eq-adsorb-v-mtz-simple">
+<span class="eqno">(92)<a class="headerlink" href="#equation-eq-adsorb-v-mtz-simple" title="Permalink to this equation">¶</a></span>\[v_{mtz} \cong \frac{v_a C_0}{q_0 \rho_{bulk \; adsorbent}}\]</div>
+<p>The time until breakthrough can be obtained by dividing the length of the adsorption column (<span class="math notranslate nohighlight">\(L_{column}\)</span>) by the velocity of the mtz (equation <a class="reference internal" href="#equation-eq-adsorb-v-mtz">(91)</a>)</p>
 <div class="math notranslate nohighlight" id="equation-adsorption-adsorption-5">
-<span class="eqno">(91)<a class="headerlink" href="#equation-adsorption-adsorption-5" title="Permalink to this equation">¶</a></span>\[\phi =1-\frac{\rho _b }{\rho _{ac} }\]</div>
+<span class="eqno">(93)<a class="headerlink" href="#equation-adsorption-adsorption-5" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned} \frac{L_{column}}{v_{mtz}} = \frac{L_{column}\phi}{v_a} + \frac{L_{column}q_0 \rho_{bulk \; adsorbent}}{v_a C_0}\\ t_{mtz} = t_{water} + t_{ads}\end{aligned}\end{align} \]</div>
+<p>Thus the time to breakthrough is the time required for water to flow through the reactor plus the additional time required due to the adsorption process. The retardation factor is defined as the ratio of the time for the mass transfer zone to travel through the bed divided by the time for water to travel through the bed.</p>
+<div class="math notranslate nohighlight" id="equation-eq-r-adsorption">
+<span class="eqno">(94)<a class="headerlink" href="#equation-eq-r-adsorption" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}R_{adsorption} = \frac{t_{mtz}}{t_{water}} = \frac{v_{water}}{v_{mtz}}\\R_{adsorption}\cong  \frac{v_a q_0 \rho_{bulk \; adsorbent}}{\phi v_a C_0} =\frac{q_0 \rho_{bulk \; adsorbent}}{\phi C_0}\end{aligned}\end{align} \]</div>
+<p>The effective bed porosity, <span class="math notranslate nohighlight">\(\phi\)</span> can be calculated from</p>
+<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-6">
+<span class="eqno">(95)<a class="headerlink" href="#equation-adsorption-adsorption-6" title="Permalink to this equation">¶</a></span>\[\phi =1-\frac{\rho _b }{\rho _{ac} }\]</div>
 <p>where</p>
 <blockquote>
 <div><div class="line-block">
@@ -290,157 +275,49 @@
 <div class="line"><span class="math notranslate nohighlight">\(\rho_{ac}  =  2.1 g/cm^3\)</span></div>
 </div>
 </div></blockquote>
-<p>Note that modeling may first involve fitting the isotherm data to the generalized isotherm:</p>
-<div class="math notranslate nohighlight" id="equation-eq-ac-generalized-isotherm">
-<span class="eqno">(92)<a class="headerlink" href="#equation-eq-ac-generalized-isotherm" title="Permalink to this equation">¶</a></span>\[q=\frac{Q\frac{C}{C_0}}{r+(1-r)\frac{C}{C_0}}\]</div>
-<dl class="docutils">
-<dt>where</dt>
-<dd><div class="first last line-block">
-<div class="line"><span class="math notranslate nohighlight">\(q\)</span> =  concentration of contaminant in solid phase (mass contaminant/mass activated carbon)</div>
-</div>
-</dd>
-</dl>
-<p>The parameters r and Q should be fit using nonlinear regression on equation <a class="reference internal" href="#equation-eq-ac-generalized-isotherm">(92)</a>.</p>
-</div>
-<div class="section" id="isotherm-procedures">
-<span id="heading-adsorption-isotherm-procedures"></span><h2>Isotherm Procedures<a class="headerlink" href="#isotherm-procedures" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="red-dye-40-calibration-curve-week-1">
-<h3>Red Dye #40 Calibration Curve (week 1)<a class="headerlink" href="#red-dye-40-calibration-curve-week-1" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><ol class="arabic simple">
-<li>Prepare the following Red Dye #40 concentrations from the 10 g/L stock using distilled water for dilution: 0.5, 1.5, 5, 15, 50, 150, 500 mg/L.</li>
-<li>Analyze the standards using the Spectrophotometer that will be used to monitor the carbon contactor. (Make sure to include units and to enter a general description of the type of sample.)</li>
-<li>Clean the sample cell with 5% bleach before analyzing dilute samples again!</li>
-<li>Prepare a second set of standards and analyze them as samples.</li>
-<li>Use the known samples to verify that all of the standards were accurately prepared and measured. This is important because these standards will be used to measure the concentrations in both the isotherm and contactor studies.</li>
-</ol>
-</div></blockquote>
-</div>
-<div class="section" id="adsorption-isotherm-week-1">
-<h3>Adsorption Isotherm (week 1)<a class="headerlink" href="#adsorption-isotherm-week-1" title="Permalink to this headline">¶</a></h3>
-<p>Each group will prepare the following samples so the replicates can be combined to obtain more reliable isotherm data.</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li>Prepare 12 120-mL glass serum bottles using <a class="reference internal" href="#table-isotherm"><span class="std std-numref">Table 6</span></a> as a guide.</li>
-<li>Seal with Teflon-lined rubber septa and aluminum crimp caps.</li>
-<li>Agitate the bottles vigorously on a wrist-action or orbital shaker for 5 to 7 days.</li>
-</ol>
-</div></blockquote>
-<span id="table-isotherm"></span><table border="1" class="colwidths-given docutils align-center" id="id1">
-<caption><span class="caption-number">Table 6 </span><span class="caption-text">Isotherm sample preparation guide.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="20%" />
-<col width="20%" />
-<col width="20%" />
-<col width="20%" />
-<col width="20%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Recommended Mass of AC (mg)</th>
-<th class="head">Actual Mass of AC (mg)</th>
-<th class="head">Red Dye #40 initial concentration (mg/L)</th>
-<th class="head">Volume of 10 g/L Red Dye in 100 mL (mL)</th>
-<th class="head">Red Dye #40 final concentration (mg/L)</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>100</td>
-<td>&#160;</td>
-<td>0</td>
-<td>0</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>100</td>
-<td>&#160;</td>
-<td>50</td>
-<td>0.5</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>100</td>
-<td>&#160;</td>
-<td>60</td>
-<td>0.6</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>100</td>
-<td>&#160;</td>
-<td>70</td>
-<td>0.7</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>100</td>
-<td>&#160;</td>
-<td>85</td>
-<td>0.85</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>100</td>
-<td>&#160;</td>
-<td>100</td>
-<td>1</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>100</td>
-<td>&#160;</td>
-<td>120</td>
-<td>1.2</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>100</td>
-<td>&#160;</td>
-<td>150</td>
-<td>1.5</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>100</td>
-<td>&#160;</td>
-<td>190</td>
-<td>1.9</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>100</td>
-<td>&#160;</td>
-<td>250</td>
-<td>2.5</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>100</td>
-<td>&#160;</td>
-<td>300</td>
-<td>3</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>100</td>
-<td>&#160;</td>
-<td>400</td>
-<td>4</td>
-<td>&#160;</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="adsorption-isotherm-sample-analysis-week-2">
-<h3>Adsorption Isotherm Sample Analysis (week 2)<a class="headerlink" href="#adsorption-isotherm-sample-analysis-week-2" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><ol class="arabic simple">
-<li>Measure the UV-Vis absorption spectra of the supernatants as samples using the spectrophotometer.</li>
-<li>Use spectral analysis to determine the Red Dye #40 concentrations in each of the supernatants using the activated carbon and red dye #40 standards.</li>
-<li>Investigate improving sample preparation by centrifuging at 14000 rpm and then transferring the supernatant to spectrophotometer cuvettes.</li>
-</ol>
-</div></blockquote>
+<p>From experiments conducted in the Cornell environmental laboratory around 2003 we have  q_{50 mg/L} = 0.08. Our goal is to design a fixed bed reactor that has a <span class="math notranslate nohighlight">\(t_{mtz}\)</span> of about 30 minutes. With a 15 cm deep column at 1 mm/s and with a porosity of 0.4 the hydraulic residence time is 1 minute. Given a target retardation factor of 30 we can calculate the bulk density of carbon that we should have in the column. We can achieve this bulk density by diluting the activated carbon with sand.</p>
+<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-7">
+<span class="eqno">(96)<a class="headerlink" href="#equation-adsorption-adsorption-7" title="Permalink to this equation">¶</a></span>\[\rho_{bulk \; adsorbent} \cong \frac{R_{adsorption}\phi C_0}{q_0}\]</div>
+<p>Different teams can try different concentrations of red dye or different masses of activated carbon.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">aide_design.play</span> <span class="k">import</span><span class="o">*</span>
+<span class="n">v_a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mm</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span>
+<span class="n">porosity</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">L_column</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">cm</span>
+<span class="n">C_0</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">L</span>
+<span class="n">q_0</span> <span class="o">=</span> <span class="mf">0.08</span>
+<span class="n">t_water</span> <span class="o">=</span> <span class="p">(</span><span class="n">L_column</span><span class="o">*</span><span class="n">porosity</span><span class="o">/</span><span class="n">v_a</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span>
+<span class="n">t_mtz</span> <span class="o">=</span> <span class="mi">1800</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">s</span>
+<span class="c1"># set the breakthrough time to 30 minutes = 1800 s</span>
+<span class="n">R_adsorption</span> <span class="o">=</span> <span class="n">t_mtz</span><span class="o">/</span><span class="n">t_water</span>
+<span class="n">Density_bulk</span> <span class="o">=</span> <span class="p">(</span><span class="n">R_adsorption</span> <span class="o">*</span> <span class="n">porosity</span> <span class="o">*</span> <span class="n">C_0</span><span class="o">/</span><span class="n">q_0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">Density_bulk</span>
+<span class="n">D_column</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">inch</span>
+<span class="n">A_column</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">area_circle</span><span class="p">(</span><span class="n">D_column</span><span class="p">)</span>
+<span class="n">V_column</span> <span class="o">=</span> <span class="n">A_column</span> <span class="o">*</span> <span class="n">L_column</span>
+<span class="n">M_carbon</span> <span class="o">=</span> <span class="p">(</span><span class="n">V_column</span> <span class="o">*</span> <span class="n">Density_bulk</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mg</span><span class="p">)</span>
+<span class="n">M_carbon</span>
+<span class="n">V_reddye</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_a</span><span class="o">*</span><span class="n">A_column</span><span class="o">*</span><span class="n">t_mtz</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">L</span><span class="p">)</span>
+<span class="n">V_reddye</span>
+<span class="n">Q_reddye</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_a</span><span class="o">*</span><span class="n">A_column</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mL</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
+<span class="n">Q_reddye</span>
+<span class="n">density_sand</span> <span class="o">=</span> <span class="mi">2650</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">M_sand</span> <span class="o">=</span> <span class="p">(</span><span class="n">V_column</span><span class="o">*</span><span class="n">density_sand</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">porosity</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
+<span class="n">M_sand</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="contactor-procedures">
 <span id="heading-adsorption-contactor-procedures"></span><h2>Contactor Procedures<a class="headerlink" href="#contactor-procedures" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center" id="id2">
-<span id="figure-ac-schematic"></span><a class="reference internal image-reference" href="../_images/Schematic.png"><img alt="internal figure" src="../_images/Schematic.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Proposed design of the carbon column and feed system.</span></p>
+<span id="figure-ac-schematic"></span><a class="reference internal image-reference" href="../_images/Schematic.png"><img alt="carbon contactor schematic" src="../_images/Schematic.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Proposed design of the carbon column and feed system.</span></p>
 </div>
-<div class="section" id="continuous-flow-carbon-contactor-setup-week-1">
-<h3>Continuous-Flow Carbon Contactor Setup (week 1)<a class="headerlink" href="#continuous-flow-carbon-contactor-setup-week-1" title="Permalink to this headline">¶</a></h3>
-<p>Assemble the system shown in <a class="reference internal" href="#figure-ac-schematic"><span class="std std-numref">Fig. 17</span></a>. Use a peristaltic pump with #14 tubing at approximately 10 rpm. Prepare 2-20 L jerricans with 50 mg/L of Red dye #40. Use reverse osmosis water to dilute the dye. The carbon contactor will be operated in down flow mode. The specifications for the carbon contactors are given in Table <a class="reference internal" href="#table-carbon-contactor-settings"><span class="std std-numref">Table 7</span></a>.</p>
+<div class="section" id="carbon-contactor-setup">
+<h3>Carbon Contactor Setup<a class="headerlink" href="#carbon-contactor-setup" title="Permalink to this headline">¶</a></h3>
+<p>Assemble the system shown in <a class="reference internal" href="#figure-ac-schematic"><span class="std std-numref">Fig. 18</span></a>. Use a peristaltic pump with #14 tubing at approximately 10 rpm. Prepare 20 L jerricans with 50 mg/L of Red dye #40. Use reverse osmosis water to dilute the dye. The carbon contactor will be operated in down flow mode. The specifications for the carbon contactors are given in Table <a class="reference internal" href="#table-carbon-contactor-settings"><span class="std std-numref">Table 6</span></a>.</p>
 <span id="table-carbon-contactor-settings"></span><table border="1" class="colwidths-given docutils align-center" id="id3">
-<caption><span class="caption-number">Table 7 </span><span class="caption-text">Carbon contactor settings.</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">Carbon contactor settings.</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -454,113 +331,100 @@
 <tr class="row-even"><td>Influent red dye Concentration</td>
 <td>0.050  g/L</td>
 </tr>
-<tr class="row-odd"><td>Depth of carbon</td>
-<td>15 cm</td>
-</tr>
-<tr class="row-even"><td>Influent flow rate</td>
-<td>2.5 ml/min</td>
-</tr>
-<tr class="row-odd"><td>Column diameter</td>
-<td>2.5 cm</td>
-</tr>
-<tr class="row-even"><td>Carbon bulk density</td>
-<td>0.375 <span class="math notranslate nohighlight">\(g/cm^3\)</span></td>
-</tr>
-<tr class="row-odd"><td>Mass of carbon</td>
-<td>27.61 g</td>
-</tr>
-<tr class="row-even"><td>q</td>
-<td>0.080  g/g</td>
-</tr>
-<tr class="row-odd"><td>red dye mass at breakthrough</td>
-<td>2.21  g</td>
-</tr>
-<tr class="row-even"><td>Mass flux of red dye</td>
-<td>0.00013  g/min</td>
-</tr>
-<tr class="row-odd"><td>Volume of stock required</td>
-<td>44.2 Liters</td>
-</tr>
-<tr class="row-even"><td>Estimated breakthrough</td>
-<td>17671 min (12.3 days)</td>
-</tr>
 <tr class="row-odd"><td>Mass of red dye/20 L</td>
 <td>1.00 g</td>
 </tr>
+<tr class="row-even"><td>Depth of fixed bed</td>
+<td>15 cm</td>
+</tr>
+<tr class="row-odd"><td>Mass of sand</td>
+<td>80 g</td>
+</tr>
+<tr class="row-even"><td>Influent flow rate</td>
+<td>30 mL/min (0.5 mL/s)</td>
+</tr>
+<tr class="row-odd"><td>Column diameter</td>
+<td>2.54 cm</td>
+</tr>
+<tr class="row-even"><td><span class="math notranslate nohighlight">\(q_{(50 mg/L)}\)</span></td>
+<td>0.080  g/g</td>
+</tr>
+<tr class="row-odd"><td>Mass of carbon</td>
+<td>0.2, 0.5, 1, 2, 5, or 10  g</td>
+</tr>
 </tbody>
 </table>
-<p>Set up a daily sample schedule.</p>
+</div>
+<div class="section" id="set-up-the-contactor">
+<h3>Set up the Contactor<a class="headerlink" href="#set-up-the-contactor" title="Permalink to this headline">¶</a></h3>
+<p>Work through this procedure twice. For the first test skip the activated carbon and thus measure the F curve (see <a class="reference internal" href="../Reactor_Characteristics/Reactor_Characteristics.html#heading-reactor-modeling"><span class="std std-ref">reactor modeling</span></a>) for the sand column. Rinse the column with RO water, remove the sand, and repeat the procedure with activated carbon.</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Pump distilled water into the column from the bottom to a depth of 10 cm.</li>
-<li>Pour 27 g of activated carbon into a beaker containing distilled water.</li>
-<li>Swirl the carbon until most of the air is released.</li>
-<li>Use a funnel and a distilled water wash bottle to wash the distilled water from the beaker into the column.</li>
+<li>Test column and pump and all tubing to ensure that it is leak tight using reverse osmosis water.</li>
+<li>Remove top from column</li>
+<li>Mix 80 g of sand and your team’s assigned mass of activated carbon</li>
+<li>Wet method</li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Pour mixture of sand and activated carbon into a beaker containing reverse osmosis water.</li>
+<li>Swirl until most of the air is released.</li>
+<li>Use a funnel and a reverse osmosis water wash bottle to wash the mixture from the beaker into the column.</li>
 <li>Use a 50 mL syringe to remove excess water from the top of the column if necessary.</li>
 <li>Use a long rod to gently stir activated carbon to help release air bubbles.</li>
 <li>Assemble the column end fitting.</li>
-<li>In up flow mode (at 10 mL/min), discharge the column effluent to waste until most of the fines are removed.</li>
-<li>Reverse the direction of flow to down flow.</li>
-<li>Measure the depth of the activated carbon in the column.</li>
-<li>Setup a sampling technique so that a 100 mL vial is always in place and filling up or overflowing.</li>
 </ol>
 </div></blockquote>
-</div>
-<div class="section" id="operate-the-contactor-starting-week-1-for-2-to-3-weeks">
-<h3>Operate the Contactor (starting week 1 for 2 to 3 weeks)<a class="headerlink" href="#operate-the-contactor-starting-week-1-for-2-to-3-weeks" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple" start="4">
+<li>Dry method</li>
+</ol>
 <blockquote>
 <div><ol class="arabic simple">
+<li>Use a funnel to pour dry mixture of sand and activated carbon into the column</li>
+<li>Assemble the column end fitting.</li>
+<li>Fill the column with water in up flow mode (at 5 mL/min - idea is to do this slowly so that air escapes)</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li>In up flow mode (at 30 mL/min), discharge the column effluent to waste until most of the fines are removed.</li>
+<li>Reverse the direction of flow to down flow and verify that the photometer is reading approximately 0 mg/L of red dye. This indicates that most of the activated carbon fines are removed from the column.</li>
+<li>Configure ProCoDA to log the concentration of red dye at 5 second intervals</li>
 <li>Start pumping Red Dye #40.</li>
-<li>Measure the flow rate daily using a balance to get mass of water in approximately 1 minute.</li>
-<li>Collect and label a 100 mL sample daily.</li>
-<li>It is probably impractical to try and achieve <span class="math notranslate nohighlight">\(C/C_0 = 1\)</span>, but past experiments have usually run long enough to attain at least <span class="math notranslate nohighlight">\(C/C_0 = 0.8\)</span>, which provides enough of the breakthrough curve to allow modeling of its shape.</li>
+<li>Measure the flow rate using a balance to get mass of water in approximately 1 minute.</li>
+<li>It is impractical to try and achieve <span class="math notranslate nohighlight">\(C/C_0 = 1\)</span>, but run long enough to attain at least <span class="math notranslate nohighlight">\(C/C_0 = 0.6\)</span>.</li>
 </ol>
 </div></blockquote>
 </div>
-<div class="section" id="carbon-contactor-measurements-week-3">
-<h3>Carbon Contactor Measurements (week 3)<a class="headerlink" href="#carbon-contactor-measurements-week-3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="troubleshooting-and-reflections">
+<h3>Troubleshooting and Reflections<a class="headerlink" href="#troubleshooting-and-reflections" title="Permalink to this headline">¶</a></h3>
+<p>Spring 2019 is the first time that we are including this experiment. There are always multiple challenges associated with developing a new laboratory experiment and in this case it is possible to anticipate several potential problems with this experimental design.</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Use spectral analysis to measure the effluent samples using the techniques developed for the isotherm analysis.</li>
+<li>Air bubbles! Air in the sand column or in the photometer will result in failure. Surface tension makes it difficult to remove the air bubbles from the activated carbon. The methods may need to be modified if air causes problems.</li>
+<li>Mass transport of the red dye into the activated carbon pores is slow because it is a diffusion process. It is possible that this will result in premature breakthrough of red dye long before the activated carbon reaches equilibrium with the influent concentration of red dye.</li>
+<li>The relatively small amount of activated carbon in the sand column may result in inefficient transport of the red dye to the activated carbon granules. This would also result in inefficient removal of red dye.</li>
 </ol>
 </div></blockquote>
-</div>
-<div class="section" id="isotherm-results-and-discussion">
-<h3>Isotherm Results and Discussion<a class="headerlink" href="#isotherm-results-and-discussion" title="Permalink to this headline">¶</a></h3>
-<p>Combine the data from all groups when doing the following analysis.</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li>Calculate the quantity of Red Dye #40 that was transferred to the surface of the activated carbon for each bottle in grams/gram of GAC.</li>
-<li>Plot the data in a standard adsorption isotherm format (i.e., quantity sorbed, g/g, versus aqueous concentration, g/L).</li>
-<li>Attempt to fit both the Freundlich and Langmuir isotherm models to the data. Report the values of the respective constants in each case, and plot the fitted model curves on the same graph as the data. (Remember to use smooth lines for models and data points for data.) Use nonlinear regression to obtain the Langmuir isotherm parameters.</li>
-<li>Discuss the correspondence between the experimental data and the Freundlich and Langmuir isotherms.</li>
-</ol>
-</div></blockquote>
+<p>An alternative to granular activated carbon is Poly aluminum chloride (PACl - not to be confused with Powdered Activated Carbon or PAC). PACl will remove red dye by adsorption and given that PACl forms nanoparticles (rather than millimeter sized granules for GAC) it is possible that the mass transport of red dye to PACl will be much faster mass transport of red dye to GAC. This could be tested by substituting PACl for GAC in the column. We would need to develop a method to deliver the PACl flocs to the sand column.</p>
 </div>
 <div class="section" id="contactor-results-and-analysis">
 <h3>Contactor Results and Analysis<a class="headerlink" href="#contactor-results-and-analysis" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Plot the breakthrough curve showing <span class="math notranslate nohighlight">\(\frac{C}{C_0}\)</span> versus time or <span class="math notranslate nohighlight">\(\frac{C}{C_0}\)</span> versus cumulative volume treated. [Note: Obviously, if flow rate were held relatively constant, then volume treated and time are directly proportional, and either can be effectively plotted on the abscissa. However, if flow rate was not constant, it is preferable to plot <span class="math notranslate nohighlight">\(\frac{C}{C_0}\)</span> versus cumulative volume treated, as the volume treated by the midpoint of breakthrough should be relatively independent of flow rate. Where flow rate was not constant, the cumulative volume treated can be estimated by summing the incremental volumes delivered during each interval between samplings, assuming average values for the interval flows.]</li>
-<li>From knowledge of both the mass of GAC added and the measured volume of the GAC bed, estimate the apparent bulk density (<span class="math notranslate nohighlight">\(\rho_b\)</span>) of the bed during operation. Assuming a real (carbon) density of 2.1 <span class="math notranslate nohighlight">\(g/cm^3\)</span>, estimate the effective bed porosity (<span class="math notranslate nohighlight">\(\phi\)</span>).</li>
-<li>Calculate the expected breakthrough time (or volume treated) — i.e., ignoring mass-transfer limitations — based on your isotherm, flow and other data. Compare the actual breakthrough time (or volume treated), approximately the point where C/C0 = 0.5, with its expected value and offer explanations for discrepancy.</li>
-<li>Attempt to model the shape of your breakthrough-curve data, using the mass-transfer model presented in lecture:</li>
+<li>Plot the breakthrough curves showing <span class="math notranslate nohighlight">\(\frac{C}{C_0}\)</span> versus time.</li>
+<li>Find the time when the effluent concentration was 50% of the influent concentration and plot that as a function of the mass of activated carbon used.</li>
+<li>Calculate the retardation coefficient (<span class="math notranslate nohighlight">\(R_{adsorption}\)</span>) based on the time to breakthrough for the columns with and without activated carbon.</li>
+<li>Calculate the quantity of Red Dye #40 that was transferred to the activated carbon based on the influent concentration, flow rate, and 50% breakthrough time.</li>
+<li>Calculate the <span class="math notranslate nohighlight">\(q_0\)</span> for each of the columns. Plot this as a function of the mass of activated carbon used.</li>
 </ol>
-</div></blockquote>
-<p>[Note that the generalized isotherm is described by specifying one point on it (<span class="math notranslate nohighlight">\(C_0\)</span>, Q) and corresponding value for a curve parameter (r). Alternative choices of <span class="math notranslate nohighlight">\(C_0\)</span> will yield corresponding — but different — sets of Q and r-values that result in identical generalized isotherm curves. Therefore, the proper choice of <span class="math notranslate nohighlight">\(C_0\)</span> for convenient, later application to breakthrough-curve modeling would be the average measured value of the column’s influent Red Dye #40 concentration — and not the initial Red Dye #40 concentration employed in the isotherm determination. That way, the values of Q and r obtained will be the correct ones to employ in the mass-transfer model.]</p>
-<p>Alternatively, note that the Langmuir isotherm fit can be conveniently employed. The Langmuir is a special case of the generalized isotherm, where <span class="math notranslate nohighlight">\(r=\frac{1}{1+KC_{0} }\)</span> (with K being the Langmuir constant). Q can be estimated from the Langmuir isotherm by substituting the column’s influent Red Dye #40 concentration for <span class="math notranslate nohighlight">\(C_0\)</span>.</p>
-<p>What value of k’, the effective mass-transfer coefficient, gives best fit to the shape of your breakthrough curve? [Note: If the observed midpoint of breakthrough was significantly displaced in time (or volume treated) from that predicted from your isotherm, you should use your experimentally observed S value, rather than the theoretically predicted one. That way, you’ll only have to deal with effects of k’ on shape, rather than absolute position, of breakthrough.] If we had generated breakthrough curves at several values of hydraulic loading, we could empirically relate <span class="math notranslate nohighlight">\(k'\)</span> to hydraulic loading for evaluating design and operating alternatives.</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li>Provide the usual discussion of error sources and suggestions for improvement.</li>
-</ol>
+<p>What did you learn from this analysis? How can you explain the results that you have obtained? What changes to the experimental method do you recommend for next year (or for a project)?</p>
 </div></blockquote>
 </div>
 </div>
 <div class="section" id="lab-prep-notes">
 <span id="heading-adsorption-lab-prep-notes"></span><h2>Lab Prep Notes<a class="headerlink" href="#lab-prep-notes" title="Permalink to this headline">¶</a></h2>
 <span id="table-activated-carbon-reagent-list"></span><table border="1" class="docutils" id="id4">
-<caption><span class="caption-number">Table 8 </span><span class="caption-text">Reagent list.
+<caption><span class="caption-number">Table 7 </span><span class="caption-text">Reagent list.
    :header: Description,       Supplier,       Catalog number
    :widths: 20, 20, 10
    :align: center</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
@@ -642,14 +506,9 @@
 </div></blockquote>
 </div>
 </div>
-<div class="section" id="recommendations-from-previous-years">
-<span id="heading-adsorption-recommendations-from-previous-years"></span><h2>Recommendations from previous years<a class="headerlink" href="#recommendations-from-previous-years" title="Permalink to this headline">¶</a></h2>
-<p>The column that was run at the slower flow rate had a much steeper breakthrough curve. However, it took 2 weeks to breakthrough. Thus it is recommended that a shorter column be used (15 cm rather than 60 cm) so that the breakthrough occurs in a reasonable amount of time with a slower flow rate.</p>
-<p>Methylene blue may not be an ideal contaminant since it is a stain that absorbs strongly. It may be preferable to use red dye #40.</p>
-<p>We used red dye #40 and obtained similar results. The problem with this lab is that mass transfer of solute into the activated carbon pores is rate limiting and the rate decreases as the pores fill. We used 100 mg of activated carbon in all isotherm bottles and varied the red dye concentration from 500, 250, 100, 75, to 50 mg/L. The range between 100 and 50 mg/L should be divided further for more data. Samples below 50 mg/L were clear.</p>
-<p>The turbidity standard helps, but the spectrophotometer does pick up adsorbed red dye with a slightly different spectra than dissolved red dye. The best approach would be to filter the samples to remove the activated carbon fines.</p>
-<p>We used red dye standards of 500, 150, 50, 15, 5, 1.5, 0.5 mg/L. We used a red dye stock containing 10 g/L.</p>
-<p>Decreased flow rate in column to 15 mL/min.</p>
+<div class="section" id="references">
+<span id="heading-adsorption-recommendations-from-previous-years"></span><h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>Lawler, D. F., &amp; Benjamin, M. M. (2013). Water quality engineering: physical / chemical treatment processes. Hoboken, N.J.: Wiley. Retrieved from <a class="reference external" href="http://search.ebscohost.com/login.aspx?direct=true&amp;scope=site&amp;db=nlebk&amp;db=nlabk&amp;AN=631668">http://search.ebscohost.com/login.aspx?direct=true&amp;scope=site&amp;db=nlebk&amp;db=nlabk&amp;AN=631668</a></p>
 </div>
 </div>
 
@@ -695,7 +554,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v0.0.9',
+            VERSION:'',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
