@@ -272,6 +272,12 @@ Contactor Results and Analysis
 
  What did you learn from this analysis? How can you explain the results that you have obtained? What changes to the experimental method do you recommend for next year (or for a project)?
 
+.. _heading_Adsorption_Pre-Laboratory_Questions:
+
+Prelab Questions
+================
+
+#. A carbon column is packed with 15 cm of activated carbon and then used to remove 50 mg/L of red dye \#40. The approach velocity is 1 mm/s, the porosity is 0.4, and the bulk density of the activated carbon is 0.5 :math:`g/cm^3`. How long will it take for the mass transfer zone to travel to the bottom of the carbon column? 
 
 .. _heading_Adsorption_Lab_Prep_Notes:
 
