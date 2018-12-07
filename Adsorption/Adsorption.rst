@@ -1,9 +1,9 @@
 
 .. _title_Adsorption:
 
-*****************
+**********
 Adsorption
-*****************
+**********
 
 Water is sometimes called the universal solvent and that property has both positive and negative aspects. On the positive side, water's ability to serve as a carrier for many compounds is essential for life. On the negative side that same ability can result in water carrying substances that are harmful to life. Environmental engineers often have the challenge of removing harmful dissolved species from water. This task shows up when we are producing safe drinking water from a ground water source that is contaminated with arsenic, fluoride, nitrate, or atrazine. Surface water sources can be contaminated with naturally organic matter that interacts with disinfectants to produce toxic by products. Wastewater reuse requires removal of a long list of dissolved species that would otherwise accumulate. Dyeing of clothing produces an industrial waste water contaminated with high concentrations of dissolved dyes. As we develop improved analytical techniques we realize that many of the substances that we use including caffeine, cocaine, pharmaceuticals, herbicides, and pesticides are present in the environment.
 
@@ -37,36 +37,34 @@ Under isothermal conditions the equilibrium partitioning between solution and so
 
     q =K_f C^{\frac{1}{n}}
 
-and Langmuir partitioning models
+and Langmuir partitioning models.
 
 .. math::
     :label: Langmuir
 
-   q =\frac{K_{Lang}q_{\max} C}{1+K_{Lang}C}
+    q =\frac{K_{Lang}q_{\max} C}{1+K_{Lang}C}
 
- | Where
- | :math:`q` is the mass of adsorbate (species being removed from solution) per mass of adsorbent (solid phase)
- | :math:`C` is the concentration of the adsorbate in water
- | :math:`K_f` and :math:`n` are the Freundlich empirical constants describing the partitioning
- | :math:`K_{Lang}`and :math:`q_{\max}` are the Langmuir empirical constants describing the partitioning
+| Where
+| :math:`q` is the mass of adsorbate (species being removed from solution) per mass of adsorbent (solid phase)
+| :math:`C` is the concentration of the adsorbate in water
+| :math:`K_f` and :math:`n` are the Freundlich empirical constants describing the partitioning
+| :math:`K_{Lang}` and :math:`q_{\max}` are the Langmuir empirical constants describing the partitioning
 
 We will preload columns of sand (or glass beads) with the adsorbent and then pump a solution of red dye \#40 through the column. We will measure the effluent concentration of the dye as a function of time using a photometer. In these experiments the column of sand is inert, but provides a mechanism to hold the adsorbent stationary (fixed bed) while the red dye solution flows through. The red dye will adsorb to the adsorbent and the effluent red dye concentration is expected to be very low for some time. Red dye will begin breaking through once the majority of the adsorbent reaches equilibrium with the influent concentration of the red dye.
 
-In this analysis we are neglecting several aspects of the adsorption process. We assume that the time required to reach equilibrium partitioning is very small relative to the hydraulic residence time (:math:`\theta_{HRT}` ) of the column. This assumption requires that both liquid phase and solid phase adsorbate mass transport mechanisms are relatively fast. Transport within the solid phase matrix is by the slow process of diffusion. Thus we expect diffusion to increase the time required to reach equilibrium for adsorbents that require diffusion over longer distances. Diffusion time will be greatest for Large diameter granular activated carbon, less for powdered activated carbon, and very fast for coagulant nanoparticles.
+In this analysis we are neglecting several aspects of the adsorption process. We assume that the time required to reach equilibrium partitioning is very small relative to the hydraulic residence time, :math:`\theta_{HRT}`, of the column. This assumption requires that both liquid phase and solid phase adsorbate mass transport mechanisms are relatively fast. Transport within the solid phase matrix of an activated carbon granule is by the slow process of diffusion. Thus we expect diffusion to increase the time required to reach equilibrium for adsorbents that require diffusion over longer distances. Diffusion time will be greatest for Large diameter granular activated carbon, less for powdered activated carbon, and very fast for coagulant nanoparticles.
 
-The mass of the adsorbate in the column per plan view area at breakthrough is given by
+The mass of the adsorbate in the column adsorbed to the adsorbent at breakthrough is given by
 
 .. math::
 
-    M_{dye} = M_{adsorbent} q_{0}
-    v_mtz =  C_0 V_a t *A
+    M_{adsorbate} = M_{adsorbent} q_{0}
 
- | where
- | :math:`M_{AC}` and :math:`M_{GAC}` are the masses of the adsorbents per plan view surface area of the column
- | :math:`v_a` is the approach velocity of the water above the sand bed
- | :math:`\phi` is the porosity of the sand bed
- | :math:`L` is the depth of the sand bed
- | :math:`C_0` is the influent concentration of the adsorbate (red dye \#40)
+
+| where
+| :math:`M_{adsorbent}` is the mass of the adsorbent in the column
+| :math:`M_{adsorbate}` is the mass of the adsorbate in the column adsorbed to the adsorbent
+
 
 The mass transfer zone travels at velocity :math:`v_{mtz}` through the fixed bed as the absorbent slowly fills to the equilibrium density, :math:`q_0`, based on the influent concentration, :math:`C_0`.
 
@@ -118,9 +116,12 @@ In equation :eq:`eq_Adsorb_v_mtz` the term :math:`C_0\phi` represents the liquid
 The time until breakthrough can be obtained by dividing the length of the adsorption column (:math:`L_{column}`) by the velocity of the mtz (equation :eq:`eq_Adsorb_v_mtz`)
 
 .. math::
-    :label:
 
      \frac{L_{column}}{v_{mtz}} = \frac{L_{column}\phi}{v_a} + \frac{L_{column}q_0 \rho_{bulk \; adsorbent}}{v_a C_0}
+
+The equation above is equivalent to
+
+.. math::
 
      t_{mtz} = t_{water} + t_{ads}
 
@@ -130,6 +131,8 @@ Thus the time to breakthrough is the time required for water to flow through the
     :label: eq_R_adsorption_
 
     R_{adsorption} = \frac{t_{mtz}}{t_{water}} = \frac{v_{water}}{v_{mtz}}
+
+.. math::
 
     R_{adsorption}\cong  \frac{v_a q_0 \rho_{bulk \; adsorbent}}{\phi v_a C_0} =\frac{q_0 \rho_{bulk \; adsorbent}}{\phi C_0}
 
@@ -144,7 +147,7 @@ where
  | :math:`\rho_b =` apparent bulk density
  | :math:`\rho_{ac}  =  2.1 g/cm^3`
 
-From experiments conducted in the Cornell environmental laboratory around 2003 we have  q_{50 mg/L} = 0.08. Our goal is to design a fixed bed reactor that has a :math:`t_{mtz}` of about 30 minutes. With a 15 cm deep column at 1 mm/s and with a porosity of 0.4 the hydraulic residence time is 1 minute. Given a target retardation factor of 30 we can calculate the bulk density of carbon that we should have in the column. We can achieve this bulk density by diluting the activated carbon with sand.
+From experiments conducted in the Cornell environmental laboratory around 2003 we have  :math:`q_{50 mg/L}` = 0.08. Our goal is to design a fixed bed reactor that has a :math:`t_{mtz}` of about 30 minutes. With a 15 cm deep column at 1 mm/s and with a porosity of 0.4 the hydraulic residence time is 1 minute. Given a target retardation factor of 30 we can calculate the bulk density of carbon that we should have in the column. We can achieve this bulk density by diluting the activated carbon with sand.
 
 .. math::
 
@@ -277,7 +280,7 @@ Contactor Results and Analysis
 Prelab Questions
 ================
 
-#. A carbon column is packed with 15 cm of activated carbon and then used to remove 50 mg/L of red dye \#40. The approach velocity is 1 mm/s, the porosity is 0.4, and the bulk density of the activated carbon is 0.5 :math:`g/cm^3`. How long will it take for the mass transfer zone to travel to the bottom of the carbon column? 
+#. A carbon column is packed with 15 cm of activated carbon and then used to remove 50 mg/L of red dye \#40. The approach velocity is 1 mm/s, the porosity is 0.4, and the bulk density of the activated carbon is 0.5 :math:`g/cm^3`. How long will it take for the mass transfer zone to travel to the bottom of the carbon column?
 
 .. _heading_Adsorption_Lab_Prep_Notes:
 
@@ -296,15 +299,18 @@ Lab Prep Notes
     red dye \#40, ,
 
 
+Setup
+------
+
  #. Verify that all necessary supplies are in place for the pumps, tanks, column, valves, and tubing.
  #. Prepare the Red Dye \#40 stock solution.
- #. Prepare a 5\% bleach solution (5 mL bleach diluted to 100 mL with distilled water) for cleaning the photometer sample cell and sample lines.
+ #. Prepare a 5\% bleach solution (5 mL bleach diluted to 100 mL with reverse osmosis water) for cleaning the photometer sample cell and sample lines.
 
 Procedure to remove air from the top of the column
 --------------------------------------------------
 
  #. Close the Red Dye \#40 influent valve.
- #. Open the distilled water influent valve.
+ #. Open the reverse osmosis water influent valve.
  #. Wait for the influent line to clear of Red Dye \#40.
  #. Turn off the pump.
  #. Reverse the column flow direction.

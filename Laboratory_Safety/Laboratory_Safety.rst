@@ -235,6 +235,6 @@ Prelab Questions
 
  #. Why are contact lenses hazardous in the laboratory?
  #. What is the minimum information needed on the label for each chemical? When are Right-To-Know labels required?
- #. Why is it important to label a bottle even if it only contains distilled water?
+ #. Why is it important to label a bottle even if it only contains reverse osmosis water?
  #. Find an SDS for sodium nitrate.  a) Who created the SDS? b) What is the solubility of sodium nitrate in water? c) Is sodium nitrate carcinogenic? d) What is the LD50 oral rat? e) How much sodium nitrate would you have to ingest to give a 50\% chance of death (estimate from available LD50 data). f) How much of a 1 M solution would you have to ingest to give a 50\% chance of death? g) Are there any chronic effects of exposure to sodium nitrate?
  #. You are in the laboratory preparing chemical solutions for an experiment and it is lunchtime. You decide to go to CTB to eat. What must you do before leaving the laboratory?

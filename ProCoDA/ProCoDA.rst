@@ -46,7 +46,7 @@ The ProCoDA software is designed to allow complete automation of experiments inc
 
 .. csv-table:: Washing machine states
    :header: "State", "What it does", "Exit rule"
-   :widths: 20, 20, 20
+   :widths: 5, 10, 10
    :align: center
 
    Fill, Fills tub with selected amount of water at the requested temperature, Switch to *Agitate* state when pressure sensor reaches target value
@@ -64,9 +64,9 @@ General Notes
 -------------
 
 - When you input a value that it a decimal it will convert it into a form without the decimal (i.e. 0.3 will become 300m)
-- The default unit of time is seconds and we recommend using seconds consistently
+- The default unit of time is seconds and we recommend using seconds consistently.
 - ProCoDA doesn't actually use units internally. The units are only used for documentation. It is the users responsibility to make sure that you are using a consistent set of units.
-- The required set points give the order of the set points and the set points must be in the same order when you input them
+- The required set points give the order of the set points and the set points must be in the same order when you input them. The set points do not need to be contiguous! They just need to be in the correct order.
 - All added set points should be added after ON and OFF,
 - As a general rule, add new set points and states at the bottom of the list using add after. This is because ProCoDA only tracks set points and states as elements in an array and thus if the array elements are shifted ProCoDA will refer to the wrong element.
 
