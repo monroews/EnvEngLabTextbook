@@ -76,12 +76,12 @@ Equation :eq:`eq_Gran_ve` is valid if enough titrant has been added to neutraliz
 
     \frac{\left(V_{s} +V_{t} \right)}{V_{s} } \left[H^{+} \right]=\frac{N_{t} V_{t} }{V_{s} } -\frac{N_{t} V_{e} }{V_{s} }
 
-We define F1 (First Gran function) as:
+We define :math:`F_1` (First Gran function) as:
 
 .. math::
     :label: eq_Gran_F1
 
-    F_{1} = \frac{V_{s} +V_{t} }{V_{s} } {[H}^{+} {]}
+    F_1 = \frac{V_s +V_t }{V_s } {[H}^+ {]}
 
 If :math:`F_1` is plotted as a function of :math:`V_t` the result is a straight line with slope = :math:`\frac{N_{t} }{V_{s} }` and abscissa intercept of :math:`V_e` (:numref:`figure_Gran_plot`).
 

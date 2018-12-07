@@ -322,7 +322,7 @@ and
 
     \bar{t}=\; \frac{\sum _{i=0}^{n}t_{i} \cdot C_{i}  \Delta t}{\sum _{i=0}^{n}C_{i}  \Delta t}
 
-Inlet and outlet boundary conditions affect the response obtained from a reactor. Closed reactors have little dispersion across their inlet and outlet boundaries whereas open reactors can have significant dispersion across their inlet and outlet boundaries. Typically open systems have no physical boundaries in the direction of flow. An example of an open system would be a river segment. Closed systems have small inlets and outlets that minimize dispersion across the inlet and outlet regions. An example of a closed system is a tank (or a lake) with a small inlet and outlet. The reactor used in the lab is closed. The :math:`\bar{t}` in equation :eq:`eq_Reactor_tbar` is the measured average residence time for the tracer in the reactor. For ideal closed reactors the measured residence time, :math:`\bar{t}`, is equal to the theoretical hydraulic residence time (? = reactor volume/flow rate). For open reactors :math:`\bar{t}` can exceed the hydraulic residence time. If :math:`\bar{t}` is less than the hydraulic residence time it may indicate that the reactor contains "dead volume" or "short circuiting" such that some volume of the reactor is effectively unused.
+Inlet and outlet boundary conditions affect the response obtained from a reactor. Closed reactors have little dispersion across their inlet and outlet boundaries whereas open reactors can have significant dispersion across their inlet and outlet boundaries. Typically open systems have no physical boundaries in the direction of flow. An example of an open system would be a river segment. Closed systems have small inlets and outlets that minimize dispersion across the inlet and outlet regions. An example of a closed system is a tank (or a lake) with a small inlet and outlet. The reactor used in the lab is closed. The :math:`\bar{t}` in equation :eq:`eq_Reactor_tbar` is the measured average residence time for the tracer in the reactor. For ideal closed reactors the measured residence time, :math:`\bar{t}`, is equal to the theoretical hydraulic residence time (:math:`\theta` = reactor volume/flow rate). For open reactors :math:`\bar{t}` can exceed the hydraulic residence time. If :math:`\bar{t}` is less than the hydraulic residence time it may indicate that the reactor contains "dead volume" or "short circuiting" such that some volume of the reactor is effectively unused.
 
 The above equations suggest that from the reactor response to a spike input we can compute the dispersion coefficient for the reactor. We have two options for measuring reactor response:
 
@@ -555,7 +555,7 @@ Note that you are allowed to collaborate with other teams to obtain the results 
 Baffle installation
 -------------------
 
-The baffles can be installed by rolling a 3 mm diameter roll of putty and applying the putty to the bottom and one side of the baffle. Carefully install the baffle by rotating it into place (so the putty on the one side doesn't have to slide) and then pressing it down (so the putty on the bottom doesn't have to slide). Install the two bolts with wing nuts to hold the baffle in place. Add a roll of putty to the corner formed at the unsealed side of the baffle and press the putty into place.
+Install the baffles so that each compartment has the same volume. If desired the gap between the baffles and the reactor walls can be sealed using duct tape.
 
 
 .. _heading_Reactor_Pre-Laboratory_Questions:
@@ -564,7 +564,7 @@ Prelab Questions
 ========================
 
  #. Calculate the **incremental** volume of a 100 g/L red dye stock that would need to be added to 1 L of water to produce 0, 1, 2, 5, 10, 20, 30, 40, and 50 mg/L calibration points. Calculate a numpy array containing the **cumulative** volume of red dye required. Strip the units from the array using .magnitude. Then create a copy of the array with a zero appended (np.append) in front and the last element deleted (np.delete). Then use numpy subtract to get the different between the two arrays to calculate the incremental volume that you need to add.
- #. Calculate the change in hydraulic grade line between baffled sections of a reactor with a flow rate of 380 mL/min. The reactor baffles are perforated with 6 holes 1 mm in diameter. Is the flow through these orifices in series or in parallel? Do you multiply the head loss for one orifice by the number of orifices to get the total head loss? Use the pc.head\_orifice function to calculate the head loss through an orifice. The *vena contracta* for the orifice can be found at exp.RATIO\_VC\_ORIFICE. Why would 6 holes 1 mm in diameter not be a good design for this reactor?
+ #. Calculate the change in hydraulic grade line between baffled sections of a reactor with a flow rate of 380 mL/min. The reactor baffles are perforated with 6 holes 1 mm in diameter. Is the flow through these orifices in series or in parallel? Do you multiply the head loss for one orifice by the number of orifices to get the total head loss? Are the orifices in parallel or in series? Use the pc.head\_orifice function to calculate the head loss through an orifice. The *vena contracta* for the orifice can be found at exp.RATIO\_VC\_ORIFICE. Why would 6 holes 1 mm in diameter not be a good design for this reactor?
  #. On a single graph plot the exit age distribution (:math:`E_{(t\star)}`) for a reactor that operates as a 1-dimensional advection-dispersion reactor with Peclet numbers of 1, 10, and 100 (there will be three plots on the graph and thus a legend is required). The x-axis should be :math:`t^\star` from 0.0 to 3.0. Comment on the shapes of the curves as a function of the Peclet number.
 
 
@@ -598,5 +598,4 @@ Lab Prep Notes
 
  #. Create 100 mL of 100 g/L red dye stock (thus use 10 g of red dye) and distribute in small vials to each lab bench.
  #. Use \# 18 tubing for inlet and \#17 for photometer sampling.
- #. The maximum concentration of red dye that the photometer can measure accurately is 50 mg/L.
  #. Organize team research so they don't use the same materials and so they answer different questions.
