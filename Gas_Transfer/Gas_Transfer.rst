@@ -238,7 +238,7 @@ Oxygen is reduced to water at a silver (Ag) cathode of the probe. Oxygen reducti
 Calibration
 -----------
 
-:ref: `Calibrate the dissolved oxygen probe <heading_ProCoDA_Dissolved_Oxygen>` after you have assembled the apparatus.
+:ref:`Calibrate the dissolved oxygen probe <heading_ProCoDA_Dissolved_Oxygen>` after you have assembled the apparatus.
 
 .. _heading_Gas_Transfer_Experimental_Methods:
 
@@ -306,7 +306,7 @@ Measure the Gas Transfer
  #. Set the needle valve so the pressure in the accumulator is approximately 75\% of the source pressure.
  #. Wait until the accumulator pressure reaches steady state.
  #. Turn the air off by changing the operator selected state to OFF.
- #. Add enough sodium sulfite to deoxygenate the solution. A stock solution of sodium sulfite (100 mg/mL) has been prepared to facilitate measurement of small sulfite doses. Calculate this dose based on the measured dissolved oxygen concentration. (4 L of water at :math:`C_{oxygen}\; mg \; O_2/L = 4\; C_{oxygen}\; mg\; O_2`, therefore add :math:`4 (7.875) C_{oxygen}` mg sodium sulfite or :math:`4(7.875)(C_{oxygen})/100 mL` of stock solution.)
+ #. Add enough sodium sulfite to deoxygenate the solution. A stock solution of sodium sulfite (100 mg/mL) has been prepared to facilitate measurement of small sulfite doses. Calculate this dose based on the measured dissolved oxygen concentration. (0.6 L of water at :math:`C_{oxygen}\; mg \; O_2/L = 0.6\; C_{oxygen}\; mg\; O_2`, therefore add :math:`0.6 (7.875) C_{oxygen}` mg sodium sulfite or :math:`0.6(7.875)(C_{oxygen})/100 mL` of stock solution.)
  #. Turn the air on by changing the **operator selected state** to Aerate.
  #. Monitor the dissolved oxygen concentration until it reaches 50\% of saturation value or 10 minutes (whichever is shorter).
  #. Repeat steps 3-11 to collect data from at least two additional flow rates.
@@ -317,7 +317,7 @@ Measure the Gas Transfer
 .. _heading_Gas_Transfer_Pre-Laboratory_Questions:
 
 Prelab Questions
-========================
+================
 
  #. Calculate the mass of sodium sulfite needed to reduce all the dissolved oxygen in 600 mL of pure water in equilibrium with the atmosphere and at :math:`22^\circ C`.
  #. Describe your expectations for dissolved oxygen concentration as a function of time during a reaeration experiment.  Assume you have added enough sodium sulfite to consume all of the oxygen at the start of the experiment. What would the shape of the curve look like?
