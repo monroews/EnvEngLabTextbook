@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Reactor Characteristics &mdash; Environmental Engineering Laboratory Research Textbook v0.0.11 documentation</title>
+  <title>Reactor Characteristics &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
   
 
   
@@ -57,10 +57,6 @@
 
           
             
-            
-              <div class="version">
-                v0.0.11
-              </div>
             
           
 
@@ -396,7 +392,7 @@
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-tbar">
 <span class="eqno">(73)<a class="headerlink" href="#equation-eq-reactor-tbar" title="Permalink to this equation">¶</a></span>\[\bar{t}=\; \frac{\sum _{i=0}^{n}t_{i} \cdot C_{i}  \Delta t}{\sum _{i=0}^{n}C_{i}  \Delta t}\]</div>
-<p>Inlet and outlet boundary conditions affect the response obtained from a reactor. Closed reactors have little dispersion across their inlet and outlet boundaries whereas open reactors can have significant dispersion across their inlet and outlet boundaries. Typically open systems have no physical boundaries in the direction of flow. An example of an open system would be a river segment. Closed systems have small inlets and outlets that minimize dispersion across the inlet and outlet regions. An example of a closed system is a tank (or a lake) with a small inlet and outlet. The reactor used in the lab is closed. The <span class="math notranslate nohighlight">\(\bar{t}\)</span> in equation <a class="reference internal" href="#equation-eq-reactor-tbar">(73)</a> is the measured average residence time for the tracer in the reactor. For ideal closed reactors the measured residence time, <span class="math notranslate nohighlight">\(\bar{t}\)</span>, is equal to the theoretical hydraulic residence time (? = reactor volume/flow rate). For open reactors <span class="math notranslate nohighlight">\(\bar{t}\)</span> can exceed the hydraulic residence time. If <span class="math notranslate nohighlight">\(\bar{t}\)</span> is less than the hydraulic residence time it may indicate that the reactor contains “dead volume” or “short circuiting” such that some volume of the reactor is effectively unused.</p>
+<p>Inlet and outlet boundary conditions affect the response obtained from a reactor. Closed reactors have little dispersion across their inlet and outlet boundaries whereas open reactors can have significant dispersion across their inlet and outlet boundaries. Typically open systems have no physical boundaries in the direction of flow. An example of an open system would be a river segment. Closed systems have small inlets and outlets that minimize dispersion across the inlet and outlet regions. An example of a closed system is a tank (or a lake) with a small inlet and outlet. The reactor used in the lab is closed. The <span class="math notranslate nohighlight">\(\bar{t}\)</span> in equation <a class="reference internal" href="#equation-eq-reactor-tbar">(73)</a> is the measured average residence time for the tracer in the reactor. For ideal closed reactors the measured residence time, <span class="math notranslate nohighlight">\(\bar{t}\)</span>, is equal to the theoretical hydraulic residence time (<span class="math notranslate nohighlight">\(\theta\)</span> = reactor volume/flow rate). For open reactors <span class="math notranslate nohighlight">\(\bar{t}\)</span> can exceed the hydraulic residence time. If <span class="math notranslate nohighlight">\(\bar{t}\)</span> is less than the hydraulic residence time it may indicate that the reactor contains “dead volume” or “short circuiting” such that some volume of the reactor is effectively unused.</p>
 <p>The above equations suggest that from the reactor response to a spike input we can compute the dispersion coefficient for the reactor. We have two options for measuring reactor response:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -558,7 +554,7 @@
 <p>Note that you are allowed to collaborate with other teams to obtain the results from additional tests. All data sharing must be documented in your report.</p>
 <div class="section" id="baffle-installation">
 <h3>Baffle installation<a class="headerlink" href="#baffle-installation" title="Permalink to this headline">¶</a></h3>
-<p>The baffles can be installed by rolling a 3 mm diameter roll of putty and applying the putty to the bottom and one side of the baffle. Carefully install the baffle by rotating it into place (so the putty on the one side doesn’t have to slide) and then pressing it down (so the putty on the bottom doesn’t have to slide). Install the two bolts with wing nuts to hold the baffle in place. Add a roll of putty to the corner formed at the unsealed side of the baffle and press the putty into place.</p>
+<p>Install the baffles so that each compartment has the same volume. If desired the gap between the baffles and the reactor walls can be sealed using duct tape.</p>
 </div>
 </div>
 <div class="section" id="prelab-questions">
@@ -566,7 +562,7 @@
 <blockquote>
 <div><ol class="arabic simple">
 <li>Calculate the <strong>incremental</strong> volume of a 100 g/L red dye stock that would need to be added to 1 L of water to produce 0, 1, 2, 5, 10, 20, 30, 40, and 50 mg/L calibration points. Calculate a numpy array containing the <strong>cumulative</strong> volume of red dye required. Strip the units from the array using .magnitude. Then create a copy of the array with a zero appended (np.append) in front and the last element deleted (np.delete). Then use numpy subtract to get the different between the two arrays to calculate the incremental volume that you need to add.</li>
-<li>Calculate the change in hydraulic grade line between baffled sections of a reactor with a flow rate of 380 mL/min. The reactor baffles are perforated with 6 holes 1 mm in diameter. Is the flow through these orifices in series or in parallel? Do you multiply the head loss for one orifice by the number of orifices to get the total head loss? Use the pc.head_orifice function to calculate the head loss through an orifice. The <em>vena contracta</em> for the orifice can be found at exp.RATIO_VC_ORIFICE. Why would 6 holes 1 mm in diameter not be a good design for this reactor?</li>
+<li>Calculate the change in hydraulic grade line between baffled sections of a reactor with a flow rate of 380 mL/min. The reactor baffles are perforated with 6 holes 1 mm in diameter. Is the flow through these orifices in series or in parallel? Do you multiply the head loss for one orifice by the number of orifices to get the total head loss? Are the orifices in parallel or in series? Use the pc.head_orifice function to calculate the head loss through an orifice. The <em>vena contracta</em> for the orifice can be found at exp.RATIO_VC_ORIFICE. Why would 6 holes 1 mm in diameter not be a good design for this reactor?</li>
 <li>On a single graph plot the exit age distribution (<span class="math notranslate nohighlight">\(E_{(t\star)}\)</span>) for a reactor that operates as a 1-dimensional advection-dispersion reactor with Peclet numbers of 1, 10, and 100 (there will be three plots on the graph and thus a legend is required). The x-axis should be <span class="math notranslate nohighlight">\(t^\star\)</span> from 0.0 to 3.0. Comment on the shapes of the curves as a function of the Peclet number.</li>
 </ol>
 </div></blockquote>
@@ -596,7 +592,6 @@
 <div><ol class="arabic simple">
 <li>Create 100 mL of 100 g/L red dye stock (thus use 10 g of red dye) and distribute in small vials to each lab bench.</li>
 <li>Use # 18 tubing for inlet and #17 for photometer sampling.</li>
-<li>The maximum concentration of red dye that the photometer can measure accurately is 50 mg/L.</li>
 <li>Organize team research so they don’t use the same materials and so they answer different questions.</li>
 </ol>
 </div></blockquote>
@@ -645,7 +640,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v0.0.11',
+            VERSION:'',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

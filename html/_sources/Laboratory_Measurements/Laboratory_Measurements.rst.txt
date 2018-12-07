@@ -43,21 +43,17 @@ In practice :math:`P_0` is the intensity of light through a reference sample (su
 
     A=\varepsilon bc
 
-
+In this lab we will use a simple photometer with a 465 nm LED (blue light) and a detector that is used in smart phones to measure ambient light.
 
 .. _figure_Spectrophotometer:
 
-.. figure:: Images/Spectrophotometer.png
+.. figure:: ../ProCoDA/Images/Photometer_exploded.jpg
     :width: 300px
     :align: center
     :alt: Spectrophotometer light path
 
-    Diagram of light path in diode array spectrophotometer
+    Exploded view of the photometer. The LED is on the right and the sensor is on the red square printed circuit board. The flow path is through the gray PVC. Glass ports allow optical access to the sample.
 
-
-One instrument you may use to measure absorbance is a Hewlett Packard (HP) model 8452A diode array spectrophotometer. The diode array spectrophotometer uses a broad-spectrum source of incident light from a deuterium lamp. The light passes through the sample, 1 cm path length, and is split by a grating into a spectrum of light that is measured by an array of diodes. Each diode measures a bandwidth of 2 nm with 316 diodes covering the range from 190 nm to 820 nm. The wavelengths of light and their colors are given in Table 2- #. The light path for the diode array spectrophotometer is shown in :numref:`figure_Spectrophotometer`.
-
-The HP 8452A spectrophotometer has a photometric range of 0.002 - 3.3 absorbance units. In practice absorbance measurements greater than 2.5 are not very meaningful as they indicate that 99.7\% of the incident light at that wavelength was absorbed. Conversely, an absorbance of 0.002 means that 0.5\% of the incident light at that wavelength was absorbed.
 
 .. _heading_Laboratory_Measurements_and_Procedures_Experimental_Objectives:
 
@@ -105,18 +101,18 @@ Temperature Measurement and ProCoDA
 
 We will use a data acquisition system designed and fabricated in CEE at Cornell University. Each group has their own ProCoDA box and associated power supply and USB cable. The power supply and USB cable must be plugged into the ProCoDA box and then into the AC power on your lab bench and a USB port on your lab bench computer, respectively.
 
-Use a thermistor to measure the temperature of distilled water. The thermistors are usually hanging on the rack to the right of the fume hoods (you should have one on your bench today). The thermistor has a 4-mm diameter metallic probe. Plug the thermistor into the red signal-conditioning box. The conditioned signal is connected to the ProCoDA box using a red cable. Connect the red cable to one of the sensor ports on the top row of the ProCoDA box.
+Use a thermistor to measure the temperature of reverse osmosis water. The thermistors are usually hanging on the rack to the right of the fume hoods (you should have one on your bench today). The thermistor has a 4-mm diameter metallic probe. Plug the thermistor into the red signal-conditioning box. The conditioned signal is connected to the ProCoDA box using a red cable. Connect the red cable to one of the sensor ports on the top row of the ProCoDA box.
 
  #. Open ProCoDA II and :ref:`configure temperature monitoring <heading_ProCoDA_Temperature_Measurement>`
- #. Place the temperature probe in a 100-mL plastic beaker full of distilled water. Wait at least 15 seconds to allow the probe to equilibrate with the solution.
+ #. Place the temperature probe in a 100-mL plastic beaker full of reverse osmosis water. Wait at least 15 seconds to allow the probe to equilibrate with the solution.
  #. Record this temperature in the attached spreadsheet.
 
 
 Pipette Technique
 -----------------
 
- #. Use :numref:`figure_Density_vs_T` or ``density = pc.density_water(Temp)`` to estimate the mass of 990 :math:`\mu L` of distilled water (at the measured temperature).
- #. Use a 100-1000 :math:`\mu L` digital pipette to transfer 990 :math:`\mu L` of distilled water to a tared weighing boat on a balance with mg resolution. Record the mass of the water and compare with the expected value (see :numref:`figure_Density_vs_T`). Repeat this step if necessary until your pipetting error is less than 2\%, then measure the mass of 5 replicate 990 :math:`\mu L` pipette samples. Calculate the mean (:math:`\bar{x}`), standard deviation (s), and coefficient of variation, :math:`\frac{s}{\bar{x}}`, for your measurements. The coefficient of variation (c.v.) is a good measure of the precision of your technique. For this test a c.v. :math:`\mathrm{<}` 1\% should be achievable.
+ #. Use :numref:`figure_Density_vs_T` or ``density = pc.density_water(Temp)`` to estimate the mass of 990 :math:`\mu L` of reverse osmosis water (at the measured temperature).
+ #. Use a 100-1000 :math:`\mu L` digital pipette to transfer 990 :math:`\mu L` of reverse osmosis water to a tared weighing boat on a balance with mg resolution. Record the mass of the water and compare with the expected value (see :numref:`figure_Density_vs_T`). Repeat this step if necessary until your pipetting error is less than 2\%, then measure the mass of 5 replicate 990 :math:`\mu L` pipette samples. Calculate the mean (:math:`\bar{x}`), standard deviation (s), and coefficient of variation, :math:`\frac{s}{\bar{x}}`, for your measurements. The coefficient of variation (c.v.) is a good measure of the precision of your technique. For this test a c.v. :math:`\mathrm{<}` 1\% should be achievable.
 
 
 Measure Density

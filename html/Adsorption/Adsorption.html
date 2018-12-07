@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Adsorption &mdash; Environmental Engineering Laboratory Research Textbook v0.0.11 documentation</title>
+  <title>Adsorption &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
   
 
   
@@ -57,10 +57,6 @@
 
           
             
-            
-              <div class="version">
-                v0.0.11
-              </div>
             
           
 
@@ -122,6 +118,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#prelab-questions">Prelab Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lab-prep-notes">Lab Prep Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup">Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#procedure-to-remove-air-from-the-top-of-the-column">Procedure to remove air from the top of the column</a></li>
 </ul>
 </li>
@@ -225,24 +222,26 @@
 <p>Under isothermal conditions the equilibrium partitioning between solution and solid phase is a function of concentration. In this experiment the partitioning will be analyzed using both Freundlich</p>
 <div class="math notranslate nohighlight" id="equation-freundlich">
 <span class="eqno">(85)<a class="headerlink" href="#equation-freundlich" title="Permalink to this equation">¶</a></span>\[q =K_f C^{\frac{1}{n}}\]</div>
-<p>and Langmuir partitioning models</p>
-<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-0">
-<span class="eqno">(86)<a class="headerlink" href="#equation-adsorption-adsorption-0" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}:label: Langmuir\\  q =\frac{K_{Lang}q_{\max} C}{1+K_{Lang}C}\\| Where
-| :math:`q` is the mass of adsorbate (species being removed from solution) per mass of adsorbent (solid phase)
-| :math:`C` is the concentration of the adsorbate in water
-| :math:`K_f` and :math:`n` are the Freundlich empirical constants describing the partitioning
-| :math:`K_{Lang}`and :math:`q_{\max}` are the Langmuir empirical constants describing the partitioning\end{aligned}\end{align} \]</div>
+<p>and Langmuir partitioning models.</p>
+<div class="math notranslate nohighlight" id="equation-langmuir">
+<span class="eqno">(86)<a class="headerlink" href="#equation-langmuir" title="Permalink to this equation">¶</a></span>\[q =\frac{K_{Lang}q_{\max} C}{1+K_{Lang}C}\]</div>
+<div class="line-block">
+<div class="line">Where</div>
+<div class="line"><span class="math notranslate nohighlight">\(q\)</span> is the mass of adsorbate (species being removed from solution) per mass of adsorbent (solid phase)</div>
+<div class="line"><span class="math notranslate nohighlight">\(C\)</span> is the concentration of the adsorbate in water</div>
+<div class="line"><span class="math notranslate nohighlight">\(K_f\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are the Freundlich empirical constants describing the partitioning</div>
+<div class="line"><span class="math notranslate nohighlight">\(K_{Lang}\)</span> and <span class="math notranslate nohighlight">\(q_{\max}\)</span> are the Langmuir empirical constants describing the partitioning</div>
+</div>
 <p>We will preload columns of sand (or glass beads) with the adsorbent and then pump a solution of red dye #40 through the column. We will measure the effluent concentration of the dye as a function of time using a photometer. In these experiments the column of sand is inert, but provides a mechanism to hold the adsorbent stationary (fixed bed) while the red dye solution flows through. The red dye will adsorb to the adsorbent and the effluent red dye concentration is expected to be very low for some time. Red dye will begin breaking through once the majority of the adsorbent reaches equilibrium with the influent concentration of the red dye.</p>
-<p>In this analysis we are neglecting several aspects of the adsorption process. We assume that the time required to reach equilibrium partitioning is very small relative to the hydraulic residence time (<span class="math notranslate nohighlight">\(\theta_{HRT}\)</span> ) of the column. This assumption requires that both liquid phase and solid phase adsorbate mass transport mechanisms are relatively fast. Transport within the solid phase matrix is by the slow process of diffusion. Thus we expect diffusion to increase the time required to reach equilibrium for adsorbents that require diffusion over longer distances. Diffusion time will be greatest for Large diameter granular activated carbon, less for powdered activated carbon, and very fast for coagulant nanoparticles.</p>
-<p>The mass of the adsorbate in the column per plan view area at breakthrough is given by</p>
-<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-1">
-<span class="eqno">(87)<a class="headerlink" href="#equation-adsorption-adsorption-1" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}   M_{dye} = M_{adsorbent} q_{0}
-   v_mtz =  C_0 V_a t *A\\| where
-| :math:`M_{AC}` and :math:`M_{GAC}` are the masses of the adsorbents per plan view surface area of the column
-| :math:`v_a` is the approach velocity of the water above the sand bed
-| :math:`\phi` is the porosity of the sand bed
-| :math:`L` is the depth of the sand bed
-| :math:`C_0` is the influent concentration of the adsorbate (red dye \#40)\end{aligned}\end{align} \]</div>
+<p>In this analysis we are neglecting several aspects of the adsorption process. We assume that the time required to reach equilibrium partitioning is very small relative to the hydraulic residence time, <span class="math notranslate nohighlight">\(\theta_{HRT}\)</span>, of the column. This assumption requires that both liquid phase and solid phase adsorbate mass transport mechanisms are relatively fast. Transport within the solid phase matrix of an activated carbon granule is by the slow process of diffusion. Thus we expect diffusion to increase the time required to reach equilibrium for adsorbents that require diffusion over longer distances. Diffusion time will be greatest for Large diameter granular activated carbon, less for powdered activated carbon, and very fast for coagulant nanoparticles.</p>
+<p>The mass of the adsorbate in the column adsorbed to the adsorbent at breakthrough is given by</p>
+<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-0">
+<span class="eqno">(87)<a class="headerlink" href="#equation-adsorption-adsorption-0" title="Permalink to this equation">¶</a></span>\[M_{adsorbate} = M_{adsorbent} q_{0}\]</div>
+<div class="line-block">
+<div class="line">where</div>
+<div class="line"><span class="math notranslate nohighlight">\(M_{adsorbent}\)</span> is the mass of the adsorbent in the column</div>
+<div class="line"><span class="math notranslate nohighlight">\(M_{adsorbate}\)</span> is the mass of the adsorbate in the column adsorbed to the adsorbent</div>
+</div>
 <p>The mass transfer zone travels at velocity <span class="math notranslate nohighlight">\(v_{mtz}\)</span> through the fixed bed as the absorbent slowly fills to the equilibrium density, <span class="math notranslate nohighlight">\(q_0\)</span>, based on the influent concentration, <span class="math notranslate nohighlight">\(C_0\)</span>.</p>
 <div class="figure align-center" id="id1">
 <span id="figure-mass-transport-zone"></span><a class="reference external image-reference" href="https://youtu.be/ziLug9EEwM4"><img alt="../_images/MTZ.png" src="../_images/MTZ.png" style="width: 400px;" /></a>
@@ -250,14 +249,14 @@
 </div>
 <p>The velocity of the mass transfer zone (mtz or the adsorption front) can be obtained by a mass balance on the system. If we set our frame of reference (and our control volume) to be centered on the mass transfer zone, then the average velocity (over the pore fraction of the control surface) of fluid entering the mtz is equal to pore water velocity minus the velocity of the mtz. The fluid phase concentration of the adsorbate entering the control surface is <span class="math notranslate nohighlight">\(C_0\)</span> and the fraction of the control surface where fluid is passing through is the porosity, <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
 <p>The average velocity of the solid phase exiting through the control surface is <span class="math notranslate nohighlight">\(-v_{mtz}\)</span>. The bulk density of the adsorbate is <span class="math notranslate nohighlight">\(q_0 \rho_{bulk \; adsorbent}\)</span> where <span class="math notranslate nohighlight">\(\rho_{bulk \; adsorbent}\)</span> is the mass of adsorbent per volume of the packed bed. The mass rate of adsorbate passing through the control surface in liquid phase must precisely balance the mass rate of adsorbate passing through the control surface in the solid phase because the mtz is stationary.</p>
-<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-2">
-<span class="eqno">(88)<a class="headerlink" href="#equation-adsorption-adsorption-2" title="Permalink to this equation">¶</a></span>\[[(v_{pore} - v_{mtz})C_0\phi] - [(v_{mtz})q_0 \rho_{bulk \; adsorbent}] = 0\]</div>
+<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-1">
+<span class="eqno">(88)<a class="headerlink" href="#equation-adsorption-adsorption-1" title="Permalink to this equation">¶</a></span>\[[(v_{pore} - v_{mtz})C_0\phi] - [(v_{mtz})q_0 \rho_{bulk \; adsorbent}] = 0\]</div>
 <p>We can apply continuity to find the relationship between the velocity in the pores and velocity above the porous fixed bed. The plan view area of the fixed bed cancels out.</p>
-<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-3">
-<span class="eqno">(89)<a class="headerlink" href="#equation-adsorption-adsorption-3" title="Permalink to this equation">¶</a></span>\[\phi v_{pore} = v_a\]</div>
+<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-2">
+<span class="eqno">(89)<a class="headerlink" href="#equation-adsorption-adsorption-2" title="Permalink to this equation">¶</a></span>\[\phi v_{pore} = v_a\]</div>
 <p>Eliminate <span class="math notranslate nohighlight">\(v_{pore}\)</span> from the equation</p>
-<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-4">
-<span class="eqno">(90)<a class="headerlink" href="#equation-adsorption-adsorption-4" title="Permalink to this equation">¶</a></span>\[(v_a C_0 - v_{mtz}C_0\phi) - [(v_{mtz})q_0 \rho_{bulk \; adsorbent}] = 0\]</div>
+<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-3">
+<span class="eqno">(90)<a class="headerlink" href="#equation-adsorption-adsorption-3" title="Permalink to this equation">¶</a></span>\[(v_a C_0 - v_{mtz}C_0\phi) - [(v_{mtz})q_0 \rho_{bulk \; adsorbent}] = 0\]</div>
 <p>Now solve for <span class="math notranslate nohighlight">\(v_{mtz}\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-adsorb-v-mtz">
 <span class="eqno">(91)<a class="headerlink" href="#equation-eq-adsorb-v-mtz" title="Permalink to this equation">¶</a></span>\[v_{mtz}=\frac{v_a C_0}{C_0\phi + q_0 \rho_{bulk \; adsorbent}}\]</div>
@@ -265,14 +264,19 @@
 <div class="math notranslate nohighlight" id="equation-eq-adsorb-v-mtz-simple">
 <span class="eqno">(92)<a class="headerlink" href="#equation-eq-adsorb-v-mtz-simple" title="Permalink to this equation">¶</a></span>\[v_{mtz} \cong \frac{v_a C_0}{q_0 \rho_{bulk \; adsorbent}}\]</div>
 <p>The time until breakthrough can be obtained by dividing the length of the adsorption column (<span class="math notranslate nohighlight">\(L_{column}\)</span>) by the velocity of the mtz (equation <a class="reference internal" href="#equation-eq-adsorb-v-mtz">(91)</a>)</p>
+<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-4">
+<span class="eqno">(93)<a class="headerlink" href="#equation-adsorption-adsorption-4" title="Permalink to this equation">¶</a></span>\[\frac{L_{column}}{v_{mtz}} = \frac{L_{column}\phi}{v_a} + \frac{L_{column}q_0 \rho_{bulk \; adsorbent}}{v_a C_0}\]</div>
+<p>The equation above is equivalent to</p>
 <div class="math notranslate nohighlight" id="equation-adsorption-adsorption-5">
-<span class="eqno">(93)<a class="headerlink" href="#equation-adsorption-adsorption-5" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned} \frac{L_{column}}{v_{mtz}} = \frac{L_{column}\phi}{v_a} + \frac{L_{column}q_0 \rho_{bulk \; adsorbent}}{v_a C_0}\\ t_{mtz} = t_{water} + t_{ads}\end{aligned}\end{align} \]</div>
+<span class="eqno">(94)<a class="headerlink" href="#equation-adsorption-adsorption-5" title="Permalink to this equation">¶</a></span>\[t_{mtz} = t_{water} + t_{ads}\]</div>
 <p>Thus the time to breakthrough is the time required for water to flow through the reactor plus the additional time required due to the adsorption process. The retardation factor is defined as the ratio of the time for the mass transfer zone to travel through the bed divided by the time for water to travel through the bed.</p>
 <div class="math notranslate nohighlight" id="equation-eq-r-adsorption">
-<span class="eqno">(94)<a class="headerlink" href="#equation-eq-r-adsorption" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}R_{adsorption} = \frac{t_{mtz}}{t_{water}} = \frac{v_{water}}{v_{mtz}}\\R_{adsorption}\cong  \frac{v_a q_0 \rho_{bulk \; adsorbent}}{\phi v_a C_0} =\frac{q_0 \rho_{bulk \; adsorbent}}{\phi C_0}\end{aligned}\end{align} \]</div>
-<p>The effective bed porosity, <span class="math notranslate nohighlight">\(\phi\)</span> can be calculated from</p>
+<span class="eqno">(95)<a class="headerlink" href="#equation-eq-r-adsorption" title="Permalink to this equation">¶</a></span>\[R_{adsorption} = \frac{t_{mtz}}{t_{water}} = \frac{v_{water}}{v_{mtz}}\]</div>
 <div class="math notranslate nohighlight" id="equation-adsorption-adsorption-6">
-<span class="eqno">(95)<a class="headerlink" href="#equation-adsorption-adsorption-6" title="Permalink to this equation">¶</a></span>\[\phi =1-\frac{\rho _b }{\rho _{ac} }\]</div>
+<span class="eqno">(96)<a class="headerlink" href="#equation-adsorption-adsorption-6" title="Permalink to this equation">¶</a></span>\[R_{adsorption}\cong  \frac{v_a q_0 \rho_{bulk \; adsorbent}}{\phi v_a C_0} =\frac{q_0 \rho_{bulk \; adsorbent}}{\phi C_0}\]</div>
+<p>The effective bed porosity, <span class="math notranslate nohighlight">\(\phi\)</span> can be calculated from</p>
+<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-7">
+<span class="eqno">(97)<a class="headerlink" href="#equation-adsorption-adsorption-7" title="Permalink to this equation">¶</a></span>\[\phi =1-\frac{\rho _b }{\rho _{ac} }\]</div>
 <p>where</p>
 <blockquote>
 <div><div class="line-block">
@@ -280,9 +284,9 @@
 <div class="line"><span class="math notranslate nohighlight">\(\rho_{ac}  =  2.1 g/cm^3\)</span></div>
 </div>
 </div></blockquote>
-<p>From experiments conducted in the Cornell environmental laboratory around 2003 we have  q_{50 mg/L} = 0.08. Our goal is to design a fixed bed reactor that has a <span class="math notranslate nohighlight">\(t_{mtz}\)</span> of about 30 minutes. With a 15 cm deep column at 1 mm/s and with a porosity of 0.4 the hydraulic residence time is 1 minute. Given a target retardation factor of 30 we can calculate the bulk density of carbon that we should have in the column. We can achieve this bulk density by diluting the activated carbon with sand.</p>
-<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-7">
-<span class="eqno">(96)<a class="headerlink" href="#equation-adsorption-adsorption-7" title="Permalink to this equation">¶</a></span>\[\rho_{bulk \; adsorbent} \cong \frac{R_{adsorption}\phi C_0}{q_0}\]</div>
+<p>From experiments conducted in the Cornell environmental laboratory around 2003 we have  <span class="math notranslate nohighlight">\(q_{50 mg/L}\)</span> = 0.08. Our goal is to design a fixed bed reactor that has a <span class="math notranslate nohighlight">\(t_{mtz}\)</span> of about 30 minutes. With a 15 cm deep column at 1 mm/s and with a porosity of 0.4 the hydraulic residence time is 1 minute. Given a target retardation factor of 30 we can calculate the bulk density of carbon that we should have in the column. We can achieve this bulk density by diluting the activated carbon with sand.</p>
+<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-8">
+<span class="eqno">(98)<a class="headerlink" href="#equation-adsorption-adsorption-8" title="Permalink to this equation">¶</a></span>\[\rho_{bulk \; adsorbent} \cong \frac{R_{adsorption}\phi C_0}{q_0}\]</div>
 <p>Different teams can try different concentrations of red dye or different masses of activated carbon.</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">aide_design.play</span> <span class="k">import</span><span class="o">*</span>
@@ -434,78 +438,46 @@
 </div>
 <div class="section" id="lab-prep-notes">
 <span id="heading-adsorption-lab-prep-notes"></span><h2>Lab Prep Notes<a class="headerlink" href="#lab-prep-notes" title="Permalink to this headline">¶</a></h2>
-<span id="table-activated-carbon-reagent-list"></span><table border="1" class="docutils" id="id4">
-<caption><span class="caption-number">Table 7 </span><span class="caption-text">Reagent list.
-   :header: Description,       Supplier,       Catalog number
-   :widths: 20, 20, 10
-   :align: center</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<span id="table-activated-carbon-reagent-list"></span><table border="1" class="colwidths-given docutils align-center" id="id4">
+<caption><span class="caption-number">Table 7 </span><span class="caption-text">Reagent list.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="20%" />
-<col width="20%" />
-<col width="20%" />
-<col width="20%" />
+<col width="40%" />
+<col width="40%" />
 <col width="20%" />
 </colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Description</th>
+<th class="head">Supplier</th>
+<th class="head">Catalog number</th>
+</tr>
+</thead>
 <tbody valign="top">
-<tr class="row-odd"><td>activated carbon</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>red dye #40</td>
-<td>&#160;</td>
-<td>&#160;</td>
+<tr class="row-even"><td>activated carbon</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>&#160;</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>&#160;</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><ol class="first last arabic simple">
-<li>Verify that all necessary supplies are in place for the pumps</li>
-</ol>
-</td>
-<td>tanks</td>
-<td>column</td>
-<td>valves</td>
-<td>and tubing.</td>
-</tr>
-<tr class="row-even"><td><ol class="first last arabic simple">
-<li>Prepare the Red Dye #40 stock solution.</li>
-</ol>
-</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><ol class="first last arabic simple">
-<li>Prepare a 5% bleach solution (5 mL bleach diluted to 100 mL with distilled water) for cleaning the photometer sample cell and sample lines.</li>
-</ol>
-</td>
-<td>&#160;</td>
-<td>&#160;</td>
+<tr class="row-odd"><td>red dye #40</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
 </tbody>
 </table>
+<div class="section" id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Verify that all necessary supplies are in place for the pumps, tanks, column, valves, and tubing.</li>
+<li>Prepare the Red Dye #40 stock solution.</li>
+<li>Prepare a 5% bleach solution (5 mL bleach diluted to 100 mL with reverse osmosis water) for cleaning the photometer sample cell and sample lines.</li>
+</ol>
+</div></blockquote>
+</div>
 <div class="section" id="procedure-to-remove-air-from-the-top-of-the-column">
 <h3>Procedure to remove air from the top of the column<a class="headerlink" href="#procedure-to-remove-air-from-the-top-of-the-column" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ol class="arabic simple">
 <li>Close the Red Dye #40 influent valve.</li>
-<li>Open the distilled water influent valve.</li>
+<li>Open the reverse osmosis water influent valve.</li>
 <li>Wait for the influent line to clear of Red Dye #40.</li>
 <li>Turn off the pump.</li>
 <li>Reverse the column flow direction.</li>
@@ -565,7 +537,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v0.0.11',
+            VERSION:'',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

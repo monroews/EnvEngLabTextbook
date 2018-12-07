@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Laboratory Measurements and Procedures &mdash; Environmental Engineering Laboratory Research Textbook v0.0.11 documentation</title>
+  <title>Laboratory Measurements and Procedures &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
   
 
   
@@ -57,10 +57,6 @@
 
           
             
-            
-              <div class="version">
-                v0.0.11
-              </div>
             
           
 
@@ -224,12 +220,11 @@
 <p>In practice <span class="math notranslate nohighlight">\(P_0\)</span> is the intensity of light through a reference sample (such as deionized water) and thus accounts for any losses in the walls of the sample chamber. From equation <a class="reference internal" href="#equation-eq-fund-attenuation">(1)</a> and <a class="reference internal" href="#equation-eq-fund-abs-of-attenuation">(2)</a> it may be seen that absorption is directly proportional to the concentration of the chemical species.</p>
 <div class="math notranslate nohighlight" id="equation-eq-fund-beer">
 <span class="eqno">(3)<a class="headerlink" href="#equation-eq-fund-beer" title="Permalink to this equation">¶</a></span>\[A=\varepsilon bc\]</div>
+<p>In this lab we will use a simple photometer with a 465 nm LED (blue light) and a detector that is used in smart phones to measure ambient light.</p>
 <div class="figure align-center" id="id1">
-<span id="figure-spectrophotometer"></span><a class="reference internal image-reference" href="../_images/Spectrophotometer.png"><img alt="Spectrophotometer light path" src="../_images/Spectrophotometer.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Diagram of light path in diode array spectrophotometer</span></p>
+<span id="figure-spectrophotometer"></span><a class="reference internal image-reference" href="../_images/Photometer_exploded.jpg"><img alt="Spectrophotometer light path" src="../_images/Photometer_exploded.jpg" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Exploded view of the photometer. The LED is on the right and the sensor is on the red square printed circuit board. The flow path is through the gray PVC. Glass ports allow optical access to the sample.</span></p>
 </div>
-<p>One instrument you may use to measure absorbance is a Hewlett Packard (HP) model 8452A diode array spectrophotometer. The diode array spectrophotometer uses a broad-spectrum source of incident light from a deuterium lamp. The light passes through the sample, 1 cm path length, and is split by a grating into a spectrum of light that is measured by an array of diodes. Each diode measures a bandwidth of 2 nm with 316 diodes covering the range from 190 nm to 820 nm. The wavelengths of light and their colors are given in Table 2- #. The light path for the diode array spectrophotometer is shown in <a class="reference internal" href="#figure-spectrophotometer"><span class="std std-numref">Fig. 2</span></a>.</p>
-<p>The HP 8452A spectrophotometer has a photometric range of 0.002 - 3.3 absorbance units. In practice absorbance measurements greater than 2.5 are not very meaningful as they indicate that 99.7% of the incident light at that wavelength was absorbed. Conversely, an absorbance of 0.002 means that 0.5% of the incident light at that wavelength was absorbed.</p>
 </div>
 <div class="section" id="experimental-objectives">
 <span id="heading-laboratory-measurements-and-procedures-experimental-objectives"></span><h2>Experimental Objectives<a class="headerlink" href="#experimental-objectives" title="Permalink to this headline">¶</a></h2>
@@ -270,11 +265,11 @@
 <div class="section" id="temperature-measurement-and-procoda">
 <h3>Temperature Measurement and ProCoDA<a class="headerlink" href="#temperature-measurement-and-procoda" title="Permalink to this headline">¶</a></h3>
 <p>We will use a data acquisition system designed and fabricated in CEE at Cornell University. Each group has their own ProCoDA box and associated power supply and USB cable. The power supply and USB cable must be plugged into the ProCoDA box and then into the AC power on your lab bench and a USB port on your lab bench computer, respectively.</p>
-<p>Use a thermistor to measure the temperature of distilled water. The thermistors are usually hanging on the rack to the right of the fume hoods (you should have one on your bench today). The thermistor has a 4-mm diameter metallic probe. Plug the thermistor into the red signal-conditioning box. The conditioned signal is connected to the ProCoDA box using a red cable. Connect the red cable to one of the sensor ports on the top row of the ProCoDA box.</p>
+<p>Use a thermistor to measure the temperature of reverse osmosis water. The thermistors are usually hanging on the rack to the right of the fume hoods (you should have one on your bench today). The thermistor has a 4-mm diameter metallic probe. Plug the thermistor into the red signal-conditioning box. The conditioned signal is connected to the ProCoDA box using a red cable. Connect the red cable to one of the sensor ports on the top row of the ProCoDA box.</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li>Open ProCoDA II and <a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-temperature-measurement"><span class="std std-ref">configure temperature monitoring</span></a></li>
-<li>Place the temperature probe in a 100-mL plastic beaker full of distilled water. Wait at least 15 seconds to allow the probe to equilibrate with the solution.</li>
+<li>Place the temperature probe in a 100-mL plastic beaker full of reverse osmosis water. Wait at least 15 seconds to allow the probe to equilibrate with the solution.</li>
 <li>Record this temperature in the attached spreadsheet.</li>
 </ol>
 </div></blockquote>
@@ -283,8 +278,8 @@
 <h3>Pipette Technique<a class="headerlink" href="#pipette-technique" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Use <a class="reference internal" href="#figure-density-vs-t"><span class="std std-numref">Fig. 3</span></a> or <code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">=</span> <span class="pre">pc.density_water(Temp)</span></code> to estimate the mass of 990 <span class="math notranslate nohighlight">\(\mu L\)</span> of distilled water (at the measured temperature).</li>
-<li>Use a 100-1000 <span class="math notranslate nohighlight">\(\mu L\)</span> digital pipette to transfer 990 <span class="math notranslate nohighlight">\(\mu L\)</span> of distilled water to a tared weighing boat on a balance with mg resolution. Record the mass of the water and compare with the expected value (see <a class="reference internal" href="#figure-density-vs-t"><span class="std std-numref">Fig. 3</span></a>). Repeat this step if necessary until your pipetting error is less than 2%, then measure the mass of 5 replicate 990 <span class="math notranslate nohighlight">\(\mu L\)</span> pipette samples. Calculate the mean (<span class="math notranslate nohighlight">\(\bar{x}\)</span>), standard deviation (s), and coefficient of variation, <span class="math notranslate nohighlight">\(\frac{s}{\bar{x}}\)</span>, for your measurements. The coefficient of variation (c.v.) is a good measure of the precision of your technique. For this test a c.v. <span class="math notranslate nohighlight">\(\mathrm{&lt;}\)</span> 1% should be achievable.</li>
+<li>Use <a class="reference internal" href="#figure-density-vs-t"><span class="std std-numref">Fig. 3</span></a> or <code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">=</span> <span class="pre">pc.density_water(Temp)</span></code> to estimate the mass of 990 <span class="math notranslate nohighlight">\(\mu L\)</span> of reverse osmosis water (at the measured temperature).</li>
+<li>Use a 100-1000 <span class="math notranslate nohighlight">\(\mu L\)</span> digital pipette to transfer 990 <span class="math notranslate nohighlight">\(\mu L\)</span> of reverse osmosis water to a tared weighing boat on a balance with mg resolution. Record the mass of the water and compare with the expected value (see <a class="reference internal" href="#figure-density-vs-t"><span class="std std-numref">Fig. 3</span></a>). Repeat this step if necessary until your pipetting error is less than 2%, then measure the mass of 5 replicate 990 <span class="math notranslate nohighlight">\(\mu L\)</span> pipette samples. Calculate the mean (<span class="math notranslate nohighlight">\(\bar{x}\)</span>), standard deviation (s), and coefficient of variation, <span class="math notranslate nohighlight">\(\frac{s}{\bar{x}}\)</span>, for your measurements. The coefficient of variation (c.v.) is a good measure of the precision of your technique. For this test a c.v. <span class="math notranslate nohighlight">\(\mathrm{&lt;}\)</span> 1% should be achievable.</li>
 </ol>
 </div></blockquote>
 </div>
@@ -421,7 +416,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v0.0.11',
+            VERSION:'',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

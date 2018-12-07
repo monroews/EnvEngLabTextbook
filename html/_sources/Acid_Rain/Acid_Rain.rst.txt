@@ -443,7 +443,7 @@ Prepare solution of 400 mg Bromocresol green/100 mL ethanol. Add 0.2 mL of indic
 Acid rain
 ---------
 
-Acid rain is at pH 3.0. Prepare from reverse osmosis water. Add 1 meq :math:`H_2SO_4`/L (:math:`[H^+]` at pH 3.0) to obtain a pH of 3.0. To acidify 20 liters of distilled water using 10 N :math:`H_2SO_4`:
+Acid rain is at pH 3.0. Prepare from reverse osmosis water. Add 1 meq :math:`H_2SO_4`/L (:math:`[H^+]` = 1 meq at pH 3.0) to obtain a pH of 3.0. To acidify 20 liters of reverse osmosis water using 10 N :math:`H_2SO_4`:
 
 .. math::
 
@@ -466,5 +466,5 @@ Setup
  #. Attach one Easy-Load pump head to the pump drives and plumb with \#18 tubing.
  #. Plumb Jerrican to pump to lake using quick connectors (see :numref:`figure_Acid_rain_apparatus`).
  #. Verify that pH probes are operational, stable, and can be calibrated.
- #. )Verify that buffers (pH = 4, 7, 10) are distributed to each student group.
- #. Provide a effluent cup in which pH can be measured.
+ #. Verify that buffers (pH = 4, 7, 10) are distributed to each student group.
+ #. Provide a effluent beaker with an overflow in which pH can be measured.
