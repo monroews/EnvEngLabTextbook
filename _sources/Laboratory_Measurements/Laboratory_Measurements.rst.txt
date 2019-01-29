@@ -50,7 +50,7 @@ In this lab we will use a simple photometer with a 465 nm LED (blue light) and a
 .. figure:: ../ProCoDA/Images/Photometer_exploded.jpg
     :width: 300px
     :align: center
-    :alt: Spectrophotometer light path
+    :alt: Photometer light path
 
     Exploded view of the photometer. The LED is on the right and the sensor is on the red square printed circuit board. The flow path is through the gray PVC. Glass ports allow optical access to the sample.
 
@@ -67,7 +67,7 @@ To gain proficiency in:
  #. Digital pipetting
  #. Preparing a solution of known concentration
  #. Preparing dilutions
- #. Measuring concentrations using a UV-Vis spectrophotometer
+ #. Measuring concentrations using a photometer
 
 
 .. _heading_Laboratory_Measurements_and_Procedures_Experimental_Methods:
@@ -82,16 +82,11 @@ Mass can be accurately measured with an electronic analytical balance. Perhaps b
 
 The environmental laboratory is equipped with 200 g balances.  As part of this exercise, we will calibrate the 200 g as follows:
 
- #. Start with the balance off.
- #. Press and hold the ON/ZERO key until the screen reads 'MENU'.
- #. Releasing the ON/ZERO key will take you to calibration mode indicated by '.C.A.L.' on the screen.
- #. Press the ON/ZERO key to indicate 'Yes' to calibration.
- #. The balance will acquire the zero value (and read -- C -).
- #. Once the zero value is obtained, the balance screen will blink -- 200 g -- indicating that the 200 g mass will be used for the calibration.
- #. Place the 200 g calibration mass on the pan (handle the calibration mass using a cotton glove or tissue paper) and press ON/ZERO key.
- #. The balance will calibrate to the mass added. Remove the mass when the screen reads '200.00 g' indicating the calibration is complete.
- #. Measure the mass of a second calibration mass of different size (e.g., 100 g) to confirm calibration.
- #. Record relevant data in the attached spreadsheet.
+ #. Make sure the balance is stable and level using the bubble indicator
+ #. Press and hold the cal button until the screen shows 'cal' briefly
+ #. Wait until the screen flashes continually 100.000 g.
+ #. Place the 100 g calibration mass on the pan (handle the calibration mass using a cotton glove or tissue paper)
+ #. The scale is calibrated when it reads 100.000 g.
 
 Dry chemicals can be weighed in disposable plastic "weighing boats" or other suitable containers. It is often desirable to subtract the weight of the container in which the chemical is being weighed. The weight of the chemical can be obtained either by weighing the container first and then subtracting, or by "zeroing" the balance with the container on the balance.
 
@@ -105,7 +100,7 @@ Use a thermistor to measure the temperature of reverse osmosis water. The thermi
 
  #. Open ProCoDA II and :ref:`configure temperature monitoring <heading_ProCoDA_Temperature_Measurement>`
  #. Place the temperature probe in a 100-mL plastic beaker full of reverse osmosis water. Wait at least 15 seconds to allow the probe to equilibrate with the solution.
- #. Record this temperature in the attached spreadsheet.
+ #. Record this temperature in the attached `spreadsheet <../_static/Datasheet.xlsx>`_.
 
 
 Pipette Technique
@@ -126,7 +121,11 @@ Measure Density
 .. code:: python
 
     """ importing """
-    from aide_design.play import*
+    import aguaclara
+    import aguaclara.core.physchem as pc
+    from aguaclara.core.units import unit_registry as u
+    import numpy as np
+    import matplotlib.pyplot as plt
     Temp = np.linspace(0,30)*u.degC
     density = pc.density_water(Temp)
     fig, ax = plt.subplots()
@@ -153,7 +152,7 @@ Prepare red dye standards of several concentrations
 
 A red dye stock solution of 10 g/L has been prepared.
 
- #.  Use the red dye stock solution to prepare 100 mL of each of the following concentrations: 1 mg/L, 2 mg/L, 5 mg/L, 10 mg/L, 20 mg/L, 50 mg/L, 100 mg/L, and possibly 200 mg/L.  Record your calculations in the attached spreadsheet. Use pipettes and volumetric flasks to create accurate dilutions.
+ #.  Use the red dye stock solution to prepare 100 mL of each of the following concentrations: 1 mg/L, 2 mg/L, 5 mg/L, 10 mg/L, 20 mg/L, 50 mg/L, 100 mg/L, and possibly 200 mg/L.  Record your calculations in the attached `spreadsheet <../_static/Datasheet.xlsx>`_. Use pipettes and volumetric flasks to create accurate dilutions.
  #. Note any errors in transfer of mass as you prepare these dilutions (the color will make it easy to see). Make sure to transfer every drop!
 
 Create a standard curve and measure an unknown
@@ -182,16 +181,16 @@ Prelab Questions
 Data Analysis and Questions
 ===========================
 
-Submit one spreadsheet containing the data sheet, exported absorbance data, graphs and answers to the questions.
+Submit one `spreadsheet <../_static/Datasheet.xlsx>`_ containing the data sheet, exported absorbance data, graphs and answers to the questions.
 
 
- #. Fill out the Excel data sheet available from the course syllabus. Make sure that all calculated values are entered in the spreadsheet as equations. Failure to use the spreadsheet to do the calculations will not receive full credit. Note that this is likely the only assignment that we will do using Excel. All remaining analysis for the course will be done in Atom using Python!
+ #. Fill out the attached `spreadsheet <../_static/Datasheet.xlsx>`_. Make sure that all calculated values are entered in the spreadsheet as equations. Failure to use the spreadsheet to do the calculations will not receive full credit. Note that this is likely the only assignment that we will do using Excel. All remaining analysis for the course will be done in Atom using Python!
  #. Create a graph of absorbance vs. concentration of red dye ``\#40`` in Atom using the exported data file. Does absorbance increase linearly with concentration of the red dye?
  #. What is the value of the extinction coefficient, :math:`\varepsilon`?
  #. Did you use interpolation or extrapolation to get the concentration of the unknown?
  #. What measurement controls the accuracy of the density measurement for the NaCl solution?
  #. What density did you expect (see prelab 2)?
- #. Approximately what should the accuracy be?
+ #. Approximately what should the accuracy be for the density measurement?
  #. Don't forget to write a brief paragraph on conclusions and on suggestions using Markdown.
  #. Verify that your report and graphs meet the requirements as outlined in the course materials.
 
