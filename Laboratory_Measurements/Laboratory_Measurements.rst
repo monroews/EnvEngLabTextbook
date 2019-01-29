@@ -50,7 +50,7 @@ In this lab we will use a simple photometer with a 465 nm LED (blue light) and a
 .. figure:: ../ProCoDA/Images/Photometer_exploded.jpg
     :width: 300px
     :align: center
-    :alt: Spectrophotometer light path
+    :alt: Photometer light path
 
     Exploded view of the photometer. The LED is on the right and the sensor is on the red square printed circuit board. The flow path is through the gray PVC. Glass ports allow optical access to the sample.
 
@@ -67,7 +67,7 @@ To gain proficiency in:
  #. Digital pipetting
  #. Preparing a solution of known concentration
  #. Preparing dilutions
- #. Measuring concentrations using a UV-Vis spectrophotometer
+ #. Measuring concentrations using a photometer
 
 
 .. _heading_Laboratory_Measurements_and_Procedures_Experimental_Methods:
@@ -82,16 +82,11 @@ Mass can be accurately measured with an electronic analytical balance. Perhaps b
 
 The environmental laboratory is equipped with 200 g balances.  As part of this exercise, we will calibrate the 200 g as follows:
 
- #. Start with the balance off.
- #. Press and hold the ON/ZERO key until the screen reads 'MENU'.
- #. Releasing the ON/ZERO key will take you to calibration mode indicated by '.C.A.L.' on the screen.
- #. Press the ON/ZERO key to indicate 'Yes' to calibration.
- #. The balance will acquire the zero value (and read -- C -).
- #. Once the zero value is obtained, the balance screen will blink -- 200 g -- indicating that the 200 g mass will be used for the calibration.
- #. Place the 200 g calibration mass on the pan (handle the calibration mass using a cotton glove or tissue paper) and press ON/ZERO key.
- #. The balance will calibrate to the mass added. Remove the mass when the screen reads '200.00 g' indicating the calibration is complete.
- #. Measure the mass of a second calibration mass of different size (e.g., 100 g) to confirm calibration.
- #. Record relevant data in the attached spreadsheet.
+ #. Make sure the balance is stable and level using the bubble indicator
+ #. Press and hold the cal button until the screen shows 'cal' briefly
+ #. Wait until the screen flashes continually 100.000 g.
+ #. Place the 100 g calibration mass on the pan (handle the calibration mass using a cotton glove or tissue paper)
+ #. The scale is calibrated when it reads 100.000 g.
 
 Dry chemicals can be weighed in disposable plastic "weighing boats" or other suitable containers. It is often desirable to subtract the weight of the container in which the chemical is being weighed. The weight of the chemical can be obtained either by weighing the container first and then subtracting, or by "zeroing" the balance with the container on the balance.
 
@@ -126,7 +121,11 @@ Measure Density
 .. code:: python
 
     """ importing """
-    from aide_design.play import*
+    import aguaclara
+    import aguaclara.core.physchem as pc
+    from aguaclara.core.units import unit_registry as u
+    import numpy as np
+    import matplotlib.pyplot as plt
     Temp = np.linspace(0,30)*u.degC
     density = pc.density_water(Temp)
     fig, ax = plt.subplots()
