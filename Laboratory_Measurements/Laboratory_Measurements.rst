@@ -181,18 +181,18 @@ Prelab Questions
 Data Analysis and Questions
 ===========================
 
-Submit one `spreadsheet <../_static/Datasheet.xlsx>`_ containing the data sheet, exported absorbance data, graphs and answers to the questions.
+Submit the `spreadsheet <../_static/Datasheet.xlsx>`_ containing the data sheet, and a markdown file containing graphs and answers to the questions.
 
 
- #. Fill out the attached `spreadsheet <../_static/Datasheet.xlsx>`_. Make sure that all calculated values are entered in the spreadsheet as equations. Failure to use the spreadsheet to do the calculations will not receive full credit. Note that this is likely the only assignment that we will do using Excel. All remaining analysis for the course will be done in Atom using Python!
- #. Create a graph of absorbance vs. concentration of red dye ``\#40`` in Atom using the exported data file. Does absorbance increase linearly with concentration of the red dye?
+ #. Fill out the attached `spreadsheet <../_static/Datasheet.xlsx>`_. Make sure that all calculated values are entered in the spreadsheet as equations. All remaining analysis for the course will be done in Atom using Python!
+ #. Create a graph of absorbance vs. concentration of red dye ``\#40`` in Atom/Markdown using the exported data file. Does absorbance increase linearly with concentration of the red dye? Remove data points from the graph that are outside of the linear region.
  #. What is the value of the extinction coefficient, :math:`\varepsilon`?
  #. Did you use interpolation or extrapolation to get the concentration of the unknown?
  #. What measurement controls the accuracy of the density measurement for the NaCl solution?
  #. What density did you expect (see prelab 2)?
  #. Approximately what should the accuracy be for the density measurement?
  #. Don't forget to write a brief paragraph on conclusions and on suggestions using Markdown.
- #. Verify that your report and graphs meet the requirements as outlined in the course materials.
+ #. Verify that your report and graphs meet the requirements as outlined on the `course website <https://github.com/monroews/CEE4530/wiki/Lab-Reports>`_.
 
 
 .. _heading_Laboratory_Measurements_and_Procedures_Lab_Prep_Notes:
