@@ -166,6 +166,18 @@ Create a standard curve and measure an unknown
   #. Save **AND** export the calibration data from ProCoDA (|photometer_open_save_export|). These calibration curves will be useful later in this course!
   #. Measure the concentration of the unknown concentration of red dye. Note that you can do this directly in ProCoDA in the Graphs tab.
 
+Clean Up
+========
+
+ #. Empty and rinse red dye bottles and place them on the drying racks.
+ #. Empty and rinse volumetric flasks and place them on the drying racks.
+ #. Place pipette tips in the pipette disposal mini cans
+ #. Discard any used weighing boats
+ #. Pull DI water through the photometer to rinse it and then place it in your drawer.
+ #. Rinse temperature probe and place it in your drawer
+ #. Empty and rinse unknown red dye solutions
+ #. Place concentrated red dye in your drawer
+
 
 .. _heading_Laboratory_Measurements_and_Procedures_Pre-Laboratory_Questions:
 
