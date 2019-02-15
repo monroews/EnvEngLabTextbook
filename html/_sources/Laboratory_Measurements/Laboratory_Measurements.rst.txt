@@ -197,8 +197,8 @@ Submit the `spreadsheet <../_static/Datasheet.xlsx>`_ containing the data sheet,
 
 
  #. Fill out the attached `spreadsheet <../_static/Datasheet.xlsx>`_. Make sure that all calculated values are entered in the spreadsheet as equations. All remaining analysis for the course will be done in Atom using Python!
- #. Create a graph of absorbance vs. concentration of red dye ``\#40`` in Atom/Markdown using the exported data file. Does absorbance increase linearly with concentration of the red dye? Remove data points from the graph that are outside of the linear region.
- #. What is the value of the extinction coefficient, :math:`\varepsilon`?
+ #. Create a graph of absorbance vs. concentration of red dye ``\#40`` in Atom/Markdown using the exported data file. Does absorbance increase linearly with concentration of the red dye? Remove data points from the graph that are outside of the linear region (absorbance too high for the detector to measure accurately).
+ #. What is the value of the extinction coefficient, :math:`\varepsilon`? Use the slope of the absorbance vs concentration to calculate the absorbance. The pathlength for the sample cell is given in the  :ref:`photometer section <heading_ProCoDA_Photometer>`.
  #. Did you use interpolation or extrapolation to get the concentration of the unknown?
  #. What measurement controls the accuracy of the density measurement for the NaCl solution?
  #. What density did you expect (see prelab 2)?

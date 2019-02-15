@@ -395,7 +395,10 @@ Data Analysis
 Questions
 =========
 
- #. What do you think would happen if enough :math:`NaHCO_3` were added to the lake to maintain an ANC greater than :math:`50 \mu eq/L` for 3 residence times with the stirrer turned off? How much :math:`NaHCO_3` would need to be added?
+ #. What do you think would happen if enough :math:`NaHCO_3` were added to the lake to maintain an ANC greater than :math:`50 \mu eq/L` for 3 residence times with the stirrer turned off? Here are a few things to consider.
+     #. How much :math:`NaHCO_3` would need to be added?
+     #. What is the density of sodium bicarbonate?
+     #. Given the density of sodium bicarbonate, what will happen to the sodium bicarbonate when it is added to the lake?
  #. What are some of the complicating factors you might find in attempting to remediate a lake using :math:`CaCO_3`? Below is a list of issues to consider.
      #.  extent of mixing
      #.  solubility of :math:`CaCO_3` (find the solubility and compare with :math:`NaHCO_3`)
