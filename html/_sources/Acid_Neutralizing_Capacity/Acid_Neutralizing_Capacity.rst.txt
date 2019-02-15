@@ -194,22 +194,37 @@ Procedures
 
 .. |ProCoDA_save_gran| image:: ../ProCoDA/Images/Gran_save.png
 
+Determine ANC of a Known Sample
+-------------------------------
+
+#. Measure approximately 50 mL of reverse osmosis water (ANC = 0 meq/L) in a 100 mL beaker using an electronic balance.
+#. Place the beaker on the magnetic stirrer, add a stir bar and stir slowly.
+#. Place the pH electrode in the solution.
+#. Analyze the sample using :ref:`Gran plot analysis <heading_ProCoDA_Gran_Plot>`.  Add 0.05 N HCl (the titrant) using a digital pipette in increments suggested by ProCoDA (or smaller).
+#. Save the Gran data by selecting |ProCoDA_save_gran|. The data will be saved in a tab delimited format. You will use this data to plot a titration curve and to verify that the Gran technique accurately measures the ANC of a sample.
+
+If the error is greater than 0.1 meq/L (equal to an error of 0.1 mL titrant) then check your pipette technique using a balance, verify that you ended the titration process correctly with a high correlation coefficient, and then repeat the titration.
+
 Determine ANC of Acid Rain Samples
 ----------------------------------
 
 Determine the ANC for all samples collected from the Acid Lake Remediation lab.  Start with 50 mL from the t=0 sample and run through the procedure to learn how the software works. Then repeat the procedure with 50 mL from the t=0 sample and for remaining samples with the goal of making an accurate ANC measurement and creating an accurate titration curve by using 0.100 mL titrant increments throughout the entire titration. Remember that the biggest source of error for this lab will likely be poor pipette techniques.
 
- #. Measure 50 mL of an acid lake sample in a graduated cylinder or using an electronic balance.
- #. Add to a 100 mL beaker.
+ #. Measure approximately 50 mL of a sample in a 100 mL beaker using an electronic balance.
  #. Place the beaker on the magnetic stirrer, add a stir bar and stir slowly.
  #. Place the pH electrode in the solution.
  #. If the initial pH is less than 4.5 no titration is necessary and equation :eq:`eq_Gran_pH_lt4` can be used to calculate the ANC.
  #. Record the initial pH (prior to adding any titrant) and initial sample volume.
- #. Analyze the sample using :ref:`Gran plot analysis <heading_ProCoDA_Gran_Plot>`.  Add 0.05 N HCl (the titrant) using a digital pipette in increments of 0.100 mL.
- #. Save the Gran data to ``S:\Courses\4530\Group #\ANC\Gran`` by selecting |ProCoDA_save_gran|. The data will be saved in a tab delimited format. You will use this data to plot a titration curve and to verify that the Gran technique accurately measures the ANC of a sample.
- #. Record the ANC and the equivalent volume.
+ #. Analyze the sample using :ref:`Gran plot analysis <heading_ProCoDA_Gran_Plot>`.  Add 0.05 N HCl (the titrant) using a digital pipette in increments suggested by ProCoDA (or smaller).
+ #. Save the Gran data by selecting |ProCoDA_save_gran|. The data will be saved in a tab delimited format. You will use this data to plot a titration curve and to verify that the Gran technique accurately measures the ANC of a sample.
 
- If the error is greater than 2\% then check your pipette technique using a balance and then repeat the titration.
+ Clean Up
+ ========
+
+  #. Empty and rinse sample bottles and place them on the drying racks.
+  #. Rinse the pH probe with reverse osmosis water
+  #. Reinstall the pH probe in the small bottle that ensures that the pH probe is maintained moist in a low pH solution (can be pH buffer 4.0).
+  #. Put away all of the equipment except for the ProCoDA box.
 
 .. _heading_ANC_Prelab_Questions:
 
