@@ -301,6 +301,20 @@ We will use a pH probe to measure pH in this experiment. The pH probes are store
  #. Measure the lake volume.  This can be done in a large graduated cylinder OR by taking the mass of the water in the lake.  Which would be more accurate?
  #. Repeat the experiment and change one of the following parameters: stirring, initial ANC, ANC source (use :math:`CaCO_3` instead of :math:`NaHCO_3`), or amount of ANC added.
 
+ Clean Up
+ ========
+
+ #. Empty lake into sink, rinse with DI water, store in cabinet at your workstation
+ #. Rinse all plastic tubing and place in a drawer at your workstation
+ #. Rinse metal tubes and place in the top drawer
+ #. Place peristaltic pump (and pump tubing) in a cabinet at your workstation
+ #. Keep stirrer on your benchtop for use next week
+ #. Keep samples on your benchtop for analysis next week
+ #. Rinse pH probe, insert into bottle cap (add buffer 4 if empty) and keep on your benchtop
+ #. Empty and rinse Jerrican and place along the wall of windows (remove label)
+ #. Rinse gray PVC pipe and place in top drawer
+ #. Put your data files somewhere accessible
+
 
 .. _table_Acid_pump_tubing:
 
@@ -381,7 +395,10 @@ Data Analysis
 Questions
 =========
 
- #. What do you think would happen if enough :math:`NaHCO_3` were added to the lake to maintain an ANC greater than :math:`50 \mu eq/L` for 3 residence times with the stirrer turned off? How much :math:`NaHCO_3` would need to be added?
+ #. What do you think would happen if enough :math:`NaHCO_3` were added to the lake to maintain an ANC greater than :math:`50 \mu eq/L` for 3 residence times with the stirrer turned off? Here are a few things to consider.
+     #. How much :math:`NaHCO_3` would need to be added?
+     #. What is the density of sodium bicarbonate?
+     #. Given the density of sodium bicarbonate, what will happen to the sodium bicarbonate when it is added to the lake?
  #. What are some of the complicating factors you might find in attempting to remediate a lake using :math:`CaCO_3`? Below is a list of issues to consider.
      #.  extent of mixing
      #.  solubility of :math:`CaCO_3` (find the solubility and compare with :math:`NaHCO_3`)

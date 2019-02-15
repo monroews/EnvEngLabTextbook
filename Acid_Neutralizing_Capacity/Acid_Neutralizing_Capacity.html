@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Acid Neutralizing Capacity &mdash; Environmental Engineering Laboratory Research Textbook v0.0.14 documentation</title>
+  <title>Acid Neutralizing Capacity &mdash; Environmental Engineering Laboratory Research Textbook v0.0.15 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                v0.0.14
+                v0.0.15
               </div>
             
           
@@ -112,6 +112,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#procedures">Procedures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#determine-anc-of-a-known-sample">Determine ANC of a Known Sample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#determine-anc-of-acid-rain-samples">Determine ANC of Acid Rain Samples</a></li>
 </ul>
 </li>
@@ -302,22 +303,38 @@
 </div>
 <div class="section" id="procedures">
 <span id="heading-anc-procedures"></span><h2>Procedures<a class="headerlink" href="#procedures" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="determine-anc-of-a-known-sample">
+<h3>Determine ANC of a Known Sample<a class="headerlink" href="#determine-anc-of-a-known-sample" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Measure approximately 50 mL of reverse osmosis water (ANC = 0 meq/L) in a 100 mL beaker using an electronic balance.</li>
+<li>Place the beaker on the magnetic stirrer, add a stir bar and stir slowly.</li>
+<li>Place the pH electrode in the solution.</li>
+<li>Analyze the sample using <a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-gran-plot"><span class="std std-ref">Gran plot analysis</span></a>.  Add 0.05 N HCl (the titrant) using a digital pipette in increments suggested by ProCoDA (or smaller).</li>
+<li>Save the Gran data by selecting <img alt="ProCoDA_save_gran" src="../_images/Gran_save.png" />. The data will be saved in a tab delimited format. You will use this data to plot a titration curve and to verify that the Gran technique accurately measures the ANC of a sample.</li>
+</ol>
+<p>If the error is greater than 0.1 meq/L (equal to an error of 0.1 mL titrant) then check your pipette technique using a balance, verify that you ended the titration process correctly with a high correlation coefficient, and then repeat the titration.</p>
+</div>
 <div class="section" id="determine-anc-of-acid-rain-samples">
 <h3>Determine ANC of Acid Rain Samples<a class="headerlink" href="#determine-anc-of-acid-rain-samples" title="Permalink to this headline">¶</a></h3>
 <p>Determine the ANC for all samples collected from the Acid Lake Remediation lab.  Start with 50 mL from the t=0 sample and run through the procedure to learn how the software works. Then repeat the procedure with 50 mL from the t=0 sample and for remaining samples with the goal of making an accurate ANC measurement and creating an accurate titration curve by using 0.100 mL titrant increments throughout the entire titration. Remember that the biggest source of error for this lab will likely be poor pipette techniques.</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Measure 50 mL of an acid lake sample in a graduated cylinder or using an electronic balance.</li>
-<li>Add to a 100 mL beaker.</li>
+<li>Measure approximately 50 mL of a sample in a 100 mL beaker using an electronic balance.</li>
 <li>Place the beaker on the magnetic stirrer, add a stir bar and stir slowly.</li>
 <li>Place the pH electrode in the solution.</li>
 <li>If the initial pH is less than 4.5 no titration is necessary and equation <a class="reference internal" href="#equation-eq-gran-ph-lt4">(45)</a> can be used to calculate the ANC.</li>
 <li>Record the initial pH (prior to adding any titrant) and initial sample volume.</li>
-<li>Analyze the sample using <a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-gran-plot"><span class="std std-ref">Gran plot analysis</span></a>.  Add 0.05 N HCl (the titrant) using a digital pipette in increments of 0.100 mL.</li>
-<li>Save the Gran data to <code class="docutils literal notranslate"><span class="pre">S:\Courses\4530\Group</span> <span class="pre">#\ANC\Gran</span></code> by selecting <img alt="ProCoDA_save_gran" src="../_images/Gran_save.png" />. The data will be saved in a tab delimited format. You will use this data to plot a titration curve and to verify that the Gran technique accurately measures the ANC of a sample.</li>
-<li>Record the ANC and the equivalent volume.</li>
+<li>Analyze the sample using <a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-gran-plot"><span class="std std-ref">Gran plot analysis</span></a>.  Add 0.05 N HCl (the titrant) using a digital pipette in increments suggested by ProCoDA (or smaller).</li>
+<li>Save the Gran data by selecting <img alt="ProCoDA_save_gran" src="../_images/Gran_save.png" />. The data will be saved in a tab delimited format. You will use this data to plot a titration curve and to verify that the Gran technique accurately measures the ANC of a sample.</li>
 </ol>
-<p>If the error is greater than 2% then check your pipette technique using a balance and then repeat the titration.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Empty and rinse sample bottles and place them on the drying racks.</li>
+<li>Rinse the pH probe with reverse osmosis water</li>
+<li>Reinstall the pH probe in the small bottle that ensures that the pH probe is maintained moist in a low pH solution (can be pH buffer 4.0).</li>
+<li>Put away all of the equipment except for the ProCoDA box.</li>
+</ol>
+</div></blockquote>
 </div></blockquote>
 </div>
 </div>
@@ -430,7 +447,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v0.0.14',
+            VERSION:'v0.0.15',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
