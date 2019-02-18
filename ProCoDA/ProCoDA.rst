@@ -314,7 +314,7 @@ The current required to reduce the oxygen that is diffusing across the membrane 
 
 When using the DO probe make sure that there *aren't any air bubbles* on the probe membrane. If you are aerating the sample place the probe as far from the air bubbles as possible. Air bubbles on the membrane will cause inaccurate readings.
 
- #. Connect a DO probe to one of the sensor ports on the ProCoDA box using the gold signal conditioning box.
+ #. Connect a `DO probe <https://www.dfrobot.com/product-1628.html>`_ to one of the sensor ports on the ProCoDA box.
  #. Navigate to the ProCoDA Configuration tab and select |config_sensors| to configure the dissolved oxygen channel(s).
  #. **Select the DO probe from the sensor list** (This is important! Otherwise you will turn a different sensor into a DO probe!) and point the channel to the correct sensor port.
  #. Click on |sensor_DO| to calibrate the DO probe.
