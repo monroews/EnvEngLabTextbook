@@ -22,7 +22,10 @@ Oxygen transfer is important in many environmental systems. Oxygen transfer is c
 .. code:: python
 
     """ importing """
-    from aide_design.play import*
+    import aguaclara.research.environmental_processes_analysis as epa
+    from aguaclara.core.units import unit_registry as u
+    import matplotlib.pyplot as plt
+    import numpy as np
     # the code below will eventually be in the AguaClara core and should be called directly
     def O2_sat(P_air, temp):
       """This equation returns saturated oxygen concentration in mg/L. It is valid
@@ -48,7 +51,7 @@ Oxygen transfer is important in many environmental systems. Oxygen transfer is c
 
     P_air = 101.3*u.kPa
     temp = np.linspace(0,40)*u.degC
-    C_Oxygen = O2_sat(P_air,temp)
+    C_Oxygen = epa.O2_sat(P_air,temp)
 
     fig, ax = plt.subplots()
     ax.plot(temp,C_Oxygen)
@@ -254,7 +257,7 @@ Experimental Methods
 
     Apparatus used to measure reaeration rate.
 
-The reactors are 600 mL containers (:numref:`figure_Gas_Schematic`). The DO probe should be placed in a location so as to minimize the risk of air bubbles lodging on the membrane on the bottom of the probe. The aeration stone is connected to a source of regulated air flow. A 7-kPa pressure sensor (optional) can be used to measure the air pressure immediately upstream from the diffuser stone. A 200-kPa pressure sensor is used to measure the air pressure in the accumulator.
+The reactors are 1 L beakers that will be filled with 750 mL of water (:numref:`figure_Gas_Schematic`). The DO probe should be placed in a location so as to minimize the risk of air bubbles lodging on the membrane on the bottom of the probe. The aeration stone is connected to a source of regulated air flow. A 7-kPa pressure sensor (optional) can be used to measure the air pressure immediately upstream from the diffuser stone. A 200-kPa pressure sensor is used to measure the air pressure in the accumulator.
 
 Initial Setup
 -------------
@@ -267,13 +270,13 @@ Initial Setup
 Follow these steps to set up the experiment.
 
  #. Assemble the apparatus (don't forget the 1.5 mm x 5 cm restriction).
- #. Install the head loss orifice as close to the valve as possible (plug it directly into the valve!).
+ #. Install the flow restriction as close to the valve as possible (plug it directly into the valve!).
  #. The ProCoDA II software will be used to control the air flow rate for the aeration experiment. The software will use external code to calculate the calibration constant for the flow restriction, to control valve 1 (the air supply valve), and to regulate the flow of air into the accumulator. The calibration uses the ideal gas law to determine the flow rate as a function of the difference in pressure between the source and the accumulator. Once this calibration is obtained a separate code will set the fraction of time that valve 1 needs to be open to obtain the desired flow rate of air into the accumulator.
  #. Use the |Open_Method| on the ProCoDA configuration tab to load a method file containing the configuration necessary to control airflow. The file is at ``S:\Courses\4530\GasTransfer2.pcm``. You will need to adjust the channels for the accumulator pressure and the DO probe to match where you plugged them in your ProCoDA box. You will also need to make sure that your valves are connected to the correct ports on the ProCoDA box.
  #. Navigate to the Process Operation tab.
  #. Set the **operator selected state** to toggle.  The solenoid valves should click rhythmically if they are working properly.
  #. Install a membrane on the oxygen probe.
- #. Add 4 L of tap water to the reactor.
+ #. Add 750 mL of tap water to the reactor.
  #. Set the mode of operation |Mode_of_operation| to automatic operation and the *operator selected state* to "prepare to calibrate". The software should quickly cycle through the calibration step and then begin attempting to control the air flow rate to the target value.  Note:  the purpose of the prepare to calibrate state is to vent excess pressure from the accumulator.  The state will not change to calibrate until the pressure drops below a predefined threshold.  To speed this up, you may open the top of the air accumulator to release the air *before starting the automatic calibration*.
  #. Set the stirrer speed to achieve a vortex on the surface of the water.
  #. Calibrate the DO probe if you haven't already. Use :math:`22^{\circ}C` as the temperature.
@@ -310,8 +313,7 @@ Measure the Gas Transfer
  #. Turn the air on by changing the **operator selected state** to Aerate.
  #. Monitor the dissolved oxygen concentration until it reaches 50\% of saturation value or 10 minutes (whichever is shorter).
  #. Repeat steps 3-11 to collect data from at least two additional flow rates.
- #. Consolidate the files into one spreadsheet file with a separate sheet for each flow rate.
- #. Collect data from the whole class to analyze the full spectrum of flow rates investigated.
+ #. email your data files to the course email account.
 
 
 .. _heading_Gas_Transfer_Pre-Laboratory_Questions:
@@ -319,7 +321,7 @@ Measure the Gas Transfer
 Prelab Questions
 ================
 
- #. Calculate the mass of sodium sulfite needed to reduce all the dissolved oxygen in 600 mL of pure water in equilibrium with the atmosphere and at :math:`22^\circ C`.
+ #. Calculate the mass of sodium sulfite needed to reduce all the dissolved oxygen in 750 mL of pure water in equilibrium with the atmosphere and at :math:`22^\circ C`.
  #. Describe your expectations for dissolved oxygen concentration as a function of time during a reaeration experiment.  Assume you have added enough sodium sulfite to consume all of the oxygen at the start of the experiment. What would the shape of the curve look like?
  #. Why is :math:`\hat{k}_{v,l}` not zero when the gas flow rate is zero? How can oxygen transfer into the reactor even when no air is pumped into the diffuser?
  #. Describe your expectations for :math:`\hat{k}_{v,l}` as a function of gas flow rate. Do you expect a straight line? Why?
@@ -362,12 +364,13 @@ Lab Prep Notes
 .. _table_Gas_reagent_list:
 
 .. csv-table:: Reagent list.
-    :header: Description,	Supplier,	Catalog number
+    :header: Description,	Supplier,	Catalog number, Concentration
     :widths: 20, 20, 10
     :align: center
 
     :math:`Na_2SO_3`, Fisher Scientific, S430-500
     :math:`CoCl_2 \cdot 6H_2O`, Fisher Scientific, C371-100
+    :math:`NaOH`, VWR, pending,
 
 
 Setup
@@ -385,20 +388,25 @@ Setup
    :header: Group	Flows, (:math:`\mu M/s`)
    :align: center
 
-   1,	"200, 250, 300"
-   2,	"350, 400, 450"
-   3,	"500, 600, 700"
-   4,	"800, 900, 1000"
-   5,	"1200, 1500, 2000"
-   6,	"3000, 4000, 5000"
+   1 and 7,	"200, 250, 300"
+   2 and 8,	"350, 400, 450"
+   3 and 9,	"500, 600, 700"
+   4 and 10,	"800, 900, 1000"
+   5 and 11,	"1200, 1500, 2000"
+   6 and 12,	"3000, 4000, 5000"
 
+Clean up
+========
 
+#. DO Probe: unscrew the cap from the probe and wash the electrodes core (cathode: platinum, anode: lead) and the cap with deionized water. Dry all the components with tissue. Screw the cap back to the probe without adding any filling solution to prevent the anode from being consumed. Put all the components back into the package.
+#. Pore water used for aeration into container designated by the TA. We collect this water because of the cobalt contamination.
+#. Do **not disassemble the aeration system**. Rinse it, dry it and keep it as one unit and place in storage at your workstation.
 
 Class Plan
 ----------
 
- #. Show how to calibrate DO probe using Calibrator.
- #. Assign groups different gas flow rates
+#. Show how to calibrate DO probe using Calibrator.
+#. Assign groups different gas flow rates
 
 
 .. _heading_Gas_Transfer_Airflow_Control:
