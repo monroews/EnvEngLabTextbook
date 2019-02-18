@@ -236,12 +236,12 @@ The dissolved oxygen probes make use of the fact that an applied potential of 0.
 
 The cell is separated from solution by a gas permeable membrane that allows :math:`O_2` to pass through. The concentration of :math:`O_2` in the cell is kept very low by reduction to :math:`H_2O`. The rate at which oxygen diffuses through the gas permeable membrane is proportional to the difference in oxygen concentration across the membrane. The concentration of oxygen in the cell is :math:`\mathrm{\approx}0` and thus the rate at which oxygen diffuses through the membrane is proportional to the oxygen concentration in the solution.
 
-Oxygen is reduced to water at a silver (Ag) cathode of the probe. Oxygen reduction produces a current that is measured by the meter.
+Oxygen is reduced to water at a silver (Ag) cathode of the probe. Oxygen reduction produces a current that is converted to a voltage that is measured by ProCoDA.
 
 Calibration
 -----------
 
-:ref:`Calibrate the dissolved oxygen probe <heading_ProCoDA_Dissolved_Oxygen>` after you have assembled the apparatus.
+:ref:`Calibrate the dissolved oxygen probe <heading_ProCoDA_Dissolved_Oxygen>` after you have assembled the apparatus. You can use the apparatus to produce the required zero and saturated oxygen concentrations.
 
 .. _heading_Gas_Transfer_Experimental_Methods:
 
@@ -272,7 +272,7 @@ Follow these steps to set up the experiment.
  #. Assemble the apparatus (don't forget the 1.5 mm x 5 cm restriction).
  #. Install the flow restriction as close to the valve as possible (plug it directly into the valve!).
  #. The ProCoDA II software will be used to control the air flow rate for the aeration experiment. The software will use external code to calculate the calibration constant for the flow restriction, to control valve 1 (the air supply valve), and to regulate the flow of air into the accumulator. The calibration uses the ideal gas law to determine the flow rate as a function of the difference in pressure between the source and the accumulator. Once this calibration is obtained a separate code will set the fraction of time that valve 1 needs to be open to obtain the desired flow rate of air into the accumulator.
- #. Use the |Open_Method| on the ProCoDA configuration tab to load a method file containing the configuration necessary to control airflow. The file is at ``S:\Courses\4530\GasTransfer2.pcm``. You will need to adjust the channels for the accumulator pressure and the DO probe to match where you plugged them in your ProCoDA box. You will also need to make sure that your valves are connected to the correct ports on the ProCoDA box.
+ #. Use the |Open_Method| on the ProCoDA configuration tab to load the `method file containing the configuration necessary to control airflow <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_Student_method_file.pcm>`_.  You will need to adjust the channels for the accumulator pressure and the DO probe to match where you plugged them in your ProCoDA box. You will also need to make sure that your valves are connected to the correct ports on the ProCoDA box.
  #. Navigate to the Process Operation tab.
  #. Set the **operator selected state** to toggle.  The solenoid valves should click rhythmically if they are working properly.
  #. Install a membrane on the oxygen probe.
@@ -381,6 +381,8 @@ Setup
  #. Install the membranes on the DO probes and confirm that all probes are operational.
  #. Provide clamps to mount DO probes on magnetic stirrers.
  #. Determine maximum airflow rate that is reasonable given small reactor volume.
+ #. Configure the TA workstation to be measuring the source air pressure and sharing it using this `ProCoDA method <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_TAbench_method_file.pcm>`_.
+ #. Verify that the source air pressure is close to 100 kPa. If it exceeds 120 kPa then ask the building manager to reduce the air pressure.
 
 .. _table_air_flow_rates:
 
@@ -401,12 +403,6 @@ Clean up
 #. DO Probe: unscrew the cap from the probe and wash the electrodes core (cathode: platinum, anode: lead) and the cap with deionized water. Dry all the components with tissue. Screw the cap back to the probe without adding any filling solution to prevent the anode from being consumed. Put all the components back into the package.
 #. Pore water used for aeration into container designated by the TA. We collect this water because of the cobalt contamination.
 #. Do **not disassemble the aeration system**. Rinse it, dry it and keep it as one unit and place in storage at your workstation.
-
-Class Plan
-----------
-
-#. Show how to calibrate DO probe using Calibrator.
-#. Assign groups different gas flow rates
 
 
 .. _heading_Gas_Transfer_Airflow_Control:
