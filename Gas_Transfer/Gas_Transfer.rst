@@ -270,7 +270,7 @@ Initial Setup
 Follow these steps to set up the experiment.
 
  #. Assemble the apparatus (don't forget the 1.5 mm x 5 cm restriction).
- #. Install the head loss orifice as close to the valve as possible (plug it directly into the valve!).
+ #. Install the flow restriction as close to the valve as possible (plug it directly into the valve!).
  #. The ProCoDA II software will be used to control the air flow rate for the aeration experiment. The software will use external code to calculate the calibration constant for the flow restriction, to control valve 1 (the air supply valve), and to regulate the flow of air into the accumulator. The calibration uses the ideal gas law to determine the flow rate as a function of the difference in pressure between the source and the accumulator. Once this calibration is obtained a separate code will set the fraction of time that valve 1 needs to be open to obtain the desired flow rate of air into the accumulator.
  #. Use the |Open_Method| on the ProCoDA configuration tab to load a method file containing the configuration necessary to control airflow. The file is at ``S:\Courses\4530\GasTransfer2.pcm``. You will need to adjust the channels for the accumulator pressure and the DO probe to match where you plugged them in your ProCoDA box. You will also need to make sure that your valves are connected to the correct ports on the ProCoDA box.
  #. Navigate to the Process Operation tab.
