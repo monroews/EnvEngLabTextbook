@@ -257,7 +257,7 @@ Experimental Methods
 
     Apparatus used to measure reaeration rate.
 
-The reactors are 600 mL containers (:numref:`figure_Gas_Schematic`). The DO probe should be placed in a location so as to minimize the risk of air bubbles lodging on the membrane on the bottom of the probe. The aeration stone is connected to a source of regulated air flow. A 7-kPa pressure sensor (optional) can be used to measure the air pressure immediately upstream from the diffuser stone. A 200-kPa pressure sensor is used to measure the air pressure in the accumulator.
+The reactors are 1 L beakers that will be filled with 750 mL of water (:numref:`figure_Gas_Schematic`). The DO probe should be placed in a location so as to minimize the risk of air bubbles lodging on the membrane on the bottom of the probe. The aeration stone is connected to a source of regulated air flow. A 7-kPa pressure sensor (optional) can be used to measure the air pressure immediately upstream from the diffuser stone. A 200-kPa pressure sensor is used to measure the air pressure in the accumulator.
 
 Initial Setup
 -------------
