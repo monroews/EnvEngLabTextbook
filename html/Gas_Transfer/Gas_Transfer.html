@@ -137,10 +137,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#setup">Setup</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#clean-up">Clean up</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#class-plan">Class Plan</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#clean-up">Clean up</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#airflow-control">Airflow Control</a></li>
 </ul>
 </li>
@@ -369,11 +366,11 @@
 <div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-7">
 <span class="eqno">(111)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-7" title="Permalink to this equation">¶</a></span>\[4 e^- + 4 H^+ + O_2 \mathrm{\to} 2 H_2O\]</div>
 <p>The cell is separated from solution by a gas permeable membrane that allows <span class="math notranslate nohighlight">\(O_2\)</span> to pass through. The concentration of <span class="math notranslate nohighlight">\(O_2\)</span> in the cell is kept very low by reduction to <span class="math notranslate nohighlight">\(H_2O\)</span>. The rate at which oxygen diffuses through the gas permeable membrane is proportional to the difference in oxygen concentration across the membrane. The concentration of oxygen in the cell is <span class="math notranslate nohighlight">\(\mathrm{\approx}0\)</span> and thus the rate at which oxygen diffuses through the membrane is proportional to the oxygen concentration in the solution.</p>
-<p>Oxygen is reduced to water at a silver (Ag) cathode of the probe. Oxygen reduction produces a current that is measured by the meter.</p>
+<p>Oxygen is reduced to water at a silver (Ag) cathode of the probe. Oxygen reduction produces a current that is converted to a voltage that is measured by ProCoDA.</p>
 </div>
 <div class="section" id="calibration">
 <h3>Calibration<a class="headerlink" href="#calibration" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-dissolved-oxygen"><span class="std std-ref">Calibrate the dissolved oxygen probe</span></a> after you have assembled the apparatus.</p>
+<p><a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-dissolved-oxygen"><span class="std std-ref">Calibrate the dissolved oxygen probe</span></a> after you have assembled the apparatus. You can use the apparatus to produce the required zero and saturated oxygen concentrations.</p>
 </div>
 </div>
 <div class="section" id="experimental-methods">
@@ -391,7 +388,7 @@
 <li>Assemble the apparatus (don’t forget the 1.5 mm x 5 cm restriction).</li>
 <li>Install the flow restriction as close to the valve as possible (plug it directly into the valve!).</li>
 <li>The ProCoDA II software will be used to control the air flow rate for the aeration experiment. The software will use external code to calculate the calibration constant for the flow restriction, to control valve 1 (the air supply valve), and to regulate the flow of air into the accumulator. The calibration uses the ideal gas law to determine the flow rate as a function of the difference in pressure between the source and the accumulator. Once this calibration is obtained a separate code will set the fraction of time that valve 1 needs to be open to obtain the desired flow rate of air into the accumulator.</li>
-<li>Use the <img alt="Open_method" src="../_images/Config_open_save_export.png" /> on the ProCoDA configuration tab to load a method file containing the configuration necessary to control airflow. The file is at <code class="docutils literal notranslate"><span class="pre">S:\Courses\4530\GasTransfer2.pcm</span></code>. You will need to adjust the channels for the accumulator pressure and the DO probe to match where you plugged them in your ProCoDA box. You will also need to make sure that your valves are connected to the correct ports on the ProCoDA box.</li>
+<li>Use the <img alt="Open_method" src="../_images/Config_open_save_export.png" /> on the ProCoDA configuration tab to load the <a class="reference external" href="https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_Student_method_file.pcm">method file containing the configuration necessary to control airflow</a>.  You will need to adjust the channels for the accumulator pressure and the DO probe to match where you plugged them in your ProCoDA box. You will also need to make sure that your valves are connected to the correct ports on the ProCoDA box.</li>
 <li>Navigate to the Process Operation tab.</li>
 <li>Set the <strong>operator selected state</strong> to toggle.  The solenoid valves should click rhythmically if they are working properly.</li>
 <li>Install a membrane on the oxygen probe.</li>
@@ -491,6 +488,8 @@
 <li>Install the membranes on the DO probes and confirm that all probes are operational.</li>
 <li>Provide clamps to mount DO probes on magnetic stirrers.</li>
 <li>Determine maximum airflow rate that is reasonable given small reactor volume.</li>
+<li>Configure the TA workstation to be measuring the source air pressure and sharing it using this <a class="reference external" href="https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_TAbench_method_file.pcm">ProCoDA method</a>.</li>
+<li>Verify that the source air pressure is close to 100 kPa. If it exceeds 120 kPa then ask the building manager to reduce the air pressure.</li>
 </ol>
 </div></blockquote>
 <span id="table-air-flow-rates"></span><table border="1" class="docutils align-center" id="id5">
@@ -534,13 +533,6 @@
 <li>Pore water used for aeration into container designated by the TA. We collect this water because of the cobalt contamination.</li>
 <li>Do <strong>not disassemble the aeration system</strong>. Rinse it, dry it and keep it as one unit and place in storage at your workstation.</li>
 </ol>
-<div class="section" id="class-plan">
-<h3>Class Plan<a class="headerlink" href="#class-plan" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li>Show how to calibrate DO probe using Calibrator.</li>
-<li>Assign groups different gas flow rates</li>
-</ol>
-</div>
 </div>
 <div class="section" id="airflow-control">
 <span id="heading-gas-transfer-airflow-control"></span><h2>Airflow Control<a class="headerlink" href="#airflow-control" title="Permalink to this headline">¶</a></h2>
