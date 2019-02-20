@@ -320,10 +320,10 @@ When using the DO probe make sure that there *aren't any air bubbles* on the pro
  #. **Select the DO probe from the sensor list** (This is important! Otherwise you will turn a different sensor into a DO probe!) and point the channel to the correct sensor port.
  #. Click on |sensor_DO| to calibrate the DO probe.
  #. Enter the temperature of the sample. This can be measured by using a thermistor or a thermometer. A good estimate is :math:`22^\circ C`. If you have a thermistor connected to ProCoDA you can configure the oxygen probe to incorporate continuous temperature readings into the calculation of the dissolved oxygen concentration.
- #. Create a zero oxygen solution (50 mL is sufficient) by adding cobalt chloride as a catalyst and enough :ref: `sodium sulfite <heading_Gas_Transfer_Deoxygenation>` to react with all of the dissolved oxygen.
- #. Wait for the oxygen level to drop to zero and for the probe readings to stabilize. Then click on |DO_zero|.
+ #. Create a zero oxygen solution (50 mL is sufficient) by adding :math:`10 \mu g/L` cobalt chloride as a catalyst and enough :ref: `sodium sulfite <heading_Gas_Transfer_Deoxygenation>` to react with all of the dissolved oxygen.
+ #. Wait for the probe voltage readings to stabilize. They should reach approximately -1 V.  Then click on |DO_zero|.
  #. The current atmospheric pressure is required so that ProCoDA can calculate the equilibrium concentration in saturated water. The local air pressure can be obtained from the `National Weather Service <https://www.weather.gov/>`_ Be careful with the units when you enter the value in |DO_set_barometric|. Atmospheric pressure is always close to 100 kPa.
- #. Place the probe in oxygen saturated water (use the air jet on your bench to bubble air into water in a small container).  The voltage from the DO probe should be approximately 1.1 V if the probe is working correctly. If the voltage is not close to 1.1 V it may be time to replace the membrane or the solution may not be saturated with oxygen.
+ #. Place the probe in oxygen saturated water (bubble air into water in a small container).  The voltage from the DO probe should be approximately 1.1 V if the probe is working correctly. If the voltage is not close to 1.1 V it may be time to replace the membrane or the solution may not be saturated with oxygen.
  #. Select |DO_set_to_saturation| to calibrate the DO sensor.
  #. Select OK when you are satisfied with the calibration.
  #. If desired you may save the calibration for later use |sensor_save_calibration_file|. However, it is not necessary to save the calibration to use the calibration because it is automatically saved as part of the ProCoDA method file..
