@@ -218,8 +218,10 @@ Determine the ANC for all samples collected from the Acid Lake Remediation lab. 
  #. Analyze the sample using :ref:`Gran plot analysis <heading_ProCoDA_Gran_Plot>`.  Add 0.05 N HCl (the titrant) using a digital pipette in increments suggested by ProCoDA (or smaller).
  #. Save the Gran data by selecting |ProCoDA_save_gran|. The data will be saved in a tab delimited format. You will use this data to plot a titration curve and to verify that the Gran technique accurately measures the ANC of a sample.
 
- Clean Up
- ========
+.. _heading_ANC_Clean_Up:
+
+Clean Up
+========
 
   #. Empty and rinse sample bottles and place them on the drying racks.
   #. Rinse the pH probe with reverse osmosis water

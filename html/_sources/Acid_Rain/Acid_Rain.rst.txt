@@ -301,8 +301,11 @@ We will use a pH probe to measure pH in this experiment. The pH probes are store
  #. Measure the lake volume.  This can be done in a large graduated cylinder OR by taking the mass of the water in the lake.  Which would be more accurate?
  #. Repeat the experiment and change one of the following parameters: stirring, initial ANC, ANC source (use :math:`CaCO_3` instead of :math:`NaHCO_3`), or amount of ANC added.
 
- Clean Up
- ========
+
+.. _heading_Acid_Rain_Clean_Up:
+
+Clean Up
+========
 
  #. Empty lake into sink, rinse with DI water, store in cabinet at your workstation
  #. Rinse all plastic tubing and place in a drawer at your workstation
