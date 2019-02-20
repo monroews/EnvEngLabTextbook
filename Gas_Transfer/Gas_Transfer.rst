@@ -205,6 +205,36 @@ The mass of sodium sulfite required to deoxygenate 1 mg of oxygen is calculated 
 
 If complete deoxygenation is desired a 10\% excess of sulfite can be added. The sulfite will continue to react with oxygen as oxygen is transferred into the solution. The oxygen concentration can be measured with a dissolved oxygen probe or can be estimated if the temperature is known and equilibrium with the atmosphere assumed (:numref:`figure_Oxygen_vs_T`).
 
+.. code:: python
+
+  """ importing """
+  from aguaclara.core.units import unit_registry as u
+  import matplotlib.pyplot as plt
+  import numpy as np
+  O2_C = np.linspace(0,10,10) * u.mg/u.L
+  Sample_V = 750 * u.mL
+  SulfiteperO2 = 7.875
+  Sulfite_Stock_C = 100 * u.mg/u.mL
+  def Sulfite_V(O2_C):
+    return (Sample_V*O2_C*SulfiteperO2/Sulfite_Stock_C).to(u.mL)
+  fig, ax = plt.subplots()
+  ax.plot(O2_C,Sulfite_V(O2_C))
+  ax.set(xlabel='Oxygen concentration (mg/L)', ylabel='Sulfite stock volume (mL)')
+  ax.grid(color='b', linestyle='-', linewidth=0.5)
+  fig.savefig('Gas_Transfer/Images/Sulfite')
+  plt.show()
+
+
+.. _figure_sulfite:
+
+.. figure:: Images/Sulfite.png
+    :width: 300px
+    :align: center
+    :alt: internal figure
+
+    Volume of 100 mg/mL sodium sulfite stock required to deoxygenate a 750 mL sample of water.
+
+
 .. _heading_Gas_Transfer_Experimental_Objectives:
 
 Experimental Objectives
@@ -275,10 +305,11 @@ Follow these steps to set up the experiment.
  #. Use the |Open_Method| on the ProCoDA configuration tab to load the `method file containing the configuration necessary to control airflow <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_Student_method_file.pcm>`_.  You will need to adjust the channels for the accumulator pressure and the DO probe to match where you plugged them in your ProCoDA box. You will also need to make sure that your valves are connected to the correct ports on the ProCoDA box.
  #. Navigate to the Process Operation tab.
  #. Set the **operator selected state** to toggle.  The solenoid valves should click rhythmically if they are working properly.
- #. Install a membrane on the oxygen probe.
+ #. Install a membrane on the oxygen probe (if this has not already been done by the TA).
  #. Add 750 mL of tap water to the reactor.
  #. Set the mode of operation |Mode_of_operation| to automatic operation and the *operator selected state* to "prepare to calibrate". The software should quickly cycle through the calibration step and then begin attempting to control the air flow rate to the target value.  Note:  the purpose of the prepare to calibrate state is to vent excess pressure from the accumulator.  The state will not change to calibrate until the pressure drops below a predefined threshold.  To speed this up, you may open the top of the air accumulator to release the air *before starting the automatic calibration*.
  #. Set the stirrer speed to achieve a vortex on the surface of the water.
+ #. The instructor or TA will add :math:`10\frac{ \mu g}{L}` of :math:`CoCl_2 \cdot 6H_2O` (note this only needs to be added once because it is the catalyst). A stock solution of :math:`100 \mu g/mL` of :math:`CoCl_2 \cdot 6H_2O` (thus add 75 :math:`\mu L` per 750 mL) has been prepared to facilitate measurement of small cobalt doses. (Use gloves when handling cobalt!)
  #. Calibrate the DO probe if you haven't already. Use :math:`22^{\circ}C` as the temperature.
 
 Test the air flow controller
@@ -301,19 +332,17 @@ In the following test, the air flow controller should provide a constant flow of
 Measure the Gas Transfer
 ------------------------
 
- #. Call the instructor and/or TA to check the system configuration.
- #. The instructor or TA will add 0.1 mg :math:`CoCl_2 \cdot 6H_2O` (note this only needs to be added once because it is the catalyst). A stock solution of :math:`CoCl_2 \cdot 6H_2O` (1 mg/mL -- thus add 100 :math:`\mu L`) has been prepared to facilitate measurement of small cobalt doses. (Use gloves when handling cobalt!)
  #. Prepare to record the dissolved oxygen concentration using ProCoDA software. Use 5-second data intervals and log the data to ``S:\Courses\4530\Group #\gastran\x`` where x is the flow rate in :math:`\mu M/s` for later analysis. Include the actual flow rate in the file name.
  #. Set the airflow rate to the desired flow rate.  Each group will investigate six flowrates.  The instructor will assign the flowrates on the day of the lab exercise.
  #. Set the **operator selected state** to aerate.
  #. Set the needle valve so the pressure in the accumulator is approximately 75\% of the source pressure.
  #. Wait until the accumulator pressure reaches steady state.
  #. Turn the air off by changing the operator selected state to OFF.
- #. Add enough sodium sulfite to deoxygenate the solution. A stock solution of sodium sulfite (100 mg/mL) has been prepared to facilitate measurement of small sulfite doses. Calculate this dose based on the measured dissolved oxygen concentration. (0.6 L of water at :math:`C_{oxygen}\; mg \; O_2/L = 0.6\; C_{oxygen}\; mg\; O_2`, therefore add :math:`0.6 (7.875) C_{oxygen}` mg sodium sulfite or :math:`0.6(7.875)(C_{oxygen})/100 mL` of stock solution.)
+ #. Add enough sodium sulfite to deoxygenate the solution. A stock solution of sodium sulfite (100 mg/mL) has been prepared to facilitate measurement of small sulfite doses. Calculate this dose based on the measured dissolved oxygen concentration. (see :numref:`figure_sulfite`)
  #. Turn the air on by changing the **operator selected state** to Aerate.
  #. Monitor the dissolved oxygen concentration until it reaches 50\% of saturation value or 10 minutes (whichever is shorter).
- #. Repeat steps 3-11 to collect data from at least two additional flow rates.
- #. email your data files to the course email account.
+ #. Repeat steps 1-9 to collect data from at least two additional flow rates.
+ #. email your data files (correctly named!) to the course email account.
 
 
 .. _heading_Gas_Transfer_Pre-Laboratory_Questions:
