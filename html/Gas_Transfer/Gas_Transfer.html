@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gas Transfer &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.16 documentation</title>
+  <title>Gas Transfer &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
   
 
   
@@ -57,10 +57,6 @@
 
           
             
-            
-              <div class="version">
-                v.0.0.16
-              </div>
             
           
 
@@ -347,6 +343,28 @@
 <div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-6">
 <span class="eqno">(110)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-6" title="Permalink to this equation">¶</a></span>\[\frac{{mole\; O}_{{2}} }{{32000\; mg\; O}_{{2}} } \cdot \frac{{2\; mole\; Na}_{{2}} {SO}_{{3}} }{{mole\; O}_{{2}} } \cdot \frac{{126,000\; mg\; Na}_{{2}} {SO}_{{3}} }{{mole\; Na}_{{2}} {SO}_{{3}} } =\frac{{\; 7.875\; mg\; Na}_{{2}} {SO}_{{3}} }{{mg\; O}_{{2}} }\]</div>
 <p>If complete deoxygenation is desired a 10% excess of sulfite can be added. The sulfite will continue to react with oxygen as oxygen is transferred into the solution. The oxygen concentration can be measured with a dissolved oxygen probe or can be estimated if the temperature is known and equilibrium with the atmosphere assumed (<a class="reference internal" href="#figure-oxygen-vs-t"><span class="std std-numref">Fig. 19</span></a>).</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="k">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">O2_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">L</span>
+<span class="n">Sample_V</span> <span class="o">=</span> <span class="mi">750</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mL</span>
+<span class="n">SulfiteperO2</span> <span class="o">=</span> <span class="mf">7.875</span>
+<span class="n">Sulfite_Stock_C</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">mL</span>
+<span class="k">def</span> <span class="nf">Sulfite_V</span><span class="p">(</span><span class="n">O2_C</span><span class="p">):</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">Sample_V</span><span class="o">*</span><span class="n">O2_C</span><span class="o">*</span><span class="n">SulfiteperO2</span><span class="o">/</span><span class="n">Sulfite_Stock_C</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mL</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">O2_C</span><span class="p">,</span><span class="n">Sulfite_V</span><span class="p">(</span><span class="n">O2_C</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Oxygen concentration (mg/L)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Sulfite stock volume (mL)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Gas_Transfer/Images/Sulfite&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id4">
+<span id="figure-sulfite"></span><a class="reference internal image-reference" href="../_images/Sulfite.png"><img alt="internal figure" src="../_images/Sulfite.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Volume of 100 mg/mL sodium sulfite stock required to deoxygenate a 750 mL sample of water.</span></p>
+</div>
 </div>
 </div>
 <div class="section" id="experimental-objectives">
@@ -379,11 +397,11 @@
 </div>
 <div class="section" id="experimental-methods">
 <span id="heading-gas-transfer-experimental-methods"></span><h2>Experimental Methods<a class="headerlink" href="#experimental-methods" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id5">
 <span id="figure-gas-schematic"></span><a class="reference internal image-reference" href="../_images/Schematic1.png"><img alt="internal figure" src="../_images/Schematic1.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Apparatus used to measure reaeration rate.</span></p>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Apparatus used to measure reaeration rate.</span></p>
 </div>
-<p>The reactors are 1 L beakers that will be filled with 750 mL of water (<a class="reference internal" href="#figure-gas-schematic"><span class="std std-numref">Fig. 21</span></a>). The DO probe should be placed in a location so as to minimize the risk of air bubbles lodging on the membrane on the bottom of the probe. The aeration stone is connected to a source of regulated air flow. A 7-kPa pressure sensor (optional) can be used to measure the air pressure immediately upstream from the diffuser stone. A 200-kPa pressure sensor is used to measure the air pressure in the accumulator.</p>
+<p>The reactors are 1 L beakers that will be filled with 750 mL of water (<a class="reference internal" href="#figure-gas-schematic"><span class="std std-numref">Fig. 22</span></a>). The DO probe should be placed in a location so as to minimize the risk of air bubbles lodging on the membrane on the bottom of the probe. The aeration stone is connected to a source of regulated air flow. A 7-kPa pressure sensor (optional) can be used to measure the air pressure immediately upstream from the diffuser stone. A 200-kPa pressure sensor is used to measure the air pressure in the accumulator.</p>
 <div class="section" id="initial-setup">
 <h3>Initial Setup<a class="headerlink" href="#initial-setup" title="Permalink to this headline">¶</a></h3>
 <p>Follow these steps to set up the experiment.</p>
@@ -395,10 +413,11 @@
 <li>Use the <img alt="Open_method" src="../_images/Config_open_save_export.png" /> on the ProCoDA configuration tab to load the <a class="reference external" href="https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_Student_method_file.pcm">method file containing the configuration necessary to control airflow</a>.  You will need to adjust the channels for the accumulator pressure and the DO probe to match where you plugged them in your ProCoDA box. You will also need to make sure that your valves are connected to the correct ports on the ProCoDA box.</li>
 <li>Navigate to the Process Operation tab.</li>
 <li>Set the <strong>operator selected state</strong> to toggle.  The solenoid valves should click rhythmically if they are working properly.</li>
-<li>Install a membrane on the oxygen probe.</li>
+<li>Install a membrane on the oxygen probe (if this has not already been done by the TA).</li>
 <li>Add 750 mL of tap water to the reactor.</li>
 <li>Set the mode of operation <img alt="Mode_of_operation" src="../_images/Mode_of_operation.png" /> to automatic operation and the <em>operator selected state</em> to “prepare to calibrate”. The software should quickly cycle through the calibration step and then begin attempting to control the air flow rate to the target value.  Note:  the purpose of the prepare to calibrate state is to vent excess pressure from the accumulator.  The state will not change to calibrate until the pressure drops below a predefined threshold.  To speed this up, you may open the top of the air accumulator to release the air <em>before starting the automatic calibration</em>.</li>
 <li>Set the stirrer speed to achieve a vortex on the surface of the water.</li>
+<li>The instructor or TA will add <span class="math notranslate nohighlight">\(10\frac{ \mu g}{L}\)</span> of <span class="math notranslate nohighlight">\(CoCl_2 \cdot 6H_2O\)</span> (note this only needs to be added once because it is the catalyst). A stock solution of <span class="math notranslate nohighlight">\(100 \mu g/mL\)</span> of <span class="math notranslate nohighlight">\(CoCl_2 \cdot 6H_2O\)</span> (thus add 75 <span class="math notranslate nohighlight">\(\mu L\)</span> per 750 mL) has been prepared to facilitate measurement of small cobalt doses. (Use gloves when handling cobalt!)</li>
 <li>Calibrate the DO probe if you haven’t already. Use <span class="math notranslate nohighlight">\(22^{\circ}C\)</span> as the temperature.</li>
 </ol>
 </div></blockquote>
@@ -426,19 +445,17 @@
 <h3>Measure the Gas Transfer<a class="headerlink" href="#measure-the-gas-transfer" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Call the instructor and/or TA to check the system configuration.</li>
-<li>The instructor or TA will add 0.1 mg <span class="math notranslate nohighlight">\(CoCl_2 \cdot 6H_2O\)</span> (note this only needs to be added once because it is the catalyst). A stock solution of <span class="math notranslate nohighlight">\(CoCl_2 \cdot 6H_2O\)</span> (1 mg/mL – thus add 100 <span class="math notranslate nohighlight">\(\mu L\)</span>) has been prepared to facilitate measurement of small cobalt doses. (Use gloves when handling cobalt!)</li>
 <li>Prepare to record the dissolved oxygen concentration using ProCoDA software. Use 5-second data intervals and log the data to <code class="docutils literal notranslate"><span class="pre">S:\Courses\4530\Group</span> <span class="pre">#\gastran\x</span></code> where x is the flow rate in <span class="math notranslate nohighlight">\(\mu M/s\)</span> for later analysis. Include the actual flow rate in the file name.</li>
 <li>Set the airflow rate to the desired flow rate.  Each group will investigate six flowrates.  The instructor will assign the flowrates on the day of the lab exercise.</li>
 <li>Set the <strong>operator selected state</strong> to aerate.</li>
 <li>Set the needle valve so the pressure in the accumulator is approximately 75% of the source pressure.</li>
 <li>Wait until the accumulator pressure reaches steady state.</li>
 <li>Turn the air off by changing the operator selected state to OFF.</li>
-<li>Add enough sodium sulfite to deoxygenate the solution. A stock solution of sodium sulfite (100 mg/mL) has been prepared to facilitate measurement of small sulfite doses. Calculate this dose based on the measured dissolved oxygen concentration. (0.6 L of water at <span class="math notranslate nohighlight">\(C_{oxygen}\; mg \; O_2/L = 0.6\; C_{oxygen}\; mg\; O_2\)</span>, therefore add <span class="math notranslate nohighlight">\(0.6 (7.875) C_{oxygen}\)</span> mg sodium sulfite or <span class="math notranslate nohighlight">\(0.6(7.875)(C_{oxygen})/100 mL\)</span> of stock solution.)</li>
+<li>Add enough sodium sulfite to deoxygenate the solution. A stock solution of sodium sulfite (100 mg/mL) has been prepared to facilitate measurement of small sulfite doses. Calculate this dose based on the measured dissolved oxygen concentration. (see <a class="reference internal" href="#figure-sulfite"><span class="std std-numref">Fig. 21</span></a>)</li>
 <li>Turn the air on by changing the <strong>operator selected state</strong> to Aerate.</li>
 <li>Monitor the dissolved oxygen concentration until it reaches 50% of saturation value or 10 minutes (whichever is shorter).</li>
-<li>Repeat steps 3-11 to collect data from at least two additional flow rates.</li>
-<li>email your data files to the course email account.</li>
+<li>Repeat steps 1-9 to collect data from at least two additional flow rates.</li>
+<li>email your data files (correctly named!) to the course email account.</li>
 </ol>
 </div></blockquote>
 </div>
@@ -496,8 +513,8 @@
 <li>Verify that the source air pressure is close to 100 kPa. If it exceeds 120 kPa then ask the building manager to reduce the air pressure.</li>
 </ol>
 </div></blockquote>
-<span id="table-air-flow-rates"></span><table border="1" class="docutils align-center" id="id5">
-<caption><span class="caption-number">Table 8 </span><span class="caption-text">Suggested flow rates.</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<span id="table-air-flow-rates"></span><table border="1" class="docutils align-center" id="id6">
+<caption><span class="caption-number">Table 8 </span><span class="caption-text">Suggested flow rates.</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -540,7 +557,7 @@
 </div>
 <div class="section" id="airflow-control">
 <span id="heading-gas-transfer-airflow-control"></span><h2>Airflow Control<a class="headerlink" href="#airflow-control" title="Permalink to this headline">¶</a></h2>
-<p>The ProCoDA software can be configured to control the flow of air into the reactor. The hardware required is shown in <a class="reference internal" href="#figure-gas-schematic"><span class="std std-numref">Fig. 21</span></a>. The control algorithm is based on the theoretical relationship between head loss and flow rate for the air flowing into the accumulator. We can empirically measure the head loss coefficient and then use the theoretical relationship to determine what fraction of time the influent valve should be open to obtain the desired flow rate. We can use the change in pressure in the accumulator when the influent valve is open to determine how fast air was flowing into the accumulator. In order to develop an appropriate head loss model we need to know if the flow into the accumulator is laminar or turbulent.</p>
+<p>The ProCoDA software can be configured to control the flow of air into the reactor. The hardware required is shown in <a class="reference internal" href="#figure-gas-schematic"><span class="std std-numref">Fig. 22</span></a>. The control algorithm is based on the theoretical relationship between head loss and flow rate for the air flowing into the accumulator. We can empirically measure the head loss coefficient and then use the theoretical relationship to determine what fraction of time the influent valve should be open to obtain the desired flow rate. We can use the change in pressure in the accumulator when the influent valve is open to determine how fast air was flowing into the accumulator. In order to develop an appropriate head loss model we need to know if the flow into the accumulator is laminar or turbulent.</p>
 <div class="math notranslate nohighlight" id="equation-eq-gas-re">
 <span class="eqno">(112)<a class="headerlink" href="#equation-eq-gas-re" title="Permalink to this equation">¶</a></span>\[{Re}=\frac{\rho VD}{\mu }\]</div>
 <div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-8">
@@ -586,10 +603,10 @@
 <p>Since we will be measuring the pressure in the accumulator we can now substitute that pressure for the terms containing moles of air to obtain an equation that is in a linear form such that a single term containing K and D can be obtained by linear regression.</p>
 <div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-16">
 <span class="eqno">(126)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-16" title="Permalink to this equation">¶</a></span>\[t=\frac{4\sqrt{KM_{gas} RT} }{\pi D^{2} } \left(\sin ^{-1} \frac{P_{a_{2} } }{P_{s} } -\sin ^{-1} \frac{P_{a_{1} } }{P_{s} } \right)\frac{\rlap{--}V}{RT}\]</div>
-<p>Taking a data set obtained by filling the accumulator, finding the unknown term <span class="math notranslate nohighlight">\(\frac{4\sqrt{KM_{gas} RT} }{\pi D^{2} }\)</span> by linear regression and then plotting the resulting model next to the data we obtain <a class="reference internal" href="#figure-airflow-controller-calibration"><span class="std std-numref">Fig. 22</span></a>.</p>
-<div class="figure align-center" id="id6">
+<p>Taking a data set obtained by filling the accumulator, finding the unknown term <span class="math notranslate nohighlight">\(\frac{4\sqrt{KM_{gas} RT} }{\pi D^{2} }\)</span> by linear regression and then plotting the resulting model next to the data we obtain <a class="reference internal" href="#figure-airflow-controller-calibration"><span class="std std-numref">Fig. 23</span></a>.</p>
+<div class="figure align-center" id="id7">
 <span id="figure-airflow-controller-calibration"></span><a class="reference internal image-reference" href="../_images/Airflow_controller_calibration.png"><img alt="airflow controller calibration" src="../_images/Airflow_controller_calibration.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">The model describing the filling of the accumulator fits the data very well.</span></p>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">The model describing the filling of the accumulator fits the data very well.</span></p>
 </div>
 <p>The final step is to calculate the fraction of time that the valve must be open in order to obtain a desired flow rate into the accumulator. Take the target air flow rate <span class="math notranslate nohighlight">\(\dot{n}_{target}\)</span> and divide by the molar flow rate given by equation <a class="reference internal" href="#equation-eq-gas-molar-flow-of-air">(121)</a> to get the fraction of time the valve must be open to get the desired average flow rate.</p>
 <div class="math notranslate nohighlight" id="equation-eq-gas-fvalve">
@@ -641,7 +658,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v.0.0.16',
+            VERSION:'',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
