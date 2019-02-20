@@ -394,12 +394,12 @@ Lab Prep Notes
 
 .. csv-table:: Reagent list.
     :header: Description,	Supplier,	Catalog number, Concentration
-    :widths: 20, 20, 10
+    :widths: 20, 20, 10,10
     :align: center
 
-    :math:`Na_2SO_3`, Fisher Scientific, S430-500
-    :math:`CoCl_2 \cdot 6H_2O`, Fisher Scientific, C371-100
-    :math:`NaOH`, VWR, pending,
+    :math:`Na_2SO_3`, Fisher Scientific, S430-500, 100 g/L
+    :math:`CoCl_2 \cdot 6H_2O`, Fisher Scientific, C371-100, 100 mg/L
+    :math:`NaOH`, VWR, pending, 0.05 N = 2 g/L
 
 
 Setup
