@@ -273,7 +273,7 @@ Initial Setup
 .. |Accumulator_pressure_sensor| image:: Images/Accumulator_pressure_sensor.jpg
     :height: 45
 .. |config_sensors| image:: ../ProCoDA/Images/config_sensors.png
-.. |sensor_set_to_zero| image:: ../ProCoDA/Images\sensor_set_to_zero.png
+.. |sensor_set_to_zero| image:: ../ProCoDA/Images/sensor_set_to_zero.png
 .. |share_data| image:: ../ProCoDA/Images/Share_data.png
 .. |config_edit_rules| image:: ../ProCoDA/Images/config_edit_rules.png
 .. |select_y_axis_scale| image:: Images/select_y_axis_scale.png
