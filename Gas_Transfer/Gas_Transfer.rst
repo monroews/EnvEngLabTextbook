@@ -20,34 +20,12 @@ Theory
 Oxygen transfer is important in many environmental systems. Oxygen transfer is controlled by the partial pressure of oxygen in the atmosphere (0.21 atm) and the corresponding equilibrium concentration in water (approximately 10 mg/L). According to Henry's Law, the equilibrium concentration of oxygen in water is proportional to the partial pressure of oxygen in the atmosphere.
 
 .. code:: python
-
-    """ importing """
     import aguaclara.research.environmental_processes_analysis as epa
     from aguaclara.core.units import unit_registry as u
     import matplotlib.pyplot as plt
     import numpy as np
     # the code below will eventually be in the AguaClara core and should be called directly
-    def O2_sat(P_air, temp):
-      """This equation returns saturated oxygen concentration in mg/L. It is valid
-      for 278 K < T < 318 K
-      Parameters
-      ----------
-      Pressure_air : float
-          air pressure with appropriate units.
-      Temperature :
-          water temperature with appropriate units
-      Returns
-      -------
-      Saturated oxygen concentration in mg/L
-      Examples
-      --------
-      >>> O2_sat(1*u.atm , 300*u.kelvin)
-      8.093157231428425 milligram/liter
-      """
-      fraction_O2 = 0.21
-      P_O2 = P_air * fraction_O2
-      return ((P_O2.to(u.atm).magnitude) *
-              u.mg/u.L*np.exp(1727 / temp.to(u.K).magnitude - 2.105))
+
 
     P_air = 101.3*u.kPa
     temp = np.linspace(0,40)*u.degC
@@ -268,15 +246,12 @@ The cell is separated from solution by a gas permeable membrane that allows :mat
 
 Oxygen is reduced to water at a silver (Ag) cathode of the probe. Oxygen reduction produces a current that is converted to a voltage that is measured by ProCoDA.
 
-Calibration
------------
-
-:ref:`Calibrate the dissolved oxygen probe <heading_ProCoDA_Dissolved_Oxygen>` after you have assembled the apparatus. You can use the apparatus to produce the required zero and saturated oxygen concentrations.
-
 .. _heading_Gas_Transfer_Experimental_Methods:
 
 Experimental Methods
 ====================
+
+The reactors are 1 L beakers that will be filled with 750 mL of water (:numref:`figure_Gas_Schematic`). The DO probe should be placed in a location so as to minimize the risk of air bubbles lodging on the membrane on the bottom of the probe. The aeration stone is connected to a source of regulated air flow. A 200-kPa pressure sensor is used to measure the air pressure in the accumulator.
 
 .. _figure_Gas_Schematic:
 
@@ -287,35 +262,129 @@ Experimental Methods
 
     Apparatus used to measure reaeration rate.
 
-The reactors are 1 L beakers that will be filled with 750 mL of water (:numref:`figure_Gas_Schematic`). The DO probe should be placed in a location so as to minimize the risk of air bubbles lodging on the membrane on the bottom of the probe. The aeration stone is connected to a source of regulated air flow. A 7-kPa pressure sensor (optional) can be used to measure the air pressure immediately upstream from the diffuser stone. A 200-kPa pressure sensor is used to measure the air pressure in the accumulator.
+The ProCoDA II software will be used to control the air flow rate for the aeration experiment. The software will use external code to calculate the calibration constant for the flow restriction, to control valve 1 (the air supply valve), and to regulate the flow of air into the accumulator. The calibration uses the ideal gas law to determine the flow rate as a function of the difference in pressure between the source and the accumulator. Once this calibration is obtained a separate code will set the fraction of time that valve 1 needs to be open to obtain the desired flow rate of air into the accumulator.
 
 Initial Setup
 -------------
 
-
 .. |Open_method| image:: ../ProCoDA/Images/Config_open_save_export.png
 .. |Logging_data_short_exp| image:: ../ProCoDA/Images/config_Logging_data_short_exp.png
 .. |Mode_of_operation| image:: ../ProCoDA/Images/Mode_of_operation.png
+.. |Accumulator_pressure_sensor| image:: Images/Accumulator_pressure_sensor.jpg
+    :height: 45
+.. |Flow_restriction| image:: Images/Flow_restriction.jpg
+    :height: 80
+.. |config_sensors| image:: ../ProCoDA/Images/config_sensors.png
+.. |sensor_set_to_zero| image:: ../ProCoDA/Images\sensor_set_to_zero.png
+.. |share_data| image:: ../ProCoDA/Images/Share_data.png
+.. |config_edit_rules| image:: ../ProCoDA/Images/config_edit_rules.png
+.. |select_y_axis_scale| image:: Images/select_y_axis_scale.png
+.. |air_slope| image:: Images/air_slope.png
+.. |Change_air_slope_to_constant| image:: Images/Change_air_slope_to_constant.png
+
+
+
 
 Follow these steps to set up the experiment.
 
  #. Assemble the apparatus (don't forget the 1.5 mm x 5 cm restriction).
- #. Install the flow restriction as close to the valve as possible (plug it directly into the valve!).
- #. The ProCoDA II software will be used to control the air flow rate for the aeration experiment. The software will use external code to calculate the calibration constant for the flow restriction, to control valve 1 (the air supply valve), and to regulate the flow of air into the accumulator. The calibration uses the ideal gas law to determine the flow rate as a function of the difference in pressure between the source and the accumulator. Once this calibration is obtained a separate code will set the fraction of time that valve 1 needs to be open to obtain the desired flow rate of air into the accumulator.
- #. Use the |Open_Method| on the ProCoDA configuration tab to load the `method file containing the configuration necessary to control airflow <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_Student_method_file.pcm>`_.  You will need to adjust the channels for the accumulator pressure and the DO probe to match where you plugged them in your ProCoDA box. You will also need to make sure that your valves are connected to the correct ports on the ProCoDA box.
- #. Navigate to the Process Operation tab.
+ #. Make sure that you push hard and twist to insert tubing into quick connect fittings.
+ #. Install the accumulator pressure sensor |Accumulator_pressure_sensor| so that the positive side of the sensor is connected to the accumulator. The positive side of the pressure sensor is the side that is farthest from where the cable is attached to the sensor.
+ #. Install the flow restriction |Flow_restriction| as close to the valve as possible (plug it directly into the valve!).
+ #. Use the |Open_Method| on the ProCoDA configuration tab to load the `method file containing the configuration necessary to control airflow <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_Student_method_file.pcm>`_.
+ #. Plug the pressure sensor that is monitoring the flow accumulator into sensor port 0.
+ #. Plug the dissolved oxygen probe into sensor port 1.
+ #. Plug the air source valve that is connected to the flow restriction into the port labeled 2 24 V.
+ #. Plug the aeration valve that is upstream from the needle valve into the port labeled 3 24 V.
+ #. Open the accumulator bottle cap to ensure that it is at atmospheric pressure.
+ #. Zero the accumulator pressure sensor by selecting |config_sensors|, select the accumulator pressure sensor and then select |sensor_set_to_zero|.
+ #. Open the air valve that provides laboratory air to your apparatus and fix any air leaks that you observe.
+ #. Close the needle valve by turning it clockwise.
+
+ #. Navigate to the ProCoDA Process Operation tab.
  #. Set the **operator selected state** to toggle.  The solenoid valves should click rhythmically if they are working properly.
- #. Install a membrane on the oxygen probe (if this has not already been done by the TA).
- #. Add 750 mL of tap water to the reactor.
- #. Set the mode of operation |Mode_of_operation| to automatic operation and the *operator selected state* to "prepare to calibrate". The software should quickly cycle through the calibration step and then begin attempting to control the air flow rate to the target value.  Note:  the purpose of the prepare to calibrate state is to vent excess pressure from the accumulator.  The state will not change to calibrate until the pressure drops below a predefined threshold.  To speed this up, you may open the top of the air accumulator to release the air *before starting the automatic calibration*.
- #. Set the stirrer speed to achieve a vortex on the surface of the water.
- #. The instructor or TA will add :math:`10\frac{ \mu g}{L}` of :math:`CoCl_2 \cdot 6H_2O` (note this only needs to be added once because it is the catalyst). A stock solution of :math:`100 \mu g/mL` of :math:`CoCl_2 \cdot 6H_2O` (thus add 75 :math:`\mu L` per 750 mL) has been prepared to facilitate measurement of small cobalt doses. (Use gloves when handling cobalt!)
- #. Calibrate the DO probe if you haven't already. Use :math:`22^{\circ}C` as the temperature.
+ #. Open the needle valve so that air pulses gently in your reactor and doesn't spill any water.
+
+
+Connect to the shared source pressure sensor
+--------------------------------------------
+
+ #. Navigate to the ProCoDA configuration tab and click on share data |share_data|.
+ #. Browse to the shared S drive (right below the Local Disk C), select the folder "Shared data".
+ #. A shared variable called "Source pressure" should be in the tab of "Shared data from other instances of ProCoDA". Select that variable by clicking on it. It will highlight.
+ #. Click on OK.
+ #. Select the ProCoDA Graph tab.
+
+Check for air leaks
+-------------------
+
+ #. Fill the accumulator with air by selecting the "calibrate" state.
+ #. After the accumulator is at high pressure, then close all solenoid valves by selecting the "Off" state.
+ #. Check your system for air leaks by monitoring the accumulator pressure. If it drops over time, then check each tubing connection and if necessary push hard and twist to properly insert tubing into the quick connect tube fittings.
+ #. If the leaking persists then check for other leaks. Possible leak sources include pipe thread connections, rough tubing ends at the instant tube fitting o-ring seal, or leaking solenoid valves.
+
+Calibrate the air flow controller
+---------------------------------
+
+The purpose of this calibration step is to measure the characteristics of the flow resistor so that the rate of flow from the air supply to the flow accumulator can be predicted and controlled. The flow rate from the air source to the flow accumulator is dependent on the air source pressure, the accumulator pressure, and the flow resistance between them. The flow rate decreases as the difference in pressure decreases.
+
+The calibration uses 3 states. The first state is "prepare to calibrate". In this state the aeration valve opens and the accumulator pressure drops until it reaches the "Min calibration pressure (Pa)" which is set at 5,000 Pa. The second state is "calibrate". In this state the aeration valve closes and the air source valve opens. This causes the flow accumulator to rapidly fill. The "calibrate" state ends when the pressure in the accumulator reaches 85% of the source pressure. The next state is a 5 second pause in which both valves are closed. Finally the system switches to aerate and uses the flow rate entered as a variable in |config_edit_rules|. The calibration sequence creates a graph as shown in :numref:`figure_Airflow_calibration_graph`. The data from the "calibrate" state is used to find the unknown term in equation :eq:`eq_t_fill_accumulator`.
+
+.. _figure_Airflow_calibration_graph:
+
+.. figure:: Images/Airflow_calibration_graph.png
+    :width: 600px
+    :align: center
+    :alt: internal figure
+
+    Graph of the airflow calibration. The initial accumulator pressure decrease is during the "prepare to calibrate" state. The accumulator fills rapidly during the "calibrate" state.
+
+Complete the following steps.
+
+ #. Set up the graph in the ProCoDA Graphs tab to look similar to :numref:`figure_Airflow_calibration_graph`.   Note that you can select multiple data source for plotting by holding down the control key while clicking on the data to plot.
+ #. Set both the Accumulator pressure and the Source Pressure plots to use the same left y axis |select_y_axis_scale|. This will make it easy to observe how the accumulator is behaving relative to the source pressure.
+ #. Set the mode of operation |Mode_of_operation| to automatic operation and the *operator selected state* to "prepare to calibrate". The software should quickly cycle through the calibration step and then begin attempting to control the air flow rate to the target value.  Note:  the purpose of the prepare to calibrate state is to vent excess pressure from the accumulator.  The state will not change to calibrate until the pressure drops below a predefined threshold.  To speed this up, you may open the needle valve.
+ #. The air slope should have a value of approximately 7,000,000.
+ #. Repeat the "Calibrate" step several times to make sure you understand what ProCoDA is doing and to confirm that the air slope |air_slope| displayed on the ProCoDA "Process Operation" tab is repeatable (within about 5%).
+ #. Lock the air slope by changing it from a variable to a constant. This will prevent you from accidently losing the air slope by clicking on the calibrate state. Browse to the ProCoDA "Configuration" tab, select |config_edit_rules|, select the variable "air slope", and change it to a constant.  |Change_air_slope_to_constant|
 
 Test the air flow controller
 ----------------------------
 
-In the following test, the air flow controller should provide a constant flow of air into the accumulator. You can assess how well the air flow controller is working based on the slope of the pressure as a function of time.
+In the following test, the air flow controller should provide a constant flow of air into the accumulator. You can assess how well the air flow controller is working based on the slope of the pressure as a function of time. The equation for the change in pressure vs time can be derived from
+
+.. math::
+
+    PV = nRT
+
+    P = \frac{nRT}{V}
+
+    \Delta P = \frac{\dot{n}RT}{V}\Delta t
+
+    \Delta t = \left(P_2 - P_1\right)\frac{V}{\dot{n}RT}
+
+    P = P_{0} + \Delta P = P_{0} +\frac{\dot{n}RT}{V}\Delta t
+
+.. code:: python
+    import aguaclara.research.environmental_processes_analysis as epa
+    from aguaclara.core.units import unit_registry as u
+    import matplotlib.pyplot as plt
+    import numpy as np
+    # the code below will eventually be in the AguaClara core and should be called directly
+    Temperature = 22 * u.degC
+
+    (u.molar_gas_constant * Temperature).to(u.Pa * u.L/u.mol)
+
+    P_air = 101.3*u.kPa
+    temp = np.linspace(0,40)*u.degC
+    C_Oxygen = epa.O2_sat(P_air,temp)
+
+    fig, ax = plt.subplots()
+    ax.plot(temp,C_Oxygen)
+    ax.set(xlabel='Temperature (degrees Celsius)', ylabel='Oxygen concentration (mg/L)')
+    fig.savefig('Gas_Transfer/Images/Oxygen_vs_T')
+    plt.show()
+
 
  #. Set the **mode of operation** to Manual Locked in State.
  #. Set the **operator selected state** to off
@@ -329,9 +398,17 @@ In the following test, the air flow controller should provide a constant flow of
  #. Analyze the data to see if the airflow rate is close to the expected value. This can be done using the data obtained and the ideal gas law.  Plot the accumulator air pressure as a function of time.  The slope of the best fit linear line is in units of Pa/s.  The volume of the accumulator is 1 liter.  Solving the ideal gas law for n gives a result in units of moles/s. You set the air flow rate for 200 :math:`\mu M/s` and that is what you are expecting from this calculation.
  #. If the error is greater than 20\% look for leaks and recalibrate the airflow controller.
 
+Calibrate the Dissolved Oxygen Probe
+
+ #. Install a membrane on the oxygen probe (if this has not already been done by the TA).
+ #. Add 750 mL of tap water to the reactor.
+ #. The instructor or TA will add :math:`10\frac{ \mu g}{L}` of :math:`CoCl_2 \cdot 6H_2O` (note this only needs to be added once because it is the catalyst). A stock solution of :math:`100 \mu g/mL` of :math:`CoCl_2 \cdot 6H_2O` (thus add 75 :math:`\mu L` per 750 mL) has been prepared to facilitate measurement of small cobalt doses. (Use gloves when handling cobalt!)
+#. Calibrate the DO probe if you haven't already. Use :math:`22^{\circ}C` as the temperature.
+
 Measure the Gas Transfer
 ------------------------
 
+ #. Set the stirrer speed to achieve a vortex on the surface of the water.
  #. Prepare to record the dissolved oxygen concentration using ProCoDA software. Use 5-second data intervals and log the data to ``S:\Courses\4530\Group #\gastran\x`` where x is the flow rate in :math:`\mu M/s` for later analysis. Include the actual flow rate in the file name.
  #. Set the airflow rate to the desired flow rate.  Each group will investigate six flowrates.  The instructor will assign the flowrates on the day of the lab exercise.
  #. Set the **operator selected state** to aerate.
@@ -484,7 +561,7 @@ For the air flow controller used in the lab the following values are obtained
 
     {Re}=\frac{4\left(10000\times 10^{-6} \frac{M}{s} \right)\left(0.029\frac{kg}{M} \right)}{\pi \left(1\times 10^{-3} m\right)\left(1.8\times 10^{-5} \frac{N\cdot s}{m^{2} } \right)} =20,500
 
-The flow into the air accumulator will almost certainly be turbulent and thus we can use the turbulent flow equations for minor losses to describe head loss. The equation for minor losses is:
+The flow into the air accumulator will almost certainly be turbulent. In any case, we can use the turbulent flow equations for minor losses to describe head loss. The equation for minor losses is:
 
 .. math::
     :label: eq_Gas_minor_losses
@@ -514,27 +591,28 @@ Multiplying terms and noting that the supply pressure is relatively constant, bu
 
     \frac{dn}{dt} =\frac{\pi D^{2} }{4\sqrt{KM_{gas} RT} } \sqrt{P_{s}^{2} -\frac{n^{2} R^{2} T^{2} }{V^{2} } }
 
-Separating terms and integrating from an initial condition with :math:`n_1` moles to a final condition with :math:`n_2` moles in the accumulator.
+Separating terms and integrating from an initial condition with :math:`n_0` moles to a final condition with :math:`n` moles in the accumulator.
 
 .. math::
 
-    \frac{\rlap{--}V}{RT} \int _{n_{1} }^{n_{2} }\frac{dn}{\sqrt{\frac{P_{s}^{2} V^{2} }{R^{2} T^{2} } -n^{2} } }  =\int _{0}^{t}\frac{\pi D^{2} }{4\sqrt{KM_{gas} RT} } dt
+    \frac{\rlap{--}V}{RT} \int _{n_{0} }^{n }\frac{dn}{\sqrt{\frac{P_{s}^{2} V^{2} }{R^{2} T^{2} } -n^{2} } }  =\int _{0}^{t}\frac{\pi D^{2} }{4\sqrt{KM_{gas} RT} } dt
 
 After integrating we obtain the following equation.
 
 .. math::
 
-    \frac{\rlap{--}V}{RT} \left(\sin ^{-1} \frac{n_{2} RT}{P_{s} V} -\sin ^{-1} \frac{n_{1} RT}{P_{s} V} \right)=\frac{\pi D^{2} t}{4\sqrt{KM_{gas} RT} }
+    \frac{\rlap{--}V}{RT} \left(\sin ^{-1} \frac{n RT}{P_{s} V} -\sin ^{-1} \frac{n_{0} RT}{P_{s} V} \right)=\frac{\pi D^{2} t}{4\sqrt{KM_{gas} RT} }
 
 .. math::
 
-    t=\frac{4\sqrt{KM_{gas} RT} }{\pi D^{2} } \left(\sin ^{-1} \frac{n_{2} RT}{P_{s} V} -\sin ^{-1} \frac{n_{1} RT}{P_{s} V} \right)\frac{\rlap{--}V}{RT}
+    t=\frac{4\sqrt{KM_{gas} RT} }{\pi D^{2} } \left(\sin ^{-1} \frac{n RT}{P_{s} V} -\sin ^{-1} \frac{n_{0} RT}{P_{s} V} \right)\frac{\rlap{--}V}{RT}
 
 Since we will be measuring the pressure in the accumulator we can now substitute that pressure for the terms containing moles of air to obtain an equation that is in a linear form such that a single term containing K and D can be obtained by linear regression.
 
 .. math::
+    :label: eq_t_fill_accumulator
 
-    t=\frac{4\sqrt{KM_{gas} RT} }{\pi D^{2} } \left(\sin ^{-1} \frac{P_{a_{2} } }{P_{s} } -\sin ^{-1} \frac{P_{a_{1} } }{P_{s} } \right)\frac{\rlap{--}V}{RT}
+    t=\frac{4\sqrt{KM_{gas} RT} }{\pi D^{2} } \left(\sin ^{-1} \frac{P_{a } }{P_{s} } -\sin ^{-1} \frac{P_{a_{0} } }{P_{s} } \right)\frac{\rlap{--}V}{RT}
 
 
 Taking a data set obtained by filling the accumulator, finding the unknown term :math:`\frac{4\sqrt{KM_{gas} RT} }{\pi D^{2} }` by linear regression and then plotting the resulting model next to the data we obtain :numref:`figure_Airflow_controller_calibration`.
