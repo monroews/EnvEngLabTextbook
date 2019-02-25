@@ -272,8 +272,6 @@ Initial Setup
 .. |Mode_of_operation| image:: ../ProCoDA/Images/Mode_of_operation.png
 .. |Accumulator_pressure_sensor| image:: Images/Accumulator_pressure_sensor.jpg
     :height: 45
-.. |Flow_restriction| image:: Images/Flow_restriction.jpg
-    :height: 80
 .. |config_sensors| image:: ../ProCoDA/Images/config_sensors.png
 .. |sensor_set_to_zero| image:: ../ProCoDA/Images\sensor_set_to_zero.png
 .. |share_data| image:: ../ProCoDA/Images/Share_data.png
@@ -281,16 +279,15 @@ Initial Setup
 .. |select_y_axis_scale| image:: Images/select_y_axis_scale.png
 .. |air_slope| image:: Images/air_slope.png
 .. |Change_air_slope_to_constant| image:: Images/Change_air_slope_to_constant.png
-
+.. |config_Logging_data_short_exp| image:: ../ProCoDA/Images/config_Logging_data_short_exp.png
 
 
 
 Follow these steps to set up the experiment.
 
- #. Assemble the apparatus (don't forget the 1.5 mm x 5 cm restriction).
+ #. Assemble the apparatus.
  #. Make sure that you push hard and twist to insert tubing into quick connect fittings.
  #. Install the accumulator pressure sensor |Accumulator_pressure_sensor| so that the positive side of the sensor is connected to the accumulator. The positive side of the pressure sensor is the side that is farthest from where the cable is attached to the sensor.
- #. Install the flow restriction |Flow_restriction| as close to the valve as possible (plug it directly into the valve!).
  #. Use the |Open_Method| on the ProCoDA configuration tab to load the `method file containing the configuration necessary to control airflow <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_Student_method_file.pcm>`_.
  #. Plug the pressure sensor that is monitoring the flow accumulator into sensor port 0.
  #. Plug the dissolved oxygen probe into sensor port 1.
@@ -299,11 +296,10 @@ Follow these steps to set up the experiment.
  #. Open the accumulator bottle cap to ensure that it is at atmospheric pressure.
  #. Zero the accumulator pressure sensor by selecting |config_sensors|, select the accumulator pressure sensor and then select |sensor_set_to_zero|.
  #. Open the air valve that provides laboratory air to your apparatus and fix any air leaks that you observe.
- #. Close the needle valve by turning it clockwise.
-
+ #. Close the needle valve (:math:`N_2` in :numref:`figure_Gas_Schematic`) that is closest to the beaker by turning it clockwise.
  #. Navigate to the ProCoDA Process Operation tab.
  #. Set the **operator selected state** to toggle.  The solenoid valves should click rhythmically if they are working properly.
- #. Open the needle valve so that air pulses gently in your reactor and doesn't spill any water.
+ #. Open the needle valve, :math:`N_2`, so that air pulses gently in your reactor and doesn't spill any water.
 
 
 Connect to the shared source pressure sensor
@@ -318,7 +314,7 @@ Connect to the shared source pressure sensor
 Check for air leaks
 -------------------
 
- #. Fill the accumulator with air by selecting the "calibrate" state.
+ #. Fill the accumulator with air by selecting the "calibrate" state. (You may need to open needle valve :math:`N_1`.)
  #. After the accumulator is at high pressure, then close all solenoid valves by selecting the "Off" state.
  #. Check your system for air leaks by monitoring the accumulator pressure. If it drops over time, then check each tubing connection and if necessary push hard and twist to properly insert tubing into the quick connect tube fittings.
  #. If the leaking persists then check for other leaks. Possible leak sources include pipe thread connections, rough tubing ends at the instant tube fitting o-ring seal, or leaking solenoid valves.
@@ -328,7 +324,7 @@ Calibrate the air flow controller
 
 The purpose of this calibration step is to measure the characteristics of the flow resistor so that the rate of flow from the air supply to the flow accumulator can be predicted and controlled. The flow rate from the air source to the flow accumulator is dependent on the air source pressure, the accumulator pressure, and the flow resistance between them. The flow rate decreases as the difference in pressure decreases.
 
-The calibration uses 3 states. The first state is "prepare to calibrate". In this state the aeration valve opens and the accumulator pressure drops until it reaches the "Min calibration pressure (Pa)" which is set at 5,000 Pa. The second state is "calibrate". In this state the aeration valve closes and the air source valve opens. This causes the flow accumulator to rapidly fill. The "calibrate" state ends when the pressure in the accumulator reaches 85% of the source pressure. The next state is a 5 second pause in which both valves are closed. Finally the system switches to aerate and uses the flow rate entered as a variable in |config_edit_rules|. The calibration sequence creates a graph as shown in :numref:`figure_Airflow_calibration_graph`. The data from the "calibrate" state is used to find the unknown term in equation :eq:`eq_t_fill_accumulator`.
+The calibration uses 3 states. The first state is "prepare to calibrate". In this state the aeration valve opens and the accumulator pressure drops until it reaches the "Min calibration pressure (Pa)" which is set at 5,000 Pa. The second state is "calibrate". In this state the aeration valve closes and the air source valve opens. This causes the flow accumulator to rapidly fill. The "calibrate" state ends when the pressure in the accumulator reaches 60% of the source pressure. The next state is a 5 second pause in which both valves are closed. Finally the system switches to aerate and uses the flow rate entered as a variable in |config_edit_rules|. The calibration sequence creates a graph as shown in :numref:`figure_Airflow_calibration_graph`. The data from the "calibrate" state is used to find the unknown term in equation :eq:`eq_t_fill_accumulator`.
 
 .. _figure_Airflow_calibration_graph:
 
@@ -341,17 +337,19 @@ The calibration uses 3 states. The first state is "prepare to calibrate". In thi
 
 Complete the following steps.
 
- #. Set up the graph in the ProCoDA Graphs tab to look similar to :numref:`figure_Airflow_calibration_graph`.   Note that you can select multiple data source for plotting by holding down the control key while clicking on the data to plot.
+ #. Gently close the needle valve that is close to the air supply (:math:`N_1`). Then open the valve about 1/8th of a turn.
+ #. Set up the graph in the ProCoDA Graphs tab to look similar to :numref:`figure_Airflow_calibration_graph`. Note that you can select multiple data source for plotting by holding down the control key while clicking on the data to plot.
  #. Set both the Accumulator pressure and the Source Pressure plots to use the same left y axis |select_y_axis_scale|. This will make it easy to observe how the accumulator is behaving relative to the source pressure.
  #. Set the mode of operation |Mode_of_operation| to automatic operation and the *operator selected state* to "prepare to calibrate". The software should quickly cycle through the calibration step and then begin attempting to control the air flow rate to the target value.  Note:  the purpose of the prepare to calibrate state is to vent excess pressure from the accumulator.  The state will not change to calibrate until the pressure drops below a predefined threshold.  To speed this up, you may open the needle valve.
- #. The air slope should have a value of approximately 7,000,000.
+ #. The air slope should have a value of approximately 1.5 E7 to 2.5 E7. To increase the air slope close the :math:`N_1` needle valve slightly and repeat the "Calibrate" step.
  #. Repeat the "Calibrate" step several times to make sure you understand what ProCoDA is doing and to confirm that the air slope |air_slope| displayed on the ProCoDA "Process Operation" tab is repeatable (within about 5%).
  #. Lock the air slope by changing it from a variable to a constant. This will prevent you from accidently losing the air slope by clicking on the calibrate state. Browse to the ProCoDA "Configuration" tab, select |config_edit_rules|, select the variable "air slope", and change it to a constant.  |Change_air_slope_to_constant|
+ #. Don't adjust the :math:`N_1` needle valve now that the air flow is calibrated.
 
 Test the air flow controller
 ----------------------------
 
-In the following test, the air flow controller should provide a constant flow of air into the accumulator. You can assess how well the air flow controller is working based on the slope of the pressure as a function of time. The equation for the change in pressure vs time can be derived from
+In the following test, the air flow controller should provide a constant flow of air into the accumulator. You can assess how well the air flow controller is working based on the slope of the pressure as a function of time. The equation for the expected change in pressure vs time can be derived from
 
 .. math::
 
@@ -365,60 +363,61 @@ In the following test, the air flow controller should provide a constant flow of
 
     P = P_{0} + \Delta P = P_{0} +\frac{\dot{n}RT}{V}\Delta t
 
-.. code:: python
-    import aguaclara.research.environmental_processes_analysis as epa
-    from aguaclara.core.units import unit_registry as u
-    import matplotlib.pyplot as plt
-    import numpy as np
-    # the code below will eventually be in the AguaClara core and should be called directly
-    Temperature = 22 * u.degC
 
-    (u.molar_gas_constant * Temperature).to(u.Pa * u.L/u.mol)
+This equation has been programming in ProCoDA as the "air fill model". Thus you can compare the measured pressure in the accumulator and the "air fill model" to see if the flow controller is working properly.
 
-    P_air = 101.3*u.kPa
-    temp = np.linspace(0,40)*u.degC
-    C_Oxygen = epa.O2_sat(P_air,temp)
+ #. Add the "air fill model" to the ProCoDA graph and make sure that it is using the left axis.
+ #. Set the air flow rate based on our calibration be navigating to the Configuration tab and selecting |config_edit_rules|. We want to control the air flow rate, so select air flow rate from the set points and variables list. Set the air flow rate to a value of 100u (100 :math:`\mu M/s`).
+ #. Begin logging data at a 1 s interval using the |config_Logging_data_short_exp| datalog button on the configuration tab. Data is being logged when the icon is green.
+ #. Set the **operator selected state** to "Prepare to test fill"
+ #. Watch the graph to see the accumulator pressure and air fill model increase at the same rate (hopefully).
+ #. End logging data when the fill cycle ends.
+ #. The resulting graph should look like the figure below.
 
-    fig, ax = plt.subplots()
-    ax.plot(temp,C_Oxygen)
-    ax.set(xlabel='Temperature (degrees Celsius)', ylabel='Oxygen concentration (mg/L)')
-    fig.savefig('Gas_Transfer/Images/Oxygen_vs_T')
-    plt.show()
+.. _figure_Accumulator_fill:
 
+.. figure:: Images/Accumulator_fill.png
+   :width: 600px
+   :align: center
+   :alt: ProCoDA graph of the accumulator filling
 
- #. Set the **mode of operation** to Manual Locked in State.
- #. Set the **operator selected state** to off
- #. Open the accumulator cap to empty the accumulator.
- #. Close the accumulator cap.
- #. Close the needle valve.
- #. We can set the air flow rate based on our calibration be navigating to the Configuration tab and selecting edit rules. We want to control the air flow rate, so select air flow rate from the set points and variables list. Set the air flow rate to a value of 200u (200 :math:`\mu M`/s).
- #. Begin logging data from the 200kPa pressure sensor (accumulator pressure) at a 1 s interval using the datalog button on the configuration tab. Data is being logged when the icon is green.
- #. Navigate back to process operation tab and set the **operator selected state** to aerate.
- #. End logging data when the accumulator pressure is approximately equal to the source pressure.
- #. Analyze the data to see if the airflow rate is close to the expected value. This can be done using the data obtained and the ideal gas law.  Plot the accumulator air pressure as a function of time.  The slope of the best fit linear line is in units of Pa/s.  The volume of the accumulator is 1 liter.  Solving the ideal gas law for n gives a result in units of moles/s. You set the air flow rate for 200 :math:`\mu M/s` and that is what you are expecting from this calculation.
- #. If the error is greater than 20\% look for leaks and recalibrate the airflow controller.
+   Graph of the accumulator filling at a flow rate of 100 :math:`\mu M/s`. The measured values and the model are in reasonable agreement.
 
 Calibrate the Dissolved Oxygen Probe
+------------------------------------
 
  #. Install a membrane on the oxygen probe (if this has not already been done by the TA).
  #. Add 750 mL of tap water to the reactor.
  #. The instructor or TA will add :math:`10\frac{ \mu g}{L}` of :math:`CoCl_2 \cdot 6H_2O` (note this only needs to be added once because it is the catalyst). A stock solution of :math:`100 \mu g/mL` of :math:`CoCl_2 \cdot 6H_2O` (thus add 75 :math:`\mu L` per 750 mL) has been prepared to facilitate measurement of small cobalt doses. (Use gloves when handling cobalt!)
-#. Calibrate the DO probe if you haven't already. Use :math:`22^{\circ}C` as the temperature.
+#. :ref:`Calibrate the DO probe <heading_ProCoDA_Dissolved_Oxygen>` if you haven't already. Use :math:`22^{\circ}C` as the temperature.
 
 Measure the Gas Transfer
 ------------------------
 
+.. _table_air_flow_rates:
+
+.. csv-table:: Suggested flow rates.
+   :header: Group	Flows, (:math:`\mu M/s`)
+   :align: center
+
+   1 and 7,	"100, 150, 200"
+   2 and 8,	"250, 300, 350"
+   3 and 9,	"400, 450, 500"
+   4 and 10,	"550, 600, 650"
+   5 and 11,	"700, 750, 800"
+   6 and 12,	"850, 900, 1000"
+
  #. Set the stirrer speed to achieve a vortex on the surface of the water.
- #. Prepare to record the dissolved oxygen concentration using ProCoDA software. Use 5-second data intervals and log the data to ``S:\Courses\4530\Group #\gastran\x`` where x is the flow rate in :math:`\mu M/s` for later analysis. Include the actual flow rate in the file name.
- #. Set the airflow rate to the desired flow rate.  Each group will investigate six flowrates.  The instructor will assign the flowrates on the day of the lab exercise.
+ #. Set the airflow rate to the desired flow rate.  Each group will investigate three flowrates.
  #. Set the **operator selected state** to aerate.
- #. Set the needle valve so the pressure in the accumulator is approximately 75\% of the source pressure.
+ #. Set the needle valve that is close to the beaker, :math:`N_2`, so the pressure in the accumulator is between 5 and 15 kPa.
  #. Wait until the accumulator pressure reaches steady state.
  #. Turn the air off by changing the operator selected state to OFF.
- #. Add enough sodium sulfite to deoxygenate the solution. A stock solution of sodium sulfite (100 mg/mL) has been prepared to facilitate measurement of small sulfite doses. Calculate this dose based on the measured dissolved oxygen concentration. (see :numref:`figure_sulfite`)
+ #. Add enough sodium sulfite to deoxygenate the solution. It is okay if the sample doesn't completely deoxygenate. The goal is to have less than 1.5 mg/L of oxygen at the beginning of the aeration. A stock solution of sodium sulfite (100 mg/mL) has been prepared to facilitate measurement of small sulfite doses. Calculate this dose based on the measured dissolved oxygen concentration. (see :numref:`figure_sulfite`)
+ #. Prepare to record the dissolved oxygen concentration using ProCoDA software. Use 5-second data intervals and log the data to ``S:\Courses\4530\Group #\gastran\x`` where x is the flow rate in :math:`\mu M/s` for later analysis. Include the actual flow rate in the file name.
  #. Turn the air on by changing the **operator selected state** to Aerate.
  #. Monitor the dissolved oxygen concentration until it reaches 50\% of saturation value or 10 minutes (whichever is shorter).
- #. Repeat steps 1-9 to collect data from at least two additional flow rates.
+ #. Repeat steps 2-10 to collect data from at least two additional flow rates.
  #. email your data files (correctly named!) to the course email account.
 
 
@@ -490,18 +489,7 @@ Setup
  #. Configure the TA workstation to be measuring the source air pressure and sharing it using this `ProCoDA method <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_TAbench_method_file.pcm>`_.
  #. Verify that the source air pressure is close to 100 kPa. If it exceeds 120 kPa then ask the building manager to reduce the air pressure.
 
-.. _table_air_flow_rates:
 
-.. csv-table:: Suggested flow rates.
-   :header: Group	Flows, (:math:`\mu M/s`)
-   :align: center
-
-   1 and 7,	"200, 250, 300"
-   2 and 8,	"350, 400, 450"
-   3 and 9,	"500, 600, 700"
-   4 and 10,	"800, 900, 1000"
-   5 and 11,	"1200, 1500, 2000"
-   6 and 12,	"3000, 4000, 5000"
 
 Clean up
 ========
