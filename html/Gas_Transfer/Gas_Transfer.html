@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gas Transfer &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.19 documentation</title>
+  <title>Gas Transfer &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
   
 
   
@@ -57,10 +57,6 @@
 
           
             
-            
-              <div class="version">
-                v.0.0.19
-              </div>
             
           
 
@@ -133,10 +129,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#check-for-air-leaks">Check for air leaks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#calibrate-the-air-flow-controller">Calibrate the air flow controller</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#test-the-air-flow-controller">Test the air flow controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-the-membrane-cap-on-the-dissolved-oxygen-probe">Install the Membrane Cap on the Dissolved Oxygen Probe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#calibrate-the-dissolved-oxygen-probe">Calibrate the Dissolved Oxygen Probe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#measure-the-gas-transfer">Measure the Gas Transfer</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#lab-explorations">Lab Explorations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prelab-questions">Prelab Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-analysis">Data Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
@@ -382,6 +380,7 @@
 <li>Plug the aeration valve that is upstream from the needle valve into the port labeled 3 24 V.</li>
 <li>Open the accumulator bottle cap to ensure that it is at atmospheric pressure.</li>
 <li>Zero the accumulator pressure sensor by selecting <img alt="config_sensors" src="../_images/config_sensors.png" />, select the accumulator pressure sensor and then select <img alt="sensor_set_to_zero" src="../_images/sensor_set_to_zero.png" />.</li>
+<li>Close the accumulator bottle cap.</li>
 <li>Open the air valve that provides laboratory air to your apparatus and fix any air leaks that you observe.</li>
 <li>Close the needle valve (<span class="math notranslate nohighlight">\(N_2\)</span> in <a class="reference internal" href="#figure-gas-schematic"><span class="std std-numref">Fig. 22</span></a>) that is closest to the beaker by turning it clockwise.</li>
 <li>Navigate to the ProCoDA Process Operation tab.</li>
@@ -437,9 +436,9 @@
 </div>
 <div class="section" id="test-the-air-flow-controller">
 <h3>Test the air flow controller<a class="headerlink" href="#test-the-air-flow-controller" title="Permalink to this headline">¶</a></h3>
-<p>In the following test, the air flow controller should provide a constant flow of air into the accumulator. You can assess how well the air flow controller is working based on the slope of the pressure as a function of time. The equation for the expected change in pressure vs time can be derived from</p>
+<p>In the following test, the air flow controller should provide a constant flow of air into the accumulator. You can assess how well the air flow controller is working based on the slope of the pressure as a function of time. The equation for the expected change in pressure vs time can be derived from the ideal gas law.</p>
 <div class="math notranslate nohighlight" id="equation-gas-transfer-gas-transfer-8">
-<span class="eqno">(112)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-8" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}PV = nRT\\P = \frac{nRT}{V}\\\Delta P = \frac{\dot{n}RT}{V}\Delta t\\\Delta t = \left(P_2 - P_1\right)\frac{V}{\dot{n}RT}\\P = P_{0} + \Delta P = P_{0} +\frac{\dot{n}RT}{V}\Delta t\end{aligned}\end{align} \]</div>
+<span class="eqno">(112)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-8" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}PV = nRT\\P = \frac{nRT}{V}\\\Delta P = \frac{\dot{n}RT}{V}\Delta t\\P = P_{0} + \Delta P = P_{0} +\frac{\dot{n}RT}{V}\Delta t\end{aligned}\end{align} \]</div>
 <p>This equation has been programming in ProCoDA as the “air fill model”. Thus you can compare the measured pressure in the accumulator and the “air fill model” to see if the flow controller is working properly.</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -457,146 +456,116 @@
 <p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Graph of the accumulator filling at a flow rate of 100 <span class="math notranslate nohighlight">\(\mu M/s\)</span>. The measured values and the model are in reasonable agreement.</span></p>
 </div>
 </div>
+<div class="section" id="install-the-membrane-cap-on-the-dissolved-oxygen-probe">
+<h3>Install the Membrane Cap on the Dissolved Oxygen Probe<a class="headerlink" href="#install-the-membrane-cap-on-the-dissolved-oxygen-probe" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Make sure to wear gloves for these steps!</li>
+<li>Use a pipette or dropper to fill the membrane cap with 0.05 N NaOH solution. Take care not to dispense air bubbles into the membrane cap. Fill the cap to within 5 mm of the top.</li>
+<li>Place a beaker on the bench top below the membrane cap to catch any spilled NaOH solution.</li>
+<li>Hold the cap so that it doesn’t spill and screw the probe into the cap. Some NaOH will leak out as you tighten the cap. Catch these drips in the beaker.</li>
+<li>Rinse the probe with deionized water.</li>
+<li>Inspect the probe carefully to see if there are any air bubbles inside the membrane. If there are any bubbles, repeat starting at step 2.</li>
+</ol>
+</div></blockquote>
+</div>
 <div class="section" id="calibrate-the-dissolved-oxygen-probe">
 <h3>Calibrate the Dissolved Oxygen Probe<a class="headerlink" href="#calibrate-the-dissolved-oxygen-probe" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Install a membrane on the oxygen probe (if this has not already been done by the TA).</li>
 <li>Add 750 mL of tap water to the reactor.</li>
 <li>The instructor or TA will add <span class="math notranslate nohighlight">\(10\frac{ \mu g}{L}\)</span> of <span class="math notranslate nohighlight">\(CoCl_2 \cdot 6H_2O\)</span> (note this only needs to be added once because it is the catalyst). A stock solution of <span class="math notranslate nohighlight">\(100 \mu g/mL\)</span> of <span class="math notranslate nohighlight">\(CoCl_2 \cdot 6H_2O\)</span> (thus add 75 <span class="math notranslate nohighlight">\(\mu L\)</span> per 750 mL) has been prepared to facilitate measurement of small cobalt doses. (Use gloves when handling cobalt!)</li>
+<li><a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-dissolved-oxygen"><span class="std std-ref">Calibrate the DO probe</span></a>. Use <span class="math notranslate nohighlight">\(22^{\circ}C\)</span> as the temperature.</li>
 </ol>
 </div></blockquote>
-<ol class="arabic simple">
-<li><a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-dissolved-oxygen"><span class="std std-ref">Calibrate the DO probe</span></a> if you haven’t already. Use <span class="math notranslate nohighlight">\(22^{\circ}C\)</span> as the temperature.</li>
-</ol>
 </div>
 <div class="section" id="measure-the-gas-transfer">
 <h3>Measure the Gas Transfer<a class="headerlink" href="#measure-the-gas-transfer" title="Permalink to this headline">¶</a></h3>
-<span id="table-air-flow-rates"></span><table border="1" class="docutils" id="id8">
-<caption><span class="caption-number">Table 8 </span><span class="caption-text">Suggested flow rates.
-  :header: Group       Flows, (<span class="math notranslate nohighlight">\(\mu M/s\)</span>)
-  :align: center</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<p><a class="reference internal" href="#table-air-flow-rates"><span class="std std-numref">Table 8</span></a> provides the air flow rates for each team. The data will be consolidated</p>
+<span id="table-air-flow-rates"></span><table border="1" class="docutils align-center" id="id8">
+<caption><span class="caption-number">Table 8 </span><span class="caption-text">Suggested flow rates.</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col width="50%" />
+<col width="50%" />
 </colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Group       Flows</th>
+<th class="head">(<span class="math notranslate nohighlight">\(mu M/s\)</span>)</th>
+</tr>
+</thead>
 <tbody valign="top">
-<tr class="row-odd"><td>1 and 7</td>
-<td>100, 150, 200</td>
-<td>&#160;</td>
+<tr class="row-even"><td>Group 1</td>
+<td>100, 400, 700</td>
 </tr>
-<tr class="row-even"><td>2 and 8</td>
-<td>250, 300, 350</td>
-<td>&#160;</td>
+<tr class="row-odd"><td>Group 2</td>
+<td>125, 425, 725</td>
 </tr>
-<tr class="row-odd"><td>3 and 9</td>
-<td>400, 450, 500</td>
-<td>&#160;</td>
+<tr class="row-even"><td>Group 3</td>
+<td>150, 450, 750</td>
 </tr>
-<tr class="row-even"><td>4 and 10</td>
-<td>550, 600, 650</td>
-<td>&#160;</td>
+<tr class="row-odd"><td>Group 4</td>
+<td>175, 475, 775</td>
 </tr>
-<tr class="row-odd"><td>5 and 11</td>
-<td>700, 750, 800</td>
-<td>&#160;</td>
+<tr class="row-even"><td>Group 5</td>
+<td>200, 500, 800</td>
 </tr>
-<tr class="row-even"><td>6 and 12</td>
-<td>850, 900, 1000</td>
-<td>&#160;</td>
+<tr class="row-odd"><td>Group 6</td>
+<td>225, 525, 825</td>
 </tr>
-<tr class="row-odd"><td>&#160;</td>
-<td>&#160;</td>
-<td>&#160;</td>
+<tr class="row-even"><td>Group 7</td>
+<td>250, 550, 850</td>
 </tr>
-<tr class="row-even"><td><ol class="first last arabic simple">
-<li>Set the stirrer speed to achieve a vortex on the surface of the water.</li>
-</ol>
-</td>
-<td>&#160;</td>
-<td>&#160;</td>
+<tr class="row-odd"><td>Group 8</td>
+<td>275, 575, 875</td>
 </tr>
-<tr class="row-odd"><td><ol class="first last arabic simple">
-<li>Set the airflow rate to the desired flow rate.  Each group will investigate three flowrates.</li>
-</ol>
-</td>
-<td>&#160;</td>
-<td>&#160;</td>
+<tr class="row-even"><td>Group 9</td>
+<td>300, 600, 900</td>
 </tr>
-<tr class="row-even"><td><ol class="first last arabic simple">
-<li>Set the <strong>operator selected state</strong> to aerate.</li>
-</ol>
-</td>
-<td>&#160;</td>
-<td>&#160;</td>
+<tr class="row-odd"><td>Group 10</td>
+<td>325, 625, 925</td>
 </tr>
-<tr class="row-odd"><td><ol class="first last arabic simple">
-<li>Set the needle valve that is close to the beaker</li>
-</ol>
-</td>
-<td><span class="math notranslate nohighlight">\(N_2\)</span></td>
-<td>so the pressure in the accumulator is between 5 and 15 kPa.</td>
+<tr class="row-even"><td>Group 11</td>
+<td>350, 650, 950</td>
 </tr>
-<tr class="row-even"><td><ol class="first last arabic simple">
-<li>Wait until the accumulator pressure reaches steady state.</li>
-</ol>
-</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><ol class="first last arabic simple">
-<li>Turn the air off by changing the operator selected state to OFF.</li>
-</ol>
-</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><ol class="first last arabic simple">
-<li>Add enough sodium sulfite to deoxygenate the solution. It is okay if the sample doesn’t completely deoxygenate. The goal is to have less than 1.5 mg/L of oxygen at the beginning of the aeration. A stock solution of sodium sulfite (100 mg/mL) has been prepared to facilitate measurement of small sulfite doses. Calculate this dose based on the measured dissolved oxygen concentration. (see <a class="reference internal" href="#figure-sulfite"><span class="std std-numref">Fig. 21</span></a>)</li>
-</ol>
-</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><ol class="first last arabic simple">
-<li>Prepare to record the dissolved oxygen concentration using ProCoDA software. Use 5-second data intervals and log the data to <code class="docutils literal notranslate"><span class="pre">S:\Courses\4530\Group</span> <span class="pre">#\gastran\x</span></code> where x is the flow rate in <span class="math notranslate nohighlight">\(\mu M/s\)</span> for later analysis. Include the actual flow rate in the file name.</li>
-</ol>
-</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><ol class="first last arabic simple">
-<li>Turn the air on by changing the <strong>operator selected state</strong> to Aerate.</li>
-</ol>
-</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><ol class="first last arabic simple">
-<li>Monitor the dissolved oxygen concentration until it reaches 50% of saturation value or 10 minutes (whichever is shorter).</li>
-</ol>
-</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td><ol class="first last arabic simple">
-<li>Repeat steps 2-10 to collect data from at least two additional flow rates.</li>
-</ol>
-</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td><ol class="first last arabic simple">
-<li>email your data files (correctly named!) to the course email account.</li>
-</ol>
-</td>
-<td>&#160;</td>
-<td>&#160;</td>
+<tr class="row-odd"><td>Group 12</td>
+<td>375, 675, 975</td>
 </tr>
 </tbody>
 </table>
+<dl class="docutils">
+<dt>Set the stirrer speed to mix the tank but not to cause a vortex that sucks bubbles into the stirrer. Then repeat the following steps for each flow rate.</dt>
+<dd><ol class="first last arabic simple">
+<li>Set the air flow rate in <img alt="config_edit_rules" src="../_images/config_edit_rules.png" /> to the desired flow rate.</li>
+<li>Set the <strong>operator selected state</strong> to aerate.</li>
+<li>Set the needle valve that is close to the beaker, <span class="math notranslate nohighlight">\(N_2\)</span>, so the pressure in the accumulator is between 20 and 50 kPa.</li>
+<li>Wait until the accumulator pressure reaches steady state.</li>
+<li>Turn the air off by changing the operator selected state to OFF.</li>
+<li>Add enough sodium sulfite to deoxygenate the solution. It is okay if the sample doesn’t completely deoxygenate. The goal is to have less than 1.5 mg/L of oxygen at the beginning of the aeration. A stock solution of sodium sulfite (100 mg/mL) has been prepared to facilitate measurement of small sulfite doses. Calculate this dose based on the measured dissolved oxygen concentration. (see <a class="reference internal" href="#figure-sulfite"><span class="std std-numref">Fig. 21</span></a>)</li>
+<li>Prepare to record the dissolved oxygen concentration using ProCoDA software. Use 5-second data intervals and log the data to <code class="docutils literal notranslate"><span class="pre">S:\Courses\4530\Group</span> <span class="pre">#\gastran\x</span></code> where x is the flow rate in <span class="math notranslate nohighlight">\(\mu M/s\)</span> for later analysis. Include the actual flow rate in the file name.</li>
+<li>Turn the air on by changing the <strong>operator selected state</strong> to Aerate.</li>
+<li>Monitor the dissolved oxygen concentration until it reaches 50% of saturation value or 10 minutes (whichever is shorter).</li>
+<li>Repeat steps 2-10 to collect data from at least two additional flow rates.</li>
+<li>email your data files (correctly named!) to the course email account.</li>
+<li>Answer the questions in the section on <a class="reference internal" href="#heading-gas-transfer-lab-explorations"><span class="std std-ref">Lab Explorations</span></a>.</li>
+</ol>
+</dd>
+</dl>
 </div>
+</div>
+<div class="section" id="lab-explorations">
+<span id="heading-gas-transfer-lab-explorations"></span><h2>Lab Explorations<a class="headerlink" href="#lab-explorations" title="Permalink to this headline">¶</a></h2>
+<p>This lab exercise introduces the use of computer control as well as some interesting hydraulics. These questions are designed to help you think through everything that is happening in this lab. Include a discussion of these questions in the laboratory report.</p>
+<p>The ProCoDA method that you used in this lab has two programs that cause ProCoDA to switch between states and change what it is doing. Explore the rule editor, <img alt="config_edit_rules" src="../_images/config_edit_rules.png" />, to figure out answers to the following questions.</p>
+<ol class="arabic simple">
+<li>Under what condition does ProCoDA switch from the “prepare to calibrate” state to the “calibrate” state?</li>
+<li>Under what condition does ProCoDA switch from the “calibrate” state to the “Pause” state?</li>
+<li>How does the “Pause” state know which state to go to next?</li>
+<li>What is the equation that is used to calculate the maximum calibration pressure and why is this equation better than using a constant for the maximum calibration pressure?</li>
+<li>Explain how ProCoDA calculates the predicted pressure in the accumulator when it is filled at a constant mass flow rate.</li>
+<li>What are the inputs to the “air valve control”?</li>
+<li>What does “air valve control” control and which two states use it?</li>
+<li>Write a ProCoDA program that cycles between two states that aerate for 15 s and then pause for 10 s. Show the TA!</li>
+</ol>
 </div>
 <div class="section" id="prelab-questions">
 <span id="heading-gas-transfer-pre-laboratory-questions"></span><h2>Prelab Questions<a class="headerlink" href="#prelab-questions" title="Permalink to this headline">¶</a></h2>
@@ -797,7 +766,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v.0.0.19',
+            VERSION:'',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
