@@ -366,12 +366,13 @@ In the following test, the air flow controller should provide a constant flow of
 This equation has been programming in ProCoDA as the "air fill model". Thus you can compare the measured pressure in the accumulator and the "air fill model" to see if the flow controller is working properly.
 
  #. Add the "air fill model" to the ProCoDA graph and make sure that it is using the left axis.
- #. Set the air flow rate based on our calibration be navigating to the Configuration tab and selecting |config_edit_rules|. We want to control the air flow rate, so select air flow rate from the set points and variables list. Set the air flow rate to a value of 100u (100 :math:`\mu M/s`).
+ #. Set the air flow rate based on our calibration be navigating to the Configuration tab and selecting |config_edit_rules|. We want to control the air flow rate, so select air flow rate from the set points and variables list. Set the air flow rate to a value of 400u (400 :math:`\mu M/s`).
  #. Begin logging data at a 1 s interval using the |config_Logging_data_short_exp| datalog button on the configuration tab. Data is being logged when the icon is green.
  #. Set the **operator selected state** to "Prepare to test fill"
  #. Watch the graph to see the accumulator pressure and air fill model increase at the same rate (hopefully).
  #. End logging data when the fill cycle ends.
  #. The resulting graph should look like the figure below.
+ #. The measured value for the final pressure at the end of the "Fill accumulator" state should be within 20% of the predicted value. You can find these values in the data log.
 
 .. _figure_Accumulator_fill:
 
@@ -435,7 +436,7 @@ Set the stirrer speed to mix the tank but not to cause a vortex that sucks bubbl
  #. Prepare to record the dissolved oxygen concentration using ProCoDA software. Use 5-second data intervals and log the data to ``S:\Courses\4530\Group #\gastran\x`` where x is the flow rate in :math:`\mu M/s` for later analysis. Include the actual flow rate in the file name.
  #. Turn the air on by changing the **operator selected state** to Aerate.
  #. Monitor the dissolved oxygen concentration until it reaches 50\% of saturation value or 10 minutes (whichever is shorter).
- #. Repeat steps 2-10 to collect data from at least two additional flow rates.
+ #. Repeat steps 1-9 to collect data from at least two additional flow rates.
  #. email your data files (correctly named!) to the course email account.
  #. Answer the questions in the section on :ref:`heading_Gas_Transfer_Lab_Explorations`.
 
