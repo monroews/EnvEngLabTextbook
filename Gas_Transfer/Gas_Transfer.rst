@@ -295,6 +295,7 @@ Follow these steps to set up the experiment.
  #. Plug the aeration valve that is upstream from the needle valve into the port labeled 3 24 V.
  #. Open the accumulator bottle cap to ensure that it is at atmospheric pressure.
  #. Zero the accumulator pressure sensor by selecting |config_sensors|, select the accumulator pressure sensor and then select |sensor_set_to_zero|.
+ #. Close the accumulator bottle cap.
  #. Open the air valve that provides laboratory air to your apparatus and fix any air leaks that you observe.
  #. Close the needle valve (:math:`N_2` in :numref:`figure_Gas_Schematic`) that is closest to the beaker by turning it clockwise.
  #. Navigate to the ProCoDA Process Operation tab.
@@ -349,7 +350,7 @@ Complete the following steps.
 Test the air flow controller
 ----------------------------
 
-In the following test, the air flow controller should provide a constant flow of air into the accumulator. You can assess how well the air flow controller is working based on the slope of the pressure as a function of time. The equation for the expected change in pressure vs time can be derived from
+In the following test, the air flow controller should provide a constant flow of air into the accumulator. You can assess how well the air flow controller is working based on the slope of the pressure as a function of time. The equation for the expected change in pressure vs time can be derived from the ideal gas law.
 
 .. math::
 
@@ -358,8 +359,6 @@ In the following test, the air flow controller should provide a constant flow of
     P = \frac{nRT}{V}
 
     \Delta P = \frac{\dot{n}RT}{V}\Delta t
-
-    \Delta t = \left(P_2 - P_1\right)\frac{V}{\dot{n}RT}
 
     P = P_{0} + \Delta P = P_{0} +\frac{\dot{n}RT}{V}\Delta t
 
@@ -383,16 +382,27 @@ This equation has been programming in ProCoDA as the "air fill model". Thus you 
 
    Graph of the accumulator filling at a flow rate of 100 :math:`\mu M/s`. The measured values and the model are in reasonable agreement.
 
+Install the Membrane Cap on the Dissolved Oxygen Probe
+------------------------------------------------------
+
+ #. Make sure to wear gloves for these steps!
+ #. Use a pipette or dropper to fill the membrane cap with 0.05 N NaOH solution. Take care not to dispense air bubbles into the membrane cap. Fill the cap to within 5 mm of the top.
+ #. Place a beaker on the bench top below the membrane cap to catch any spilled NaOH solution.
+ #. Hold the cap so that it doesn't spill and screw the probe into the cap. Some NaOH will leak out as you tighten the cap. Catch these drips in the beaker.
+ #. Rinse the probe with deionized water.
+ #. Inspect the probe carefully to see if there are any air bubbles inside the membrane. If there are any bubbles, repeat starting at step 2.
+
 Calibrate the Dissolved Oxygen Probe
 ------------------------------------
 
- #. Install a membrane on the oxygen probe (if this has not already been done by the TA).
  #. Add 750 mL of tap water to the reactor.
  #. The instructor or TA will add :math:`10\frac{ \mu g}{L}` of :math:`CoCl_2 \cdot 6H_2O` (note this only needs to be added once because it is the catalyst). A stock solution of :math:`100 \mu g/mL` of :math:`CoCl_2 \cdot 6H_2O` (thus add 75 :math:`\mu L` per 750 mL) has been prepared to facilitate measurement of small cobalt doses. (Use gloves when handling cobalt!)
-#. :ref:`Calibrate the DO probe <heading_ProCoDA_Dissolved_Oxygen>` if you haven't already. Use :math:`22^{\circ}C` as the temperature.
+ #. :ref:`Calibrate the DO probe <heading_ProCoDA_Dissolved_Oxygen>`. Use :math:`22^{\circ}C` as the temperature.
 
 Measure the Gas Transfer
 ------------------------
+
+:numref:`table_air_flow_rates` provides the air flow rates for each team. The data will be consolidated
 
 .. _table_air_flow_rates:
 
@@ -400,17 +410,25 @@ Measure the Gas Transfer
    :header: Group	Flows, (:math:`\mu M/s`)
    :align: center
 
-   1 and 7,	"100, 150, 200"
-   2 and 8,	"250, 300, 350"
-   3 and 9,	"400, 450, 500"
-   4 and 10,	"550, 600, 650"
-   5 and 11,	"700, 750, 800"
-   6 and 12,	"850, 900, 1000"
+   Group 1, "100, 400, 700"
+   Group 2,	"125, 425, 725"
+   Group 3,	"150, 450, 750"
+   Group 4,	"175, 475, 775"
+   Group 5,	"200, 500, 800"
+   Group 6,	"225, 525, 825"
+   Group 7,	"250, 550, 850"
+   Group 8,	"275, 575, 875"
+   Group 9,	"300, 600, 900"
+   Group 10,	"325, 625, 925"
+   Group 11,	"350, 650, 950"
+   Group 12,	"375, 675, 975"
 
- #. Set the stirrer speed to achieve a vortex on the surface of the water.
- #. Set the airflow rate to the desired flow rate.  Each group will investigate three flowrates.
+
+
+Set the stirrer speed to mix the tank but not to cause a vortex that sucks bubbles into the stirrer. Then repeat the following steps for each flow rate.
+ #. Set the air flow rate in |config_edit_rules| to the desired flow rate.
  #. Set the **operator selected state** to aerate.
- #. Set the needle valve that is close to the beaker, :math:`N_2`, so the pressure in the accumulator is between 5 and 15 kPa.
+ #. Set the needle valve that is close to the beaker, :math:`N_2`, so the pressure in the accumulator is between 20 and 50 kPa.
  #. Wait until the accumulator pressure reaches steady state.
  #. Turn the air off by changing the operator selected state to OFF.
  #. Add enough sodium sulfite to deoxygenate the solution. It is okay if the sample doesn't completely deoxygenate. The goal is to have less than 1.5 mg/L of oxygen at the beginning of the aeration. A stock solution of sodium sulfite (100 mg/mL) has been prepared to facilitate measurement of small sulfite doses. Calculate this dose based on the measured dissolved oxygen concentration. (see :numref:`figure_sulfite`)
@@ -419,7 +437,25 @@ Measure the Gas Transfer
  #. Monitor the dissolved oxygen concentration until it reaches 50\% of saturation value or 10 minutes (whichever is shorter).
  #. Repeat steps 2-10 to collect data from at least two additional flow rates.
  #. email your data files (correctly named!) to the course email account.
+ #. Answer the questions in the section on :ref:`heading_Gas_Transfer_Lab_Explorations`.
 
+.. _heading_Gas_Transfer_Lab_Explorations:
+
+Lab Explorations
+================
+
+This lab exercise introduces the use of computer control as well as some interesting hydraulics. These questions are designed to help you think through everything that is happening in this lab. Include a discussion of these questions in the laboratory report.
+
+The ProCoDA method that you used in this lab has two programs that cause ProCoDA to switch between states and change what it is doing. Explore the rule editor, |config_edit_rules|, to figure out answers to the following questions.
+
+#. Under what condition does ProCoDA switch from the "prepare to calibrate" state to the "calibrate" state?
+#. Under what condition does ProCoDA switch from the "calibrate" state to the "Pause" state?
+#. How does the "Pause" state know which state to go to next?
+#. What is the equation that is used to calculate the maximum calibration pressure and why is this equation better than using a constant for the maximum calibration pressure?
+#. Explain how ProCoDA calculates the predicted pressure in the accumulator when it is filled at a constant mass flow rate.
+#. What are the inputs to the "air valve control"?
+#. What does "air valve control" control and which two states use it?
+#. Write a ProCoDA program that cycles between two states that aerate for 15 s and then pause for 10 s. Show the TA!
 
 .. _heading_Gas_Transfer_Pre-Laboratory_Questions:
 
@@ -431,6 +467,9 @@ Prelab Questions
  #. Why is :math:`\hat{k}_{v,l}` not zero when the gas flow rate is zero? How can oxygen transfer into the reactor even when no air is pumped into the diffuser?
  #. Describe your expectations for :math:`\hat{k}_{v,l}` as a function of gas flow rate. Do you expect a straight line? Why?
  #. A dissolved oxygen probe was placed in a small vial in such a way that the vial was sealed. The water in the vial was sterile. Over a period of several hours the dissolved oxygen concentration gradually decreased to zero. Why? (You need to know how dissolved oxygen probes work!)
+
+
+
 
 .. _heading_Gas_Transfer_Data_Analysis:
 
