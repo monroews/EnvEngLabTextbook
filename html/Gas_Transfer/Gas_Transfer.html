@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gas Transfer &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.20 documentation</title>
+  <title>Gas Transfer &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
   
 
   
@@ -57,10 +57,6 @@
 
           
             
-            
-              <div class="version">
-                v.0.0.20
-              </div>
             
           
 
@@ -447,12 +443,13 @@
 <blockquote>
 <div><ol class="arabic simple">
 <li>Add the “air fill model” to the ProCoDA graph and make sure that it is using the left axis.</li>
-<li>Set the air flow rate based on our calibration be navigating to the Configuration tab and selecting <img alt="config_edit_rules" src="../_images/config_edit_rules.png" />. We want to control the air flow rate, so select air flow rate from the set points and variables list. Set the air flow rate to a value of 100u (100 <span class="math notranslate nohighlight">\(\mu M/s\)</span>).</li>
+<li>Set the air flow rate based on our calibration be navigating to the Configuration tab and selecting <img alt="config_edit_rules" src="../_images/config_edit_rules.png" />. We want to control the air flow rate, so select air flow rate from the set points and variables list. Set the air flow rate to a value of 400u (400 <span class="math notranslate nohighlight">\(\mu M/s\)</span>).</li>
 <li>Begin logging data at a 1 s interval using the <img alt="config_Logging_data_short_exp" src="../_images/config_Logging_data_short_exp1.png" /> datalog button on the configuration tab. Data is being logged when the icon is green.</li>
 <li>Set the <strong>operator selected state</strong> to “Prepare to test fill”</li>
 <li>Watch the graph to see the accumulator pressure and air fill model increase at the same rate (hopefully).</li>
 <li>End logging data when the fill cycle ends.</li>
 <li>The resulting graph should look like the figure below.</li>
+<li>The measured value for the final pressure at the end of the “Fill accumulator” state should be within 20% of the predicted value. You can find these values in the data log.</li>
 </ol>
 </div></blockquote>
 <div class="figure align-center" id="id7">
@@ -548,7 +545,7 @@
 <li>Prepare to record the dissolved oxygen concentration using ProCoDA software. Use 5-second data intervals and log the data to <code class="docutils literal notranslate"><span class="pre">S:\Courses\4530\Group</span> <span class="pre">#\gastran\x</span></code> where x is the flow rate in <span class="math notranslate nohighlight">\(\mu M/s\)</span> for later analysis. Include the actual flow rate in the file name.</li>
 <li>Turn the air on by changing the <strong>operator selected state</strong> to Aerate.</li>
 <li>Monitor the dissolved oxygen concentration until it reaches 50% of saturation value or 10 minutes (whichever is shorter).</li>
-<li>Repeat steps 2-10 to collect data from at least two additional flow rates.</li>
+<li>Repeat steps 1-9 to collect data from at least two additional flow rates.</li>
 <li>email your data files (correctly named!) to the course email account.</li>
 <li>Answer the questions in the section on <a class="reference internal" href="#heading-gas-transfer-lab-explorations"><span class="std std-ref">Lab Explorations</span></a>.</li>
 </ol>
@@ -770,7 +767,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v.0.0.20',
+            VERSION:'',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
