@@ -288,7 +288,7 @@ Follow these steps to set up the experiment.
  #. Assemble the apparatus.
  #. Make sure that you push hard and twist to insert tubing into quick connect fittings.
  #. Install the accumulator pressure sensor |Accumulator_pressure_sensor| so that the positive side of the sensor is connected to the accumulator. The positive side of the pressure sensor is the side that is farthest from where the cable is attached to the sensor.
- #. Use the |Open_Method| on the ProCoDA configuration tab to load the `method file containing the configuration necessary to control airflow <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_Student_method_file.pcm>`_.
+ #. Use the |Open_Method| on the ProCoDA configuration tab (select the left open folder icon) to load the `method file containing the configuration necessary to control airflow <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_Student_method_file.pcm>`_.
  #. Plug the pressure sensor that is monitoring the flow accumulator into sensor port 0.
  #. Plug the dissolved oxygen probe into sensor port 1.
  #. Plug the air source valve that is connected to the flow restriction into the port labeled 2 24 V.
@@ -299,7 +299,7 @@ Follow these steps to set up the experiment.
  #. Open the air valve that provides laboratory air to your apparatus and fix any air leaks that you observe.
  #. Close the needle valve (:math:`N_2` in :numref:`figure_Gas_Schematic`) that is closest to the beaker by turning it clockwise.
  #. Navigate to the ProCoDA Process Operation tab.
- #. Set the **operator selected state** to toggle.  The solenoid valves should click rhythmically if they are working properly.
+ #. Set the **operator selected state** to toggle.  The solenoid valves should click rhythmically if they are working properly. You can hold a solenoid valve in your hand to fill it actuating. If it isn't actuating you can test the connection where it is plugged into ProCoDA.
  #. Open the needle valve, :math:`N_2`, so that air pulses gently in your reactor and doesn't spill any water.
 
 
@@ -316,9 +316,9 @@ Check for air leaks
 -------------------
 
  #. Fill the accumulator with air by selecting the "calibrate" state. (You may need to open needle valve :math:`N_1`.)
- #. After the accumulator is at high pressure, then close all solenoid valves by selecting the "Off" state.
- #. Check your system for air leaks by monitoring the accumulator pressure. If it drops over time, then check each tubing connection and if necessary push hard and twist to properly insert tubing into the quick connect tube fittings.
- #. If the leaking persists then check for other leaks. Possible leak sources include pipe thread connections, rough tubing ends at the instant tube fitting o-ring seal, or leaking solenoid valves.
+ #. After the accumulator is at high pressure (approximately 50 kPa or greater), then close all solenoid valves by selecting the "Off" state.
+ #. Check your system for air leaks by monitoring the accumulator pressure. If it drops over time, then check each tubing connection and if necessary push hard and twist to properly insert tubing into the quick connect tube fittings. If the pressure increases then the solenoid valve, :math:`S_1`, is leaking and should be replaced.
+ #. If the leaking persists then check for other leaks. Possible leak sources include pipe thread connections, rough tubing ends at the instant tube fitting o-ring seal, accumulator cap, or leaking solenoid valves.
 
 Calibrate the air flow controller
 ---------------------------------
@@ -340,10 +340,10 @@ Complete the following steps.
 
  #. Gently close the needle valve that is close to the air supply (:math:`N_1`). Then open the valve about 1/8th of a turn.
  #. Set up the graph in the ProCoDA Graphs tab to look similar to :numref:`figure_Airflow_calibration_graph`. Note that you can select multiple data source for plotting by holding down the control key while clicking on the data to plot.
- #. Set both the Accumulator pressure and the Source Pressure plots to use the same left y axis |select_y_axis_scale|. This will make it easy to observe how the accumulator is behaving relative to the source pressure.
+ #. Set both the Accumulator pressure and the Source Pressure plots to use the same left y axis |select_y_axis_scale|. Select the y axis by clicking on the plot of interest in the legend. This will make it easy to observe how the accumulator is behaving relative to the source pressure.
  #. Set the mode of operation |Mode_of_operation| to automatic operation and the *operator selected state* to "prepare to calibrate". The software should quickly cycle through the calibration step and then begin attempting to control the air flow rate to the target value.  Note:  the purpose of the prepare to calibrate state is to vent excess pressure from the accumulator.  The state will not change to calibrate until the pressure drops below a predefined threshold.  To speed this up, you may open the needle valve.
  #. The air slope should have a value of approximately 1.5 E7 to 2.5 E7. To increase the air slope close the :math:`N_1` needle valve slightly and repeat the "Calibrate" step.
- #. Repeat the "Calibrate" step several times to make sure you understand what ProCoDA is doing and to confirm that the air slope |air_slope| displayed on the ProCoDA "Process Operation" tab is repeatable (within about 5%).
+ #. Repeat the "Calibrate" step several times to make sure you understand what ProCoDA is doing and to confirm that the air slope |air_slope| displayed on the ProCoDA "Process Operation" tab is repeatable (within about 5%). Hint: You can tell ProCoDA to go back to "prepare to calibrate" state by right clicking on that state.
  #. Lock the air slope by changing it from a variable to a constant. This will prevent you from accidently losing the air slope by clicking on the calibrate state. Browse to the ProCoDA "Configuration" tab, select |config_edit_rules|, select the variable "air slope", and change it to a constant.  |Change_air_slope_to_constant|
  #. Don't adjust the :math:`N_1` needle valve now that the air flow is calibrated.
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gas Transfer &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.21 documentation</title>
+  <title>Gas Transfer &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
   
 
   
@@ -57,10 +57,6 @@
 
           
             
-            
-              <div class="version">
-                v.0.0.21
-              </div>
             
           
 
@@ -377,7 +373,7 @@
 <li>Assemble the apparatus.</li>
 <li>Make sure that you push hard and twist to insert tubing into quick connect fittings.</li>
 <li>Install the accumulator pressure sensor <a class="reference internal" href="../_images/Accumulator_pressure_sensor.jpg"><img alt="Accumulator_pressure_sensor" src="../_images/Accumulator_pressure_sensor.jpg" style="height: 45px;" /></a> so that the positive side of the sensor is connected to the accumulator. The positive side of the pressure sensor is the side that is farthest from where the cable is attached to the sensor.</li>
-<li>Use the <img alt="Open_method" src="../_images/Config_open_save_export.png" /> on the ProCoDA configuration tab to load the <a class="reference external" href="https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_Student_method_file.pcm">method file containing the configuration necessary to control airflow</a>.</li>
+<li>Use the <img alt="Open_method" src="../_images/Config_open_save_export.png" /> on the ProCoDA configuration tab (select the left open folder icon) to load the <a class="reference external" href="https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_Student_method_file.pcm">method file containing the configuration necessary to control airflow</a>.</li>
 <li>Plug the pressure sensor that is monitoring the flow accumulator into sensor port 0.</li>
 <li>Plug the dissolved oxygen probe into sensor port 1.</li>
 <li>Plug the air source valve that is connected to the flow restriction into the port labeled 2 24 V.</li>
@@ -388,7 +384,7 @@
 <li>Open the air valve that provides laboratory air to your apparatus and fix any air leaks that you observe.</li>
 <li>Close the needle valve (<span class="math notranslate nohighlight">\(N_2\)</span> in <a class="reference internal" href="#figure-gas-schematic"><span class="std std-numref">Fig. 22</span></a>) that is closest to the beaker by turning it clockwise.</li>
 <li>Navigate to the ProCoDA Process Operation tab.</li>
-<li>Set the <strong>operator selected state</strong> to toggle.  The solenoid valves should click rhythmically if they are working properly.</li>
+<li>Set the <strong>operator selected state</strong> to toggle.  The solenoid valves should click rhythmically if they are working properly. You can hold a solenoid valve in your hand to fill it actuating. If it isn’t actuating you can test the connection where it is plugged into ProCoDA.</li>
 <li>Open the needle valve, <span class="math notranslate nohighlight">\(N_2\)</span>, so that air pulses gently in your reactor and doesn’t spill any water.</li>
 </ol>
 </div></blockquote>
@@ -410,9 +406,9 @@
 <blockquote>
 <div><ol class="arabic simple">
 <li>Fill the accumulator with air by selecting the “calibrate” state. (You may need to open needle valve <span class="math notranslate nohighlight">\(N_1\)</span>.)</li>
-<li>After the accumulator is at high pressure, then close all solenoid valves by selecting the “Off” state.</li>
-<li>Check your system for air leaks by monitoring the accumulator pressure. If it drops over time, then check each tubing connection and if necessary push hard and twist to properly insert tubing into the quick connect tube fittings.</li>
-<li>If the leaking persists then check for other leaks. Possible leak sources include pipe thread connections, rough tubing ends at the instant tube fitting o-ring seal, or leaking solenoid valves.</li>
+<li>After the accumulator is at high pressure (approximately 50 kPa or greater), then close all solenoid valves by selecting the “Off” state.</li>
+<li>Check your system for air leaks by monitoring the accumulator pressure. If it drops over time, then check each tubing connection and if necessary push hard and twist to properly insert tubing into the quick connect tube fittings. If the pressure increases then the solenoid valve, <span class="math notranslate nohighlight">\(S_1\)</span>, is leaking and should be replaced.</li>
+<li>If the leaking persists then check for other leaks. Possible leak sources include pipe thread connections, rough tubing ends at the instant tube fitting o-ring seal, accumulator cap, or leaking solenoid valves.</li>
 </ol>
 </div></blockquote>
 </div>
@@ -429,10 +425,10 @@
 <div><ol class="arabic simple">
 <li>Gently close the needle valve that is close to the air supply (<span class="math notranslate nohighlight">\(N_1\)</span>). Then open the valve about 1/8th of a turn.</li>
 <li>Set up the graph in the ProCoDA Graphs tab to look similar to <a class="reference internal" href="#figure-airflow-calibration-graph"><span class="std std-numref">Fig. 23</span></a>. Note that you can select multiple data source for plotting by holding down the control key while clicking on the data to plot.</li>
-<li>Set both the Accumulator pressure and the Source Pressure plots to use the same left y axis <img alt="select_y_axis_scale" src="../_images/select_y_axis_scale.png" />. This will make it easy to observe how the accumulator is behaving relative to the source pressure.</li>
+<li>Set both the Accumulator pressure and the Source Pressure plots to use the same left y axis <img alt="select_y_axis_scale" src="../_images/select_y_axis_scale.png" />. Select the y axis by clicking on the plot of interest in the legend. This will make it easy to observe how the accumulator is behaving relative to the source pressure.</li>
 <li>Set the mode of operation <img alt="Mode_of_operation" src="../_images/Mode_of_operation.png" /> to automatic operation and the <em>operator selected state</em> to “prepare to calibrate”. The software should quickly cycle through the calibration step and then begin attempting to control the air flow rate to the target value.  Note:  the purpose of the prepare to calibrate state is to vent excess pressure from the accumulator.  The state will not change to calibrate until the pressure drops below a predefined threshold.  To speed this up, you may open the needle valve.</li>
 <li>The air slope should have a value of approximately 1.5 E7 to 2.5 E7. To increase the air slope close the <span class="math notranslate nohighlight">\(N_1\)</span> needle valve slightly and repeat the “Calibrate” step.</li>
-<li>Repeat the “Calibrate” step several times to make sure you understand what ProCoDA is doing and to confirm that the air slope <img alt="air_slope" src="../_images/air_slope.png" /> displayed on the ProCoDA “Process Operation” tab is repeatable (within about 5%).</li>
+<li>Repeat the “Calibrate” step several times to make sure you understand what ProCoDA is doing and to confirm that the air slope <img alt="air_slope" src="../_images/air_slope.png" /> displayed on the ProCoDA “Process Operation” tab is repeatable (within about 5%). Hint: You can tell ProCoDA to go back to “prepare to calibrate” state by right clicking on that state.</li>
 <li>Lock the air slope by changing it from a variable to a constant. This will prevent you from accidently losing the air slope by clicking on the calibrate state. Browse to the ProCoDA “Configuration” tab, select <img alt="config_edit_rules" src="../_images/config_edit_rules.png" />, select the variable “air slope”, and change it to a constant.  <img alt="Change_air_slope_to_constant" src="../_images/Change_air_slope_to_constant.png" /></li>
 <li>Don’t adjust the <span class="math notranslate nohighlight">\(N_1\)</span> needle valve now that the air flow is calibrated.</li>
 </ol>
@@ -771,7 +767,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v.0.0.21',
+            VERSION:'',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
