@@ -477,20 +477,17 @@ Prelab Questions
 Data Analysis
 =============
 
-This lab requires a significant amount of repetitive data analysis. Plan how you will organize the analysis to be as easy as possible.
+This lab will use the power of python to streamline repetitive data analysis. Use the data from the entire class for the analysis. You can use for loops to cycle through all of the data sets.
 
- #. Calculate the air flow rate from testing the air flow controller and compare with the target value.
- #. Eliminate the data from each data set when the dissolved oxygen concentration was less than 0.5 mg/L. This will ensure that all of the sulfite has reacted.
- #. Plot a representative data set showing dissolved oxygen vs. time.
- #. Calculate :math:`C^{\star}` based on the average water temperature, barometric pressure, and the following equation. :math:`C^{\star} =P_{O_{2}} {\mathop{e}\nolimits^{\left(\frac{1727}{T} -2.105\right)}}` where T is in Kelvin, :math:`P_{O_{2} }` is the partial pressure of oxygen in atmospheres, and :math:`C^{\star}` is in mg/L. This equation is valid for 278 K < T < 318 K.
+ #. Eliminate the data from each data set when the dissolved oxygen concentration was less than 2 mg/L. This will ensure that all of the sulfite has reacted. Also remove the data when the dissolved oxygen concentration was greater than 6 mg/L to reduce the effect of measurement errors when the oxygen deficit is small.
+ #. Plot a representative subset of the data showing dissolved oxygen vs. time. Perhaps show 5 plots on one graph.
+ #. Calculate :math:`C^{\star}` based on the average water temperature, barometric pressure, and the equation from `environmental processes <https://github.com/AguaClara/aguaclara/blob/master/aguaclara/research/environmental_processes_analysis.py>`_ analysis called O2_sat. :math:`C^{\star} =P_{O_{2}} {\mathop{e}\nolimits^{\left(\frac{1727}{T} -2.105\right)}}` where T is in Kelvin, :math:`P_{O_{2} }` is the partial pressure of oxygen in atmospheres, and :math:`C^{\star}` is in mg/L.
  #.  Estimate :math:`\hat{k}_{v,l}` using linear regression and equation :eq:`eq_Gas_linearized` for each data set.
- #. Create a graph with a representative plot showing the linearized data, :math:`\left(\ln \frac{C^{\star} -C}{C^{\star} -C_{0} } \right)` vs. time, and the best-fit line.
- #. Plot the reaeration model on the same graph as the dissolved oxygen vs. time data.  This is done by solving equation for C.
+ #. Create a graph with a representative plot showing the model curve (as a smooth curve) and the data from one experiment. You will need to derive the equation for the concentration of oxygen as a function of time based on equation :eq:`eq_Gas_linearized`.
  #. Plot :math:`\hat{k}_{v,l}` as a function of airflow rate (:math:`\mu mole/s`).
- #. Look at each dataset and if necessary (to make more linear plots) eliminate more data from the beginning (or end) of the dataset. You will be able to see when the oxygen level is affected by residual sulfite at the beginning of the experiments.
  #. Plot OTE as a function of airflow rate (?mole/s) with the oxygen deficit (:math:`C^{\star} -C`) set at 6 mg/L.
- #. Plot the molar rate of oxygen dissolution into the aqueous phase (:math:`\mu mole/s`) as a function of airflow rate (:math:`\mu mole/s`).
- #. Comment on results and compare with your expectations and with theory.
+ #. Comment on the oxygen transfer efficiency and the trend or trends that you observe.
+ #. Propose a change to the experimental apparatus that would increase the efficiency.
  #. Verify that your report and graphs meet the requirements.
 
 .. _heading_Gas_Transfer_References:
