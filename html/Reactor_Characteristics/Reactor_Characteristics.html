@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Reactor Characteristics &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.25 documentation</title>
+  <title>Reactor Characteristics &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
   
 
   
@@ -57,10 +57,6 @@
 
           
             
-            
-              <div class="version">
-                v.0.0.25
-              </div>
             
           
 
@@ -565,9 +561,8 @@
 <span id="heading-reactor-pre-laboratory-questions"></span><h2>Prelab Questions<a class="headerlink" href="#prelab-questions" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Calculate the <strong>incremental</strong> volume of a 100 g/L red dye stock that would need to be added to 1 L of water to produce 0, 1, 2, 5, 10, 20, 30, 40, and 50 mg/L calibration points. Calculate a numpy array containing the <strong>cumulative</strong> volume of red dye required. Strip the units from the array using .magnitude. Then create a copy of the array with a zero appended (np.append) in front and the last element deleted (np.delete). Then use numpy subtract to get the different between the two arrays to calculate the incremental volume that you need to add.</li>
 <li>Calculate the change in hydraulic grade line between baffled sections of a reactor with a flow rate of 380 mL/min. The reactor baffles are perforated with 6 holes 1 mm in diameter. Is the flow through these orifices in series or in parallel? Do you multiply the head loss for one orifice by the number of orifices to get the total head loss? Are the orifices in parallel or in series? Use the pc.head_orifice function to calculate the head loss through an orifice. The <em>vena contracta</em> for the orifice can be found at exp.RATIO_VC_ORIFICE. Why would 6 holes 1 mm in diameter not be a good design for this reactor?</li>
-<li>On a single graph plot the exit age distribution (<span class="math notranslate nohighlight">\(E_{(t\star)}\)</span>) for a reactor that operates as a 1-dimensional advection-dispersion reactor with Peclet numbers of 1, 10, and 100 (there will be three plots on the graph and thus a legend is required). The x-axis should be <span class="math notranslate nohighlight">\(t^\star\)</span> from 0.0 to 3.0. Comment on the shapes of the curves as a function of the Peclet number.</li>
+<li>On a single graph plot the exit age distribution (<span class="math notranslate nohighlight">\(E_{(t\star)}\)</span>) for a reactor that operates as a 1-dimensional advection-dispersion reactor with Peclet numbers of 1, 10, and 100 (there will be three plots on the graph and thus a legend is required). The x-axis should be <span class="math notranslate nohighlight">\(t^\star\)</span> from 0.0 to 3.0. Comment on the shapes of the curves as a function of the Peclet number. Note that the advective dispersion equation is undefined for <span class="math notranslate nohighlight">\(t\star = 0\)</span>. Use the <a class="reference external" href="https://github.com/AguaClara/aguaclara/blob/master/aguaclara/research/environmental_processes_analysis.py">epa.E_Advective_Dispersion(t,Pe)</a> function.</li>
 </ol>
 </div></blockquote>
 </div>
@@ -644,7 +639,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v.0.0.25',
+            VERSION:'',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
