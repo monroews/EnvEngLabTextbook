@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gas Transfer &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.24 documentation</title>
+  <title>Gas Transfer &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
   
 
   
@@ -57,10 +57,6 @@
 
           
             
-            
-              <div class="version">
-                v.0.0.24
-              </div>
             
           
 
@@ -586,21 +582,18 @@
 </div>
 <div class="section" id="data-analysis">
 <span id="heading-gas-transfer-data-analysis"></span><h2>Data Analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h2>
-<p>This lab requires a significant amount of repetitive data analysis. Plan how you will organize the analysis to be as easy as possible.</p>
+<p>This lab will use the power of python to streamline repetitive data analysis. Use the data from the entire class for the analysis. You can use for loops to cycle through all of the data sets.</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Calculate the air flow rate from testing the air flow controller and compare with the target value.</li>
-<li>Eliminate the data from each data set when the dissolved oxygen concentration was less than 0.5 mg/L. This will ensure that all of the sulfite has reacted.</li>
-<li>Plot a representative data set showing dissolved oxygen vs. time.</li>
-<li>Calculate <span class="math notranslate nohighlight">\(C^{\star}\)</span> based on the average water temperature, barometric pressure, and the following equation. <span class="math notranslate nohighlight">\(C^{\star} =P_{O_{2}} {\mathop{e}\nolimits^{\left(\frac{1727}{T} -2.105\right)}}\)</span> where T is in Kelvin, <span class="math notranslate nohighlight">\(P_{O_{2} }\)</span> is the partial pressure of oxygen in atmospheres, and <span class="math notranslate nohighlight">\(C^{\star}\)</span> is in mg/L. This equation is valid for 278 K &lt; T &lt; 318 K.</li>
+<li>Eliminate the data from each data set when the dissolved oxygen concentration was less than 2 mg/L. This will ensure that all of the sulfite has reacted. Also remove the data when the dissolved oxygen concentration was greater than 6 mg/L to reduce the effect of measurement errors when the oxygen deficit is small.</li>
+<li>Plot a representative subset of the data showing dissolved oxygen vs. time. Perhaps show 5 plots on one graph.</li>
+<li>Calculate <span class="math notranslate nohighlight">\(C^{\star}\)</span> based on the average water temperature, barometric pressure, and the equation from <a class="reference external" href="https://github.com/AguaClara/aguaclara/blob/master/aguaclara/research/environmental_processes_analysis.py">environmental processes</a> analysis called O2_sat. <span class="math notranslate nohighlight">\(C^{\star} =P_{O_{2}} {\mathop{e}\nolimits^{\left(\frac{1727}{T} -2.105\right)}}\)</span> where T is in Kelvin, <span class="math notranslate nohighlight">\(P_{O_{2} }\)</span> is the partial pressure of oxygen in atmospheres, and <span class="math notranslate nohighlight">\(C^{\star}\)</span> is in mg/L.</li>
 <li>Estimate <span class="math notranslate nohighlight">\(\hat{k}_{v,l}\)</span> using linear regression and equation <a class="reference internal" href="#equation-eq-gas-linearized">(103)</a> for each data set.</li>
-<li>Create a graph with a representative plot showing the linearized data, <span class="math notranslate nohighlight">\(\left(\ln \frac{C^{\star} -C}{C^{\star} -C_{0} } \right)\)</span> vs. time, and the best-fit line.</li>
-<li>Plot the reaeration model on the same graph as the dissolved oxygen vs. time data.  This is done by solving equation for C.</li>
+<li>Create a graph with a representative plot showing the model curve (as a smooth curve) and the data from one experiment. You will need to derive the equation for the concentration of oxygen as a function of time based on equation <a class="reference internal" href="#equation-eq-gas-linearized">(103)</a>.</li>
 <li>Plot <span class="math notranslate nohighlight">\(\hat{k}_{v,l}\)</span> as a function of airflow rate (<span class="math notranslate nohighlight">\(\mu mole/s\)</span>).</li>
-<li>Look at each dataset and if necessary (to make more linear plots) eliminate more data from the beginning (or end) of the dataset. You will be able to see when the oxygen level is affected by residual sulfite at the beginning of the experiments.</li>
 <li>Plot OTE as a function of airflow rate (?mole/s) with the oxygen deficit (<span class="math notranslate nohighlight">\(C^{\star} -C\)</span>) set at 6 mg/L.</li>
-<li>Plot the molar rate of oxygen dissolution into the aqueous phase (<span class="math notranslate nohighlight">\(\mu mole/s\)</span>) as a function of airflow rate (<span class="math notranslate nohighlight">\(\mu mole/s\)</span>).</li>
-<li>Comment on results and compare with your expectations and with theory.</li>
+<li>Comment on the oxygen transfer efficiency and the trend or trends that you observe.</li>
+<li>Propose a change to the experimental apparatus that would increase the efficiency.</li>
 <li>Verify that your report and graphs meet the requirements.</li>
 </ol>
 </div></blockquote>
@@ -771,7 +764,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v.0.0.24',
+            VERSION:'',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
