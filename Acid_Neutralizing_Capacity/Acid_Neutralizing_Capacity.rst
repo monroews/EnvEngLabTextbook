@@ -150,7 +150,7 @@ When the pH is 2 pH units or more below the lowest :math:`pK_a` of the bases in 
 .. math::
     :label: eq_Gran_pH_lt4
 
-    ANC=[H^+]
+    ANC= - [H^+]
 
 For a sample containing only carbonates, if the pH is below 4 the ANC is approximately equal to -[:math:`H^+`] and no titration is necessary.
 
