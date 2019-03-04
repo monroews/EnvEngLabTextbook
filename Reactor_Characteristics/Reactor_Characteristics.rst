@@ -296,7 +296,11 @@ Response curves for the advection-dispersion equation are shown in :numref:`figu
 Reactor Studies
 ===============
 
-One of the easiest methods to determine the mixing (dispersion) characteristics of a reactor is to add a spike input of a conservative material and then monitor the concentration of the material in the reactor effluent. The variance of tracer concentration versus time (:math:`\sigma _{t}^{2}`, with dimensions of time squared) can be measured by sampling at a single point in the reactor at many different times and can be computed using the following equations.
+One of the easiest methods to determine the mixing (dispersion) characteristics of a reactor is to add a spike input of a conservative material and then monitor the concentration of the material in the reactor effluent. The equations below can be used to analyze the data and extract the mixing characteristics of the reactor. One of the challenges of using the equations below is that they require collecting data long enough to get all of the tracer. This is generally not practical and the tracer concentration measurements are challenging as the tracer approaches background levels or the measurement detection limit. For this laboratory exercise we will fit the acquired data to the models. We will collect until most of the tracer has left the reactor or approximately 2 hydraulic residence times.
+
+The equations below are included for completeness with the caveat that they require collecting data until the tracer concentration is negligible.
+
+The variance of tracer concentration versus time (:math:`\sigma _{t}^{2}`, with dimensions of time squared) can be measured by sampling at a single point in the reactor at many different times and can be computed using the following equations.
 
 .. math::
 
@@ -404,7 +408,7 @@ Additional constraints for the tracer are that if a highly concentrated tracer i
 
 The reactors are 30 cm long and 15 cm wide. If the depth is limited to (a maximum of) 5 cm, then the total volume is 2.25 L and with a peristaltic pumping rate of approximately 380 mL/min, the residence time is approximately 6 minutes.
 
-The tracer should be added directly into the first chamber of your reactor. The red dye will also make it possible to qualitatively observe the advective and dispersive transport in the reactors.
+The tracer should be added directly by pipette into the first chamber of your reactor. The red dye will also make it possible to qualitatively observe the advective and dispersive transport in the reactors.
 
 
 Mass balance
@@ -418,18 +422,16 @@ Collect data that makes it possible to perform a mass balance on red dye. Note t
 Setting up the reactor for experiments
 ======================================
 
-See the section on :ref:`calibrate photometer <heading_ProCoDA_Photometer>` to set up the photometer
+See the section on :ref:`calibrate photometer <heading_ProCoDA_Photometer>` to set up the photometer. We recommend using the syringe method to pull calibration standards into the photometer. Suggested standards are 0, 10, 20, 30, 40, 50 mg/L of red dye #40.
 
 In these experiments, we will be pumping tap water from a 20 L Jerrican to the influent of your reactor. Place your reactor on a stir plate and make sure that the 3/8'' push-connect fitting is on the effluent side of your reactor (some may have 3/8'' holes on both sides). The effluent of the reactor should be a straight short tube to the drain.
 
 Use a second pump head with \#17 tubing to pull a sample from near the effluent weir through the photometer and then to the drain.
 
-Before running an experiment, it is important to determine whether your setup works. Turn the pump to approximately 380 mL/min and get water flowing through the system and off to waste. Two important things to check:
+Before running an experiment, it is important to determine whether your setup works. Turn the pump to approximately 380 mL/min (100 rpm) and get water flowing through the system and off to waste. Two important things to check:
 
  #. Is your sensor reading a stable voltage of approximately +3.5V? If not, you might have some air bubbles trapped in the sensor cell. Tap it gently to release the air.
  #. Is the effluent weir working properly or is the reactor gaining volume? We want to maintain a constant volume throughout the experiment, so let the pump run for ten minutes or so and confirm that the volume is stable (put a line or a piece of tape to mark the water level).
-
-.. todo:: Did we switch to a two pump head system with the second pump head using a larger size tubing and removing excess flow from the reactor?
 
 
 .. _heading_Reactor_Testing_protocol:
@@ -441,7 +443,8 @@ To ensure that everything is working properly I recommend that you begin by firs
 
 For each test make sure that you accurately measure the reactor volume, residual reactor red dye concentration, and the flow rate. The reactor volume can be approximated by taking the mass of the reactor, as you did to estimate the volume of your lakes.  Measure the residual concentration of red dye in the reactor by measuring the completely mixed concentration (this is just the concentration at the end of the experiment for the CMFR, but you will have to remove the baffles and mix for the baffled reactors). The flow rate can be accurately determined by measuring the volume of a timed sample from the pump.
 
- #. Log data to file so that you have a record of the red dye concentration in the effluent of the reactor as a function of time.
+ #. Configure ProCoDA so that it is both monitoring the photometer voltage AND monitoring the photometer concentration. You can do this by selecting the same data source twice in the list of sensors. Calibrate one of them using the photometer calibration and leave the other one uncalibrated as volts. This will make it possible to do a post experiment recalibration of the photometer if necessary.
+ #. Log data to file so that you have a record of the red dye concentration (and photometer volts) in the effluent of the reactor as a function of time.
  #. Prepare to save a text note into the data file indicating the exact moment when you will actually start the experiment.
  #. Add a volume of red dye \#40 stock that will give a maximum concentration of *approximately* 30 mg/L near the influent of the reactor. Immediately enter the text note to record when the experiment began. For the CMFR you can easily calculate this. For other reactors you may need to try and if necessary repeat the experiment if the tracer concentration goes above the 50 mg/L or if the maximum tracer concentration is below 10 mg/L.
  #. Collect data until the majority of the tracer has exited.
@@ -456,7 +459,7 @@ For each test make sure that you accurately measure the reactor volume, residual
    :align: center
    :alt: Reactor photo front
 
-   Front view of the reactor setup.
+   Front view of the reactor setup. The smaller diameter peristaltic pump tubing is used to continuously sample from the reactor right next to the reactor effluent.
 
 The reactor setup is designed to maintain a constant depth in the tank with an overflow weir. The second pump channel is used to sample the effluent through the photometer without sending air bubbles into the photometer.
 
@@ -574,7 +577,7 @@ Data Analysis
 
 You will analyze all of the datasets in the same way. Use a consistent set of units throughout your data analysis and include the units in your python code and discussion!
 
- #. Use multivariable nonlinear regression to obtain the best fit between the experimental data and the two models by minimizing the sum of the squared errors. Use EPA.Solver\_AD\_Pe and EPA.Solver\_CMFR\_N. These functions will minimize the error by varying the values of average residence time, (mass of tracer/reactor volume), and either the number of CMFR in series or the Peclet number.
+ #. Use multivariable nonlinear regression to obtain the best fit between the experimental data and the two models by minimizing the sum of the squared errors. Use `epa.Solver_AD_Pe and epa.Solver_CMFR_N <https://github.com/AguaClara/aguaclara/blob/master/aguaclara/research/environmental_processes_analysis.py>`_. These functions will minimize the error by varying the values of average residence time, (mass of tracer/reactor volume), and either the number of CMFR in series or the Peclet number.
  #. Generate a plot showing the experimental data as points and the model results as thin lines for each of your experiments. Explain which model fits best and discuss those results based on your expectations.
  #. Compare the trends in the estimated values of N and Pe across your set of experiments. How did your chosen reactor modifications effect dispersion?
  #. Report the values of :math:`t^{\star}` at F = 0.1 for each of your experiments. Do they meet your expectations?
