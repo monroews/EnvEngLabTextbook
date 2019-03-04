@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Reactor Characteristics &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.28 documentation</title>
+  <title>Reactor Characteristics &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.29 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                v.0.0.28
+                v.0.0.29
               </div>
             
           
@@ -384,7 +384,9 @@
 </div>
 <div class="section" id="reactor-studies">
 <span id="heading-reactor-studies"></span><h2>Reactor Studies<a class="headerlink" href="#reactor-studies" title="Permalink to this headline">¶</a></h2>
-<p>One of the easiest methods to determine the mixing (dispersion) characteristics of a reactor is to add a spike input of a conservative material and then monitor the concentration of the material in the reactor effluent. The variance of tracer concentration versus time (<span class="math notranslate nohighlight">\(\sigma _{t}^{2}\)</span>, with dimensions of time squared) can be measured by sampling at a single point in the reactor at many different times and can be computed using the following equations.</p>
+<p>One of the easiest methods to determine the mixing (dispersion) characteristics of a reactor is to add a spike input of a conservative material and then monitor the concentration of the material in the reactor effluent. The equations below can be used to analyze the data and extract the mixing characteristics of the reactor. One of the challenges of using the equations below is that they require collecting data long enough to get all of the tracer. This is generally not practical and the tracer concentration measurements are challenging as the tracer approaches background levels or the measurement detection limit. For this laboratory exercise we will fit the acquired data to the models. We will collect until most of the tracer has left the reactor or approximately 2 hydraulic residence times.</p>
+<p>The equations below are included for completeness with the caveat that they require collecting data until the tracer concentration is negligible.</p>
+<p>The variance of tracer concentration versus time (<span class="math notranslate nohighlight">\(\sigma _{t}^{2}\)</span>, with dimensions of time squared) can be measured by sampling at a single point in the reactor at many different times and can be computed using the following equations.</p>
 <div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-11">
 <span class="eqno">(70)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-11" title="Permalink to this equation">¶</a></span>\[\sigma _{t}^{2} \; =\; \frac{\int _{0}^{\infty }C(t)(t-\bar{t})^{2}  dt}{\int _{0}^{\infty }C(t) dt} =\; \frac{\int _{0}^{\infty }t^{2} \cdot C(t) dt}{\int _{0}^{\infty }C(t) dt} -\; \bar{t}^{2}\]</div>
 <p>where</p>
@@ -439,7 +441,7 @@
 <p>A conservative tracer will be used to characterize your reactors. Typical tracers include salt and various dyes. For this experiment we will use #40 Red Dye as the conservative tracer. The red dye concentration will be measured using an optical spectrophotometric probe. The linear range of operation for the probes is from about 0.01 mg/L to 30 mg/L. We will add an amount of red dye near the high end of this range to acquire a dataset that spans multiple orders of magnitude.</p>
 <p>Additional constraints for the tracer are that if a highly concentrated tracer is used, then there will be a significant density difference between the tracer and the water in the reactor. If a very dilute tracer is used then a large volume of tracer will need to be added and the volume of tracer could become a large fraction of the reactor volume and thus the pulse could no longer be modeled as having negligible volume.</p>
 <p>The reactors are 30 cm long and 15 cm wide. If the depth is limited to (a maximum of) 5 cm, then the total volume is 2.25 L and with a peristaltic pumping rate of approximately 380 mL/min, the residence time is approximately 6 minutes.</p>
-<p>The tracer should be added directly into the first chamber of your reactor. The red dye will also make it possible to qualitatively observe the advective and dispersive transport in the reactors.</p>
+<p>The tracer should be added directly by pipette into the first chamber of your reactor. The red dye will also make it possible to qualitatively observe the advective and dispersive transport in the reactors.</p>
 <div class="section" id="mass-balance">
 <h3>Mass balance<a class="headerlink" href="#mass-balance" title="Permalink to this headline">¶</a></h3>
 <p>Collect data that makes it possible to perform a mass balance on red dye. Note that if it is expedient to shorten an experimental run such that there is a significant quantity of the tracer residual in the reactor, that the mass of the residual (stored) tracer can be measured by pouring the reactor contents into a container and measuring the mass or volume of the mixture. The concentration of red dye in the mixture can be measured be connecting back to the optical probe.</p>
@@ -447,10 +449,10 @@
 </div>
 <div class="section" id="setting-up-the-reactor-for-experiments">
 <span id="heading-reactor-setting-up-the-reactor-for-experiments"></span><h2>Setting up the reactor for experiments<a class="headerlink" href="#setting-up-the-reactor-for-experiments" title="Permalink to this headline">¶</a></h2>
-<p>See the section on <a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-photometer"><span class="std std-ref">calibrate photometer</span></a> to set up the photometer</p>
+<p>See the section on <a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-photometer"><span class="std std-ref">calibrate photometer</span></a> to set up the photometer. We recommend using the syringe method to pull calibration standards into the photometer. Suggested standards are 0, 10, 20, 30, 40, 50 mg/L of red dye #40.</p>
 <p>In these experiments, we will be pumping tap water from a 20 L Jerrican to the influent of your reactor. Place your reactor on a stir plate and make sure that the 3/8’’ push-connect fitting is on the effluent side of your reactor (some may have 3/8’’ holes on both sides). The effluent of the reactor should be a straight short tube to the drain.</p>
 <p>Use a second pump head with #17 tubing to pull a sample from near the effluent weir through the photometer and then to the drain.</p>
-<p>Before running an experiment, it is important to determine whether your setup works. Turn the pump to approximately 380 mL/min and get water flowing through the system and off to waste. Two important things to check:</p>
+<p>Before running an experiment, it is important to determine whether your setup works. Turn the pump to approximately 380 mL/min (100 rpm) and get water flowing through the system and off to waste. Two important things to check:</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li>Is your sensor reading a stable voltage of approximately +3.5V? If not, you might have some air bubbles trapped in the sensor cell. Tap it gently to release the air.</li>
@@ -464,7 +466,8 @@
 <p>For each test make sure that you accurately measure the reactor volume, residual reactor red dye concentration, and the flow rate. The reactor volume can be approximated by taking the mass of the reactor, as you did to estimate the volume of your lakes.  Measure the residual concentration of red dye in the reactor by measuring the completely mixed concentration (this is just the concentration at the end of the experiment for the CMFR, but you will have to remove the baffles and mix for the baffled reactors). The flow rate can be accurately determined by measuring the volume of a timed sample from the pump.</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Log data to file so that you have a record of the red dye concentration in the effluent of the reactor as a function of time.</li>
+<li>Configure ProCoDA so that it is both monitoring the photometer voltage AND monitoring the photometer concentration. You can do this by selecting the same data source twice in the list of sensors. Calibrate one of them using the photometer calibration and leave the other one uncalibrated as volts. This will make it possible to do a post experiment recalibration of the photometer if necessary.</li>
+<li>Log data to file so that you have a record of the red dye concentration (and photometer volts) in the effluent of the reactor as a function of time.</li>
 <li>Prepare to save a text note into the data file indicating the exact moment when you will actually start the experiment.</li>
 <li>Add a volume of red dye #40 stock that will give a maximum concentration of <em>approximately</em> 30 mg/L near the influent of the reactor. Immediately enter the text note to record when the experiment began. For the CMFR you can easily calculate this. For other reactors you may need to try and if necessary repeat the experiment if the tracer concentration goes above the 50 mg/L or if the maximum tracer concentration is below 10 mg/L.</li>
 <li>Collect data until the majority of the tracer has exited.</li>
@@ -474,7 +477,7 @@
 </div></blockquote>
 <div class="figure align-center" id="id9">
 <span id="figure-reactor-photo-front"></span><a class="reference internal image-reference" href="../_images/Reactor_photo_front.png"><img alt="Reactor photo front" src="../_images/Reactor_photo_front.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Front view of the reactor setup.</span></p>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Front view of the reactor setup. The smaller diameter peristaltic pump tubing is used to continuously sample from the reactor right next to the reactor effluent.</span></p>
 </div>
 <p>The reactor setup is designed to maintain a constant depth in the tank with an overflow weir. The second pump channel is used to sample the effluent through the photometer without sending air bubbles into the photometer.</p>
 <div class="figure align-center" id="id10">
@@ -575,7 +578,7 @@
 <p>You will analyze all of the datasets in the same way. Use a consistent set of units throughout your data analysis and include the units in your python code and discussion!</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Use multivariable nonlinear regression to obtain the best fit between the experimental data and the two models by minimizing the sum of the squared errors. Use EPA.Solver_AD_Pe and EPA.Solver_CMFR_N. These functions will minimize the error by varying the values of average residence time, (mass of tracer/reactor volume), and either the number of CMFR in series or the Peclet number.</li>
+<li>Use multivariable nonlinear regression to obtain the best fit between the experimental data and the two models by minimizing the sum of the squared errors. Use <a class="reference external" href="https://github.com/AguaClara/aguaclara/blob/master/aguaclara/research/environmental_processes_analysis.py">epa.Solver_AD_Pe and epa.Solver_CMFR_N</a>. These functions will minimize the error by varying the values of average residence time, (mass of tracer/reactor volume), and either the number of CMFR in series or the Peclet number.</li>
 <li>Generate a plot showing the experimental data as points and the model results as thin lines for each of your experiments. Explain which model fits best and discuss those results based on your expectations.</li>
 <li>Compare the trends in the estimated values of N and Pe across your set of experiments. How did your chosen reactor modifications effect dispersion?</li>
 <li>Report the values of <span class="math notranslate nohighlight">\(t^{\star}\)</span> at F = 0.1 for each of your experiments. Do they meet your expectations?</li>
@@ -643,7 +646,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v.0.0.28',
+            VERSION:'v.0.0.29',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
