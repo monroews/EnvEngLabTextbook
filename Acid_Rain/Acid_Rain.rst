@@ -39,11 +39,9 @@ The sum of the molar concentrations of all the components of the carbonate syste
 
     C_T = \left[H_2{CO}_3^* \right] + \left[{HCO}_3^- \right]+\left[{CO}_3^{-2} \right]
 
-The carbonate system can be considered to be a "volatile" system or a "non-volatile" system depending on whether or not aqueous carbon dioxide is allowed to exchange and equilibrate with atmospheric carbon dioxide. Mixing conditions and hydraulic residence time determine whether an aquatic system is volatile or non-volatile relative to atmospheric carbon dioxide equilibrium. First, consider the "non-volatile" system.
+The carbonate system can be considered to be a "volatile" system or a "non-volatile" system depending on whether or not aqueous carbon dioxide is allowed to exchange and equilibrate with atmospheric carbon dioxide. Mixing conditions and hydraulic residence time determine whether an aquatic system is volatile or non-volatile relative to atmospheric carbon dioxide equilibrium. First, consider the relationship that are valid regardless of the rate of exchange with the atmosphere.
 
-
-
-Non-volatile System
+Carbonate System
 -------------------
 
 For a fixed :math:`C_T`, the molar concentration of each species of the carbonate system is determined by pH. Equations :eq:`eq_carbonic_acid`-:eq:`eq_alpha2` show these functional relationships.
@@ -110,8 +108,8 @@ Substituting equations :eq:`eq_bicarbonate`, :eq:`eq_carbonate`, and :eq:`eq_OH_
 For the carbonate system, ANC is usually referred to as alkalinity. Alkalinity can be expressed as equivalents/L or as mg/L (ppm) of :math:`CaCO_3`. 50,000 mg/L :math:`CaCO_3` = 1 equivalent/L.
 
 
-Volatile Systems
-----------------
+Volatile Carbonate Systems
+--------------------------
 
 Now consider the case where aqueous :math:`{CO}_{2\; aq}` is volatile and in equilibrium with atmospheric carbon dioxide. Henry's Law can be used to describe the equilibrium relationship between atmospheric and dissolved carbon dioxide.
 
