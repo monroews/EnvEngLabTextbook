@@ -282,6 +282,7 @@ We will use a pH probe to measure pH in this experiment. The pH probes are store
  #. :ref:`Setup and calibrate the pH probe <heading_ProCoDA_pH_Measurement>`
  #. Verify that the experimental setup is plumbed so that the acid rain is pumped directly into the lake.  The lake outflow should discharge into the small drain on the side of your work bench.
  #. Organize the bench setup so that the metal tube discharging the acid rain into the lake is solidly touching the metal stand that is connected to the stirrer. This will ground the solution that is in the lake and reduce voltage fluctuations that are easily measured by the pH probe.
+ #. Check all of the push to connect fittings. To obtain a water tight connection it is necessary to twist and push so that the o'ring slides over the outside of the tube to create a seal.
  #. Preset pump to give desired flow rate of 267 mL/min (4 L/15 minutes) based on the size of pump tubing selected. Do not turn the pump on yet! For each tubing size, different pump speeds will correspond to different flow rates being output by the pump. The peristaltic tubing sizes are rather arbitrary and are labeled by numbers: 13, 14, 16, 17, and 18 in increasing order of size. If you have \#18 tubing, you will want an RPM setting of (267 mL/min) / (3.8 mL/rev) = 70.3 RPM (see :numref:`table_Acid_pump_tubing`).
  #. Fill lake with reverse osmosis water and verify that the outflow is set so the lake volume is approximately 4 L.  Place the lake on top of a magnetic stirrer and add a stir bar.
  #. Set stirrer speed to 8.
