@@ -152,7 +152,8 @@ Prepare red dye standards of several concentrations
 
 A red dye stock solution of 10 g/L has been prepared.
 
- #.  Use the red dye stock solution to prepare 100 mL of each of the following concentrations: 1 mg/L, 2 mg/L, 5 mg/L, 10 mg/L, 20 mg/L, 50 mg/L, 100 mg/L, and possibly 200 mg/L.  Record your calculations in the attached `spreadsheet <../_static/Datasheet.xlsx>`_. Use pipettes and volumetric flasks to create accurate dilutions.
+ #.  Use the red dye stock solution to prepare 100 mL of each of the following concentrations: 1 mg/L, 2 mg/L, 5 mg/L, 10 mg/L, 20 mg/L, 50 mg/L, and 100 mg/L.  Record your calculations in the attached `spreadsheet <../_static/Datasheet.xlsx>`_. Use pipettes and volumetric flasks to create accurate dilutions.
+ #. Check all of the push to connect fittings in the photometer sample system. To obtain a water tight connection it is necessary to twist and push so that the o'ring slides over the outside of the tube to create a seal.
  #. Note any errors in transfer of mass as you prepare these dilutions (the color will make it easy to see). Make sure to transfer every drop!
 
 Create a standard curve and measure an unknown
