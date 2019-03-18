@@ -285,34 +285,46 @@
 </div>
 </div></blockquote>
 <p>From experiments conducted in the Cornell environmental laboratory around 2003 we have  <span class="math notranslate nohighlight">\(q_{50 mg/L}\)</span> = 0.08. Our goal is to design a fixed bed reactor that has a <span class="math notranslate nohighlight">\(t_{mtz}\)</span> of about 30 minutes. With a 15 cm deep column at 1 mm/s and with a porosity of 0.4 the hydraulic residence time is 1 minute. Given a target retardation factor of 30 we can calculate the bulk density of carbon that we should have in the column. We can achieve this bulk density by diluting the activated carbon with sand.</p>
+<p>The approach velocity for granular activated carbon contactors is generally between 1.4 and 4.2 mm/s. We will operate at 1 mm/s.</p>
 <div class="math notranslate nohighlight" id="equation-adsorption-adsorption-8">
 <span class="eqno">(98)<a class="headerlink" href="#equation-adsorption-adsorption-8" title="Permalink to this equation">¶</a></span>\[\rho_{bulk \; adsorbent} \cong \frac{R_{adsorption}\phi C_0}{q_0}\]</div>
-<p>Different teams can try different concentrations of red dye or different masses of activated carbon.</p>
+<p>Different teams can try different masses of activated carbon or could experiment with filling the sand pores with coagulant as an alternative adsorbent.</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">aide_design.play</span> <span class="k">import</span><span class="o">*</span>
+<span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="k">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">import</span> <span class="nn">aguaclara.core.physchem</span> <span class="k">as</span> <span class="nn">pc</span>
+<span class="kn">import</span> <span class="nn">aguaclara.core.utility</span> <span class="k">as</span> <span class="nn">ut</span>
 <span class="n">v_a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mm</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span>
 <span class="n">porosity</span> <span class="o">=</span> <span class="mf">0.4</span>
-<span class="n">L_column</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">cm</span>
+<span class="n">L_column</span> <span class="o">=</span> <span class="mf">15.2</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">cm</span>
 <span class="n">C_0</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">L</span>
 <span class="n">q_0</span> <span class="o">=</span> <span class="mf">0.08</span>
 <span class="n">t_water</span> <span class="o">=</span> <span class="p">(</span><span class="n">L_column</span><span class="o">*</span><span class="n">porosity</span><span class="o">/</span><span class="n">v_a</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span>
-<span class="n">t_mtz</span> <span class="o">=</span> <span class="mi">1800</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">s</span>
+<span class="n">t_mtz_target</span> <span class="o">=</span> <span class="mi">1800</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">s</span>
 <span class="c1"># set the breakthrough time to 30 minutes = 1800 s</span>
-<span class="n">R_adsorption</span> <span class="o">=</span> <span class="n">t_mtz</span><span class="o">/</span><span class="n">t_water</span>
-<span class="n">Density_bulk</span> <span class="o">=</span> <span class="p">(</span><span class="n">R_adsorption</span> <span class="o">*</span> <span class="n">porosity</span> <span class="o">*</span> <span class="n">C_0</span><span class="o">/</span><span class="n">q_0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">Density_bulk</span>
+<span class="n">R_adsorption</span> <span class="o">=</span> <span class="n">t_mtz_target</span><span class="o">/</span><span class="n">t_water</span>
+<span class="n">Density_bulk_AC_diluted</span> <span class="o">=</span> <span class="p">(</span><span class="n">R_adsorption</span> <span class="o">*</span> <span class="n">porosity</span> <span class="o">*</span> <span class="n">C_0</span><span class="o">/</span><span class="n">q_0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The bulk density of activated carbon given the dilution with sand should be&#39;</span><span class="p">,</span><span class="n">ut</span><span class="o">.</span><span class="n">round_sf</span><span class="p">(</span><span class="n">Density_bulk_AC_diluted</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">D_column</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">inch</span>
 <span class="n">A_column</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">area_circle</span><span class="p">(</span><span class="n">D_column</span><span class="p">)</span>
 <span class="n">V_column</span> <span class="o">=</span> <span class="n">A_column</span> <span class="o">*</span> <span class="n">L_column</span>
-<span class="n">M_carbon</span> <span class="o">=</span> <span class="p">(</span><span class="n">V_column</span> <span class="o">*</span> <span class="n">Density_bulk</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mg</span><span class="p">)</span>
-<span class="n">M_carbon</span>
-<span class="n">V_reddye</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_a</span><span class="o">*</span><span class="n">A_column</span><span class="o">*</span><span class="n">t_mtz</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">L</span><span class="p">)</span>
-<span class="n">V_reddye</span>
-<span class="n">Q_reddye</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_a</span><span class="o">*</span><span class="n">A_column</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mL</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
-<span class="n">Q_reddye</span>
+<span class="n">M_carbon</span> <span class="o">=</span> <span class="p">(</span><span class="n">V_column</span> <span class="o">*</span> <span class="n">Density_bulk_AC_diluted</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The mass of activated carbon should be&#39;</span><span class="p">,</span><span class="n">ut</span><span class="o">.</span><span class="n">round_sf</span><span class="p">(</span><span class="n">M_carbon</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">Density_AC</span> <span class="o">=</span> <span class="mi">2100</span> <span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">V_carbon</span> <span class="o">=</span> <span class="p">(</span><span class="n">M_carbon</span><span class="o">/</span><span class="n">Density_AC</span><span class="o">/</span><span class="n">porosity</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mL</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The volume of activated carbon is approximately&#39;</span><span class="p">,</span><span class="n">ut</span><span class="o">.</span><span class="n">round_sf</span><span class="p">(</span><span class="n">V_carbon</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+
 <span class="n">density_sand</span> <span class="o">=</span> <span class="mi">2650</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span>
-<span class="n">M_sand</span> <span class="o">=</span> <span class="p">(</span><span class="n">V_column</span><span class="o">*</span><span class="n">density_sand</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">porosity</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
-<span class="n">M_sand</span>
+<span class="n">M_sand</span> <span class="o">=</span> <span class="p">((</span><span class="n">V_column</span><span class="o">-</span><span class="n">V_carbon</span><span class="p">)</span><span class="o">*</span><span class="n">density_sand</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">porosity</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The mass of sand is&#39;</span><span class="p">,</span><span class="n">ut</span><span class="o">.</span><span class="n">round_sf</span><span class="p">(</span><span class="n">M_sand</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">V_reddye</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_a</span><span class="o">*</span><span class="n">A_column</span><span class="o">*</span><span class="n">t_mtz</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">L</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The volume of red dye required for one experiment is&#39;</span><span class="p">,</span><span class="n">ut</span><span class="o">.</span><span class="n">round_sf</span><span class="p">(</span><span class="n">V_reddye</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">Q_reddye</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_a</span><span class="o">*</span><span class="n">A_column</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mL</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The flow rate is&#39;</span><span class="p">,</span><span class="n">ut</span><span class="o">.</span><span class="n">round_sf</span><span class="p">(</span><span class="n">Q_reddye</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">mLperrev_Tubing_17</span> <span class="o">=</span> <span class="mf">2.8</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mL</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">revolution</span>
+<span class="n">Pump_rpm</span> <span class="o">=</span> <span class="p">(</span><span class="n">Q_reddye</span><span class="o">/</span><span class="n">mLperrev_Tubing_17</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">revolution</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The pump rpm is&#39;</span><span class="p">,</span><span class="n">ut</span><span class="o">.</span><span class="n">round_sf</span><span class="p">(</span><span class="n">Pump_rpm</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -324,7 +336,7 @@
 </div>
 <div class="section" id="carbon-contactor-setup">
 <h3>Carbon Contactor Setup<a class="headerlink" href="#carbon-contactor-setup" title="Permalink to this headline">¶</a></h3>
-<p>Assemble the system shown in <a class="reference internal" href="#figure-ac-schematic"><span class="std std-numref">Fig. 18</span></a>. Use a peristaltic pump with #14 tubing at approximately 10 rpm. Prepare 20 L jerricans with 50 mg/L of Red dye #40. Use reverse osmosis water to dilute the dye. The carbon contactor will be operated in down flow mode. The specifications for the carbon contactors are given in Table <a class="reference internal" href="#table-carbon-contactor-settings"><span class="std std-numref">Table 6</span></a>.</p>
+<p>Assemble the system shown in <a class="reference internal" href="#figure-ac-schematic"><span class="std std-numref">Fig. 18</span></a>. Use a peristaltic pump with #17 tubing at approximately 10 rpm. Prepare 20 L jerricans with 50 mg/L of Red dye #40. Use reverse osmosis water to dilute the dye. The carbon contactor will be operated in down flow mode. The specifications for the carbon contactors are given in Table <a class="reference internal" href="#table-carbon-contactor-settings"><span class="std std-numref">Table 6</span></a>.</p>
 <span id="table-carbon-contactor-settings"></span><table border="1" class="colwidths-given docutils align-center" id="id3">
 <caption><span class="caption-number">Table 6 </span><span class="caption-text">Carbon contactor settings.</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -347,10 +359,10 @@
 <td>15 cm</td>
 </tr>
 <tr class="row-odd"><td>Mass of sand</td>
-<td>80 g</td>
+<td>120 g (to fill column)</td>
 </tr>
-<tr class="row-even"><td>Influent flow rate</td>
-<td>30 mL/min (0.5 mL/s)</td>
+<tr class="row-even"><td>Approach velocity (1 mm/s)</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>Column diameter</td>
 <td>2.54 cm</td>
@@ -359,24 +371,24 @@
 <td>0.080  g/g</td>
 </tr>
 <tr class="row-odd"><td>Mass of carbon</td>
-<td>0.2, 0.5, 1, 2, 5, or 10  g</td>
+<td>2, 5, 10, 20, 50  g</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="set-up-the-contactor">
 <h3>Set up the Contactor<a class="headerlink" href="#set-up-the-contactor" title="Permalink to this headline">¶</a></h3>
-<p>Work through this procedure twice. For the first test skip the activated carbon and thus measure the F curve (see <a class="reference internal" href="../Reactor_Characteristics/Reactor_Characteristics.html#heading-reactor-modeling"><span class="std std-ref">reactor modeling</span></a>) for the sand column. Rinse the column with RO water, remove the sand, and repeat the procedure with activated carbon.</p>
+<p>Work through this procedure twice. For the first test skip the activated carbon and thus measure the F curve (see <a class="reference internal" href="../Reactor_Characteristics/Reactor_Characteristics.html#heading-reactor-modeling"><span class="std std-ref">reactor modeling</span></a>) for the sand column. Rinse the column with RO water, remove the sand, and repeat the procedure with activated carbon or other adsorbent.</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li>Test column and pump and all tubing to ensure that it is leak tight using reverse osmosis water.</li>
 <li>Remove top from column</li>
-<li>Mix 80 g of sand and your team’s assigned mass of activated carbon</li>
+<li>Mix sand and adsorbent (total volume of media adjusted to fill column)</li>
 <li>Wet method</li>
 </ol>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Pour mixture of sand and activated carbon into a beaker containing reverse osmosis water.</li>
+<li>Pour mixture of sand and adsorbent into a beaker containing reverse osmosis water (or tap water if using coagulant).</li>
 <li>Swirl until most of the air is released.</li>
 <li>Use a funnel and a reverse osmosis water wash bottle to wash the mixture from the beaker into the column.</li>
 <li>Use a 50 mL syringe to remove excess water from the top of the column if necessary.</li>
@@ -395,8 +407,13 @@
 </ol>
 </div></blockquote>
 <ol class="arabic simple" start="5">
-<li>In up flow mode (at 30 mL/min), discharge the column effluent to waste until most of the fines are removed.</li>
-<li>Reverse the direction of flow to down flow and verify that the photometer is reading approximately 0 mg/L of red dye. This indicates that most of the activated carbon fines are removed from the column.</li>
+<li>In up flow mode (at 0.5 mL/s), discharge the column effluent to waste until most of the fines are removed.</li>
+<li>The turn both directional valves directly on top and bottom of filter perpendicular so that no water goes in or out</li>
+<li>put the bottom directional valve in down flow mode, disconnect the top connection</li>
+<li>Run the pump to remove air out of this line</li>
+<li>After air is removed, reconnect the tubing and run DI water in down flow mode. There may be a small air bubble left. You can put the filter in up flow mode again to remove that air bubble.</li>
+<li>Next, run in down flow mode again and make sure to get all of the air out of the photometer.</li>
+<li>Verify that the photometer is reading approximately 0 mg/L of red dye. This indicates that most of the activated carbon fines are removed from the column.</li>
 <li>Configure ProCoDA to log the concentration of red dye at 5 second intervals</li>
 <li>Start pumping Red Dye #40.</li>
 <li>Measure the flow rate using a balance to get mass of water in approximately 1 minute.</li>
