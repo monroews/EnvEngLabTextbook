@@ -149,39 +149,52 @@ where
 
 From experiments conducted in the Cornell environmental laboratory around 2003 we have  :math:`q_{50 mg/L}` = 0.08. Our goal is to design a fixed bed reactor that has a :math:`t_{mtz}` of about 30 minutes. With a 15 cm deep column at 1 mm/s and with a porosity of 0.4 the hydraulic residence time is 1 minute. Given a target retardation factor of 30 we can calculate the bulk density of carbon that we should have in the column. We can achieve this bulk density by diluting the activated carbon with sand.
 
+The approach velocity for granular activated carbon contactors is generally between 1.4 and 4.2 mm/s. We will operate at 1 mm/s.
+
 .. math::
 
     \rho_{bulk \; adsorbent} \cong \frac{R_{adsorption}\phi C_0}{q_0}
 
-Different teams can try different concentrations of red dye or different masses of activated carbon.
+Different teams can try different masses of activated carbon or could experiment with filling the sand pores with coagulant as an alternative adsorbent.
 
 .. code:: python
 
    """ importing """
-   from aide_design.play import*
+   from aguaclara.core.units import unit_registry as u
+   import aguaclara.core.physchem as pc
+   import aguaclara.core.utility as ut
    v_a = 1 * u.mm/u.s
    porosity = 0.4
-   L_column = 10 * u.cm
+   L_column = 15.2 * u.cm
    C_0 = 50 * u.mg/u.L
    q_0 = 0.08
    t_water = (L_column*porosity/v_a).to(u.s)
-   t_mtz = 1800*u.s
+   t_mtz_target = 1800*u.s
    # set the breakthrough time to 30 minutes = 1800 s
-   R_adsorption = t_mtz/t_water
-   Density_bulk = (R_adsorption * porosity * C_0/q_0).to(u.kg/u.m**3)
-   Density_bulk
+   R_adsorption = t_mtz_target/t_water
+   Density_bulk_AC_diluted = (R_adsorption * porosity * C_0/q_0).to(u.kg/u.m**3)
+   print('The bulk density of activated carbon given the dilution with sand should be',ut.round_sf(Density_bulk_AC_diluted,2))
    D_column = 1*u.inch
    A_column = pc.area_circle(D_column)
    V_column = A_column * L_column
-   M_carbon = (V_column * Density_bulk).to(u.mg)
-   M_carbon
-   V_reddye = (v_a*A_column*t_mtz).to(u.L)
-   V_reddye
-   Q_reddye = (v_a*A_column).to(u.mL/u.min)
-   Q_reddye
+   M_carbon = (V_column * Density_bulk_AC_diluted).to(u.g)
+   print('The mass of activated carbon should be',ut.round_sf(M_carbon,2))
+   Density_AC = 2100 *u.kg/(u.m**3)
+   V_carbon = (M_carbon/Density_AC/porosity).to(u.mL)
+   print('The volume of activated carbon is approximately',ut.round_sf(V_carbon,2))
+
+
    density_sand = 2650 * u.kg/u.m**3
-   M_sand = (V_column*density_sand*(1-porosity)).to(u.g)
-   M_sand
+   M_sand = ((V_column-V_carbon)*density_sand*(1-porosity)).to(u.g)
+   print('The mass of sand is',ut.round_sf(M_sand,2))
+
+   V_reddye = (v_a*A_column*t_mtz).to(u.L)
+   print('The volume of red dye required for one experiment is',ut.round_sf(V_reddye,2))
+   Q_reddye = (v_a*A_column).to(u.mL/u.min)
+   print('The flow rate is',ut.round_sf(Q_reddye,2))
+   mLperrev_Tubing_17 = 2.8 * u.mL/u.revolution
+   Pump_rpm = (Q_reddye/mLperrev_Tubing_17).to(u.revolution/u.min)
+   print('The pump rpm is',ut.round_sf(Pump_rpm,3))
 
 
 
@@ -203,7 +216,7 @@ Carbon Contactor Setup
 ----------------------
 
 
-Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pump with \#14 tubing at approximately 10 rpm. Prepare 20 L jerricans with 50 mg/L of Red dye \#40. Use reverse osmosis water to dilute the dye. The carbon contactor will be operated in down flow mode. The specifications for the carbon contactors are given in Table :numref:`table_carbon_contactor_settings`.
+Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pump with \#17 tubing at approximately 10 rpm. Prepare 20 L jerricans with 50 mg/L of Red dye \#40. Use reverse osmosis water to dilute the dye. The carbon contactor will be operated in down flow mode. The specifications for the carbon contactors are given in Table :numref:`table_carbon_contactor_settings`.
 
 .. _table_carbon_contactor_settings:
 
@@ -215,24 +228,24 @@ Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pu
     Influent red dye Concentration, 0.050  g/L
     Mass of red dye/20 L, 1.00 g
     Depth of fixed bed, 15 cm
-    Mass of sand, 80 g
-    Influent flow rate, 30 mL/min (0.5 mL/s)
+    Mass of sand, 120 g (to fill column)
+    Approach velocity (1 mm/s)
     Column diameter, 2.54 cm
     :math:`q_{(50 mg/L)}`, 0.080  g/g
-    Mass of carbon, "0.2, 0.5, 1, 2, 5, or 10  g"
+    Mass of carbon, "2, 5, 10, 20, 50  g"
 
 
 Set up the Contactor
 --------------------
 
-Work through this procedure twice. For the first test skip the activated carbon and thus measure the F curve (see :ref:`reactor modeling<heading_Reactor_Modeling>`) for the sand column. Rinse the column with RO water, remove the sand, and repeat the procedure with activated carbon.
+Work through this procedure twice. For the first test skip the activated carbon and thus measure the F curve (see :ref:`reactor modeling<heading_Reactor_Modeling>`) for the sand column. Rinse the column with RO water, remove the sand, and repeat the procedure with activated carbon or other adsorbent.
 
  #. Test column and pump and all tubing to ensure that it is leak tight using reverse osmosis water.
  #. Remove top from column
- #. Mix 80 g of sand and your team's assigned mass of activated carbon
+ #. Mix sand and adsorbent (total volume of media adjusted to fill column)
  #. Wet method
 
-   #. Pour mixture of sand and activated carbon into a beaker containing reverse osmosis water.
+   #. Pour mixture of sand and adsorbent into a beaker containing reverse osmosis water (or tap water if using coagulant).
    #. Swirl until most of the air is released.
    #. Use a funnel and a reverse osmosis water wash bottle to wash the mixture from the beaker into the column.
    #. Use a 50 mL syringe to remove excess water from the top of the column if necessary.
@@ -245,8 +258,13 @@ Work through this procedure twice. For the first test skip the activated carbon 
    #. Assemble the column end fitting.
    #. Fill the column with water in up flow mode (at 5 mL/min - idea is to do this slowly so that air escapes)
 
- 5. In up flow mode (at 30 mL/min), discharge the column effluent to waste until most of the fines are removed.
- #. Reverse the direction of flow to down flow and verify that the photometer is reading approximately 0 mg/L of red dye. This indicates that most of the activated carbon fines are removed from the column.
+ 5. In up flow mode (at 0.5 mL/s), discharge the column effluent to waste until most of the fines are removed.
+ #. The turn both directional valves directly on top and bottom of filter perpendicular so that no water goes in or out
+ #. put the bottom directional valve in down flow mode, disconnect the top connection
+ #. Run the pump to remove air out of this line
+ #. After air is removed, reconnect the tubing and run DI water in down flow mode. There may be a small air bubble left. You can put the filter in up flow mode again to remove that air bubble.
+ #. Next, run in down flow mode again and make sure to get all of the air out of the photometer.
+ #. Verify that the photometer is reading approximately 0 mg/L of red dye. This indicates that most of the activated carbon fines are removed from the column.
  #. Configure ProCoDA to log the concentration of red dye at 5 second intervals
  #. Start pumping Red Dye \#40.
  #. Measure the flow rate using a balance to get mass of water in approximately 1 minute.

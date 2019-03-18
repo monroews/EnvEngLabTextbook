@@ -39,11 +39,9 @@ The sum of the molar concentrations of all the components of the carbonate syste
 
     C_T = \left[H_2{CO}_3^* \right] + \left[{HCO}_3^- \right]+\left[{CO}_3^{-2} \right]
 
-The carbonate system can be considered to be a "volatile" system or a "non-volatile" system depending on whether or not aqueous carbon dioxide is allowed to exchange and equilibrate with atmospheric carbon dioxide. Mixing conditions and hydraulic residence time determine whether an aquatic system is volatile or non-volatile relative to atmospheric carbon dioxide equilibrium. First, consider the "non-volatile" system.
+The carbonate system can be considered to be a "volatile" system or a "non-volatile" system depending on whether or not aqueous carbon dioxide is allowed to exchange and equilibrate with atmospheric carbon dioxide. Mixing conditions and hydraulic residence time determine whether an aquatic system is volatile or non-volatile relative to atmospheric carbon dioxide equilibrium. First, consider the relationship that are valid regardless of the rate of exchange with the atmosphere.
 
-
-
-Non-volatile System
+Carbonate System
 -------------------
 
 For a fixed :math:`C_T`, the molar concentration of each species of the carbonate system is determined by pH. Equations :eq:`eq_carbonic_acid`-:eq:`eq_alpha2` show these functional relationships.
@@ -110,8 +108,8 @@ Substituting equations :eq:`eq_bicarbonate`, :eq:`eq_carbonate`, and :eq:`eq_OH_
 For the carbonate system, ANC is usually referred to as alkalinity. Alkalinity can be expressed as equivalents/L or as mg/L (ppm) of :math:`CaCO_3`. 50,000 mg/L :math:`CaCO_3` = 1 equivalent/L.
 
 
-Volatile Systems
-----------------
+Volatile Carbonate Systems
+--------------------------
 
 Now consider the case where aqueous :math:`{CO}_{2\; aq}` is volatile and in equilibrium with atmospheric carbon dioxide. Henry's Law can be used to describe the equilibrium relationship between atmospheric and dissolved carbon dioxide.
 
@@ -284,6 +282,7 @@ We will use a pH probe to measure pH in this experiment. The pH probes are store
  #. :ref:`Setup and calibrate the pH probe <heading_ProCoDA_pH_Measurement>`
  #. Verify that the experimental setup is plumbed so that the acid rain is pumped directly into the lake.  The lake outflow should discharge into the small drain on the side of your work bench.
  #. Organize the bench setup so that the metal tube discharging the acid rain into the lake is solidly touching the metal stand that is connected to the stirrer. This will ground the solution that is in the lake and reduce voltage fluctuations that are easily measured by the pH probe.
+ #. Check all of the push to connect fittings. To obtain a water tight connection it is necessary to twist and push so that the o'ring slides over the outside of the tube to create a seal.
  #. Preset pump to give desired flow rate of 267 mL/min (4 L/15 minutes) based on the size of pump tubing selected. Do not turn the pump on yet! For each tubing size, different pump speeds will correspond to different flow rates being output by the pump. The peristaltic tubing sizes are rather arbitrary and are labeled by numbers: 13, 14, 16, 17, and 18 in increasing order of size. If you have \#18 tubing, you will want an RPM setting of (267 mL/min) / (3.8 mL/rev) = 70.3 RPM (see :numref:`table_Acid_pump_tubing`).
  #. Fill lake with reverse osmosis water and verify that the outflow is set so the lake volume is approximately 4 L.  Place the lake on top of a magnetic stirrer and add a stir bar.
  #. Set stirrer speed to 8.
