@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Adsorption &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.30 documentation</title>
+  <title>Adsorption &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
   
 
   
@@ -57,10 +57,6 @@
 
           
             
-            
-              <div class="version">
-                v.0.0.30
-              </div>
             
           
 
@@ -252,46 +248,48 @@
 <p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Movie illustrating how the effluent concentration of the absorbate changes with time as the mass transfer zone moves through the fixed bed.</span></p>
 </div>
 <p>The velocity of the mass transfer zone (mtz or the adsorption front) can be obtained by a mass balance on the system. If we set our frame of reference (and our control volume) to be centered on the mass transfer zone, then the average velocity (over the pore fraction of the control surface) of fluid entering the mtz is equal to pore water velocity minus the velocity of the mtz. The fluid phase concentration of the adsorbate entering the control surface is <span class="math notranslate nohighlight">\(C_0\)</span> and the fraction of the control surface where fluid is passing through is the porosity, <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
-<p>The average velocity of the solid phase exiting through the control surface is <span class="math notranslate nohighlight">\(-v_{mtz}\)</span>. The bulk density of the adsorbate is <span class="math notranslate nohighlight">\(q_0 \rho_{bulk \; adsorbent}\)</span> where <span class="math notranslate nohighlight">\(\rho_{bulk \; adsorbent}\)</span> is the mass of adsorbent per volume of the packed bed. The mass rate of adsorbate passing through the control surface in liquid phase must precisely balance the mass rate of adsorbate passing through the control surface in the solid phase because the mtz is stationary.</p>
-<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-1">
-<span class="eqno">(88)<a class="headerlink" href="#equation-adsorption-adsorption-1" title="Permalink to this equation">¶</a></span>\[[(v_{pore} - v_{mtz})C_0\phi] - [(v_{mtz})q_0 \rho_{bulk \; adsorbent}] = 0\]</div>
+<p>The average velocity of the solid phase exiting through the control surface is <span class="math notranslate nohighlight">\(-v_{mtz}\)</span>. The bulk density of the adsorbate is <span class="math notranslate nohighlight">\(\frac{q_0 M_{adsorbent}}{V_{column}}\)</span>. The mass rate of adsorbate passing through the control surface in liquid phase must precisely balance the mass rate of adsorbate passing through the control surface in the solid phase because the mtz is stationary.</p>
+<div class="math notranslate nohighlight" id="equation-eq-mtz-cs-1">
+<span class="eqno">(88)<a class="headerlink" href="#equation-eq-mtz-cs-1" title="Permalink to this equation">¶</a></span>\[[(v_{pore} - v_{mtz})C_0\phi] - \left[v_{mtz}\frac{q_0 M_{adsorbent}}{V_{column}}\right] = 0\]</div>
 <p>We can apply continuity to find the relationship between the velocity in the pores and velocity above the porous fixed bed. The plan view area of the fixed bed cancels out.</p>
+<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-1">
+<span class="eqno">(89)<a class="headerlink" href="#equation-adsorption-adsorption-1" title="Permalink to this equation">¶</a></span>\[\phi v_{pore} = v_a\]</div>
+<p>The effective bed porosity, <span class="math notranslate nohighlight">\(\phi\)</span> can be calculated from</p>
 <div class="math notranslate nohighlight" id="equation-adsorption-adsorption-2">
-<span class="eqno">(89)<a class="headerlink" href="#equation-adsorption-adsorption-2" title="Permalink to this equation">¶</a></span>\[\phi v_{pore} = v_a\]</div>
-<p>Eliminate <span class="math notranslate nohighlight">\(v_{pore}\)</span> from the equation</p>
+<span class="eqno">(90)<a class="headerlink" href="#equation-adsorption-adsorption-2" title="Permalink to this equation">¶</a></span>\[\phi =1 - \frac{\frac{M_{ac}}{\rho_{ac}} + \frac{M_{sand}}{\rho_{sand}}}{V_{column}}\]</div>
+<p>where</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><span class="math notranslate nohighlight">\(\rho_{ac}  =  2.1 g/cm^3\)</span></div>
+<div class="line"><span class="math notranslate nohighlight">\(\rho_{sand} = 2.65 g/cm^3\)</span></div>
+</div>
+</div></blockquote>
+<p>Eliminate <span class="math notranslate nohighlight">\(v_{pore}\)</span> from the equation <a class="reference internal" href="#equation-eq-mtz-cs-1">(88)</a> we obtain:</p>
 <div class="math notranslate nohighlight" id="equation-adsorption-adsorption-3">
-<span class="eqno">(90)<a class="headerlink" href="#equation-adsorption-adsorption-3" title="Permalink to this equation">¶</a></span>\[(v_a C_0 - v_{mtz}C_0\phi) - [(v_{mtz})q_0 \rho_{bulk \; adsorbent}] = 0\]</div>
+<span class="eqno">(91)<a class="headerlink" href="#equation-adsorption-adsorption-3" title="Permalink to this equation">¶</a></span>\[(v_a C_0 - v_{mtz}C_0\phi) - \left[v_{mtz}\frac{q_0 M_{adsorbent}}{V_{column}}\right] = 0\]</div>
 <p>Now solve for <span class="math notranslate nohighlight">\(v_{mtz}\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-adsorb-v-mtz">
-<span class="eqno">(91)<a class="headerlink" href="#equation-eq-adsorb-v-mtz" title="Permalink to this equation">¶</a></span>\[v_{mtz}=\frac{v_a C_0}{C_0\phi + q_0 \rho_{bulk \; adsorbent}}\]</div>
-<p>In equation <a class="reference internal" href="#equation-eq-adsorb-v-mtz">(91)</a> the term <span class="math notranslate nohighlight">\(C_0\phi\)</span> represents the liquid phase mass of the adsorbate per unit volume of the fixed bed and the term <span class="math notranslate nohighlight">\(q_0 \rho_{bulk \; adsorbent}\)</span> represents the solid phase mass of the adsorbate per unit volume of the fixed bed. The second term dominates for fixed bed adsorption reactors that are effective and thus equation <a class="reference internal" href="#equation-eq-adsorb-v-mtz">(91)</a> simplifies to:</p>
-<div class="math notranslate nohighlight" id="equation-eq-adsorb-v-mtz-simple">
-<span class="eqno">(92)<a class="headerlink" href="#equation-eq-adsorb-v-mtz-simple" title="Permalink to this equation">¶</a></span>\[v_{mtz} \cong \frac{v_a C_0}{q_0 \rho_{bulk \; adsorbent}}\]</div>
-<p>The time until breakthrough can be obtained by dividing the length of the adsorption column (<span class="math notranslate nohighlight">\(L_{column}\)</span>) by the velocity of the mtz (equation <a class="reference internal" href="#equation-eq-adsorb-v-mtz">(91)</a>)</p>
+<span class="eqno">(92)<a class="headerlink" href="#equation-eq-adsorb-v-mtz" title="Permalink to this equation">¶</a></span>\[v_{mtz}=\frac{v_a C_0}{C_0\phi + \frac{q_0 M_{adsorbent}}{V_{column}}}\]</div>
+<p>In equation <a class="reference internal" href="#equation-eq-adsorb-v-mtz">(92)</a> the term <span class="math notranslate nohighlight">\(C_0\phi\)</span> represents the liquid phase mass of the adsorbate per unit volume of the fixed bed and the term <span class="math notranslate nohighlight">\(\frac{q_0 M_{adsorbent}}{V_{column}}\)</span> represents the solid phase mass of the adsorbate per unit volume of the fixed bed. The second term dominates for fixed bed adsorption reactors that are effective.</p>
+<p>The time until breakthrough can be obtained by dividing the length of the adsorption column (<span class="math notranslate nohighlight">\(L_{column}\)</span>) by the velocity of the mtz (equation <a class="reference internal" href="#equation-eq-adsorb-v-mtz">(92)</a>)</p>
 <div class="math notranslate nohighlight" id="equation-adsorption-adsorption-4">
-<span class="eqno">(93)<a class="headerlink" href="#equation-adsorption-adsorption-4" title="Permalink to this equation">¶</a></span>\[\frac{L_{column}}{v_{mtz}} = \frac{L_{column}\phi}{v_a} + \frac{L_{column}q_0 \rho_{bulk \; adsorbent}}{v_a C_0}\]</div>
+<span class="eqno">(93)<a class="headerlink" href="#equation-adsorption-adsorption-4" title="Permalink to this equation">¶</a></span>\[\frac{L_{column}}{v_{mtz}} = \frac{L_{column}\phi}{v_a} + \frac{L_{column}q_0 M_{adsorbent}}{v_a C_0 V_{column}}\]</div>
 <p>The equation above is equivalent to</p>
 <div class="math notranslate nohighlight" id="equation-adsorption-adsorption-5">
 <span class="eqno">(94)<a class="headerlink" href="#equation-adsorption-adsorption-5" title="Permalink to this equation">¶</a></span>\[t_{mtz} = t_{water} + t_{ads}\]</div>
 <p>Thus the time to breakthrough is the time required for water to flow through the reactor plus the additional time required due to the adsorption process. The retardation factor is defined as the ratio of the time for the mass transfer zone to travel through the bed divided by the time for water to travel through the bed.</p>
-<div class="math notranslate nohighlight" id="equation-eq-r-adsorption">
-<span class="eqno">(95)<a class="headerlink" href="#equation-eq-r-adsorption" title="Permalink to this equation">¶</a></span>\[R_{adsorption} = \frac{t_{mtz}}{t_{water}} = \frac{v_{water}}{v_{mtz}}\]</div>
 <div class="math notranslate nohighlight" id="equation-adsorption-adsorption-6">
-<span class="eqno">(96)<a class="headerlink" href="#equation-adsorption-adsorption-6" title="Permalink to this equation">¶</a></span>\[R_{adsorption}\cong  \frac{v_a q_0 \rho_{bulk \; adsorbent}}{\phi v_a C_0} =\frac{q_0 \rho_{bulk \; adsorbent}}{\phi C_0}\]</div>
-<p>The effective bed porosity, <span class="math notranslate nohighlight">\(\phi\)</span> can be calculated from</p>
-<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-7">
-<span class="eqno">(97)<a class="headerlink" href="#equation-adsorption-adsorption-7" title="Permalink to this equation">¶</a></span>\[\phi =1-\frac{\rho _b }{\rho _{ac} }\]</div>
-<p>where</p>
-<blockquote>
-<div><div class="line-block">
-<div class="line"><span class="math notranslate nohighlight">\(\rho_b =\)</span> apparent bulk density</div>
-<div class="line"><span class="math notranslate nohighlight">\(\rho_{ac}  =  2.1 g/cm^3\)</span></div>
-</div>
-</div></blockquote>
-<p>From experiments conducted in the Cornell environmental laboratory around 2003 we have  <span class="math notranslate nohighlight">\(q_{50 mg/L}\)</span> = 0.08. Our goal is to design a fixed bed reactor that has a <span class="math notranslate nohighlight">\(t_{mtz}\)</span> of about 30 minutes. With a 15 cm deep column at 1 mm/s and with a porosity of 0.4 the hydraulic residence time is 1 minute. Given a target retardation factor of 30 we can calculate the bulk density of carbon that we should have in the column. We can achieve this bulk density by diluting the activated carbon with sand.</p>
+<span class="eqno">(95)<a class="headerlink" href="#equation-adsorption-adsorption-6" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}:label: eq_R_adsorption_tmz\\R_{adsorption} = \frac{t_{mtz}}{t_{water}} = \frac{v_{pore}}{v_{mtz}} = \frac{v_a}{\phi v_{mtz}}\end{aligned}\end{align} \]</div>
+<p>Substituting equation <a class="reference internal" href="#equation-eq-adsorb-v-mtz">(92)</a> into equation <a class="reference internal" href="#equation-eq-r-adsorption">(96)</a> we obtain:</p>
+<div class="math notranslate nohighlight" id="equation-eq-r-adsorption">
+<span class="eqno">(96)<a class="headerlink" href="#equation-eq-r-adsorption" title="Permalink to this equation">¶</a></span>\[R_{adsorption} =1+ \frac{q_0 M_{adsorbent}}{C_0 \phi V_{column}}\]</div>
+<p>Experimentally we can estimate <span class="math notranslate nohighlight">\(R_{adsorption}\)</span> based on the time required to reach 50% of the influent adsorbate for columns with and without adsorbent. Given the estimate of <span class="math notranslate nohighlight">\(R_{adsorption}\)</span> we can estimate the mass of adsorbate per mass of adsorbent,  <span class="math notranslate nohighlight">\(q_0\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-q-0">
+<span class="eqno">(97)<a class="headerlink" href="#equation-eq-q-0" title="Permalink to this equation">¶</a></span>\[q_0 = \left(R_{adsorption} - 1\right) \frac{C_0 \phi V_{column}}{M_{adsorbent}}\]</div>
+<p>From experiments conducted in the Cornell environmental laboratory around 2003 we have  <span class="math notranslate nohighlight">\(q_{50 mg/L}\)</span> = 0.08. Our goal is to design a fixed bed reactor that has a <span class="math notranslate nohighlight">\(t_{mtz}\)</span> of about 30 minutes. With a 15 cm deep column at 1 mm/s and with a porosity of 0.4 the hydraulic residence time is 1 minute. Given a target retardation factor of 30 we can calculate the mass of carbon that we should have in the column. We can achieve this mass of carbon while holding the length of the column constant by diluting the activated carbon with sand.</p>
 <p>The approach velocity for granular activated carbon contactors is generally between 1.4 and 4.2 mm/s. We will operate at 1 mm/s.</p>
-<div class="math notranslate nohighlight" id="equation-adsorption-adsorption-8">
-<span class="eqno">(98)<a class="headerlink" href="#equation-adsorption-adsorption-8" title="Permalink to this equation">¶</a></span>\[\rho_{bulk \; adsorbent} \cong \frac{R_{adsorption}\phi C_0}{q_0}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-m-ac">
+<span class="eqno">(98)<a class="headerlink" href="#equation-eq-m-ac" title="Permalink to this equation">¶</a></span>\[M_{adsorbent} = \left(R_{adsorption} - 1\right) \frac{C_0 \phi V_{column}}{q_0}\]</div>
 <p>Different teams can try different masses of activated carbon or could experiment with filling the sand pores with coagulant as an alternative adsorbent.</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="k">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
@@ -300,29 +298,27 @@
 <span class="n">v_a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mm</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span>
 <span class="n">porosity</span> <span class="o">=</span> <span class="mf">0.4</span>
 <span class="n">L_column</span> <span class="o">=</span> <span class="mf">15.2</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">cm</span>
+<span class="n">D_column</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">inch</span>
+<span class="n">A_column</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">area_circle</span><span class="p">(</span><span class="n">D_column</span><span class="p">)</span>
+<span class="n">V_column</span> <span class="o">=</span> <span class="n">A_column</span> <span class="o">*</span> <span class="n">L_column</span>
 <span class="n">C_0</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">L</span>
 <span class="n">q_0</span> <span class="o">=</span> <span class="mf">0.08</span>
 <span class="n">t_water</span> <span class="o">=</span> <span class="p">(</span><span class="n">L_column</span><span class="o">*</span><span class="n">porosity</span><span class="o">/</span><span class="n">v_a</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span>
 <span class="n">t_mtz_target</span> <span class="o">=</span> <span class="mi">1800</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">s</span>
 <span class="c1"># set the breakthrough time to 30 minutes = 1800 s</span>
 <span class="n">R_adsorption</span> <span class="o">=</span> <span class="n">t_mtz_target</span><span class="o">/</span><span class="n">t_water</span>
-<span class="n">Density_bulk_AC_diluted</span> <span class="o">=</span> <span class="p">(</span><span class="n">R_adsorption</span> <span class="o">*</span> <span class="n">porosity</span> <span class="o">*</span> <span class="n">C_0</span><span class="o">/</span><span class="n">q_0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The bulk density of activated carbon given the dilution with sand should be&#39;</span><span class="p">,</span><span class="n">ut</span><span class="o">.</span><span class="n">round_sf</span><span class="p">(</span><span class="n">Density_bulk_AC_diluted</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">D_column</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">inch</span>
-<span class="n">A_column</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">area_circle</span><span class="p">(</span><span class="n">D_column</span><span class="p">)</span>
-<span class="n">V_column</span> <span class="o">=</span> <span class="n">A_column</span> <span class="o">*</span> <span class="n">L_column</span>
-<span class="n">M_carbon</span> <span class="o">=</span> <span class="p">(</span><span class="n">V_column</span> <span class="o">*</span> <span class="n">Density_bulk_AC_diluted</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The mass of activated carbon should be&#39;</span><span class="p">,</span><span class="n">ut</span><span class="o">.</span><span class="n">round_sf</span><span class="p">(</span><span class="n">M_carbon</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">M_ac</span> <span class="o">=</span> <span class="p">((</span><span class="n">R_adsorption</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">C_0</span><span class="o">*</span><span class="n">porosity</span><span class="o">*</span><span class="n">V_column</span><span class="o">/</span><span class="n">q_0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The mass of activated carbon given the dilution with sand should be&#39;</span><span class="p">,</span><span class="n">ut</span><span class="o">.</span><span class="n">round_sf</span><span class="p">(</span><span class="n">M_ac</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">Density_AC</span> <span class="o">=</span> <span class="mi">2100</span> <span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">V_carbon</span> <span class="o">=</span> <span class="p">(</span><span class="n">M_carbon</span><span class="o">/</span><span class="n">Density_AC</span><span class="o">/</span><span class="n">porosity</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mL</span><span class="p">)</span>
+<span class="c1">#We measured the bulk density in the lab</span>
+<span class="n">Density_bulk_AC</span> <span class="o">=</span> <span class="mi">386</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">V_carbon</span> <span class="o">=</span> <span class="p">(</span><span class="n">M_carbon</span><span class="o">/</span><span class="n">Density_bulk_AC</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mL</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The volume of activated carbon is approximately&#39;</span><span class="p">,</span><span class="n">ut</span><span class="o">.</span><span class="n">round_sf</span><span class="p">(</span><span class="n">V_carbon</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-
-
 <span class="n">density_sand</span> <span class="o">=</span> <span class="mi">2650</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span>
 <span class="n">M_sand</span> <span class="o">=</span> <span class="p">((</span><span class="n">V_column</span><span class="o">-</span><span class="n">V_carbon</span><span class="p">)</span><span class="o">*</span><span class="n">density_sand</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">porosity</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The mass of sand is&#39;</span><span class="p">,</span><span class="n">ut</span><span class="o">.</span><span class="n">round_sf</span><span class="p">(</span><span class="n">M_sand</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 
-<span class="n">V_reddye</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_a</span><span class="o">*</span><span class="n">A_column</span><span class="o">*</span><span class="n">t_mtz</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">L</span><span class="p">)</span>
+<span class="n">V_reddye</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_a</span><span class="o">*</span><span class="n">A_column</span><span class="o">*</span><span class="n">t_mtz_target</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">L</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The volume of red dye required for one experiment is&#39;</span><span class="p">,</span><span class="n">ut</span><span class="o">.</span><span class="n">round_sf</span><span class="p">(</span><span class="n">V_reddye</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">Q_reddye</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_a</span><span class="o">*</span><span class="n">A_column</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mL</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The flow rate is&#39;</span><span class="p">,</span><span class="n">ut</span><span class="o">.</span><span class="n">round_sf</span><span class="p">(</span><span class="n">Q_reddye</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
@@ -444,8 +440,7 @@
 <li>Plot the breakthrough curves showing <span class="math notranslate nohighlight">\(\frac{C}{C_0}\)</span> versus time.</li>
 <li>Find the time when the effluent concentration was 50% of the influent concentration and plot that as a function of the mass of activated carbon used.</li>
 <li>Calculate the retardation coefficient (<span class="math notranslate nohighlight">\(R_{adsorption}\)</span>) based on the time to breakthrough for the columns with and without activated carbon.</li>
-<li>Calculate the quantity of Red Dye #40 that was transferred to the activated carbon based on the influent concentration, flow rate, and 50% breakthrough time.</li>
-<li>Calculate the <span class="math notranslate nohighlight">\(q_0\)</span> for each of the columns. Plot this as a function of the mass of activated carbon used.</li>
+<li>Calculate the <span class="math notranslate nohighlight">\(q_0\)</span> for each of the columns based on equation <a class="reference internal" href="#equation-eq-q-0">(97)</a>. Plot this as a function of the mass of activated carbon used.</li>
 </ol>
 <p>What did you learn from this analysis? How can you explain the results that you have obtained? What changes to the experimental method do you recommend for next year (or for a project)?</p>
 </div></blockquote>
@@ -454,7 +449,7 @@
 <div class="section" id="prelab-questions">
 <span id="heading-adsorption-pre-laboratory-questions"></span><h2>Prelab Questions<a class="headerlink" href="#prelab-questions" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>A carbon column is packed with 15 cm of activated carbon and then used to remove 50 mg/L of red dye #40. The approach velocity is 1 mm/s, the porosity is 0.4, and the bulk density of the activated carbon is 0.5 <span class="math notranslate nohighlight">\(g/cm^3\)</span>. How long will it take for the mass transfer zone to travel to the bottom of the carbon column?</li>
+<li>A carbon column is packed with 15 cm of activated carbon and then used to remove 50 mg/L of red dye #40. The approach velocity is 1 mm/s, the porosity is 0.8, and the bulk density of the activated carbon is 0.38 <span class="math notranslate nohighlight">\(g/cm^3\)</span>. The mass of red dye per mass of carbon at equilibrium with 50 mg/L of red dye is 0.08. How long will it take for the mass transfer zone to travel to the bottom of the carbon column?</li>
 </ol>
 </div>
 <div class="section" id="lab-prep-notes">
@@ -558,7 +553,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v.0.0.30',
+            VERSION:'',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
