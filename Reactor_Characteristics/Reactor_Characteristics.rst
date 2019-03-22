@@ -75,7 +75,7 @@ Completely Mixed Flow Reactor
 Completely mixed flow regimes can be approximated quite closely in practice. In the case of CMFRs, there is not an analytical solution to the advection-dispersion equation so we revert to a simple mass balance. For a completely mixed reactor a mass balance on a conservative tracer yields the following differential equation:
 
 .. math::
-    :label: eq_Reactor_mass_balance
+   :label: eq_Reactor_mass_balance
 
     \rlap{-} V _{r} \frac{dC}{dt} =\left(C_{in} -C\right)Q
 
@@ -141,7 +141,7 @@ Open Boundary conditions: One Dimensional Advection-Dispersion Equation
 The governing differential equation for a conservative (i.e., non-reactive) substance in a reactor that has advective transport (i.e., flow) and some mixing (dispersion) in the direction of flow (x - dimension) is given in equation :eq:`eq_Reactor_diff_advect_disperse`.
 
 .. math::
-    :label: eq_Reactor_diff_advect_disperse
+   :label: eq_Reactor_diff_advect_disperse
 
     \frac{\partial C}{\partial t} ={\rm \; -U}\frac{\partial C}{\partial x} +{\rm \; D}_{{\rm d}} \frac{\partial ^{2} C}{\partial x^{2}}
 
@@ -154,7 +154,7 @@ Where
 The dispersion is described by a single parameter that is the same in the reactor as it is at the inlet and outlet for open boundary conditions. The solution to :eq:`eq_Reactor_diff_advect_disperse` for the case of complete mixing in the y-z plane and advective and dispersive transport only in the x direction for any x and t (after t=0) gives:
 
 .. math::
-    :label: eq_Reactor_advect_disperse
+   :label: eq_Reactor_advect_disperse
 
     {\rm C(x,t)\; }={\rm \; }\frac{M}{A\sqrt{4\pi D_{d} t} } \exp \left[\frac{-x'^{2} }{4D_{d} t} \right]
 
@@ -167,7 +167,7 @@ Where
 A measure of dispersion can be obtained directly from equation :eq:`eq_Reactor_advect_disperse`. From this equation we expect a maximum value of C at t = x/U. At this time :math:`{\rm C(x,t)\; }={\rm \; }\frac{M}{A\sqrt{4\pi D_{d} t} }` . If the mass of the tracer input (M) and reactor cross-sectional area (A) are known, then :math:`D_{d}` can be estimated. Equation :eq:`eq_Reactor_advect_disperse` can be made dimensionless to more clearly reveal the important parameters. The dispersion coefficient can be made dimensionless by dividing into a velocity and a length.
 
 .. math::
-    :label: eq_Reactor_Pe
+   :label: eq_Reactor_Pe
 
     Pe=\frac{UL}{D_{d}}
 
@@ -176,7 +176,7 @@ where L is the length of the reactor and U is the mean advective velocity. The d
 The time can be normalized by dividing by the hydraulic residence time.
 
 .. math::
-    :label: eq_Reactor_tstar
+   :label: eq_Reactor_tstar
 
     t^{\star} =\frac{tU}{L}
 
@@ -199,7 +199,7 @@ The position in the reactor where the concentration measurements are made can be
 The resulting dimensionless form of Equation :eq:`eq_Reactor_advect_disperse` is given in Equation :eq:`eq_Reactor_E_AD`.
 
 .. math::
-    :label: eq_Reactor_E_AD
+   :label: eq_Reactor_E_AD
 
     E_{\left(t^{\star} \right)} =\sqrt{\frac{Pe}{4\pi t^{\star} } } \exp \left[\frac{-\left(1-t^{\star} \right)^{2} Pe}{4t^{\star} } \right]
 
@@ -237,7 +237,7 @@ The form of equation :eq:`eq_Reactor_advect_disperse` is exactly like the normal
 where
 
 .. math::
-    :label: eq_Reactor_sigma_dispersion
+   :label: eq_Reactor_sigma_dispersion
 
     \sigma _{x}^{2} =2D_{d} t
 
@@ -260,14 +260,14 @@ Completely mixed flow reactors are sometimes connected in series to create a rea
 Non ideal reactors with mixing levels between that of CMFRs and PFRs and reactors containing baffles can also be modeled as a series of CMFRs. In this case the mixing level for the system is represented by the number of CMFRs that are used to represent the non-ideal reactor. The equation describing the concentration of a conservative tracer in the :math:`N^{th}` reactor is given in equation :eq:`eq_Reactor_C_N_CMFR`.
 
 .. math::
-    :label: eq_Reactor_C_N_CMFR
+   :label: eq_Reactor_C_N_CMFR
 
     \frac{C_{N} \left(t\right)\rlap{-} V }{M} =\frac{N^N}{\left(N-1\right)!} \left(\frac{t}{\theta} \right)^{N-1} {\mathop{e}\nolimits^{{}^{\left(\frac{-Nt}{\theta} \right)} }}
 
 The non-dimensional form of equation :eq:`eq_Reactor_C_N_CMFR` is given in equation :eq:`eq_Reactor_E_N_CMFR`
 
 .. math::
-    :label: eq_Reactor_E_N_CMFR
+   :label: eq_Reactor_E_N_CMFR
 
     {E_{N}}_{\left(t^{\star} \right)} = \frac{N^N}{\left(N-1\right)!} \left(t^{\star} \right)^{N-1} {\mathop{e}\nolimits^{{}^{\left(-Nt^{\star} \right)} }}
 
@@ -315,14 +315,14 @@ where
 For discrete data points:
 
 .. math::
-    :label: eq_Reactor_sigma
+   :label: eq_Reactor_sigma
 
     \sigma _{t}^{2} =\; \frac{\sum _{i=0}^{n}t_{i}^{2} \cdot C_{i}  \Delta t}{\sum _{i=0}^{n}C_{i}  \Delta t} -\; \bar{t}^{2}
 
 and
 
 .. math::
-    :label: eq_Reactor_tbar
+   :label: eq_Reactor_tbar
 
     \bar{t}=\; \frac{\sum _{i=0}^{n}t_{i} \cdot C_{i}  \Delta t}{\sum _{i=0}^{n}C_{i}  \Delta t}
 
@@ -344,7 +344,7 @@ For single point sampling of the effluent response curve, skew increases as the 
 Response curve skew makes the assumption of a symmetrical normal distribution curve inappropriate and a new relationship between the variance and the dispersion coefficient (or *Pe*) has to be determined. Boundary conditions affect the determination of the dispersion coefficient. The relationship between the Peclet number and variance for open systems is given by
 
 .. math::
-    :label: eq_Reactor_sigma_open
+   :label: eq_Reactor_sigma_open
 
     \sigma _{t}^{2} =\left(\frac{2}{Pe} +\frac{8}{Pe^{2} } \right)\cdot \theta ^{2}
 
@@ -352,7 +352,7 @@ Response curve skew makes the assumption of a symmetrical normal distribution cu
 For closed systems the relationship is:
 
 .. math::
-    :label: eq_Reactor_sigma_closed
+   :label: eq_Reactor_sigma_closed
 
     \sigma _{t}^{2} =\left[\frac{2}{Pe} -\frac{2}{Pe^{2} } \cdot \left(1-{\mathop{e}\nolimits^{-Pe}} \right)\right]\cdot \theta ^{2}
 
@@ -370,7 +370,7 @@ The term :math:`\frac{2}{Pe}` in equations :eq:`eq_Reactor_sigma_open` and :eq:`
 
 
 .. math::
-    :label: eq_Reactor_sigma_approx
+   :label: eq_Reactor_sigma_approx
 
     Pe=\frac{2\theta ^{2} }{\sigma _{t}^{2} }
 
@@ -380,14 +380,14 @@ Mass Conservation
 When a pulse of conservative tracer is added to a continuous flow reactor, all of the tracer is expected to leave the reactor eventually. The mass of a substance that has left the reactor is given in equation :eq:`eq_Reactor_Mout`.
 
 .. math::
-    :label: eq_Reactor_Mout
+   :label: eq_Reactor_Mout
 
     M_{out} =\sum _{i=0}^{n}QC_{i} \Delta t_{i}
 
 where Q is the flow rate and M is the mass of any substance whose concentration is given by C. If Q and :math:`\mathrm{\Delta}t` are constant, then equation :eq:`eq_Reactor_Mout` can be rewritten as
 
 .. math::
-    :label: eq_Reactor_Mout_constantQ
+   :label: eq_Reactor_Mout_constantQ
 
     M_{out} =Q\Delta t\sum _{i=0}^{n}C_{i}
 

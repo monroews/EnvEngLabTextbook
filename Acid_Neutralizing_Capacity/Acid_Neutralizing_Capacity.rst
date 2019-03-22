@@ -21,7 +21,7 @@ Theory
 The ANC for a typical carbonate-containing sample is defined as:
 
 .. math::
-    :label: eq_ANC_definition
+   :label: eq_ANC_definition
 
     ANC = [HCO_3^-]+2[CO_3^{-2} ]+{[OH}^- ] - [H^+]
 
@@ -52,21 +52,21 @@ Gran Plot
 Another method to find the ANC of an unknown solution is the Gran plot technique. When an ANC determination is being made, titration with a strong acid is used to "cancel" the initial ANC so that at the equivalence point the sample ANC is zero. The Gran plot technique is based on the fact that further titration will result in an increase in the number of moles of :math:`H^+` equal to the number of moles of :math:`H^+` added. Thus after the equivalence point has been attained, the number of moles of :math:`H^+` added equals the number of moles of :math:`H^+` in solution. An equation describing this mass balance is provided as:
 
 .. math::
-    :label: eq_Gran_H_balance
+   :label: eq_Gran_H_balance
 
     N_{t} \left(V_{t} -V_{e} \right)=\left(V_{s} +V_{t} \right)\left[H^{+} \right]
 
 Solving for the hydrogen ion concentration:
 
 .. math::
-    :label: eq_Gran_hydrogen_ion
+   :label: eq_Gran_hydrogen_ion
 
     \left[H^{+} \right]=\frac{N_{t} \left(V_{t} -V_{e} \right)}{\left(V_{s} +V_{t} \right)}
 
 Equation :eq:`eq_Gran_hydrogen_ion` can also be solved directly for the equivalent volume.
 
 .. math::
-    :label: eq_Gran_ve
+   :label: eq_Gran_ve
 
     V_{e} =V_{t} -\frac{\left[H^{+} \right]\left(V_{s} +V_{t} \right)}{N_{t} }
 
@@ -79,7 +79,7 @@ Equation :eq:`eq_Gran_ve` is valid if enough titrant has been added to neutraliz
 We define :math:`F_1` (First Gran function) as:
 
 .. math::
-    :label: eq_Gran_F1
+   :label: eq_Gran_F1
 
     F_1 = \frac{V_s +V_t }{V_s } {[H}^+ {]}
 
@@ -88,14 +88,14 @@ If :math:`F_1` is plotted as a function of :math:`V_t` the result is a straight 
 The ANC is readily obtained given the equivalent volume. At the equivalence point:
 
 .. math::
-    :label: eq_Gran_equivalence
+   :label: eq_Gran_equivalence
 
     V_s ANC= V_e N_t
 
 Equation :eq:`eq_Gran_equivalence` can be rearranged to obtain ANC as a function of the equivalent volume.
 
 .. math::
-    :label: eq_Gran_ANC
+   :label: eq_Gran_ANC
 
     ANC=\frac{V_e N_t }{V_s }
 
@@ -141,14 +141,14 @@ ANC Determination for Samples with pH < 4
 After the equivalence point has been reached (adding more acid than ANC = 0) the only significant terms in equation :eq:`eq_ANC_definition` are :math:`\left[{H}^{+} \right]` and ANC.
 
 .. math::
-    :label: eq_protons_dominate
+   :label: eq_protons_dominate
 
     \left[{H}^{+} \right]>>{\; }\left[{HCO}_{{3}}^{{-}} \right]+{\; 2}\left[{CO}_{{3}}^{{-2}} \right]+\left[{OH}^{{-}} \right]{\; }
 
 When the pH is 2 pH units or more below the lowest :math:`pK_a` of the bases in the system the only species contributing significantly to ANC is the hydrogen ion (equation :eq:`eq_protons_dominate`) and thus the ANC is simply
 
 .. math::
-    :label: eq_Gran_pH_lt4
+   :label: eq_Gran_pH_lt4
 
     ANC= - [H^+]
 
@@ -177,7 +177,7 @@ Let :math:`[H^+]_e` be the concentration of hydrogen ions at the equivalence poi
 Thus the volume of acid added to go from :math:`[H^+]_e` to :math:`[H^+]_f` is
 
 .. math::
-    :label: eq_Gran_linear_titrant
+   :label: eq_Gran_linear_titrant
 
     V_f - V_e =\frac{V_s \left([H^+]_f -[H^+]_e \right)}{N_t}
 
