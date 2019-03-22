@@ -61,7 +61,7 @@ Gas Transfer Coefficient
 The gas transfer rate can be modeled as the product of a driving force (the difference between the equilibrium concentration and the actual concentration) and an overall volumetric gas transfer coefficient (a function of the geometry, mixing levels of the system and the solubility of the compound). In equation form
 
 .. math::
-    :label: eq_Gas_first_order
+   :label: eq_Gas_first_order
 
     \frac{dC}{dt} =\hat{k}_{v,l} \left(C^{*} -C\right)
 
@@ -100,7 +100,7 @@ Equation :eq:`eq_Gas_first_order` can be integrated with appropriate initial con
 
 
 .. math::
-    :label: eq_Gas_linearized
+   :label: eq_Gas_linearized
 
     \ln \frac{C^{*} -C}{C^{*} -C_{0} } =-\hat{k}_{v,l} (t-t_{0} )
 
@@ -119,7 +119,7 @@ An important parameter in the design of aeration systems for the activated sludg
 The manufacturer typically provides oxygen transfer efficiency for a specific diffuser. In this laboratory we will measure oxygen transfer efficiency for the aeration stone that we will be using in an activated sludge tank. The molar transfer rate of oxygen through the diffuser is
 
 .. math::
-    :label: eq_Gas_air_supply
+   :label: eq_Gas_air_supply
 
     \dot{n}_{gas\; o_{2} } =\frac{Q_{air} P_{air} f_{O_{2} } }{RT}
 
@@ -146,14 +146,14 @@ where
 The rate of change of oxygen concentration is a function of the dissolved oxygen concentration and is a maximum when the dissolved oxygen concentration is zero. Oxygen transfer efficiency could be measured for any dissolved oxygen concentration. A better method of analysis is to substitute the right side of equation :eq:`eq_Gas_first_order` for :math:`\frac{dC}{dt}` .
 
 .. math::
-    :label: eq_Gas_O2_dissolved
+   :label: eq_Gas_O2_dissolved
 
     \dot{n}_{aq\; o_{2} } =\frac{V\hat{k}_{v,l} \left(C^{*} -C\right)}{MW_{O_{2} } }
 
 The oxygen transfer efficiency is the ratio of equation :eq:`eq_Gas_O2_dissolved` to equation :eq:`eq_Gas_air_supply`.
 
 .. math::
-    :label: eq_Gas_OTE
+   :label: eq_Gas_OTE
 
     OTE=\frac{\hat{k}_{v,l} \left(C^{*} -C\right)VRT}{MW_{O_{2} } Q_{air} P_{air} f_{O_{2} } }
 
@@ -544,7 +544,7 @@ Airflow Control
 The ProCoDA software can be configured to control the flow of air into the reactor. The hardware required is shown in :numref:`figure_Gas_Schematic`. The control algorithm is based on the theoretical relationship between head loss and flow rate for the air flowing into the accumulator. We can empirically measure the head loss coefficient and then use the theoretical relationship to determine what fraction of time the influent valve should be open to obtain the desired flow rate. We can use the change in pressure in the accumulator when the influent valve is open to determine how fast air was flowing into the accumulator. In order to develop an appropriate head loss model we need to know if the flow into the accumulator is laminar or turbulent.
 
 .. math::
-    :label: eq_Gas_Re
+   :label: eq_Gas_Re
 
     {Re}=\frac{\rho VD}{\mu }
 
@@ -561,14 +561,14 @@ If we hold pressure and temperature constant and then take the derivative of the
 and since change in volume with respect to time is a flow rate we have
 
 .. math::
-    :label: eq_Gas_Qair
+   :label: eq_Gas_Qair
 
     Q=\frac{\dot{n}RT}{P}
 
 Density of an ideal gas is given by
 
 .. math::
-    :label: eq_Gas_density
+   :label: eq_Gas_density
 
     \rho =\frac{PM_{gas} }{RT}
 
@@ -589,14 +589,14 @@ For the air flow controller used in the lab the following values are obtained
 The flow into the air accumulator will almost certainly be turbulent. In any case, we can use the turbulent flow equations for minor losses to describe head loss. The equation for minor losses is:
 
 .. math::
-    :label: eq_Gas_minor_losses
+   :label: eq_Gas_minor_losses
 
     h_{minor} =K\frac{8Q^{2} }{g\pi ^{2} D^{4} }
 
 To use equation :eq:`eq_Gas_minor_losses` for air we substitute pressure change for :math:`h_{minor}`, equation :eq:`eq_Gas_Qair` for flow rate, and equation :eq:`eq_Gas_density` for density.
 
 .. math::
-    :label: eq_Gas_minor_losses_for_gas
+   :label: eq_Gas_minor_losses_for_gas
 
     \Delta p=K\frac{8M_{gas} RT\dot{n}^{2} }{\pi ^{2} D^{4} P}
 
@@ -604,7 +604,7 @@ To use equation :eq:`eq_Gas_minor_losses` for air we substitute pressure change 
 This change of pressure is occurring between the air supply and the accumulator. The pressure, P, in equation :eq:`eq_Gas_minor_losses_for_gas` helps determine the velocity of the air and thus head loss is a function of the pressure. The pressure varies between the pressure of the lab air supply, :math:`P_s`, and the pressure in the air accumulator, :math:`P_a`. As a reasonable first approximation we use the average pressure of the supply and the accumulator for P, the difference in pressure for :math:`\Delta p`, and solve equation :eq:`eq_Gas_minor_losses_for_gas` for the molar flow rate.
 
 .. math::
-    :label: eq_Gas_molar_flow_of_air
+   :label: eq_Gas_molar_flow_of_air
 
     \dot{n}=\frac{\pi D^{2} }{4\sqrt{KM_{gas} RT} } \sqrt{\left(P_{s} -P_{a} \right)\left(P_{s} +P_{a} \right)}
 
@@ -635,7 +635,7 @@ After integrating we obtain the following equation.
 Since we will be measuring the pressure in the accumulator we can now substitute that pressure for the terms containing moles of air to obtain an equation that is in a linear form such that a single term containing K and D can be obtained by linear regression.
 
 .. math::
-    :label: eq_t_fill_accumulator
+   :label: eq_t_fill_accumulator
 
     t=\frac{4\sqrt{KM_{gas} RT} }{\pi D^{2} } \left(\sin ^{-1} \frac{P_{a } }{P_{s} } -\sin ^{-1} \frac{P_{a_{0} } }{P_{s} } \right)\frac{\rlap{--}V}{RT}
 
@@ -656,7 +656,7 @@ Taking a data set obtained by filling the accumulator, finding the unknown term 
 The final step is to calculate the fraction of time that the valve must be open in order to obtain a desired flow rate into the accumulator. Take the target air flow rate :math:`\dot{n}_{target}` and divide by the molar flow rate given by equation :eq:`eq_Gas_molar_flow_of_air` to get the fraction of time the valve must be open to get the desired average flow rate.
 
 .. math::
-    :label: eq_Gas_fvalve
+   :label: eq_Gas_fvalve
 
     f_{valve} =\frac{\dot{n}_{t\arg et} }{\dot{n}} =\frac{\dot{n}_{t\arg et} }{\frac{\pi D^{2} }{4\sqrt{KM_{gas} RT} } \sqrt{P_{s}^{2} -P_{a}^{2} } }
 

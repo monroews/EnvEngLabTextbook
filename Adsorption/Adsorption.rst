@@ -33,14 +33,14 @@ Adsorption is a unit operation in which surface-active materials in true solutio
 Under isothermal conditions the equilibrium partitioning between solution and solid phase is a function of concentration. In this experiment the partitioning will be analyzed using both Freundlich
 
 .. math::
-    :label: Freundlich
+   :label: Freundlich
 
     q =K_f C^{\frac{1}{n}}
 
 and Langmuir partitioning models.
 
 .. math::
-    :label: Langmuir
+   :label: Langmuir
 
     q =\frac{K_{Lang}q_{\max} C}{1+K_{Lang}C}
 
@@ -82,7 +82,7 @@ The velocity of the mass transfer zone (mtz or the adsorption front) can be obta
 The average velocity of the solid phase exiting through the control surface is :math:`-v_{mtz}`. The bulk density of the adsorbate is :math:`\frac{q_0 M_{adsorbent}}{V_{column}}`. The mass rate of adsorbate passing through the control surface in liquid phase must precisely balance the mass rate of adsorbate passing through the control surface in the solid phase because the mtz is stationary.
 
 .. math::
-    :label: eq_mtz_cs_1
+   :label: eq_mtz_cs_1
 
     [(v_{pore} - v_{mtz})C_0\phi] - \left[v_{mtz}\frac{q_0 M_{adsorbent}}{V_{column}}\right] = 0
 
@@ -115,7 +115,7 @@ Eliminate :math:`v_{pore}` from the equation :eq:`eq_mtz_cs_1` we obtain:
 Now solve for :math:`v_{mtz}`.
 
 .. math::
-    :label: eq_Adsorb_v_mtz
+   :label: eq_Adsorb_v_mtz
 
     v_{mtz}=\frac{v_a C_0}{C_0\phi + \frac{q_0 M_{adsorbent}}{V_{column}}}
 
@@ -138,7 +138,7 @@ Thus the time to breakthrough is the time required for water to flow through the
 
 
 .. math::
-    :label: eq_R_adsorption_tmz
+   :label: eq_R_adsorption_tmz
 
    R_{adsorption} = \frac{t_{mtz}}{t_{water}} = \frac{v_{pore}}{v_{mtz}} = \frac{v_a}{\phi v_{mtz}}
 
@@ -146,14 +146,14 @@ Thus the time to breakthrough is the time required for water to flow through the
 Substituting equation :eq:`eq_Adsorb_v_mtz` into equation :eq:`eq_R_adsorption` we obtain:
 
 .. math::
-    :label: eq_R_adsorption
+   :label: eq_R_adsorption
 
     R_{adsorption} =1+ \frac{q_0 M_{adsorbent}}{C_0 \phi V_{column}}
 
 Experimentally we can estimate :math:`R_{adsorption}` based on the time required to reach 50% of the influent adsorbate for columns with and without adsorbent. Given the estimate of :math:`R_{adsorption}` we can estimate the mass of adsorbate per mass of adsorbent,  :math:`q_0`.
 
 .. math::
-    :label: eq_q_0
+   :label: eq_q_0
 
     q_0 = \left(R_{adsorption} - 1\right) \frac{C_0 \phi V_{column}}{M_{adsorbent}}
 
@@ -163,7 +163,7 @@ From experiments conducted in the Cornell environmental laboratory around 2003 w
 The approach velocity for granular activated carbon contactors is generally between 1.4 and 4.2 mm/s. We will operate at 1 mm/s.
 
 .. math::
-    :label: eq_M_ac
+   :label: eq_M_ac
 
     M_{adsorbent} = \left(R_{adsorption} - 1\right) \frac{C_0 \phi V_{column}}{q_0}
 
@@ -288,7 +288,7 @@ Spring 2019 is the first time that we are including this experiment. There are a
  #. Mass transport of the red dye into the activated carbon pores is slow because it is a diffusion process. It is possible that this will result in premature breakthrough of red dye long before the activated carbon reaches equilibrium with the influent concentration of red dye.
  #. The relatively small amount of activated carbon in the sand column may result in inefficient transport of the red dye to the activated carbon granules. This would also result in inefficient removal of red dye.
 
-An alternative to granular activated carbon is Poly aluminum chloride (PACl - not to be confused with Powdered Activated Carbon or PAC). PACl will remove red dye by adsorption and given that PACl forms nanoparticles (rather than millimeter sized granules for GAC) it is possible that the mass transport of red dye to PACl will be much faster mass transport of red dye to GAC. This could be tested by substituting PACl for GAC in the column. We would need to develop a method to deliver the PACl flocs to the sand column.
+An alternative to granular activated carbon is Poly aluminum chloride (PACl - not to be confused with Powdered Activated Carbon or PAC). PACl will remove red dye by adsorption and given that PACl forms nanoparticles (rather than millimeter sized granules for GAC) it is possible that the mass transport of red dye to PACl will be much faster than mass transport of red dye to GAC. This could be tested by substituting PACl for GAC in the column. We would need to develop a method to deliver the PACl flocs to the sand column.
 
 
 Contactor Results and Analysis
