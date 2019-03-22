@@ -33,14 +33,14 @@ Adsorption is a unit operation in which surface-active materials in true solutio
 Under isothermal conditions the equilibrium partitioning between solution and solid phase is a function of concentration. In this experiment the partitioning will be analyzed using both Freundlich
 
 .. math::
-    :label: Freundlich
+   :label: Freundlich
 
     q =K_f C^{\frac{1}{n}}
 
 and Langmuir partitioning models.
 
 .. math::
-    :label: Langmuir
+   :label: Langmuir
 
     q =\frac{K_{Lang}q_{\max} C}{1+K_{Lang}C}
 
@@ -79,11 +79,12 @@ The mass transfer zone travels at velocity :math:`v_{mtz}` through the fixed bed
 
 The velocity of the mass transfer zone (mtz or the adsorption front) can be obtained by a mass balance on the system. If we set our frame of reference (and our control volume) to be centered on the mass transfer zone, then the average velocity (over the pore fraction of the control surface) of fluid entering the mtz is equal to pore water velocity minus the velocity of the mtz. The fluid phase concentration of the adsorbate entering the control surface is :math:`C_0` and the fraction of the control surface where fluid is passing through is the porosity, :math:`\phi`.
 
-The average velocity of the solid phase exiting through the control surface is :math:`-v_{mtz}`. The bulk density of the adsorbate is :math:`q_0 \rho_{bulk \; adsorbent}` where :math:`\rho_{bulk \; adsorbent}` is the mass of adsorbent per volume of the packed bed. The mass rate of adsorbate passing through the control surface in liquid phase must precisely balance the mass rate of adsorbate passing through the control surface in the solid phase because the mtz is stationary.
+The average velocity of the solid phase exiting through the control surface is :math:`-v_{mtz}`. The bulk density of the adsorbate is :math:`\frac{q_0 M_{adsorbent}}{V_{column}}`. The mass rate of adsorbate passing through the control surface in liquid phase must precisely balance the mass rate of adsorbate passing through the control surface in the solid phase because the mtz is stationary.
 
 .. math::
+   :label: eq_mtz_cs_1
 
-    [(v_{pore} - v_{mtz})C_0\phi] - [(v_{mtz})q_0 \rho_{bulk \; adsorbent}] = 0
+    [(v_{pore} - v_{mtz})C_0\phi] - \left[v_{mtz}\frac{q_0 M_{adsorbent}}{V_{column}}\right] = 0
 
 We can apply continuity to find the relationship between the velocity in the pores and velocity above the porous fixed bed. The plan view area of the fixed bed cancels out.
 
@@ -91,33 +92,40 @@ We can apply continuity to find the relationship between the velocity in the por
 
     \phi v_{pore} = v_a
 
-Eliminate :math:`v_{pore}` from the equation
+The effective bed porosity, :math:`\phi` can be calculated from
 
 .. math::
 
-    (v_a C_0 - v_{mtz}C_0\phi) - [(v_{mtz})q_0 \rho_{bulk \; adsorbent}] = 0
+    \phi =1 - \frac{\frac{M_{ac}}{\rho_{ac}} + \frac{M_{sand}}{\rho_{sand}}}{V_{column}}
+
+where
+
+ | :math:`\rho_{ac}  =  2.1 g/cm^3`
+ | :math:`\rho_{sand} = 2.65 g/cm^3`
+
+
+Eliminate :math:`v_{pore}` from the equation :eq:`eq_mtz_cs_1` we obtain:
+
+.. math::
+
+    (v_a C_0 - v_{mtz}C_0\phi) - \left[v_{mtz}\frac{q_0 M_{adsorbent}}{V_{column}}\right] = 0
 
 
 
 Now solve for :math:`v_{mtz}`.
 
 .. math::
-    :label: eq_Adsorb_v_mtz
+   :label: eq_Adsorb_v_mtz
 
-    v_{mtz}=\frac{v_a C_0}{C_0\phi + q_0 \rho_{bulk \; adsorbent}}
+    v_{mtz}=\frac{v_a C_0}{C_0\phi + \frac{q_0 M_{adsorbent}}{V_{column}}}
 
-In equation :eq:`eq_Adsorb_v_mtz` the term :math:`C_0\phi` represents the liquid phase mass of the adsorbate per unit volume of the fixed bed and the term :math:`q_0 \rho_{bulk \; adsorbent}` represents the solid phase mass of the adsorbate per unit volume of the fixed bed. The second term dominates for fixed bed adsorption reactors that are effective and thus equation :eq:`eq_Adsorb_v_mtz` simplifies to:
-
-.. math::
-    :label: eq_Adsorb_v_mtz_simple
-
-    v_{mtz} \cong \frac{v_a C_0}{q_0 \rho_{bulk \; adsorbent}}
+In equation :eq:`eq_Adsorb_v_mtz` the term :math:`C_0\phi` represents the liquid phase mass of the adsorbate per unit volume of the fixed bed and the term :math:`\frac{q_0 M_{adsorbent}}{V_{column}}` represents the solid phase mass of the adsorbate per unit volume of the fixed bed. The second term dominates for fixed bed adsorption reactors that are effective.
 
 The time until breakthrough can be obtained by dividing the length of the adsorption column (:math:`L_{column}`) by the velocity of the mtz (equation :eq:`eq_Adsorb_v_mtz`)
 
 .. math::
 
-     \frac{L_{column}}{v_{mtz}} = \frac{L_{column}\phi}{v_a} + \frac{L_{column}q_0 \rho_{bulk \; adsorbent}}{v_a C_0}
+     \frac{L_{column}}{v_{mtz}} = \frac{L_{column}\phi}{v_a} + \frac{L_{column}q_0 M_{adsorbent}}{v_a C_0 V_{column}}
 
 The equation above is equivalent to
 
@@ -127,33 +135,37 @@ The equation above is equivalent to
 
 Thus the time to breakthrough is the time required for water to flow through the reactor plus the additional time required due to the adsorption process. The retardation factor is defined as the ratio of the time for the mass transfer zone to travel through the bed divided by the time for water to travel through the bed.
 
-.. math::
-    :label: eq_R_adsorption_
 
-    R_{adsorption} = \frac{t_{mtz}}{t_{water}} = \frac{v_{water}}{v_{mtz}}
 
 .. math::
+   :label: eq_R_adsorption_tmz
 
-    R_{adsorption}\cong  \frac{v_a q_0 \rho_{bulk \; adsorbent}}{\phi v_a C_0} =\frac{q_0 \rho_{bulk \; adsorbent}}{\phi C_0}
+   R_{adsorption} = \frac{t_{mtz}}{t_{water}} = \frac{v_{pore}}{v_{mtz}} = \frac{v_a}{\phi v_{mtz}}
 
-The effective bed porosity, :math:`\phi` can be calculated from
+
+Substituting equation :eq:`eq_Adsorb_v_mtz` into equation :eq:`eq_R_adsorption` we obtain:
 
 .. math::
+   :label: eq_R_adsorption
 
-    \phi =1-\frac{\rho _b }{\rho _{ac} }
+    R_{adsorption} =1+ \frac{q_0 M_{adsorbent}}{C_0 \phi V_{column}}
 
-where
+Experimentally we can estimate :math:`R_{adsorption}` based on the time required to reach 50% of the influent adsorbate for columns with and without adsorbent. Given the estimate of :math:`R_{adsorption}` we can estimate the mass of adsorbate per mass of adsorbent,  :math:`q_0`.
 
- | :math:`\rho_b =` apparent bulk density
- | :math:`\rho_{ac}  =  2.1 g/cm^3`
+.. math::
+   :label: eq_q_0
 
-From experiments conducted in the Cornell environmental laboratory around 2003 we have  :math:`q_{50 mg/L}` = 0.08. Our goal is to design a fixed bed reactor that has a :math:`t_{mtz}` of about 30 minutes. With a 15 cm deep column at 1 mm/s and with a porosity of 0.4 the hydraulic residence time is 1 minute. Given a target retardation factor of 30 we can calculate the bulk density of carbon that we should have in the column. We can achieve this bulk density by diluting the activated carbon with sand.
+    q_0 = \left(R_{adsorption} - 1\right) \frac{C_0 \phi V_{column}}{M_{adsorbent}}
+
+
+From experiments conducted in the Cornell environmental laboratory around 2003 we have  :math:`q_{50 mg/L}` = 0.08. Our goal is to design a fixed bed reactor that has a :math:`t_{mtz}` of about 30 minutes. With a 15 cm deep column at 1 mm/s and with a porosity of 0.4 the hydraulic residence time is 1 minute. Given a target retardation factor of 30 we can calculate the mass of carbon that we should have in the column. We can achieve this mass of carbon while holding the length of the column constant by diluting the activated carbon with sand.
 
 The approach velocity for granular activated carbon contactors is generally between 1.4 and 4.2 mm/s. We will operate at 1 mm/s.
 
 .. math::
+   :label: eq_M_ac
 
-    \rho_{bulk \; adsorbent} \cong \frac{R_{adsorption}\phi C_0}{q_0}
+    M_{adsorbent} = \left(R_{adsorption} - 1\right) \frac{C_0 \phi V_{column}}{q_0}
 
 Different teams can try different masses of activated carbon or could experiment with filling the sand pores with coagulant as an alternative adsorbent.
 
@@ -166,36 +178,33 @@ Different teams can try different masses of activated carbon or could experiment
    v_a = 1 * u.mm/u.s
    porosity = 0.4
    L_column = 15.2 * u.cm
+   D_column = 1*u.inch
+   A_column = pc.area_circle(D_column)
+   V_column = A_column * L_column
    C_0 = 50 * u.mg/u.L
    q_0 = 0.08
    t_water = (L_column*porosity/v_a).to(u.s)
    t_mtz_target = 1800*u.s
    # set the breakthrough time to 30 minutes = 1800 s
    R_adsorption = t_mtz_target/t_water
-   Density_bulk_AC_diluted = (R_adsorption * porosity * C_0/q_0).to(u.kg/u.m**3)
-   print('The bulk density of activated carbon given the dilution with sand should be',ut.round_sf(Density_bulk_AC_diluted,2))
-   D_column = 1*u.inch
-   A_column = pc.area_circle(D_column)
-   V_column = A_column * L_column
-   M_carbon = (V_column * Density_bulk_AC_diluted).to(u.g)
-   print('The mass of activated carbon should be',ut.round_sf(M_carbon,2))
+   M_ac = ((R_adsorption-1)*C_0*porosity*V_column/q_0).to(u.g)
+   print('The mass of activated carbon given the dilution with sand should be',ut.round_sf(M_ac,2))
    Density_AC = 2100 *u.kg/(u.m**3)
-   V_carbon = (M_carbon/Density_AC/porosity).to(u.mL)
+   #We measured the bulk density in the lab
+   Density_bulk_AC = 386 * u.kg/u.m**3
+   V_carbon = (M_carbon/Density_bulk_AC).to(u.mL)
    print('The volume of activated carbon is approximately',ut.round_sf(V_carbon,2))
-
-
    density_sand = 2650 * u.kg/u.m**3
    M_sand = ((V_column-V_carbon)*density_sand*(1-porosity)).to(u.g)
    print('The mass of sand is',ut.round_sf(M_sand,2))
 
-   V_reddye = (v_a*A_column*t_mtz).to(u.L)
+   V_reddye = (v_a*A_column*t_mtz_target).to(u.L)
    print('The volume of red dye required for one experiment is',ut.round_sf(V_reddye,2))
    Q_reddye = (v_a*A_column).to(u.mL/u.min)
    print('The flow rate is',ut.round_sf(Q_reddye,2))
    mLperrev_Tubing_17 = 2.8 * u.mL/u.revolution
    Pump_rpm = (Q_reddye/mLperrev_Tubing_17).to(u.revolution/u.min)
    print('The pump rpm is',ut.round_sf(Pump_rpm,3))
-
 
 
 .. _heading_Adsorption_Contactor_Procedures:
@@ -279,7 +288,7 @@ Spring 2019 is the first time that we are including this experiment. There are a
  #. Mass transport of the red dye into the activated carbon pores is slow because it is a diffusion process. It is possible that this will result in premature breakthrough of red dye long before the activated carbon reaches equilibrium with the influent concentration of red dye.
  #. The relatively small amount of activated carbon in the sand column may result in inefficient transport of the red dye to the activated carbon granules. This would also result in inefficient removal of red dye.
 
-An alternative to granular activated carbon is Poly aluminum chloride (PACl - not to be confused with Powdered Activated Carbon or PAC). PACl will remove red dye by adsorption and given that PACl forms nanoparticles (rather than millimeter sized granules for GAC) it is possible that the mass transport of red dye to PACl will be much faster mass transport of red dye to GAC. This could be tested by substituting PACl for GAC in the column. We would need to develop a method to deliver the PACl flocs to the sand column.
+An alternative to granular activated carbon is Poly aluminum chloride (PACl - not to be confused with Powdered Activated Carbon or PAC). PACl will remove red dye by adsorption and given that PACl forms nanoparticles (rather than millimeter sized granules for GAC) it is possible that the mass transport of red dye to PACl will be much faster than mass transport of red dye to GAC. This could be tested by substituting PACl for GAC in the column. We would need to develop a method to deliver the PACl flocs to the sand column.
 
 
 Contactor Results and Analysis
@@ -288,8 +297,7 @@ Contactor Results and Analysis
  #. Plot the breakthrough curves showing :math:`\frac{C}{C_0}` versus time.
  #. Find the time when the effluent concentration was 50% of the influent concentration and plot that as a function of the mass of activated carbon used.
  #. Calculate the retardation coefficient (:math:`R_{adsorption}`) based on the time to breakthrough for the columns with and without activated carbon.
- #. Calculate the quantity of Red Dye \#40 that was transferred to the activated carbon based on the influent concentration, flow rate, and 50% breakthrough time.
- #. Calculate the :math:`q_0` for each of the columns. Plot this as a function of the mass of activated carbon used.
+ #. Calculate the :math:`q_0` for each of the columns based on equation :eq:`eq_q_0`. Plot this as a function of the mass of activated carbon used.
 
  What did you learn from this analysis? How can you explain the results that you have obtained? What changes to the experimental method do you recommend for next year (or for a project)?
 
@@ -298,7 +306,7 @@ Contactor Results and Analysis
 Prelab Questions
 ================
 
-#. A carbon column is packed with 15 cm of activated carbon and then used to remove 50 mg/L of red dye \#40. The approach velocity is 1 mm/s, the porosity is 0.4, and the bulk density of the activated carbon is 0.5 :math:`g/cm^3`. How long will it take for the mass transfer zone to travel to the bottom of the carbon column?
+#. A carbon column is packed with 15 cm of activated carbon and then used to remove 50 mg/L of red dye \#40. The approach velocity is 1 mm/s, the porosity is 0.8, and the bulk density of the activated carbon is 0.38 :math:`g/cm^3`. The mass of red dye per mass of carbon at equilibrium with 50 mg/L of red dye is 0.08. How long will it take for the mass transfer zone to travel to the bottom of the carbon column?
 
 .. _heading_Adsorption_Lab_Prep_Notes:
 

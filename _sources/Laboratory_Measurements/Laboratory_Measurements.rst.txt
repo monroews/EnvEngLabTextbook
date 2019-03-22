@@ -24,7 +24,7 @@ Preparation of dilutions is also frequently required. Many analytical techniques
 Absorption spectroscopy is one analytical technique that can be used to measure the concentration of a compound. Solutions that are colored absorb light in the visible range. The resulting color of the solution is from the light that is transmitted. According to Beer's law the attenuation of light in a chemical solution is related to the concentration and the length of the path that the light passes through.
 
 .. math::
-    :label: eq_Fund_attenuation
+   :label: eq_Fund_attenuation
 
     \log \left(\frac{P_o }{P} \right)=\varepsilon bc
 
@@ -32,14 +32,14 @@ where c is the concentration of the chemical species, b is the distance the ligh
 
 
 .. math::
-    :label: eq_Fund_Abs_of_attenuation
+   :label: eq_Fund_Abs_of_attenuation
 
     A=\log \left(\frac{P_{o} }{P} \right)
 
 In practice :math:`P_0` is the intensity of light through a reference sample (such as deionized water) and thus accounts for any losses in the walls of the sample chamber. From equation :eq:`eq_Fund_attenuation` and :eq:`eq_Fund_Abs_of_attenuation` it may be seen that absorption is directly proportional to the concentration of the chemical species.
 
 .. math::
-    :label: eq_Fund_Beer
+   :label: eq_Fund_Beer
 
     A=\varepsilon bc
 

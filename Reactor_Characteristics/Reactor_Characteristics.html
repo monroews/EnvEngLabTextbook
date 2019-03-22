@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Reactor Characteristics &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.30 documentation</title>
+  <title>Reactor Characteristics &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.32 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                v.0.0.30
+                v.0.0.32
               </div>
             
           
@@ -265,7 +265,7 @@
 <h3>Completely Mixed Flow Reactor<a class="headerlink" href="#completely-mixed-flow-reactor" title="Permalink to this headline">¶</a></h3>
 <p>Completely mixed flow regimes can be approximated quite closely in practice. In the case of CMFRs, there is not an analytical solution to the advection-dispersion equation so we revert to a simple mass balance. For a completely mixed reactor a mass balance on a conservative tracer yields the following differential equation:</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-mass-balance">
-<span class="eqno">(52)<a class="headerlink" href="#equation-eq-reactor-mass-balance" title="Permalink to this equation">¶</a></span>\[\rlap{-} V _{r} \frac{dC}{dt} =\left(C_{in} -C\right)Q\]</div>
+<span class="eqno">(52)<a class="headerlink" href="#equation-eq-reactor-mass-balance" title="Permalink to this equation">¶</a></span>\[ \rlap{-} V _{r} \frac{dC}{dt} =\left(C_{in} -C\right)Q\]</div>
 <p>where Q is the volumetric flow rate and <span class="math notranslate nohighlight">\(\rlap{-} V_r\)</span> is the volume of the reactor.</p>
 <p>Equation <a class="reference internal" href="#equation-eq-reactor-mass-balance">(52)</a> can be used to predict a variety of effluent responses to tracer inputs. If a pulse of tracer is discharged directly into a reactor so that the initial concentration of tracer in the reactor is <span class="math notranslate nohighlight">\(C_{0} =\frac{C_{tr} \rlap{-} V _{tr} }{\rlap{-} V _{r} }\)</span> and the input concentration is zero (<span class="math notranslate nohighlight">\(C_{in} = 0\)</span>) the solution to the differential equation is:</p>
 <div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-2">
@@ -299,7 +299,7 @@
 <h3>Open Boundary conditions: One Dimensional Advection-Dispersion Equation<a class="headerlink" href="#open-boundary-conditions-one-dimensional-advection-dispersion-equation" title="Permalink to this headline">¶</a></h3>
 <p>The governing differential equation for a conservative (i.e., non-reactive) substance in a reactor that has advective transport (i.e., flow) and some mixing (dispersion) in the direction of flow (x - dimension) is given in equation <a class="reference internal" href="#equation-eq-reactor-diff-advect-disperse">(56)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-diff-advect-disperse">
-<span class="eqno">(56)<a class="headerlink" href="#equation-eq-reactor-diff-advect-disperse" title="Permalink to this equation">¶</a></span>\[\frac{\partial C}{\partial t} ={\rm \; -U}\frac{\partial C}{\partial x} +{\rm \; D}_{{\rm d}} \frac{\partial ^{2} C}{\partial x^{2}}\]</div>
+<span class="eqno">(56)<a class="headerlink" href="#equation-eq-reactor-diff-advect-disperse" title="Permalink to this equation">¶</a></span>\[ \frac{\partial C}{\partial t} ={\rm \; -U}\frac{\partial C}{\partial x} +{\rm \; D}_{{\rm d}} \frac{\partial ^{2} C}{\partial x^{2}}\]</div>
 <dl class="docutils">
 <dt>Where</dt>
 <dd><div class="first last line-block">
@@ -312,7 +312,7 @@
 </dl>
 <p>The dispersion is described by a single parameter that is the same in the reactor as it is at the inlet and outlet for open boundary conditions. The solution to <a class="reference internal" href="#equation-eq-reactor-diff-advect-disperse">(56)</a> for the case of complete mixing in the y-z plane and advective and dispersive transport only in the x direction for any x and t (after t=0) gives:</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-advect-disperse">
-<span class="eqno">(57)<a class="headerlink" href="#equation-eq-reactor-advect-disperse" title="Permalink to this equation">¶</a></span>\[{\rm C(x,t)\; }={\rm \; }\frac{M}{A\sqrt{4\pi D_{d} t} } \exp \left[\frac{-x'^{2} }{4D_{d} t} \right]\]</div>
+<span class="eqno">(57)<a class="headerlink" href="#equation-eq-reactor-advect-disperse" title="Permalink to this equation">¶</a></span>\[ {\rm C(x,t)\; }={\rm \; }\frac{M}{A\sqrt{4\pi D_{d} t} } \exp \left[\frac{-x'^{2} }{4D_{d} t} \right]\]</div>
 <dl class="docutils">
 <dt>Where</dt>
 <dd><div class="first last line-block">
@@ -325,11 +325,11 @@
 </dl>
 <p>A measure of dispersion can be obtained directly from equation <a class="reference internal" href="#equation-eq-reactor-advect-disperse">(57)</a>. From this equation we expect a maximum value of C at t = x/U. At this time <span class="math notranslate nohighlight">\({\rm C(x,t)\; }={\rm \; }\frac{M}{A\sqrt{4\pi D_{d} t} }\)</span> . If the mass of the tracer input (M) and reactor cross-sectional area (A) are known, then <span class="math notranslate nohighlight">\(D_{d}\)</span> can be estimated. Equation <a class="reference internal" href="#equation-eq-reactor-advect-disperse">(57)</a> can be made dimensionless to more clearly reveal the important parameters. The dispersion coefficient can be made dimensionless by dividing into a velocity and a length.</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-pe">
-<span class="eqno">(58)<a class="headerlink" href="#equation-eq-reactor-pe" title="Permalink to this equation">¶</a></span>\[Pe=\frac{UL}{D_{d}}\]</div>
+<span class="eqno">(58)<a class="headerlink" href="#equation-eq-reactor-pe" title="Permalink to this equation">¶</a></span>\[ Pe=\frac{UL}{D_{d}}\]</div>
 <p>where L is the length of the reactor and U is the mean advective velocity. The dimensionless parameter Pe (Peclet number) is used to characterize the level of dispersion in a reactor. The Peclet number is the ratio of advective to dispersive transport. In the limiting cases when Pe = 0 (very high dispersion) we have a completely mixed regime (CMFR) and when <span class="math notranslate nohighlight">\(Pe = \mathrm{\infty}\)</span>, <span class="math notranslate nohighlight">\(D_{d}\)</span> = 0, no dispersion) we have a plug flow reactor (PFR).</p>
 <p>The time can be normalized by dividing by the hydraulic residence time.</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-tstar">
-<span class="eqno">(59)<a class="headerlink" href="#equation-eq-reactor-tstar" title="Permalink to this equation">¶</a></span>\[t^{\star} =\frac{tU}{L}\]</div>
+<span class="eqno">(59)<a class="headerlink" href="#equation-eq-reactor-tstar" title="Permalink to this equation">¶</a></span>\[ t^{\star} =\frac{tU}{L}\]</div>
 <p>Combining Equations <a class="reference internal" href="#equation-eq-reactor-pe">(58)</a> and <a class="reference internal" href="#equation-eq-reactor-tstar">(59)</a> we obtain <span class="math notranslate nohighlight">\(D_{d} t=t^{\star} PeL^{2}\)</span> for substitution into Equation <a class="reference internal" href="#equation-eq-reactor-advect-disperse">(57)</a>. The concentration can be normalized by the mass of the tracer and the volume, <span class="math notranslate nohighlight">\(\rlap{-} V\)</span>, of the reactor.</p>
 <div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-5">
 <span class="eqno">(60)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-5" title="Permalink to this equation">¶</a></span>\[\rlap{-} V =AL\]</div>
@@ -340,7 +340,7 @@
 <span class="eqno">(62)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-7" title="Permalink to this equation">¶</a></span>\[x'^{2} =\left(L-Ut\right)^{2} =\left(1-t^{\star} \right)^{2} L^{2}\]</div>
 <p>The resulting dimensionless form of Equation <a class="reference internal" href="#equation-eq-reactor-advect-disperse">(57)</a> is given in Equation <a class="reference internal" href="#equation-eq-reactor-e-ad">(63)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-e-ad">
-<span class="eqno">(63)<a class="headerlink" href="#equation-eq-reactor-e-ad" title="Permalink to this equation">¶</a></span>\[E_{\left(t^{\star} \right)} =\sqrt{\frac{Pe}{4\pi t^{\star} } } \exp \left[\frac{-\left(1-t^{\star} \right)^{2} Pe}{4t^{\star} } \right]\]</div>
+<span class="eqno">(63)<a class="headerlink" href="#equation-eq-reactor-e-ad" title="Permalink to this equation">¶</a></span>\[ E_{\left(t^{\star} \right)} =\sqrt{\frac{Pe}{4\pi t^{\star} } } \exp \left[\frac{-\left(1-t^{\star} \right)^{2} Pe}{4t^{\star} } \right]\]</div>
 <p>Response curves for the advection-dispersion equation are shown in <a class="reference internal" href="#figure-e-f-pe-100"><span class="std std-numref">Fig. 11</span></a> and <a class="reference internal" href="#figure-e-f-pe-4"><span class="std std-numref">Fig. 12</span></a>. The exit age curve is highly skewed for low Pe because tracer that is in the reactor longer has more time for dispersion. As the Peclet number increases the dispersion decreases and the response becomes closer to plug flow.</p>
 <div class="figure align-center" id="id5">
 <span id="figure-e-f-pe-100"></span><a class="reference internal image-reference" href="../_images/E_F_Pe_100.png"><img alt="E_F_Pe_100" src="../_images/E_F_Pe_100.png" style="width: 300px;" /></a>
@@ -356,7 +356,7 @@
 <span class="eqno">(64)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-8" title="Permalink to this equation">¶</a></span>\[\frac{CA}{M} ={\rm \; }\frac{1}{\sigma _{x} \sqrt{2\pi } } \exp \left[\frac{-x^{2} }{4\sigma _{x}^{2} } \right]\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-sigma-dispersion">
-<span class="eqno">(65)<a class="headerlink" href="#equation-eq-reactor-sigma-dispersion" title="Permalink to this equation">¶</a></span>\[\sigma _{x}^{2} =2D_{d} t\]</div>
+<span class="eqno">(65)<a class="headerlink" href="#equation-eq-reactor-sigma-dispersion" title="Permalink to this equation">¶</a></span>\[ \sigma _{x}^{2} =2D_{d} t\]</div>
 <p>Or in dimensionless form:</p>
 <div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-9">
 <span class="eqno">(66)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-9" title="Permalink to this equation">¶</a></span>\[\frac{\sigma _{x}^{2} }{L^{2} } =2t^{\star} Pe\]</div>
@@ -367,10 +367,10 @@
 <p>Completely mixed flow reactors are sometimes connected in series to create a reactor system with flow characteristics in between CMFR and PFR. CMFRs in series increase overall process efficiency because the reactants are at higher concentrations in the first reactors than they would be in a single large CMFR. Thus the total reactor volume can be smaller with a series of CMFRs. Similarly the reaction process can be made more efficient given the same reactor volume if it is divided into a series of CMFRs.</p>
 <p>Non ideal reactors with mixing levels between that of CMFRs and PFRs and reactors containing baffles can also be modeled as a series of CMFRs. In this case the mixing level for the system is represented by the number of CMFRs that are used to represent the non-ideal reactor. The equation describing the concentration of a conservative tracer in the <span class="math notranslate nohighlight">\(N^{th}\)</span> reactor is given in equation <a class="reference internal" href="#equation-eq-reactor-c-n-cmfr">(67)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-c-n-cmfr">
-<span class="eqno">(67)<a class="headerlink" href="#equation-eq-reactor-c-n-cmfr" title="Permalink to this equation">¶</a></span>\[\frac{C_{N} \left(t\right)\rlap{-} V }{M} =\frac{N^N}{\left(N-1\right)!} \left(\frac{t}{\theta} \right)^{N-1} {\mathop{e}\nolimits^{{}^{\left(\frac{-Nt}{\theta} \right)} }}\]</div>
+<span class="eqno">(67)<a class="headerlink" href="#equation-eq-reactor-c-n-cmfr" title="Permalink to this equation">¶</a></span>\[ \frac{C_{N} \left(t\right)\rlap{-} V }{M} =\frac{N^N}{\left(N-1\right)!} \left(\frac{t}{\theta} \right)^{N-1} {\mathop{e}\nolimits^{{}^{\left(\frac{-Nt}{\theta} \right)} }}\]</div>
 <p>The non-dimensional form of equation <a class="reference internal" href="#equation-eq-reactor-c-n-cmfr">(67)</a> is given in equation <a class="reference internal" href="#equation-eq-reactor-e-n-cmfr">(68)</a></p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-e-n-cmfr">
-<span class="eqno">(68)<a class="headerlink" href="#equation-eq-reactor-e-n-cmfr" title="Permalink to this equation">¶</a></span>\[{E_{N}}_{\left(t^{\star} \right)} = \frac{N^N}{\left(N-1\right)!} \left(t^{\star} \right)^{N-1} {\mathop{e}\nolimits^{{}^{\left(-Nt^{\star} \right)} }}\]</div>
+<span class="eqno">(68)<a class="headerlink" href="#equation-eq-reactor-e-n-cmfr" title="Permalink to this equation">¶</a></span>\[ {E_{N}}_{\left(t^{\star} \right)} = \frac{N^N}{\left(N-1\right)!} \left(t^{\star} \right)^{N-1} {\mathop{e}\nolimits^{{}^{\left(-Nt^{\star} \right)} }}\]</div>
 <p>It can be shown that equations <a class="reference internal" href="#equation-eq-reactor-e-ad">(63)</a> and <a class="reference internal" href="#equation-eq-reactor-e-n-cmfr">(68)</a> converge for large N when</p>
 <div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-10">
 <span class="eqno">(69)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-10" title="Permalink to this equation">¶</a></span>\[Pe=2N\]</div>
@@ -394,10 +394,10 @@
 <span class="eqno">(71)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-12" title="Permalink to this equation">¶</a></span>\[\bar{t}{\rm \; }={\rm \; }\frac{\int _{0}^{\infty }t\; C(t)dt }{\int _{0}^{\infty }C(t)dt }\]</div>
 <p>For discrete data points:</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-sigma">
-<span class="eqno">(72)<a class="headerlink" href="#equation-eq-reactor-sigma" title="Permalink to this equation">¶</a></span>\[\sigma _{t}^{2} =\; \frac{\sum _{i=0}^{n}t_{i}^{2} \cdot C_{i}  \Delta t}{\sum _{i=0}^{n}C_{i}  \Delta t} -\; \bar{t}^{2}\]</div>
+<span class="eqno">(72)<a class="headerlink" href="#equation-eq-reactor-sigma" title="Permalink to this equation">¶</a></span>\[ \sigma _{t}^{2} =\; \frac{\sum _{i=0}^{n}t_{i}^{2} \cdot C_{i}  \Delta t}{\sum _{i=0}^{n}C_{i}  \Delta t} -\; \bar{t}^{2}\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-tbar">
-<span class="eqno">(73)<a class="headerlink" href="#equation-eq-reactor-tbar" title="Permalink to this equation">¶</a></span>\[\bar{t}=\; \frac{\sum _{i=0}^{n}t_{i} \cdot C_{i}  \Delta t}{\sum _{i=0}^{n}C_{i}  \Delta t}\]</div>
+<span class="eqno">(73)<a class="headerlink" href="#equation-eq-reactor-tbar" title="Permalink to this equation">¶</a></span>\[ \bar{t}=\; \frac{\sum _{i=0}^{n}t_{i} \cdot C_{i}  \Delta t}{\sum _{i=0}^{n}C_{i}  \Delta t}\]</div>
 <p>Inlet and outlet boundary conditions affect the response obtained from a reactor. Closed reactors have little dispersion across their inlet and outlet boundaries whereas open reactors can have significant dispersion across their inlet and outlet boundaries. Typically open systems have no physical boundaries in the direction of flow. An example of an open system would be a river segment. Closed systems have small inlets and outlets that minimize dispersion across the inlet and outlet regions. An example of a closed system is a tank (or a lake) with a small inlet and outlet. The reactor used in the lab is closed. The <span class="math notranslate nohighlight">\(\bar{t}\)</span> in equation <a class="reference internal" href="#equation-eq-reactor-tbar">(73)</a> is the measured average residence time for the tracer in the reactor. For ideal closed reactors the measured residence time, <span class="math notranslate nohighlight">\(\bar{t}\)</span>, is equal to the theoretical hydraulic residence time (<span class="math notranslate nohighlight">\(\theta\)</span> = reactor volume/flow rate). For open reactors <span class="math notranslate nohighlight">\(\bar{t}\)</span> can exceed the hydraulic residence time. If <span class="math notranslate nohighlight">\(\bar{t}\)</span> is less than the hydraulic residence time it may indicate that the reactor contains “dead volume” or “short circuiting” such that some volume of the reactor is effectively unused.</p>
 <p>The above equations suggest that from the reactor response to a spike input we can compute the dispersion coefficient for the reactor. We have two options for measuring reactor response:</p>
 <blockquote>
@@ -411,26 +411,26 @@
 <p>For single point sampling of the effluent response curve, skew increases as the dispersion level in the reactor increases. The degree of skew depends on the dispersion coefficient, the velocity in the x-direction, and the length of the reactor. Peclet values in the range <span class="math notranslate nohighlight">\(100\mathrm{&lt;}Pe \mathrm{&lt;} \mathrm{\infty}\)</span> result in a symmetric response curve.</p>
 <p>Response curve skew makes the assumption of a symmetrical normal distribution curve inappropriate and a new relationship between the variance and the dispersion coefficient (or <em>Pe</em>) has to be determined. Boundary conditions affect the determination of the dispersion coefficient. The relationship between the Peclet number and variance for open systems is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-sigma-open">
-<span class="eqno">(74)<a class="headerlink" href="#equation-eq-reactor-sigma-open" title="Permalink to this equation">¶</a></span>\[\sigma _{t}^{2} =\left(\frac{2}{Pe} +\frac{8}{Pe^{2} } \right)\cdot \theta ^{2}\]</div>
+<span class="eqno">(74)<a class="headerlink" href="#equation-eq-reactor-sigma-open" title="Permalink to this equation">¶</a></span>\[ \sigma _{t}^{2} =\left(\frac{2}{Pe} +\frac{8}{Pe^{2} } \right)\cdot \theta ^{2}\]</div>
 <p>For closed systems the relationship is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-sigma-closed">
-<span class="eqno">(75)<a class="headerlink" href="#equation-eq-reactor-sigma-closed" title="Permalink to this equation">¶</a></span>\[\sigma _{t}^{2} =\left[\frac{2}{Pe} -\frac{2}{Pe^{2} } \cdot \left(1-{\mathop{e}\nolimits^{-Pe}} \right)\right]\cdot \theta ^{2}\]</div>
+<span class="eqno">(75)<a class="headerlink" href="#equation-eq-reactor-sigma-closed" title="Permalink to this equation">¶</a></span>\[ \sigma _{t}^{2} =\left[\frac{2}{Pe} -\frac{2}{Pe^{2} } \cdot \left(1-{\mathop{e}\nolimits^{-Pe}} \right)\right]\cdot \theta ^{2}\]</div>
 <p>The term <span class="math notranslate nohighlight">\(\frac{2}{Pe}\)</span> in equations <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> and <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> is dominant for Peclet numbers much greater than 10 as is shown in <a class="reference internal" href="#figure-pe-open-and-closed"><span class="std std-numref">Fig. 14</span></a>. The additional terms in equations <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> and <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> are corrections for skewedness in the response curve. These skewedness corrections are not very significant for Peclet numbers greater than 10. Thus for Peclet numbers greater than 10 the Peclet number can be determined using equation <a class="reference internal" href="#equation-eq-reactor-sigma-approx">(76)</a> for both open and closed systems.</p>
 <div class="figure align-center" id="id8">
 <span id="figure-pe-open-and-closed"></span><a class="reference internal image-reference" href="../_images/Pe_open_and_closed.png"><img alt="Pe_open_and_closed" src="../_images/Pe_open_and_closed.png" style="width: 300px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Relationship between equations <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> through <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a>.</span></p>
 </div>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-sigma-approx">
-<span class="eqno">(76)<a class="headerlink" href="#equation-eq-reactor-sigma-approx" title="Permalink to this equation">¶</a></span>\[Pe=\frac{2\theta ^{2} }{\sigma _{t}^{2} }\]</div>
+<span class="eqno">(76)<a class="headerlink" href="#equation-eq-reactor-sigma-approx" title="Permalink to this equation">¶</a></span>\[ Pe=\frac{2\theta ^{2} }{\sigma _{t}^{2} }\]</div>
 </div>
 <div class="section" id="mass-conservation">
 <h3>Mass Conservation<a class="headerlink" href="#mass-conservation" title="Permalink to this headline">¶</a></h3>
 <p>When a pulse of conservative tracer is added to a continuous flow reactor, all of the tracer is expected to leave the reactor eventually. The mass of a substance that has left the reactor is given in equation <a class="reference internal" href="#equation-eq-reactor-mout">(77)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-mout">
-<span class="eqno">(77)<a class="headerlink" href="#equation-eq-reactor-mout" title="Permalink to this equation">¶</a></span>\[M_{out} =\sum _{i=0}^{n}QC_{i} \Delta t_{i}\]</div>
+<span class="eqno">(77)<a class="headerlink" href="#equation-eq-reactor-mout" title="Permalink to this equation">¶</a></span>\[ M_{out} =\sum _{i=0}^{n}QC_{i} \Delta t_{i}\]</div>
 <p>where Q is the flow rate and M is the mass of any substance whose concentration is given by C. If Q and <span class="math notranslate nohighlight">\(\mathrm{\Delta}t\)</span> are constant, then equation <a class="reference internal" href="#equation-eq-reactor-mout">(77)</a> can be rewritten as</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-mout-constantq">
-<span class="eqno">(78)<a class="headerlink" href="#equation-eq-reactor-mout-constantq" title="Permalink to this equation">¶</a></span>\[M_{out} =Q\Delta t\sum _{i=0}^{n}C_{i}\]</div>
+<span class="eqno">(78)<a class="headerlink" href="#equation-eq-reactor-mout-constantq" title="Permalink to this equation">¶</a></span>\[ M_{out} =Q\Delta t\sum _{i=0}^{n}C_{i}\]</div>
 <p>Equation <a class="reference internal" href="#equation-eq-reactor-mout-constantq">(78)</a> can be used to determine if all of the tracer was measured in the reactor effluent. Alternately, mass conservation can be checked by plotting the F curve and checking if the plot approaches #. If some of the tracer is in the reactor at the end of the experiment then the following equation can be used to test for mass closure.</p>
 <div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-13">
 <span class="eqno">(79)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-13" title="Permalink to this equation">¶</a></span>\[M_{in} =M_{out} +\Delta M_{stored}\]</div>
@@ -646,7 +646,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v.0.0.30',
+            VERSION:'v.0.0.32',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

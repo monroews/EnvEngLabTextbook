@@ -13,7 +13,7 @@ This textbook is written and maintained in `Github <https://github.com/monroews/
    :align: center
 
    "Sphinx", "1.7.5"
-   "aide_design", "0.0.12"
+   "aguaclara", "0.0.23"
    "Anaconda", "4.5.4"
    "Python", "3.6.5"
 
