@@ -143,7 +143,7 @@ Thus the time to breakthrough is the time required for water to flow through the
    R_{adsorption} = \frac{t_{mtz}}{t_{water}} = \frac{v_{pore}}{v_{mtz}} = \frac{v_a}{\phi v_{mtz}}
 
 
-Substituting equation :eq:`eq_Adsorb_v_mtz` into equation :eq:`eq_R_adsorption` we obtain:
+Substituting equation :eq:`eq_Adsorb_v_mtz` into equation :eq:`eq_R_adsorption_tmz` we obtain:
 
 .. math::
    :label: eq_R_adsorption
@@ -241,7 +241,7 @@ Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pu
     Approach velocity (1 mm/s)
     Column diameter, 2.54 cm
     :math:`q_{(50 mg/L)}`, 0.080  g/g
-    Mass of carbon, "2, 5, 10, 20, 50  g"
+    Mass of carbon, "1, 2, 5, 10  g"
 
 
 Set up the Contactor
