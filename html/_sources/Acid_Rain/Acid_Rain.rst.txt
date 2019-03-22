@@ -26,7 +26,7 @@ Acid precipitation has been a serious environmental problem in many areas of the
 In acid-sensitive lakes the major parameter of concern is pH (:math:`pH = -log{\{H^+\}}`, where :math:`\{H^+\}` is the hydrogen ion activity, and activity is approximately equal to concentration in moles/L). In a healthy lake, ecosystem pH should be in the range of 6.5 to 8.5. In most natural freshwater systems, the dominant pH buffering (controlling) system is the carbonate system. The carbonate buffering system is composed of four components: dissolved carbon dioxide (:math:`{CO}_{{2\; aq}}`), carbonic acid (:math:`{H}_{{2}} {CO}_{{3}}`), bicarbonate (:math:`{HCO}_{{3}}^{{-}}`), and carbonate (:math:`{CO}_{{3}}^{{-2}}`). Carbonic acid exists only at very low levels in aqueous systems and for purposes of acid neutralization is indistinguishable from dissolved carbon dioxide. Thus to simplify things we define
 
 .. math::
-    :label: eq_total_carbonic
+   :label: eq_total_carbonic
 
     \left[{H}_{{2}} {CO}_{{3}}^{{*}} \right]=\left[{CO}_{{2\; aq}} \right]+\left[{H}_{{2}} {CO}_{{3}} \right]
 
@@ -47,38 +47,38 @@ Carbonate System
 For a fixed :math:`C_T`, the molar concentration of each species of the carbonate system is determined by pH. Equations :eq:`eq_carbonic_acid`-:eq:`eq_alpha2` show these functional relationships.
 
 .. math::
-    :label: eq_carbonic_acid
+   :label: eq_carbonic_acid
 
     \left[H_2 {CO}_3^* \right] = \frac{C_T}{1+\frac{K_1}{[H^+]} +\frac{K_1 K_2}{[H^+]^2} } = \alpha_0 C_T
 
 where
 
 .. math::
-    :label: eq_alpha0
+   :label: eq_alpha0
 
     \alpha_0 =\frac{1}{1+\frac{K_1 }{[H^+]} +\frac{K_1 K_2}{[H^+]^2} }
 
 .. math::
-    :label: eq_bicarbonate
+   :label: eq_bicarbonate
 
     \left[{HCO}_3^- \right]=\frac{C_T}{\frac{[H^+ ]}{K_1 } +1+ \frac{K_2}{[H^+]}} =\alpha_1 C_T
 
 where
 
 .. math::
-    :label: eq_alpha1
+   :label: eq_alpha1
 
     \alpha_1 = \frac{1}{\frac{[H^+]}{K_1} + 1 + \frac{K_2}{[H^+]}}
 
 .. math::
-    :label: eq_carbonate
+   :label: eq_carbonate
 
     \left[{CO}_3^{-2} \right] = \frac{C_T}{\frac{[H^+]^2}{K_1 K_2} +\frac{[H^+]}{K_2} +1 } =\alpha_2 C_T
 
 where
 
 .. math::
-    :label: eq_alpha2
+   :label: eq_alpha2
 
     \alpha_2 = \frac{1}{\frac{[H^+]^2 }{K_1 K_2} +\frac{[H^+]}{K_2} + 1}
 
@@ -87,21 +87,21 @@ where
 A measure of the susceptibility of lakes to acidification is the acid neutralizing capacity (ANC) of the lake water. In the case of the carbonate system, the ANC is exhausted when enough acid has been added to convert the carbonate species :math:`{HCO}_{{3}}^{{-}}`  and :math:`{CO}_{{3}}^{{-2}}` to :math:`{H}_{{2}} {CO}_{{3}}^\star`. A formal definition of total acid neutralizing capacity is given by equation :eq:`eq_ANC_definition1`
 
 .. math::
-    :label: eq_ANC_definition1
+   :label: eq_ANC_definition1
 
     {ANC\; }={\; }\left[{HCO}_{{3}}^{{-}} \right]+{\; 2}\left[{CO}_{{3}}^{{-2}} \right]+\left[{OH}^{{-}} \right]{\; -}\left[{H}^{+} \right]
 
 ANC has units of equivalents per liter. The hydroxide ion concentration can be obtained from the hydrogen ion concentration and the dissociation constant for water, :math:`K_w`.
 
 .. math::
-    :label: eq_OH_dissociation
+   :label: eq_OH_dissociation
 
     \left[{OH}^{{-}} \right] = \frac{K_w}{\left[H^+\right]}
 
 Substituting equations :eq:`eq_bicarbonate`, :eq:`eq_carbonate`, and :eq:`eq_OH_dissociation` into equation :eq:`eq_ANC_definition1`, we obtain
 
 .. math::
-    :label: eq_ANC_nonvolatile
+   :label: eq_ANC_nonvolatile
 
     ANC=C_T \left(\alpha_1 +2\alpha_2 \right)+\frac{K_w}{\left[H^+ \right]} - \left[H^+ \right]
 
@@ -124,7 +124,7 @@ where :math:`K_H` is Henry's constant for :math:`CO_2` in moles/L-atm and :math:
     P_{CO_2} K_H =\alpha_0 C_T
 
 .. math::
-    :label: eq_CT_volatile
+   :label: eq_CT_volatile
 
     C_T = \frac{P_{CO_2} K_H}{\alpha_0}
 
@@ -133,7 +133,7 @@ Equation :eq:`eq_CT_volatile` gives the equilibrium concentration of carbonate s
 The acid neutralizing capacity expression for a volatile system can be obtained by combining equations :eq:`eq_CT_volatile` and :eq:`eq_ANC_nonvolatile`.
 
 .. math::
-    :label: eq_ANC_volatile
+   :label: eq_ANC_volatile
 
     ANC=\frac{P_{CO_2} K_H }{\alpha_0 } (\alpha_1 +2\alpha_2 ) + \frac{K_w }{\left[H^+ \right]} - \left[H^+ \right]
 
@@ -142,12 +142,12 @@ In both non-volatile and volatile systems, equilibrium pH is controlled by syste
 Lake ANC is a direct reflection of the mineral composition of the watershed. Lake watersheds with hard, insoluble minerals yield lakes with low ANC. Typically watersheds with soluble, calcareous minerals yield lakes with high ANC. ANC of freshwater lakes is generally composed of bicarbonate, carbonate, and sometimes organic matter (:math:`{A}_{{org}}^{{-}}`). Organic matter derives from decaying plant matter in the watershed. When organic matter is significant, the ANC becomes (from equations :eq:`eq_ANC_nonvolatile` and :eq:`eq_ANC_volatile`):
 
 .. math::
-    :label: eq_ANC_nonvolatile_org
+   :label: eq_ANC_nonvolatile_org
 
     ANC=C_{T} (\alpha _{1} +2\alpha _{2} )+{\; }\frac{K_{w} }{\left[{H}^{+} \right]} \; -\left[{H}^{+} \right]+\left[{A}_{{org}}^{{-}} \right]
 
 .. math::
-    :label: eq_ANC_volatile_org
+   :label: eq_ANC_volatile_org
 
     ANC=\frac{P_{CO_{2} } K_{H} }{a_{0} } (\alpha _{1} +2\alpha _{2} )+\frac{K_{w} }{\left[{H}^{+} \right]} \; -\left[{H}^{+} \right]+\left[{A}_{{org}}^{{-}} \right]
 
@@ -206,7 +206,7 @@ where:
 We want to find ANC0 such that ANCout = 50 :math:`\mu eq/L` when t is equal to :math:`\theta`. Solving for :math:`ANC_{0}` we get:
 
 .. math::
-    :label: eq_ANC0_CMFR
+   :label: eq_ANC0_CMFR
 
     {ANC}_{{0}} {\; }=\left[{ANC}_{out} - ANC_{in} \cdot \left(1 - {\mathop{e}\nolimits^{-t/\theta}} \right)\right]{\mathop{e}\nolimits^{t/\theta}}
 

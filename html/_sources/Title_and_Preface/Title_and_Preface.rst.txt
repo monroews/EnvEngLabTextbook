@@ -35,7 +35,7 @@ Laboratory Manual
 
 
 
-© Cornell University 2018
+© Cornell University 2019
 
 
 Educational institutions may use this text freely if the title/author page is included. We request that instructors who use this text notify one of the authors so that the dissemination of the manual can be documented and to ensure receipt of future editions of this manual.
