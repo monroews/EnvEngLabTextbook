@@ -234,12 +234,13 @@ Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pu
    :widths: 20, 20
    :align: center
 
-    Influent red dye Concentration, 0.050  g/L
+    Influent red dye Concentration, 50  mg/L
     Mass of red dye/20 L, 1.00 g
     Depth of fixed bed, 15 cm
     Mass of sand, 120 g (to fill column)
     Approach velocity (1 mm/s)
     Column diameter, 2.54 cm
+    Bulk density of carbon, 386 :math:`\frac{kg}{m^3}`
     :math:`q_{(50 mg/L)}`, 0.080  g/g
     Mass of carbon, "1, 2, 5, 10  g"
 
