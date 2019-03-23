@@ -143,7 +143,7 @@ Thus the time to breakthrough is the time required for water to flow through the
    R_{adsorption} = \frac{t_{mtz}}{t_{water}} = \frac{v_{pore}}{v_{mtz}} = \frac{v_a}{\phi v_{mtz}}
 
 
-Substituting equation :eq:`eq_Adsorb_v_mtz` into equation :eq:`eq_R_adsorption` we obtain:
+Substituting equation :eq:`eq_Adsorb_v_mtz` into equation :eq:`eq_R_adsorption_tmz` we obtain:
 
 .. math::
    :label: eq_R_adsorption
@@ -234,14 +234,15 @@ Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pu
    :widths: 20, 20
    :align: center
 
-    Influent red dye Concentration, 0.050  g/L
+    Influent red dye Concentration, 50  mg/L
     Mass of red dye/20 L, 1.00 g
     Depth of fixed bed, 15 cm
     Mass of sand, 120 g (to fill column)
     Approach velocity (1 mm/s)
     Column diameter, 2.54 cm
+    Bulk density of carbon, 386 :math:`\frac{kg}{m^3}`
     :math:`q_{(50 mg/L)}`, 0.080  g/g
-    Mass of carbon, "2, 5, 10, 20, 50  g"
+    Mass of carbon, "1, 2, 5, 10  g"
 
 
 Set up the Contactor
@@ -296,10 +297,10 @@ Contactor Results and Analysis
 
  #. Plot the breakthrough curves showing :math:`\frac{C}{C_0}` versus time.
  #. Find the time when the effluent concentration was 50% of the influent concentration and plot that as a function of the mass of activated carbon used.
- #. Calculate the retardation coefficient (:math:`R_{adsorption}`) based on the time to breakthrough for the columns with and without activated carbon.
+ #. Calculate the retardation coefficient (:math:`R_{adsorption}`) based on the time to breakthrough for the columns with and without activated carbon. Subtract the residence time in the tubing and photometer to obtain a better estimate of the time that water spent flowing through the column and the time that it took for the red dye to break through.
  #. Calculate the :math:`q_0` for each of the columns based on equation :eq:`eq_q_0`. Plot this as a function of the mass of activated carbon used.
 
- What did you learn from this analysis? How can you explain the results that you have obtained? What changes to the experimental method do you recommend for next year (or for a project)?
+ What did you learn from this analysis? How can you explain the results that you have obtained? What changes to the experimental method do you recommend for next year (or for a project)? Why was :math:`q_0` not constant for the experiments?
 
 .. _heading_Adsorption_Pre-Laboratory_Questions:
 
