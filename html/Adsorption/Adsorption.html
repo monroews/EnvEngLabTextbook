@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Adsorption &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
+  <title>Adsorption &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.33 documentation</title>
   
 
   
@@ -57,6 +57,10 @@
 
           
             
+            
+              <div class="version">
+                v.0.0.33
+              </div>
             
           
 
@@ -280,7 +284,7 @@
 <p>Thus the time to breakthrough is the time required for water to flow through the reactor plus the additional time required due to the adsorption process. The retardation factor is defined as the ratio of the time for the mass transfer zone to travel through the bed divided by the time for water to travel through the bed.</p>
 <div class="math notranslate nohighlight" id="equation-eq-r-adsorption-tmz">
 <span class="eqno">(95)<a class="headerlink" href="#equation-eq-r-adsorption-tmz" title="Permalink to this equation">¶</a></span>\[R_{adsorption} = \frac{t_{mtz}}{t_{water}} = \frac{v_{pore}}{v_{mtz}} = \frac{v_a}{\phi v_{mtz}}\]</div>
-<p>Substituting equation <a class="reference internal" href="#equation-eq-adsorb-v-mtz">(92)</a> into equation <a class="reference internal" href="#equation-eq-r-adsorption-tmz">(95)</a> we obtain:</p>
+<p>Substituting equation <a class="reference internal" href="#equation-eq-adsorb-v-mtz">(92)</a> into equation <a class="reference internal" href="#equation-eq-r-adsorption">(96)</a> we obtain:</p>
 <div class="math notranslate nohighlight" id="equation-eq-r-adsorption">
 <span class="eqno">(96)<a class="headerlink" href="#equation-eq-r-adsorption" title="Permalink to this equation">¶</a></span>\[ R_{adsorption} =1+ \frac{q_0 M_{adsorbent}}{C_0 \phi V_{column}}\]</div>
 <p>Experimentally we can estimate <span class="math notranslate nohighlight">\(R_{adsorption}\)</span> based on the time required to reach 50% of the influent adsorbate for columns with and without adsorbent. Given the estimate of <span class="math notranslate nohighlight">\(R_{adsorption}\)</span> we can estimate the mass of adsorbate per mass of adsorbent,  <span class="math notranslate nohighlight">\(q_0\)</span>.</p>
@@ -350,7 +354,7 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Influent red dye Concentration</td>
-<td>50  mg/L</td>
+<td>0.050  g/L</td>
 </tr>
 <tr class="row-odd"><td>Mass of red dye/20 L</td>
 <td>1.00 g</td>
@@ -367,14 +371,11 @@
 <tr class="row-odd"><td>Column diameter</td>
 <td>2.54 cm</td>
 </tr>
-<tr class="row-even"><td>Bulk density of carbon</td>
-<td>386 <span class="math notranslate nohighlight">\(\frac{kg}{m^3}\)</span></td>
-</tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(q_{(50 mg/L)}\)</span></td>
+<tr class="row-even"><td><span class="math notranslate nohighlight">\(q_{(50 mg/L)}\)</span></td>
 <td>0.080  g/g</td>
 </tr>
-<tr class="row-even"><td>Mass of carbon</td>
-<td>1, 2, 5, 10  g</td>
+<tr class="row-odd"><td>Mass of carbon</td>
+<td>2, 5, 10, 20, 50  g</td>
 </tr>
 </tbody>
 </table>
@@ -442,10 +443,10 @@
 <div><ol class="arabic simple">
 <li>Plot the breakthrough curves showing <span class="math notranslate nohighlight">\(\frac{C}{C_0}\)</span> versus time.</li>
 <li>Find the time when the effluent concentration was 50% of the influent concentration and plot that as a function of the mass of activated carbon used.</li>
-<li>Calculate the retardation coefficient (<span class="math notranslate nohighlight">\(R_{adsorption}\)</span>) based on the time to breakthrough for the columns with and without activated carbon. Subtract the residence time in the tubing and photometer to obtain a better estimate of the time that water spent flowing through the column and the time that it took for the red dye to break through.</li>
+<li>Calculate the retardation coefficient (<span class="math notranslate nohighlight">\(R_{adsorption}\)</span>) based on the time to breakthrough for the columns with and without activated carbon.</li>
 <li>Calculate the <span class="math notranslate nohighlight">\(q_0\)</span> for each of the columns based on equation <a class="reference internal" href="#equation-eq-q-0">(97)</a>. Plot this as a function of the mass of activated carbon used.</li>
 </ol>
-<p>What did you learn from this analysis? How can you explain the results that you have obtained? What changes to the experimental method do you recommend for next year (or for a project)? Why was <span class="math notranslate nohighlight">\(q_0\)</span> not constant for the experiments?</p>
+<p>What did you learn from this analysis? How can you explain the results that you have obtained? What changes to the experimental method do you recommend for next year (or for a project)?</p>
 </div></blockquote>
 </div>
 </div>
@@ -556,7 +557,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'',
+            VERSION:'v.0.0.33',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
