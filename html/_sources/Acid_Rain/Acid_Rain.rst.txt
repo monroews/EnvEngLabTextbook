@@ -280,6 +280,7 @@ The following directions are written for the use of ProCoDA II hardware and soft
 We will use a pH probe to measure pH in this experiment. The pH probes are stored in a small plastic box.  Each bench has one pH probe. Plug the pH probe into the blue signal-conditioning box (it takes a push and a twist). Connect the cable to one of the sensor ports on your ProCoDA box.
 
  #. :ref:`Setup and calibrate the pH probe <heading_ProCoDA_pH_Measurement>`
+ #. Save the Calibration you have just created as a backup. You can do this by clicking on the 
  #. Verify that the experimental setup is plumbed so that the acid rain is pumped directly into the lake.  The lake outflow should discharge into the small drain on the side of your work bench.
  #. Organize the bench setup so that the metal tube discharging the acid rain into the lake is solidly touching the metal stand that is connected to the stirrer. This will ground the solution that is in the lake and reduce voltage fluctuations that are easily measured by the pH probe.
  #. Check all of the push to connect fittings. To obtain a water tight connection it is necessary to twist and push so that the o'ring slides over the outside of the tube to create a seal.
