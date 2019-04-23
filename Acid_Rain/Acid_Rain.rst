@@ -280,22 +280,22 @@ The following directions are written for the use of ProCoDA II hardware and soft
 We will use a pH probe to measure pH in this experiment. The pH probes are stored in a small plastic box.  Each bench has one pH probe. Plug the pH probe into the blue signal-conditioning box (it takes a push and a twist). Connect the cable to one of the sensor ports on your ProCoDA box.
 
  #. :ref:`Setup and calibrate the pH probe <heading_ProCoDA_pH_Measurement>`
- #. Save the Calibration you have just created as a backup. You can do this by clicking on the 
+ #. Save the Calibration you have just created as a backup. You can do this by clicking on the |sensor_save_calibration_file| button on the main menu.
  #. Verify that the experimental setup is plumbed so that the acid rain is pumped directly into the lake.  The lake outflow should discharge into the small drain on the side of your work bench.
  #. Organize the bench setup so that the metal tube discharging the acid rain into the lake is solidly touching the metal stand that is connected to the stirrer. This will ground the solution that is in the lake and reduce voltage fluctuations that are easily measured by the pH probe.
- #. Check all of the push to connect fittings. To obtain a water tight connection it is necessary to twist and push so that the o'ring slides over the outside of the tube to create a seal.
+ #. Check all of the push to connect fittings. To obtain a water tight connection it is necessary to twist and push so that the o'ring slides over the outside of the tube to create a seal. You can test run your system with just reverse osmosis water to check for leaks.
  #. Preset pump to give desired flow rate of 267 mL/min (4 L/15 minutes) based on the size of pump tubing selected. Do not turn the pump on yet! For each tubing size, different pump speeds will correspond to different flow rates being output by the pump. The peristaltic tubing sizes are rather arbitrary and are labeled by numbers: 13, 14, 16, 17, and 18 in increasing order of size. If you have \#18 tubing, you will want an RPM setting of (267 mL/min) / (3.8 mL/rev) = 70.3 RPM (see :numref:`table_Acid_pump_tubing`).
  #. Fill lake with reverse osmosis water and verify that the outflow is set so the lake volume is approximately 4 L.  Place the lake on top of a magnetic stirrer and add a stir bar.
  #. Set stirrer speed to 8.
  #. Add 1 mL of bromocresol green indicator solution to the lake.
  #. Weigh out 623 mg (not grams!) :math:`NaHCO_3`.
  #. Add :math:`NaHCO_3` to the lake.
- #. After the lake is well stirred take a 100 mL sample from the lake in the plastic sample bottle on your bench.  Don't forget to label the sample bottle (include the time of the sample).
- #. Clip the pH probe to the side of your lake in a more quiescent zone, away from the influent and effluent.
+ #. After the lake is well stirred take a 100 mL sample from the lake in the plastic sample bottle on your bench (this does not have to be exactly 100 mL; you just need enough for a pH reading). Don't forget to label the sample bottle (include the time of the sample ex. Minute 0).
+ #. Clip the pH probe to the side of your lake in a more quiescent zone, away from the influent and effluent. You can do this with a clamp or you can simply tape the pH probe cable to the side of your lake.
  #. We will continuously measure the pH of the effluent and log the data into a tab delimited file. Set the data interval to 1 second. Begin logging data to file by clicking on the |Log_data| button. Create a new file in ``S:\Courses\4530\Group #\Lab 2 – Acid Rain``.
- #. Prepare to write a comment in the file to mark the time when the pump starts by clicking on the |Log_text_comment| button. Type in a comment and then wait.
- #. At time equal zero (t=0) start the peristaltic pump and click on the enter button in the comment dialog box.
- #. Take 100-mL grab samples from the lake effluent at 5, 10, 15, and 20 minutes in the plastic sample bottle on your bench.  Don't forget to label the sample bottle (include the time of the sample). The sample volumes do not need to be measured exactly.
+ #. Prepare to write a comment in the file to mark the time when the pump starts by clicking on the |Log_text_comment| button. Type in a comment and then wait (the comment will not show up on the data sheet until you click enter).
+ #. At time equal zero (t=0) start the peristaltic pump and click on the enter button in the comment dialog box. **Tips**: You can observe the pH readings on the Graph Tab of ProCoDA. If your 
+ #. Take 100-mL grab samples from the lake effluent at 5, 10, 15, and 20 minutes in the plastic sample bottle on your bench. Don't forget to label the sample bottle (include the time of the sample ex. Minute 5).
  #. After the 20-minute sample, measure the flow rate by collecting effluent in a beaker for 30 seconds and measuring the volume collected (in a graduated cylinder for more accurate measurement).
  #. Turn off the pump and stop measuring pH.
  #. Measure the lake volume.  This can be done in a large graduated cylinder OR by taking the mass of the water in the lake.  Which would be more accurate?
