@@ -274,6 +274,7 @@ Procedures
 
 .. |Log_data| image:: ../ProCoDA/Images/config_Logging_data_short_exp.png
 .. |Log_text_comment| image:: ../ProCoDA/Images/config_log_text_comment.png
+.. |sensor_save_calibration_file| image:: ../ProCoDA/Images/sensor_save_calibration_file.png
 
 The following directions are written for the use of ProCoDA II hardware and software for pH data collection and manual control of the peristaltic pump. It would also be possible to use automate the experiment and control the pump using the ProCoDA II hardware and software.
 
@@ -294,7 +295,7 @@ We will use a pH probe to measure pH in this experiment. The pH probes are store
  #. Clip the pH probe to the side of your lake in a more quiescent zone, away from the influent and effluent. You can do this with a clamp or you can simply tape the pH probe cable to the side of your lake.
  #. We will continuously measure the pH of the effluent and log the data into a tab delimited file. Set the data interval to 1 second. Begin logging data to file by clicking on the |Log_data| button. Create a new file in ``S:\Courses\4530\Group #\Lab 2 – Acid Rain``.
  #. Prepare to write a comment in the file to mark the time when the pump starts by clicking on the |Log_text_comment| button. Type in a comment and then wait (the comment will not show up on the data sheet until you click enter).
- #. At time equal zero (t=0) start the peristaltic pump and click on the enter button in the comment dialog box. **Tips**: You can observe the pH readings on the Graph Tab of ProCoDA. If your 
+ #. At time equal zero (t=0) start the peristaltic pump and click on the enter button in the comment dialog box. **Tips**: You can observe the pH readings on the Graph Tab of ProCoDA. If your pH readings are being odd there is probably an air bubble trapped on the tip of the probe which can be removed by gently shaking the probe. 
  #. Take 100-mL grab samples from the lake effluent at 5, 10, 15, and 20 minutes in the plastic sample bottle on your bench. Don't forget to label the sample bottle (include the time of the sample ex. Minute 5).
  #. After the 20-minute sample, measure the flow rate by collecting effluent in a beaker for 30 seconds and measuring the volume collected (in a graduated cylinder for more accurate measurement).
  #. Turn off the pump and stop measuring pH.
