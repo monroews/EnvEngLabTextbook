@@ -251,7 +251,7 @@ Oxygen is reduced to water at a silver (Ag) cathode of the probe. Oxygen reducti
 Experimental Methods
 ====================
 
-The reactors are 1 L beakers that will be filled with 750 mL of water (:numref:`figure_Gas_Schematic`). The DO probe should be placed in a location so as to minimize the risk of air bubbles lodging on the membrane on the bottom of the probe. The aeration stone is connected to a source of regulated air flow. A 200-kPa pressure sensor is used to measure the air pressure in the accumulator.
+The reactors are 1 L beakers that will be filled with 750 mL of water (:numref:`figure_Gas_Schematic`). The DO probe should be placed in a location so as to minimize the risk of air bubbles lodging on the membrane on the bottom of the probe. Groups from previous years have recommended keeping the DO probe close to the bottom of the reactor so that no air bubbles cover the DO probe. The aeration stone is connected to a source of regulated air flow. A 200-kPa pressure sensor is used to measure the air pressure in the accumulator.
 
 .. _figure_Gas_Schematic:
 
@@ -287,7 +287,7 @@ Follow these steps to set up the experiment.
 
  #. Assemble the apparatus.
  #. Make sure that you push hard and twist to insert tubing into quick connect fittings.
- #. Install the accumulator pressure sensor |Accumulator_pressure_sensor| so that the positive side of the sensor is connected to the accumulator. The positive side of the pressure sensor is the side that is farthest from where the cable is attached to the sensor.
+ #. Install the accumulator pressure sensor |Accumulator_pressure_sensor| so that the positive side of the sensor is connected to the accumulator. The positive side of the pressure sensor is the longer side or the side that is farthest from where the cable is attached to the sensor.
  #. Use the |Open_Method| on the ProCoDA configuration tab (select the left open folder icon) to load the `method file containing the configuration necessary to control airflow <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_Student_method_file.pcm>`_.
  #. Plug the pressure sensor that is monitoring the flow accumulator into sensor port 0.
  #. Plug the dissolved oxygen probe into sensor port 1.
@@ -436,8 +436,8 @@ Set the stirrer speed to mix the tank but not to cause a vortex that sucks bubbl
  #. Prepare to record the dissolved oxygen concentration using ProCoDA software. Use 5-second data intervals and log the data to ``S:\Courses\4530\Group #\gastran\x`` where x is the flow rate in :math:`\mu M/s` for later analysis. Include the actual flow rate in the file name.
  #. Turn the air on by changing the **operator selected state** to Aerate.
  #. Monitor the dissolved oxygen concentration until it reaches 50\% of saturation value or 10 minutes (whichever is shorter).
- #. Repeat steps 1-9 to collect data from at least two additional flow rates.
- #. email your data files (correctly named!) to the course email account.
+ #. Repeat steps 1-9 to collect data from at least two additional flow rates which are assigned to your group in Table 8.
+ #. Email your data files (correctly named!) to the course email account. **Warning***: Do not edit your data files collected from ProCODA. This will cause issues when it comes time to analyze the data.
  #. Answer the questions in the section on :ref:`heading_Gas_Transfer_Lab_Explorations`.
 
 .. _heading_Gas_Transfer_Lab_Explorations:
