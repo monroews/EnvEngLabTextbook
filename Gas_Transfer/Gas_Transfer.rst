@@ -255,7 +255,7 @@ The reactors are 1 L beakers that will be filled with 750 mL of water (:numref:`
 
 .. _figure_Gas_Schematic:
 
-.. figure:: Images/Schematic.png
+.. figure:: Images/new_gas_transfer_schematic.png
     :width: 600px
     :align: center
     :alt: internal figure
