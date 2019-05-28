@@ -1,4 +1,4 @@
-Results of doctest builder run on 2019-04-24 00:06:14
+Results of doctest builder run on 2019-05-28 22:01:03
 =====================================================
 
 Doctest summary
