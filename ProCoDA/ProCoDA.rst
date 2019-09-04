@@ -492,33 +492,85 @@ When configuring a set point as a variable calculated by external code first loa
 External code
 -------------
 
-LabVIEW executables can be enabled to connect to external code. This capability makes it possible to easily extend the capabilities of the ProCoDA software. The external code must be designed to meet specific requirements for the data types of inputs and outputs. An external code interface has been created to take a variable number of numeric inputs and produce a single numeric output. The external code can be used for a wide variety of functions including simple math functions, a specialized function (such as one which sets a coagulant dose based on raw water turbidity proportional-integral-derivative control that can be used to force a controlled parameter to a desired set point, data acquisition functions that acquire digital data from instruments, and control functions that set the speed of peristaltic pumps that are connected to a USB port.
+LabVIEW executables can be enabled to connect to external code. This capability makes it possible to easily extend the capabilities of the ProCoDA software. The external code must be designed to meet specific requirements for the data types of inputs and outputs. An external code interface has been created to take a variable number of numeric inputs and produce a single numeric output. The external code can be used for a wide variety of functions including simple math functions, a specialized function (such as one which sets a coagulant dose based on raw water turbidity) proportional-integral-derivative control that can be used to force a controlled parameter to a desired set point, data acquisition functions that acquire digital data from instruments, and control functions that set the speed of peristaltic pumps that are connected to a USB port and a Modbus network.
 
 .. _heading_ProCoDA_Meters:
 
-Meters
-------
+Meters and Modbus
+-----------------
 
 .. |HF_mode_exit| image:: Images/HF_mode_exit.png
 .. |HF_return| image:: Images/HF_return.png
 .. |Device_manager_USB_com| image:: Images/Device_manager_USB_com.png
+.. |Modbus_ID| image:: Images/MB_Set_ID.png
 
 
-Turbidimeters, electronic balances, etc. can communicate with ProCoDA through a USB or serial port. These devices are treated like functions and their data is accessed with an external function call in the set point list (Accessed through |config_edit_rules|).
+Turbidimeters, particle counters, peristaltic pumps, and many industrial devices, can communicate with ProCoDA through a Modbus network. These devices are treated like functions and their data is accessed with an external function call in the set point list (Accessed through |config_edit_rules|).
+
+ProCoDA connects to a Modbus network through either a serial port or a USB port with an adaptor that converts to RS485 (a serial communication standard that is widely used in industry). The Modbus system uses digital communication and enables ProCoDA to precisely control pumps and to acquire data from various meters.
+
+Tips for Modbus success!
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+ * Make sure all devices that are connected to the Modbus network are turned on! Otherwise the entire network will fail.
+ * When changing the unit ID on a device it is always best practice to turn the device off and back on again to ensure that it has switched to the new unit ID.
+ * Make sure that all devices have unique unit IDs.
+ * Use the |Modbus_ID| to see which com ports are available to know how to correctly select the com port number for configuring the Modbus communication.
+ * Make sure that the communication protocol for all devices is
+   * Even Parity (default on Golander pumps, not default on HF turbidimeters - in the extended configuration)
+   * 9600 Baud
 
 Connect an HF scientific MicroTol turbidimeter
-----------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  #. Edit Rules
- #. Add a set point for the Turbidimeter address |SetPoints_turbidimeter_address|
- #. Check the unit ID on the turbidimeter (press |HF_mode_exit| twice to select the config option. Then press |HF_return| twice to select ADDR. You can adjust the unit ID using the up or down arrows. Press |HF_mode_exit| once more to exit and return to the turbidity view screen.)
- #. Use the windows Device manager to check which com ports are being used on your computer. In this example com port 6 is active. |Device_manager_USB_com|
+ #. Add a set point for the data rate (the time interval that ProCoDA will request a turbidity update from the meter). 1 second would be very fast, 60 s would be slow.
  #. Add a second setpoint for the com port on the computer that the turbidity meter is connected to. |SetPoints_turbidimeter_com_port|
- #. Add a third setpoint that will be the measured turbidity.
+ #. Use the windows Device manager to check which com ports are being used on your computer. In this example com port 6 is active. |Device_manager_USB_com|
+ #. Add a third set point for the Turbidimeter address |SetPoints_turbidimeter_address|
+ #. Check the unit ID on the turbidimeter (press |HF_mode_exit| twice to select the config option. Then press |HF_return| twice to select ADDR. You can adjust the unit ID using the up or down arrows. Press |HF_mode_exit| once more to exit and return to the turbidity view screen.)
+ #. Add a fourth setpoint that will be the measured turbidity.
  #. Change the third setpoint from a constant to a variable
  #. Now more options will appear click on the folder which will open a window
  #. Click on HF modbus rtu (the communication protocol used by HF and many other devices) |SetPoints_select_HF_modbus_rtu|
  #. Select the required set points. |SetPoints_code_inputs| If successful the turbidity displayed on the meter should show up as the value. If there is a communication error you will get a -999.
+
+Connect a Golander Peristaltic Pump
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. |SetPoints_Golander| image:: Images/SetPoints_Golander.png
+
+.. _table_ProCoDA_pump_tubing:
+
+.. csv-table:: Pump tubing selection.
+    :header:  ,Tubing Size , 13 , 14 , 16 , 17 , 18
+    :align: center
+
+
+
+    ,RPM/ID (mm) , 0.8 , 1.6 , 3 , 6.3 , 8
+    flow, 1, 0.0010 , 0.0035 , 0.0133 , 0.0467 , 0.0633
+    rate, 50, 0.0500 , 0.1750 , 0.6667 , 2.3333 , 3.1667
+    in, 100, 0.1000 , 0.3500 , 1.3333 , 4.6667 , 6.3333
+    mL/s, mL/rev, 0.06 , 0.21 , 0.80 , 2.8 , 3.8
+
+A similar table is available for 3-stop tubing used on `Ismatec 6 roller pump heads <http://www.ismatec.com/int_e/pumps/t_mini_s_ms_ca/tubing_msca2.htm>`_.
+The volume per revolution can also be obtained using python.
+
+.. code:: python
+
+  from aguaclara.core.units import unit_registry as u
+  import aguaclara as ac
+  # to find the volume per rev for Masterflex L/S pump heads
+  ac.vol_per_rev_LS(14)
+  # to find the volume per rev for Ismatec 6 roller pump heads with 3 stop Tubing
+  ac.vol_per_rev_3_stop('purple-white')
+  # or using the ID of the Tubing
+  ac.vol_per_rev_3_stop(inner_diameter=0.12*u.mm)
+
+
+Change the Unit ID of a Modbus device
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Increment functions
 -------------------

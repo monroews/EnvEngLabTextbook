@@ -285,7 +285,7 @@ We will use a pH probe to measure pH in this experiment. The pH probes are store
  #. Verify that the experimental setup is plumbed so that the acid rain is pumped directly into the lake.  The lake outflow should discharge into the small drain on the side of your work bench.
  #. Organize the bench setup so that the metal tube discharging the acid rain into the lake is solidly touching the metal stand that is connected to the stirrer. This will ground the solution that is in the lake and reduce voltage fluctuations that are easily measured by the pH probe.
  #. Check all of the push to connect fittings. To obtain a water tight connection it is necessary to twist and push so that the o'ring slides over the outside of the tube to create a seal. You can test run your system with just reverse osmosis water to check for leaks.
- #. Preset pump to give desired flow rate of 267 mL/min (4 L/15 minutes) based on the size of pump tubing selected. Do not turn the pump on yet! For each tubing size, different pump speeds will correspond to different flow rates being output by the pump. The peristaltic tubing sizes are rather arbitrary and are labeled by numbers: 13, 14, 16, 17, and 18 in increasing order of size. If you have \#18 tubing, you will want an RPM setting of (267 mL/min) / (3.8 mL/rev) = 70.3 RPM (see :numref:`table_Acid_pump_tubing`).
+ #. Preset pump to give desired flow rate of 267 mL/min (4 L/15 minutes) based on the size of pump tubing selected. Do not turn the pump on yet! For each tubing size, different pump speeds will correspond to different flow rates being output by the pump. The peristaltic tubing sizes are rather arbitrary and are labeled by numbers: 13, 14, 16, 17, and 18 in increasing order of size. If you have \#18 tubing, you will want an RPM setting of (267 mL/min) / (3.8 mL/rev) = 70.3 RPM (see :numref:`table_ProCoDA_pump_tubing`).
  #. Fill lake with reverse osmosis water and verify that the outflow is set so the lake volume is approximately 4 L.  Place the lake on top of a magnetic stirrer and add a stir bar.
  #. Set stirrer speed to 8.
  #. Add 1 mL of bromocresol green indicator solution to the lake.
@@ -295,7 +295,7 @@ We will use a pH probe to measure pH in this experiment. The pH probes are store
  #. Clip the pH probe to the side of your lake in a more quiescent zone, away from the influent and effluent. You can do this with a clamp or you can simply tape the pH probe cable to the side of your lake.
  #. We will continuously measure the pH of the effluent and log the data into a tab delimited file. Set the data interval to 1 second. Begin logging data to file by clicking on the |Log_data| button. Create a new file in ``S:\Courses\4530\Group #\Lab 2 – Acid Rain``.
  #. Prepare to write a comment in the file to mark the time when the pump starts by clicking on the |Log_text_comment| button. Type in a comment and then wait (the comment will not show up on the data sheet until you click enter).
- #. At time equal zero (t=0) start the peristaltic pump and click on the enter button in the comment dialog box. **Tips**: You can observe the pH readings on the Graph Tab of ProCoDA. If your pH readings are being odd there is probably an air bubble trapped on the tip of the probe which can be removed by gently shaking the probe. 
+ #. At time equal zero (t=0) start the peristaltic pump and click on the enter button in the comment dialog box. **Tips**: You can observe the pH readings on the Graph Tab of ProCoDA. If your pH readings are being odd there is probably an air bubble trapped on the tip of the probe which can be removed by gently shaking the probe.
  #. Take 100-mL grab samples from the lake effluent at 5, 10, 15, and 20 minutes in the plastic sample bottle on your bench. Don't forget to label the sample bottle (include the time of the sample ex. Minute 5).
  #. After the 20-minute sample, measure the flow rate by collecting effluent in a beaker for 30 seconds and measuring the volume collected (in a graduated cylinder for more accurate measurement).
  #. Turn off the pump and stop measuring pH.
@@ -320,19 +320,6 @@ Clean Up
  #. Put your data files somewhere accessible
 
 
-.. _table_Acid_pump_tubing:
-
-.. csv-table:: Pump tubing selection.
-    :header:  ,Tubing Size , 13 , 14 , 16 , 17 , 18
-    :align: center
-
-
-
-    ,RPM/ID (mm) , 0.8 , 1.6 , 3 , 6.3 , 8
-    flow, 1, 0.0010 , 0.0035 , 0.0133 , 0.0467 , 0.0633
-    rate, 50, 0.0500 , 0.1750 , 0.6667 , 2.3333 , 3.1667
-    in, 100, 0.1000 , 0.3500 , 1.3333 , 4.6667 , 6.3333
-    mL/s, mL/rev, 0.06 , 0.21 , 0.80 , 2.8 , 3.8
 
 
 
