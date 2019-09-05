@@ -148,7 +148,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#external-code">External code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#meters-and-modbus">Meters and Modbus</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#tips-for-modbus-success">Tips for Modbus success!</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#connect-an-hf-scientific-microtol-turbidimeter">Connect an HF scientific MicroTol turbidimeter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect-an-hf-scientific-microtol-turbidimeter">Connect an HF Scientific MicroTol turbidimeter</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#connect-a-golander-peristaltic-pump">Connect a Golander Peristaltic Pump</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#change-the-unit-id-of-a-golander-pump">Change the Unit ID of a Golander pump</a></li>
 </ul>
@@ -164,6 +164,12 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tutorial">Tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#experimental-design">Experimental design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-a-timed-cycle-of-two-states-run-and-reset">Set up a timed cycle of two states (run and reset)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-two-pumps">Set up two pumps</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
@@ -260,8 +266,8 @@
 <p>The ProCoDA hardware/software can vary the state of on/off devices as well as control devices that require a 4-20 mA signal. The on/off outputs are 24 V with sufficient current to operate small solenoid valves or to switch relays for controlling the power to any number of devices. The 4-20 mA analog outputs are used to control peristaltic pumps. External code is already provided for communication with digital devices including HF scientific turbidimeters, HF scientific AccUView UV meter. We expect to add external code to control digital peristaltic pumps in the near future.</p>
 <p>ProCoDA software allows the user to automate data collection and to control many parts of the experimental apparatus. This enables researchers to focus on experimental design and data analysis. Process control software can control the speed of peristaltic pumps, regulate flow through solenoid valves, and measure (or control with feedback) water quality parameters such as temperature, pressure, and dissolved oxygen.</p>
 <p>The ProCoDA software is designed to allow complete automation of experiments including running a series of tests where a parameter is adjusted to a different value for each test. ProCoDA is a state machine. That means that you can create a series of states. Each state has it’s own logic for which state to go to next and what to do while in that state. A simple example of a state machine is a washing machine. Washing machine states could include</p>
-<span id="table-procoda-washing-machine-states"></span><table border="1" class="colwidths-given docutils align-center" id="id1">
-<caption><span class="caption-number">Table 10 </span><span class="caption-text">Washing machine states</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<span id="table-procoda-washing-machine-states"></span><table border="1" class="colwidths-given docutils align-center" id="id2">
+<caption><span class="caption-number">Table 10 </span><span class="caption-text">Washing machine states</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="20%" />
 <col width="40%" />
@@ -308,8 +314,8 @@
 <li>The default unit of time is seconds and we recommend using seconds consistently.</li>
 <li>ProCoDA doesn’t actually use units internally. The units are only used for documentation. It is the users responsibility to make sure that you are using a consistent set of units.</li>
 <li>The required set points give the order of the set points and the set points must be in the same order when you input them. The set points do not need to be contiguous! They just need to be in the correct order.</li>
-<li>All added set points should be added after ON and OFF,</li>
-<li>As a general rule, add new set points and states at the bottom of the list using add after. This is because ProCoDA only tracks set points and states as elements in an array and thus if the array elements are shifted ProCoDA will refer to the wrong element.</li>
+<li>All added set points must be added after ON and OFF,</li>
+<li>As a general rule, add new set points and states at the bottom of the list. This is because ProCoDA only tracks set points and states as elements in an array and thus if the array elements are shifted ProCoDA will refer to the wrong element.</li>
 </ul>
 <p>The hardware consists of box with a National Instruments data acquisition board that connects to the computer via a USB port. The box has 12 ports.
 <img alt="ProCoDA_ports" src="../_images/ProCoDA_ports.png" /></p>
@@ -321,6 +327,7 @@
 </ol>
 </div></blockquote>
 <p>The distinction between <strong>inputs and outputs</strong> is <strong>critical</strong>. The pump and 24V ports are all outputs. They <strong>control devices</strong>. The sensor ports are inputs that are used to <strong>measure</strong>. Don’t plug sensors into outputs! Don’t plug pumps into 24 volt ports or into sensors! Don’t plug solenoid valves into pump or sensor ports! Don’t confuse in and out!</p>
+<p>In addition to the devices that connect to the ProCoDA hardware it is possible to connect devices on a Modbus network or devices that can connect to a serial or USB port. The Modbus devices (connect to a RS 485 adaptor connected to a serial or USB port) <img alt="RS485_adaptor" src="../_images/RS485_adaptor.png" /></p>
 <p>The software combines 3 elements: sensors (inputs from the real world), set points (inputs from the plant operator and calculated values based on sensors and other set points), and logic (rules that govern how the plant should operate given the sensor data and set points). The software contains a graphical user interface where you can edit, save, and open files containing sensor information and files containing the set point and logic information.</p>
 </div>
 </div>
@@ -328,8 +335,8 @@
 <h2>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Permalink to this headline">¶</a></h2>
 <p>The ProCoDA software is designed to receive data from two types of digital sources. Sensors or meters that have their own digital communication interface can transmit their data to the ProCoDA software through external code that is written specifically for each meter. For example this method is used to acquire data from HF Scientific turbidimeters. Sensors that can be configured to produce an analog voltage such as pressure, pH and dissolved oxygen are monitored with a National Instruments USB data acquisition board.</p>
 <p>Sensors are wired using Category 5 or 6 Ethernet cable using our own <a class="reference internal" href="#table-procoda-sensor-wiring"><span class="std std-ref">analog</span></a> wiring standard. Two wires are used to carry the sensor output voltage designated as S- and S+. Five wires are used for different voltage power supplies, and one wire is used for the power supply ground. Sensors are wired to connect to the power supply that they require. Thus, the sensor is powered and monitored through a single port. This scheme is used for a variety of sensors including pressure, strain gage, pH, dissolved oxygen, photometer, and temperature. For several of the sensors the power supplies are also used to power a signal conditioning circuit to transform the sensor output into a voltage that can easily be monitored with a data acquisition system.</p>
-<span id="table-procoda-sensor-wiring"></span><table border="1" class="colwidths-given docutils align-center" id="id2">
-<caption><span class="caption-number">Table 11 </span><span class="caption-text">Wiring standard used for combining power supplies and analog data acquisition in a Category 5 Ethernet cable</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<span id="table-procoda-sensor-wiring"></span><table border="1" class="colwidths-given docutils align-center" id="id3">
+<caption><span class="caption-number">Table 11 </span><span class="caption-text">Wiring standard used for combining power supplies and analog data acquisition in a Category 5 Ethernet cable</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="33%" />
 <col width="33%" />
@@ -406,7 +413,7 @@
 <span id="heading-procoda-pressure-measurement"></span><h3>Pressure Measurement<a class="headerlink" href="#pressure-measurement" title="Permalink to this headline">¶</a></h3>
 <p>We use 1 psi (7 kPa) and 30 psi (200 kPa) pressure sensors (Omega sensor models PX26-001DV, and PX26-030DV) in our laboratory to measure water depth, reactor volumes, flow rates, and head loss. These sensors have maximum output voltages of 16.7 mV and 100 mV respectively with a power supply of 10 V. We use the differential pressure model since the sensors can be used to measure gage pressure or differential pressure. The sensors can directly measure water pressure although the electrical connections <strong>must be kept dry</strong>.
 The ProCoDA software converts the voltage output from the pressure sensors into the physical units of water column height or pressure using linear conversion algorithms. The sensors can also be zeroed or set to a measured value using a one point calibration.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id4">
 <span id="figure-pressure-sensor"></span><a class="reference internal image-reference" href="../_images/pressure_sensor.jpg"><img alt="Pressure sensor" src="../_images/pressure_sensor.jpg" style="width: 200px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Differential pressure sensors are used to measure water depth, head loss, and air pressure.</span></p>
 </div>
@@ -440,7 +447,7 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <div class="section" id="ph-measurement-sensor-ph">
 <span id="heading-procoda-ph-measurement"></span><h3>pH Measurement <img alt="sensor_pH" src="../_images/sensor_pH.png" /><a class="headerlink" href="#ph-measurement-sensor-ph" title="Permalink to this headline">¶</a></h3>
 <p>pH sensors produce a voltage output in the range that would normally be easy to measure using standard data acquisition hardware. Unfortunately, the impedance requirement for a pH sensor is orders of magnitude higher than the inputs of standard data acquisition hardware and thus a signal conditioning circuit must be used to amplify the pH sensor output. The circuit consists of unity gain amplifiers that have less than 0.1 pA input leakage current.</p>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id5">
 <span id="figure-ph-circuit-png"></span><a class="reference internal image-reference" href="../_images/pH_circuit.png"><img alt="pH circuit" src="../_images/pH_circuit.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Circuit diagram for the signal conditioning circuit that takes the output from a pH (or other ion selective) electrode and amplifies the signal so that it can be measured by the data acquisition system. This is required because pH probes have a very high impedance that is too high for standard data acquisition systems to measure.</span></p>
 </div>
@@ -510,16 +517,16 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <span class="nb">print</span><span class="p">(</span><span class="n">b_cell</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id6">
 <span id="figure-photometer-exploded"></span><a class="reference internal image-reference" href="../_images/Photometer_exploded1.jpg"><img alt="Photometer exploded" src="../_images/Photometer_exploded1.jpg" style="width: 300px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">The photometer flow cell is a sealed chamber with round glass plates on both sides. There is a 465 nm LED (blue light) on the right of this image. A photodetector on the left produces a voltage that varies linearly with the intensity of the light that passes through the sample cell.</span></p>
 </div>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id7">
 <span id="figure-photometer-w-signal-conditioning"></span><a class="reference internal image-reference" href="../_images/Photometer_w_signal_conditioning.jpg"><img alt="photometer with signal conditioning" src="../_images/Photometer_w_signal_conditioning.jpg" style="width: 200px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">The photometer must always be held in a vertical orientation to ensure that air bubbles are carried out of the sample cell. The sensor output is conditioned for monitoring by ProCoDA in the black box.</span></p>
 </div>
 <p>To calibrate the photometer, you will need to connect the peristaltic pump, a 1 L bottle, and the photometer in a closed loop. Use enough tubing so that the flow path of the photometer is oriented in the vertical direction with flow <strong>up</strong> through the photometer (this ensures that air bubbles are carried up and out of the photometer). Add 1 L (or a known volume) of tap water to the bottle and turn the pump on at 380 mL/min. The high flow rate is to speed up the response time when the concentration is changed. The goal is to have a known volume of solution circulating through the calibration system.</p>
-<div class="figure align-center" id="id7">
+<div class="figure align-center" id="id8">
 <span id="figure-sensor-photometer-cal-schematic-png"></span><a class="reference internal image-reference" href="../_images/sensor_photometer_cal_schematic.png"><img alt="internal figure" src="../_images/sensor_photometer_cal_schematic.png" style="width: 300px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">Experimental setup for calibrating photometer. Flow must be <strong>up</strong> through the photometer to ensure that any air bubbles are removed. It may be necessary to lightly tap the photometer to help release any trapped air bubbles.</span></p>
 </div>
@@ -624,7 +631,7 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 </div></blockquote>
 </div>
 <div class="section" id="connect-an-hf-scientific-microtol-turbidimeter">
-<h4>Connect an HF scientific MicroTol turbidimeter<a class="headerlink" href="#connect-an-hf-scientific-microtol-turbidimeter" title="Permalink to this headline">¶</a></h4>
+<h4>Connect an HF Scientific MicroTol turbidimeter<a class="headerlink" href="#connect-an-hf-scientific-microtol-turbidimeter" title="Permalink to this headline">¶</a></h4>
 <blockquote>
 <div><ol class="arabic simple">
 <li>Go to the Configuration tab and select <img alt="config_set_modbus_ID" src="../_images/config_set_modbus_ID.png" /></li>
@@ -644,11 +651,11 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 </div></blockquote>
 </div>
 <div class="section" id="connect-a-golander-peristaltic-pump">
-<h4>Connect a Golander Peristaltic Pump<a class="headerlink" href="#connect-a-golander-peristaltic-pump" title="Permalink to this headline">¶</a></h4>
+<span id="heading-procoda-golander-peristaltic-pump"></span><h4>Connect a Golander Peristaltic Pump<a class="headerlink" href="#connect-a-golander-peristaltic-pump" title="Permalink to this headline">¶</a></h4>
 <p>The first step in setting up a pump is to calculate the required flow rate and then select the type of pump head (Easy-Load or 6 roller Ismatec) and the tubing size. For Easy-Load L/S Masterflex pump heads the recommended tubing sizes and corresponding range of flow rates are given below. Note that the #13 tubing is NOT recommended because the Easy-Load pump heads don’t create a seal with this small tubing. There are usually many viable solutions for tubing size. The Golander pumps have a minimum of 0.1 rpm and the maximum rpm is a function of the pump model.
 The Ismatec pump heads are useful for dosing coagulant, clay, fluoride, acid, base, etc. that are used to amend the properties of a primary flow that is pumped with an Easy-Load pump head.</p>
-<span id="table-procoda-pump-tubing"></span><table border="1" class="docutils align-center" id="id8">
-<caption><span class="caption-number">Table 12 </span><span class="caption-text">Pump tubing selection.</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<span id="table-procoda-pump-tubing"></span><table border="1" class="docutils align-center" id="id9">
+<caption><span class="caption-number">Table 12 </span><span class="caption-text">Pump tubing selection.</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="17%" />
 <col width="17%" />
@@ -737,6 +744,7 @@ The volume per revolution can also be obtained using the following python code.<
 <div><ol class="arabic simple">
 <li>Go to the Configuration tab and select <img alt="config_set_modbus_ID" src="../_images/config_set_modbus_ID.png" /></li>
 <li>Select the serial port on <img alt="Modbus_ID" src="../_images/MB_Set_ID.png" /> to see which com ports are available to know how to correctly select the com port number for configuring the Modbus communication. Select Exit to close the dialog.</li>
+<li>Go to <img alt="config_edit_rules" src="../_images/config_edit_rules1.png" /> on the Configuration tab.</li>
 <li>Add a set point for the com port <img alt="SetPoints_turbidimeter_com_port" src="../_images/SetPoints_turbidimeter_com_port.png" /></li>
 <li>Add a set point for the pump ID (or pump address) <img alt="SetPoints_pump_address" src="../_images/SetPoints_pump_address.png" /></li>
 <li>Add a set point for the states that you want the pump to run <img alt="SetPoints_on_state" src="../_images/SetPoints_on_state.png" />. The states are identified as integers with the OFF state having a value of 0. To have the pump run in more than one state simple enter the digits. The assumption here is that ProCoDA won’t have more than 10 states. Thus the on state 134 means that the pump should run in states 1, 3, and 4.</li>
@@ -764,7 +772,7 @@ The volume per revolution can also be obtained using the following python code.<
 <p>The two increment functions are dependent on the state cycles. In the example shown in <a class="reference internal" href="#figure-increment-functions"><span class="std std-numref">Fig. 31</span></a> the state was set to cycle between states 1, 2, and 3 with the exception of a manual reset to state 0 and then to state 1 to illustrate how the increment function is reset. The power law function is useful when it is desirable to explore a larger parameter space. However, care must be taken to ensure that the controlled processes have the ability to deliver the desired range of the varied parameter.</p>
 <p>ProCoDA can be configured to stop an experiment after the reaching the maximum value of the parameter by using the external code called “count states”. Count states counts the number of times a “state to count” has been entered. This can be used to set an exit condition on a state. If no exit condition is created to end an experiment the increment function will reset the parameter to its initial value and begin the increment process again.</p>
 <p>It is possible to systematically vary more than one parameter. To do this it is essential that different copies of the increment function code be used for each parameter. This is because increment function code includes a memory to track its own state and if it is used by ProCoDA to do multiple things it will give unexpected results!</p>
-<div class="figure align-center" id="id9">
+<div class="figure align-center" id="id10">
 <span id="figure-increment-functions"></span><a class="reference internal image-reference" href="../_images/increment_functions.png"><img alt="Increment functions" src="../_images/increment_functions.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Increment functions showing how the output varies as a function of the state. In this example the state cycled between states 1, 2, and 3. The increment state was 2, the number of replicates was 2, the reset state was 0, the y intercept was 200, the slope was 50, and the maximum value of x was 4. The power law relationship used a coefficient of 100 and a base of 1.5.</span></p>
 </div>
@@ -838,6 +846,172 @@ The volume per revolution can also be obtained using the following python code.<
 <li>Software is slow and data acquisition is slow. External code that uses serial or USB port communication (turbidimeters, balances, etc.) may be incorrectly configured. If serial communication fails to these devices ProCoDA software waits until a serial port timeout occurs and during that wait everything slows down. Always switch external code that accesses meters back to constant from variable when the meter is no longer accessible by ProCoDA.</li>
 </ol>
 </div></blockquote>
+</div>
+<div class="section" id="tutorial">
+<span id="heading-procoda-tutorial"></span><h2>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h2>
+<p>Your goal is to set up an experiment that has one pump for the flow of water into a floc/sed apparatus and a 2nd pump that sets the coagulant dose. The target upflow velocity for the sedimentation tank is 1 mm/s and the sed tank diameter is 1 inch. Below is the code to design the experimental setup.</p>
+<div class="section" id="experimental-design">
+<h3>Experimental design<a class="headerlink" href="#experimental-design" title="Permalink to this headline">¶</a></h3>
+<p>The water flow rate is 0.5067 milliliter / second
+The volume of water per revolution is 2.8 milliliter / turn
+The water pump rpm is 10.86 revolutions_per_minute for tubing size 17
+The minimum dosing pump rpm is 0.3333 revolutions_per_minute
+The coagulant dosages in the geometric series are [ 0.5, 1.05737126, 2.23606798  4.72870805 10.] mg/L
+The base of the geometric series is 1.821 dimensionless
+The coagulant tubing volume per turn is 0.1488 milliliter / rev
+The minimum coagulant flow is 0.0008269 milliliter / second
+The PACl stock concentration is 300 milligram / liter
+The coagulant flow rate is [0.00084451 0.00178593 0.00377677 0.00798691 0.01689025] mL/s
+The pump rpm for the different flow rates are [0.34042406 0.71990923 1.52242266 3.21953195 6.80848112] revolutions_per_minute</p>
+</div>
+<div class="section" id="set-up-a-timed-cycle-of-two-states-run-and-reset">
+<h3>Set up a timed cycle of two states (run and reset)<a class="headerlink" href="#set-up-a-timed-cycle-of-two-states-run-and-reset" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Go to <img alt="config_edit_rules" src="../_images/config_edit_rules1.png" /> on the Configuration tab.</li>
+<li>Go to the Set Points tab</li>
+<li>Delete All Set Points to create a new clean method</li>
+<li>Create a new set point that is the total plant flow (water + coag) with a value of 0.5067 mL/s</li>
+<li>Create a new set point that is the duration of run in seconds with a value of 10</li>
+<li>Create a new set point that is the duration of warmup in seconds with a value of 2 <img alt="Tutorial_timers" src="../_images/Tutorial_timers.png" /></li>
+<li>Select the Rules and Outputs tab</li>
+<li>Select the Rules tab</li>
+<li>Add State After and call it Run (this is in the state 1 position)</li>
+<li>Add State After and call it Warmup (this is in the state 2 position)</li>
+<li>Edit the exit rule for the Warmup as shown <img alt="Tutorial_rule_reset" src="../_images/Tutorial_rule_reset.png" /></li>
+<li>Edit the exit rule for the Run state so that the two states cycle</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="set-up-two-pumps">
+<h3>Set up two pumps<a class="headerlink" href="#set-up-two-pumps" title="Permalink to this headline">¶</a></h3>
+<p>Use the <a class="reference internal" href="#heading-procoda-golander-peristaltic-pump"><span class="std std-ref">Connect a Golander Peristaltic Pump</span></a> to guide you. When you are done it should look like this.</p>
+<span id="id1"></span><table border="1" class="docutils align-center" id="id11">
+<caption><span class="caption-number">Table 13 </span><span class="caption-text">Pump tubing selection.</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Set Point</th>
+<th class="head">unit</th>
+<th class="head">type</th>
+<th class="head">value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Plant flow</td>
+<td>mL/s</td>
+<td>constant</td>
+<td>0.5067</td>
+</tr>
+<tr class="row-odd"><td>Duration of run</td>
+<td>s</td>
+<td>constant</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>Duration of warmup</td>
+<td>s</td>
+<td>constant</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>data interval</td>
+<td>s</td>
+<td>constant</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>com</td>
+<td>none</td>
+<td>constant</td>
+<td>?</td>
+</tr>
+<tr class="row-odd"><td>water pump ID</td>
+<td>none</td>
+<td>constant</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>coag pump ID</td>
+<td>none</td>
+<td>constant</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>on state</td>
+<td>none</td>
+<td>constant</td>
+<td>12</td>
+</tr>
+<tr class="row-even"><td>water volume per rev</td>
+<td>mL/rev</td>
+<td>constant</td>
+<td>2.8</td>
+</tr>
+<tr class="row-odd"><td>coag volume per rev</td>
+<td>mL/rev</td>
+<td>constant</td>
+<td>0.1488</td>
+</tr>
+<tr class="row-even"><td>water flow</td>
+<td>mL/s</td>
+<td>variable</td>
+<td>Plant flow - coag flow</td>
+</tr>
+<tr class="row-odd"><td>coag flow</td>
+<td>mL/s</td>
+<td>variable</td>
+<td>increment by factor rep</td>
+</tr>
+<tr class="row-even"><td>water pump control</td>
+<td>rpm</td>
+<td>variable</td>
+<td>Golander pump</td>
+</tr>
+<tr class="row-odd"><td>coag pump control</td>
+<td>rpm</td>
+<td>variable</td>
+<td>Golander pump</td>
+</tr>
+<tr class="row-even"><td>state to increment</td>
+<td>none</td>
+<td>constant</td>
+<td>2 (reset state)</td>
+</tr>
+<tr class="row-odd"><td>coefficient</td>
+<td>mL/s</td>
+<td>constant</td>
+<td>0.0008269 (min coag flow)</td>
+</tr>
+<tr class="row-even"><td>base</td>
+<td>none</td>
+<td>constant</td>
+<td>2.115</td>
+</tr>
+<tr class="row-odd"><td>max x</td>
+<td>none</td>
+<td>constant</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>reps</td>
+<td>none</td>
+<td>constant</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>max cycles</td>
+<td>none</td>
+<td>constant</td>
+<td>12 (max x + 2) times 2 reps</td>
+</tr>
+<tr class="row-even"><td>cycles</td>
+<td>none</td>
+<td>variable</td>
+<td>count states</td>
+</tr>
+</tbody>
+</table>
+<p>use the increment function to vary the coagulant dose between experiments
+control a Golander peristaltic pump</p>
+</div>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
