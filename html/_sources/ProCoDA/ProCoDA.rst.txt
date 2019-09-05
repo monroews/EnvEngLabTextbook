@@ -338,6 +338,7 @@ Photometer |sensor_photometer|
 .. |photometer_read_blank| image:: Images/photometer_read_blank.png
 .. |photometer_read_dark| image:: Images/photometer_read_dark.png
 
+
 The photometer is a flow cell with an optical path length of 19 mm. The flow cell has 1/8 inch NPT threads for connections to experimental or sample streams from processes. The photometer uses a KingBright LED (Digikey part 754-1489-ND) with an emission peak at 465 nm as its light source. The spectral bandwidth defined by 50% of the dominant wavelength is 25 nm.
 
 
