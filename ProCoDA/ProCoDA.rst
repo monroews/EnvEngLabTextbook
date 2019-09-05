@@ -451,12 +451,6 @@ Logic, States, and Outputs |config_edit_rules|
 
 ProCoDA's ability to quickly set up a state machine is all contained inside the rule editor.
 
-
-.. _heading_ProCoDA_Rule_Editor:
-
-Rule Editor
------------
-
 .. |Rules_Filter_logic| image:: Images/Rules_Filter_logic.png
 
 The programming environment for creating rules that determine exit conditions for states and which state to go to readily facilitates setting up the algorithms for controlling simple repetitive processes such as a sequencing batch reactors or rapid sand filters. For experimental purposes it is desirable to have the capability to systematically vary a parameter to test the performance of the process over a range of input values. This is accomplished via an external code that compares the number of specified replicates to a parameter that increments when the ProCoDA enters a specified state. The output parameter can be used to control pump speeds, times, or can be an input to subsequent calculations.
@@ -475,6 +469,7 @@ Set Points
 .. |SetPoints_pump_tubing_ID| image:: Images/SetPoints_pump_tubing_ID.png
 .. |SetPoints_select_HF_modbus_rtu| image:: Images/SetPoints_select_HF_modbus_rtu.png
 .. |SetPoints_turbidimeter| image:: Images/SetPoints_turbidimeter.png
+.. |SetPoints_turbidimeter_datarate| image:: Images/SetPoints_turbidimeter_datarate.png
 .. |SetPoints_turbidimeter_address| image:: Images/SetPoints_turbidimeter_address.png
 .. |SetPoints_turbidimeter_com_port| image:: Images/SetPoints_turbidimeter_com_port.png
 .. |SetPoints_filter_example| image:: Images/SetPoints_filter_example.png
@@ -502,6 +497,7 @@ Meters and Modbus
 .. |HF_mode_exit| image:: Images/HF_mode_exit.png
 .. |HF_return| image:: Images/HF_return.png
 .. |Device_manager_USB_com| image:: Images/Device_manager_USB_com.png
+.. |config_set_modbus_ID| image:: Images/config_set_modbus_ID.png
 .. |Modbus_ID| image:: Images/MB_Set_ID.png
 
 
@@ -512,49 +508,60 @@ ProCoDA connects to a Modbus network through either a serial port or a USB port 
 Tips for Modbus success!
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
- * Make sure all devices that are connected to the Modbus network are turned on! Otherwise the entire network will fail.
- * When changing the unit ID on a device it is always best practice to turn the device off and back on again to ensure that it has switched to the new unit ID.
- * Make sure that all devices have unique unit IDs.
+ * Make sure all devices that are connected to the Modbus network are turned on (have power)! Otherwise the entire network will fail.
+ * When changing the unit ID on a device it is necessary to turn the device off and back on again to ensure that it has switched to the new unit ID.
+ * Make sure that all devices have unique unit IDs. (Double check this!!!)
  * Use the |Modbus_ID| to see which com ports are available to know how to correctly select the com port number for configuring the Modbus communication.
  * Make sure that the communication protocol for all devices is
    * Even Parity (default on Golander pumps, not default on HF turbidimeters - in the extended configuration)
    * 9600 Baud
+   * Modbus RTU (not ASCII)
 
 Connect an HF scientific MicroTol turbidimeter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- #. Edit Rules
- #. Add a set point for the data rate (the time interval that ProCoDA will request a turbidity update from the meter). 1 second would be very fast, 60 s would be slow.
+ #. Go to the Configuration tab and select |config_set_modbus_ID|
+ #. Select the serial port on |Modbus_ID| to see which com ports are available to know how to correctly select the com port number for configuring the Modbus communication. Select Exit to close the dialog.
+ #. Go to |config_edit_rules| on the Configuration tab.
+ #. Add a set point for the data rate (the time interval that ProCoDA will request a turbidity update from the meter). 1 second would be very fast, 60 s would be slow.|SetPoints_turbidimeter_datarate|
  #. Add a second setpoint for the com port on the computer that the turbidity meter is connected to. |SetPoints_turbidimeter_com_port|
- #. Use the windows Device manager to check which com ports are being used on your computer. In this example com port 6 is active. |Device_manager_USB_com|
+ #. Enter the com port number that you discovered in step 2.
  #. Add a third set point for the Turbidimeter address |SetPoints_turbidimeter_address|
  #. Check the unit ID on the turbidimeter (press |HF_mode_exit| twice to select the config option. Then press |HF_return| twice to select ADDR. You can adjust the unit ID using the up or down arrows. Press |HF_mode_exit| once more to exit and return to the turbidity view screen.)
  #. Add a fourth setpoint that will be the measured turbidity.
- #. Change the third setpoint from a constant to a variable
- #. Now more options will appear click on the folder which will open a window
- #. Click on HF modbus rtu (the communication protocol used by HF and many other devices) |SetPoints_select_HF_modbus_rtu|
+ #. Change the setpoint from a constant to a variable
+ #. Now more options will appear click on the folder icon which will open a dialog box
+ #. Select *Modbus devices* and then select *HF turbidimeter*
  #. Select the required set points. |SetPoints_code_inputs| If successful the turbidity displayed on the meter should show up as the value. If there is a communication error you will get a -999.
 
 Connect a Golander Peristaltic Pump
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. |config_set_modbus_ID| image:: Images/config_set_modbus_ID.png
 .. |SetPoints_Golander| image:: Images/SetPoints_Golander.png
+.. |SetPoints_pump_address| image:: Images/SetPoints_pump_address.png
+.. |SetPoints_on_state| image:: Images/SetPoints_on_state.png
+
+
+The first step in setting up a pump is to calculate the required flow rate and then select the type of pump head (Easy-Load or 6 roller Ismatec) and the tubing size. For Easy-Load L/S Masterflex pump heads the recommended tubing sizes and corresponding range of flow rates are given below. Note that the #13 tubing is NOT recommended because the Easy-Load pump heads don't create a seal with this small tubing. There are usually many viable solutions for tubing size. The Golander pumps have a minimum of 0.1 rpm and the maximum rpm is a function of the pump model.
+The Ismatec pump heads are useful for dosing coagulant, clay, fluoride, acid, base, etc. that are used to amend the properties of a primary flow that is pumped with an Easy-Load pump head.
 
 .. _table_ProCoDA_pump_tubing:
 
 .. csv-table:: Pump tubing selection.
-    :header:  ,Tubing Size , 13 , 14 , 16 , 17 , 18
+    :header:  ,Tubing Size , 14 , 16 , 17 , 18
     :align: center
 
 
 
-    ,RPM/ID (mm) , 0.8 , 1.6 , 3 , 6.3 , 8
-    flow, 1, 0.0010 , 0.0035 , 0.0133 , 0.0467 , 0.0633
-    rate, 50, 0.0500 , 0.1750 , 0.6667 , 2.3333 , 3.1667
-    in, 100, 0.1000 , 0.3500 , 1.3333 , 4.6667 , 6.3333
-    mL/s, mL/rev, 0.06 , 0.21 , 0.80 , 2.8 , 3.8
+    ,RPM/ID (mm) ,  1.6 , 3 , 6.3 , 8
+    flow, 1,  0.0035 , 0.0133 , 0.0467 , 0.0633
+    rate, 50,  0.1750 , 0.6667 , 2.3333 , 3.1667
+    in, 100,  0.3500 , 1.3333 , 4.6667 , 6.3333
+    mL/s, mL/rev, 0.21 , 0.80 , 2.8 , 3.8
 
 A similar table is available for 3-stop tubing used on `Ismatec 6 roller pump heads <http://www.ismatec.com/int_e/pumps/t_mini_s_ms_ca/tubing_msca2.htm>`_.
-The volume per revolution can also be obtained using python.
+The volume per revolution can also be obtained using the following python code.
 
 .. code:: python
 
@@ -567,9 +574,39 @@ The volume per revolution can also be obtained using python.
   # or using the ID of the Tubing
   ac.vol_per_rev_3_stop(inner_diameter=0.12*u.mm)
 
+After selecting the pump head and tubing it is time to set up ProCoDA control of the pump.
 
-Change the Unit ID of a Modbus device
+Change the Unit ID of a Golander pump
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The model BT50S Golander pumps do not have the ability to change the unit ID using the controls on the pump. The unit ID is set instead using ProCoDA. Changing the unit ID is a little complicated because we start with the assumption that we don't know the unit ID of the device that we want to set. The method that Modbus provides for this case is to broadcast a command to ALL DEVICES telling them to change their unit ID. But, of course, this would be a bad idea if there are multiple devices listening because we don't want all of the devices to have the same unit ID! The solution is to disconnect all of the other Modbus devices by unplugging their cables. After the cables are disconnected
+
+ #. Disconnect all other Modbus devices (unplug their cables) so that ProCoDA is only communicating with ONE DEVICE! This is important because the command to change the address is broadcast to all devices on the Modbus network.
+ #. Open |config_set_modbus_ID| on the Configuration tab.
+ #. Select the serial port that is connected to the Modbus network
+ #. Select the Unit ID that you would like for the one device that is connected to the Modbus network
+ #. Hit Set device ID and Exit!
+ #. Turn off the device and turn it back on again!!!!!!! This is REQUIRED because otherwise the change you made won't be implemented by the device and communication will fail!
+ #. Golander 50S pumps display the unit ID on startup.
+
+Now you can configure a Golander pump using the Rule Editor. The external code for Golander pumps require 5 inputs: com port, pump address, on state, pump (ml/rev), and flow (mL/s).
+
+ #. Go to the Configuration tab and select |config_set_modbus_ID|
+ #. Select the serial port on |Modbus_ID| to see which com ports are available to know how to correctly select the com port number for configuring the Modbus communication. Select Exit to close the dialog.
+ #. Add a set point for the com port |SetPoints_turbidimeter_com_port|
+ #. Add a set point for the pump ID (or pump address) |SetPoints_pump_address|
+ #. Add a set point for the states that you want the pump to run |SetPoints_on_state|. The states are identified as integers with the OFF state having a value of 0. To have the pump run in more than one state simple enter the digits. The assumption here is that ProCoDA won't have more than 10 states. Thus the on state 134 means that the pump should run in states 1, 3, and 4.
+ #. Add a set point for the volume of water pumped per revolution with unis of mL/rev.
+ #. Add a set point for the desired flow rate with units of mL/s.
+ #. Add a set point for the pump control
+ #. Change the setpoint from a constant to a variable
+ #. Now more options will appear click on the folder icon which will open a dialog box
+ #. Select *Modbus devices* and then select *Golander pump(mL per s, mL per rev)*
+ #. Select the required set points
+
+Note that the pump control is the pump rpm. The pump control will only display the correct rpm if ProCoDA is in one of the states that you have defined as an on state. Otherwise the pump control will be 0. If you want the pump to turn in a counterclockwise direction, simple set the flow rate to have a negative value.
+
+Below is an example of a ProCoDA method that has 3 pumps and two turbidimeters. The set points are defined in an order that makes it easy to select them in the right order for each pump and turbidity meter and yet keeps the list neatly organized.
+|SetPoints_Golander|
 
 
 Increment functions
@@ -634,7 +671,7 @@ Outputs
 
 The ProCoDA hardware is designed and fabricated around an NI USB data acquisition board is used for on/off control of up to six devices and for variable control of up to two peristaltic pumps. The on/off devices are controlled with 24 V outputs that can be used to control solenoid valves, pinch valves, relays, or other low current devices.
 
-Connecting a pump that is controlled through pump 0 or pump 1 ports.
+Connecting a pump that is controlled through pump 0 or pump 1 ports using a 4-20 mA control system. Masterflex pumps can be controlled using this system.
 
 There are many ways to connect a pump, I am going to stick to one pump head because it is easier and adding more is fairly straight-forward. I will also be doing it with the code that uses mL/s and tubing ID, but you can use the other codes just make sure that you have the required set points
   #. Add a constant set point with the flow in mL/s |SetPoints_pump_flow_rate|
