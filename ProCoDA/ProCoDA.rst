@@ -67,11 +67,12 @@ General Notes
 - The default unit of time is seconds and we recommend using seconds consistently.
 - ProCoDA doesn't actually use units internally. The units are only used for documentation. It is the users responsibility to make sure that you are using a consistent set of units.
 - The required set points give the order of the set points and the set points must be in the same order when you input them. The set points do not need to be contiguous! They just need to be in the correct order.
-- All added set points should be added after ON and OFF,
-- As a general rule, add new set points and states at the bottom of the list using add after. This is because ProCoDA only tracks set points and states as elements in an array and thus if the array elements are shifted ProCoDA will refer to the wrong element.
+- All added set points must be added after ON and OFF,
+- As a general rule, add new set points and states at the bottom of the list. This is because ProCoDA only tracks set points and states as elements in an array and thus if the array elements are shifted ProCoDA will refer to the wrong element.
 
 
 .. |ProCoDA_ports| image:: Images/ProCoDA_ports.png
+.. |RS485_adaptor| image:: Images/RS485_adaptor.png
 
 The hardware consists of box with a National Instruments data acquisition board that connects to the computer via a USB port. The box has 12 ports.
 |ProCoDA_ports|
@@ -81,6 +82,9 @@ The hardware consists of box with a National Instruments data acquisition board 
  #. 24V 2 to 7 provide 24 volt outputs that can be used to power solenoid valves or relays that can then power larger electrical loads.
 
 The distinction between **inputs and outputs** is **critical**. The pump and 24V ports are all outputs. They **control devices**. The sensor ports are inputs that are used to **measure**. Don't plug sensors into outputs! Don't plug pumps into 24 volt ports or into sensors! Don't plug solenoid valves into pump or sensor ports! Don't confuse in and out!
+
+In addition to the devices that connect to the ProCoDA hardware it is possible to connect devices on a Modbus network or devices that can connect to a serial or USB port. The Modbus devices (connect to a RS 485 adaptor connected to a serial or USB port). |RS485_adaptor|
+
 
 The software combines 3 elements: sensors (inputs from the real world), set points (inputs from the plant operator and calculated values based on sensors and other set points), and logic (rules that govern how the plant should operate given the sensor data and set points). The software contains a graphical user interface where you can edit, save, and open files containing sensor information and files containing the set point and logic information.
 
@@ -518,7 +522,7 @@ Tips for Modbus success!
    * 9600 Baud
    * Modbus RTU (not ASCII)
 
-Connect an HF scientific MicroTol turbidimeter
+Connect an HF Scientific MicroTol turbidimeter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  #. Go to the Configuration tab and select |config_set_modbus_ID|
@@ -535,10 +539,12 @@ Connect an HF scientific MicroTol turbidimeter
  #. Select *Modbus devices* and then select *HF turbidimeter*
  #. Select the required set points. |SetPoints_code_inputs| If successful the turbidity displayed on the meter should show up as the value. If there is a communication error you will get a -999.
 
+
+.. _heading_ProCoDA_Golander_Peristaltic_Pump:
+
 Connect a Golander Peristaltic Pump
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. |config_set_modbus_ID| image:: Images/config_set_modbus_ID.png
 .. |SetPoints_Golander| image:: Images/SetPoints_Golander.png
 .. |SetPoints_pump_address| image:: Images/SetPoints_pump_address.png
 .. |SetPoints_on_state| image:: Images/SetPoints_on_state.png
@@ -593,6 +599,7 @@ Now you can configure a Golander pump using the Rule Editor. The external code f
 
  #. Go to the Configuration tab and select |config_set_modbus_ID|
  #. Select the serial port on |Modbus_ID| to see which com ports are available to know how to correctly select the com port number for configuring the Modbus communication. Select Exit to close the dialog.
+ #. Go to |config_edit_rules| on the Configuration tab.
  #. Add a set point for the com port |SetPoints_turbidimeter_com_port|
  #. Add a set point for the pump ID (or pump address) |SetPoints_pump_address|
  #. Add a set point for the states that you want the pump to run |SetPoints_on_state|. The states are identified as integers with the OFF state having a value of 0. To have the pump run in more than one state simple enter the digits. The assumption here is that ProCoDA won't have more than 10 states. Thus the on state 134 means that the pump should run in states 1, 3, and 4.
@@ -672,9 +679,10 @@ Outputs
 
 The ProCoDA hardware is designed and fabricated around an NI USB data acquisition board is used for on/off control of up to six devices and for variable control of up to two peristaltic pumps. The on/off devices are controlled with 24 V outputs that can be used to control solenoid valves, pinch valves, relays, or other low current devices.
 
-Connecting a pump that is controlled through pump 0 or pump 1 ports using a 4-20 mA control system. Masterflex pumps can be controlled using this system.
+Analog control of pumps
+^^^^^^^^^^^^^^^^^^^^^^^
 
-There are many ways to connect a pump, I am going to stick to one pump head because it is easier and adding more is fairly straight-forward. I will also be doing it with the code that uses mL/s and tubing ID, but you can use the other codes just make sure that you have the required set points
+The older style of analog-controlled Masterflex pumps can be controlled through pump 0 or pump 1 ports using a 4-20 mA control system. There are many ways to connect a pump, I am going to stick to one pump head because it is easier and adding more is fairly straight-forward. I will also be doing it with the code that uses mL/s and tubing ID, but you can use the other external code as long as you ensure that you have the required set points
   #. Add a constant set point with the flow in mL/s |SetPoints_pump_flow_rate|
   #. Add a constant set point with the tubing size that you will be using |SetPoints_pump_tubing_ID|
   #. Add a variable set point and call it something like "pump speed control" |SetPoints_pump_code_inputs|
@@ -688,6 +696,18 @@ There are many ways to connect a pump, I am going to stick to one pump head beca
   #. Select the variable that you created (pump speed control) for the pump speed.
   #. To test the pump go to process operation and change the state to the state that has the pump running
   #. If your pump is not running at the speed ProCoDA displays you can calibrate it using the |config_calibrate_pump| button
+
+.. _heading_ProCoDA_On-off_devices:
+
+On-off devices
+^^^^^^^^^^^^^^
+
+.. |Control_stirrer| image:: Images/Control_stirrer.png
+
+
+Devices that are controlled with a 24 volt signal can be cycled on and off using ProCoDA. These devices are connected to ports labeled 24V 2 to 24V 7. These ports can directly control small 24V solenoid valves or they can be used with a 24V relay to provide 110V power to any device that can be safely cycled on and off. The 24V relay is connected to one of the ports and then the AC electrical power for the device is routed through the relay. A common example of this would be to turn the stirrer on and off automatically so that it doesn't continue to run after an experiment ends. These devices are typically controlled using the setpoints ON and OFF with different values selected for each state to achieve the desired operation. It is also possible to have a device cycle on and off within a state by using feedback control (for example the on-off controller in the feedback control folder). Here is an example of a stirrer that is set to be OFF in the OFF state and is set to be ON in the warmup and run states. Note that the output settings are drop down menus showing all of the setpoint you have defined.
+|Control_stirrer|
+
 
 
 .. _heading_ProCoDA_Process_Operation:
@@ -728,6 +748,198 @@ This is complex software with lots of capabilities and thus there are many oppor
  #. A red LED next to the |config_select_daq| on the configure tab indicates that the computer is not connected to a ProCoDA box. Check the USB connections. If this is the first time using ProCoDA on this computer, then make sure you have followed all of the `installation steps <https://github.com/monroews/LabVIEW/wiki/ProCoDA>`_ because data acquisition won't work without the data acquisition drivers.
  #. Sensors give zero or close to zero response. Check the 24 volt power supply for the ProCoDA box. Check to ensure that the power supply LED lights on the back end of the ProCoDA box are lit. ProCoDA boxes built in 2014 didn't have automatic overload protection and thus it is possible for an internal fuse to blow.
  #. Software is slow and data acquisition is slow. External code that uses serial or USB port communication (turbidimeters, balances, etc.) may be incorrectly configured. If serial communication fails to these devices ProCoDA software waits until a serial port timeout occurs and during that wait everything slows down. Always switch external code that accesses meters back to constant from variable when the meter is no longer accessible by ProCoDA.
+
+.. _heading_ProCoDA_Tutorial:
+
+Tutorial
+========
+
+
+.. |Tutorial_timers| image:: Images/Tutorial_timers.png
+.. |Tutorial_rule_reset| image:: Images/Tutorial_rule_reset.png
+.. |Tutorial_rule_end| image:: Images/Tutorial_rule_end.png
+.. |Tutorial_graph| image:: Images/Tutorial_graph.png
+.. |Tutorial_log_axis| image:: Images/Tutorial_log_axis.png
+.. |Open_method| image:: ../ProCoDA/Images/Config_open_save_export.png
+
+
+
+Your goal is to set up an experiment that has one pump for the flow of water into a floc/sed apparatus and a 2nd pump that sets the coagulant dose. The target upflow velocity for the sedimentation tank is 1 mm/s and the sed tank diameter is 1 inch. Below is the code to design the experimental setup.
+
+Experimental design
+-------------------
+
+.. code:: python
+
+  from aguaclara.core.units import unit_registry as u
+  import aguaclara as ac
+  import numpy as np
+  D = 1 * u.inch
+  A = ac.area_circle(D)
+  v_up = 1 * u.mm/u.s
+  Q_water = (A * v_up).to(u.mL/u.s)
+  print('The water flow rate is',Q_water)
+
+  # Use an easy-load pump head with tubing codes 14, 16, 17, or 18.
+  # Tubing 14 won't work because the 50 rpm pump can't deliver the required flow
+  # The choice of which tubing to use is somewhat arbitrary. High rpm wears out the tubing faster
+  #. Low rpm likely has bigger pulsations. Your choice! Here I compromise...
+  Water_tubingcode = 17
+  # find the volume per rev for Masterflex L/S pump heads
+  Pump_water_per_rev = ac.vol_per_rev_LS(id_number = Water_tubingcode)
+  print('The volume of water per revolution is',Pump_water_per_rev)
+  Pump_water_rpm = (Q_water/Pump_water_per_rev).to(u.rpm)
+  print('The water pump rpm is',Pump_water_rpm, 'for tubing size', Water_tubingcode)
+
+  # The coagulant dose range is 0.5 to 8 mg/L of aluminum.
+  # We need the peristaltic pump pulses to be very fast compared with the residence time of the flocculator
+  # Let's assume flocculator residence time 5 minutes (300 seconds)
+  # Set max pulse time to be 10% of flocculator residence time (3 seconds)
+  # Ismatec pump heads have 6 rollers, thus 6 pulses per rev
+  # minimum time for a pump revolution is 18 s
+  Pump_dosing_min_rpm = (1/(5*u.min * 0.1 * 6/u.turn)).to(u.rpm)
+  print('The minimum dosing pump rpm is',Pump_dosing_min_rpm)
+  # The coagulant stock has 70 grams/L of aluminum
+  C_PACl_super_stock = 70 * u.g/u.L
+  # Define a set of coagulant dosages over the target range with a logarithmic scaling
+  # the number of coagulant dosages to test. This doesn't include an extra "free" starting value of 0 to create a control that ProCoDA adds automatically
+  Max_x = 5
+  dose_min = 0.5 * u.mg/u.L
+  dose_max = 8 * u.mg/u.L
+  C_PACl_dose = np.logspace(np.log10(1),np.log10(dose_max/dose_min),Max_x)* dose_min
+  print('The coagulant dosages in the geometric series are',C_PACl_dose.magnitude, C_PACl_dose.units)
+  # Find the multiplication factor (the base) between each dose
+  base = (dose_max/dose_min)**(1/(Max_x-1))
+  print('The base of the geometric series is',base)
+  # The coefficient for our increment function is the minimum dose.
+
+  # Use the smallest tubing possible so we can use as high a concentration of PACl as possible.
+  # The smallest diameter tubing that we like to work with is 1.52 mm yellow-blue.
+  Pump_coag_per_rev = ac.vol_per_rev_3_stop('yellow-blue')
+  print('The coagulant tubing volume per turn is',Pump_coag_per_rev)
+  Coag_min_Q = (Pump_coag_per_rev*Pump_dosing_min_rpm).to(u.mL/u.s)
+  print('The minimum coagulant flow is',Coag_min_Q)
+
+  # now we can find the maximum coagulant stock concentration using the min dose and min flow rate
+  C_PACl_stock = ac.floor_step(dose_min*Q_water/Coag_min_Q,10*u.mg/u.L)
+
+  print('The PACl stock concentration is',C_PACl_stock)
+
+  # Now find the flow of the PACl stock for these target dosages
+  Q_PACl_stock = Q_water*C_PACl_dose/C_PACl_stock
+
+  print('The coagulant flow rate is',Q_PACl_stock.magnitude, 'mL/s')
+
+  Pump_coag_rpm = (Q_PACl_stock/Pump_coag_per_rev).to(u.rpm)
+  print('The pump rpm for the different flow rates are',Pump_coag_rpm.magnitude, Pump_coag_rpm.units)
+
+
+Below are the results from the calculations above.
+ * The water flow rate is 0.5067 milliliter / second
+ * The volume of water per revolution is 2.8 milliliter / turn
+ * The water pump rpm is 10.86 revolutions_per_minute for tubing size 17
+ * The minimum dosing pump rpm is 0.3333 revolutions_per_minute
+ * The coagulant dosages in the geometric series are [0.5 1.  2.  4.  8. ] milligram / liter
+ * The base of the geometric series is 2 dimensionless
+ * The coagulant tubing volume per turn is 0.1488 milliliter / rev
+ * The minimum coagulant flow is 0.0008269 milliliter / second
+ * The PACl stock concentration is 300 milligram / liter
+ * The coagulant flow rate is [0.00084451 0.00168902 0.00337805 0.0067561  0.0135122 ] mL/s
+ * The pump rpm for the different flow rates are [0.34042406 0.68084811 1.36169622 2.72339245 5.4467849 ] revolutions_per_minute
+
+Set up a timed cycle of two states (run and reset)
+--------------------------------------------------
+
+We will use the rule editor to set up the :ref:`ProCoDA logic <heading_ProCoDA_Logic>` for the experiment.
+
+ #. Go to |config_edit_rules| on the Configuration tab.
+ #. Go to the Set Points tab
+ #. Delete All Set Points to create a new clean method
+ #. Create a new set point that is the total plant flow (water + coag) with a value of 0.5067 mL/s
+ #. Create a new set point that is the duration of run in seconds with a value of 5
+ #. Create a new set point that is the duration of warmup in seconds with a value of 1 |Tutorial_timers|
+ #. Select the Rules and Outputs tab
+ #. Select the Rules tab
+ #. Add State After and call it Run (this is in the state 1 position)
+ #. Add State After and call it Warmup (this is in the state 2 position)
+ #. Edit the exit rule for the Warmup as shown |Tutorial_rule_reset|
+ #. Edit the exit rule for the Run state so that the two states cycle
+
+Set up two pumps
+----------------
+
+:ref:`heading_ProCoDA_Golander_Peristaltic_Pump` provides an explanation of how the pumps are controlled. Use the table below as a guide. Go through the table below and add all of these set points. Note that when you load external code it always lists what the required inputs are at the bottom of the dialog box.
+
+
+.. _table_ProCoDA_tutorial_method:
+
+.. csv-table:: ProCoDA tutorial method to vary coagulant dose for a series of 6 experiments
+    :header:  Set Point , unit , type, value, notes
+    :align: center
+
+
+      Plant flow, mL/s, constant, 0.5067, total flow of water
+      Duration of run, s, constant, 5, perhaps steady state operation for data collection
+      Duration of warmup, s, constant, 1, time required for startup (start with a small value for testing!)
+      data interval, s, constant, 5, used to set data interval for turbidimeters
+      com, none, constant, ?, different for each workstation
+      water pump ID, none, constant, 2, change this to match your pumps
+      coag pump ID, none, constant, 1, change this to match your pumps
+      on state, none, constant, 12, on for both states 1 and 2 (run and warmup)
+      water volume per rev, mL/rev, constant, 2.8, based on #17 tubing
+      coag volume per rev, mL/rev, constant, 0.1488, based on yellow-blue 3 stop tubing
+      water flow, mL/s, variable, subtract function, Plant flow - coag flow
+      coag flow, mL/s, variable, increment by factor rep, will systematically vary coag flow!
+      water pump control, rpm, variable, Golander pump, controls the water pump
+      coag pump control, rpm, variable, Golander pump, controls the coagulant pump
+      state to increment, none, constant, 2 (reset state), increment x whenever it enters the run state
+      coefficient, mL/s, constant, 0.0008269 (min coag flow), sets the first nonzero value of the series
+      base, none, constant, 2, base that is raised to the power of x
+      max x, none, constant, 5, number of nonzero coagulant dosages
+      reps, none, constant, 2, number of times to repeat each test
+      max x + 1, none, variable, add, add max x + ON
+      max cycles, none, variable, multiply, max x +1 times reps
+      cycles, none, variable, count states, counts number of times the run state is called
+
+
+The ProCoDA method file for this setup is available for you to try. Use the |Open_Method| on the ProCoDA configuration tab (select the left open folder icon) to load the `method file for the tutorial <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm>`_.
+
+Set the end condition for the experiment
+----------------------------------------
+
+We want ProCoDA to turn everything off after each of the coagulant dosages is tested twice. We can do that by adding a second exit condition for the Warmup state that exits to the OFF state when the total number of times that the Warmup state should execute has been reached.
+
+ #. Open the Rules and Outputs tab
+ #. Select the Warmup state
+ #. Add a new rule to exit to OFF |Tutorial_rule_end|
+
+Test your automation sequence
+-----------------------------
+
+ #. Close the rule editor
+ #. go to the Process Operation tab
+ #. Change the mode of operation to Automatic
+ #. Select the Warmup state
+ #. Go to the Graphs tab
+ #. Select *water pump control (rpm)*, *water pump control (rpm)*, and *cycles* (use the control key as you select multiple entries)
+ #. Set which axis (left or right) each plot is graphed on by right clicking on the legend where the color of the plot is shown and select y-scale and then select left or right. Use the left axis for the pump rpm and the right axis for the cycles.
+ #. Change the left y axis to log scale |Tutorial_log_axis| because we are using a geometric series of flow rates
+ #. Return to the Process Operation tab
+ #. Right click on Warmup in the operator selected state to tell ProCoDA to return to that state. (Note that the operator selected state is NOT necessarily the state that ProCoDA is in! It is the state that the operator told ProCoDA to start in!)
+ #. Return to the Graphs tab
+ #. Select Clear graphs
+ #. See if you can create this graph |Tutorial_graph|
+
+Play
+----
+
+ #. Set up :ref:`data logging <heading_ProCoDA_Logging_Data>` using the method that also creates a state log
+ #. Run your experiment again
+ #. Open the data file and the state file to see what ProCoDA is recording
+ #. Add a  :ref:`pressure sensor <heading_ProCoDA_Pressure_Measurement>` or a :ref:`temperature sensor <heading_ProCoDA_Temperature_Measurement>`
+ #. Change the :ref:`sensor data rate <heading_ProCoDA_Configure>` to be super fast or super slow and then change the graph update interval to see if you can detect the big difference in the sensor data noise.
+ #. Add a device (perhaps a stirrer) that turns :ref:`on and off depending on the state <heading_ProCoDA_On-off_devices>`. The `method file for the tutorial <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm>`_ is configured to turn a device on and off on port 24V 2.
+
 
 References
 ==========
