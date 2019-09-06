@@ -847,7 +847,7 @@ Below are the results from the calculations above.
  * The coagulant flow rate is [0.00084451 0.00168902 0.00337805 0.0067561  0.0135122 ] mL/s
  * The pump rpm for the different flow rates are [0.34042406 0.68084811 1.36169622 2.72339245 5.4467849 ] revolutions_per_minute
 
-Set up a timed cycle of two states (run and reset)
+Set up a timed cycle of two states (run and warmup)
 --------------------------------------------------
 
 We will use the rule editor to set up the :ref:`ProCoDA logic <heading_ProCoDA_Logic>` for the experiment.
@@ -902,7 +902,7 @@ Set up two pumps
       cycles, none, variable, count states, counts number of times the run state is called
 
 
-The ProCoDA method file for this setup is available for you to try. Use the |Open_Method| on the ProCoDA configuration tab (select the left open folder icon) to load the `method file for the tutorial <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm>`_.
+The ProCoDA method file for this setup is available for you to try. Use the |Open_Method| on the ProCoDA configuration tab (select the left open folder icon) to load the `method file for the tutorial <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm>`_. Remember to check the com port and the pump ID addresses to make sure they match your setup!
 
 Set the end condition for the experiment
 ----------------------------------------
