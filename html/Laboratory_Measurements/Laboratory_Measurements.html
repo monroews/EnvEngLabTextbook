@@ -287,17 +287,17 @@
 <li>Weigh the flask (with its cap) plus the sodium chloride solution and calculate the density of the 1 M NaCl solution.</li>
 </ol>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">aguaclara</span>
-<span class="kn">import</span> <span class="nn">aguaclara.core.physchem</span> <span class="k">as</span> <span class="nn">pc</span>
 <span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="k">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">aguaclara</span> <span class="k">as</span> <span class="nn">ac</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
 <span class="n">Temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">degC</span>
-<span class="n">density</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">density_water</span><span class="p">(</span><span class="n">Temp</span><span class="p">)</span>
+<span class="n">density</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">density_water</span><span class="p">(</span><span class="n">Temp</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Temp</span><span class="p">,</span><span class="n">density</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Temperature (degrees Celsius)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Density of water (kg/$m^3$)&#39;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Laboratory_Measurements/Images/Density_vs_T&#39;</span><span class="p">)</span>
+<span class="c1">#fig.savefig(&#39;Laboratory_Measurements/Images/Density_vs_T&#39;)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>

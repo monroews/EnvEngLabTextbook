@@ -20,22 +20,21 @@ Theory
 Oxygen transfer is important in many environmental systems. Oxygen transfer is controlled by the partial pressure of oxygen in the atmosphere (0.21 atm) and the corresponding equilibrium concentration in water (approximately 10 mg/L). According to Henry's Law, the equilibrium concentration of oxygen in water is proportional to the partial pressure of oxygen in the atmosphere.
 
 .. code:: python
-    import aguaclara.research.environmental_processes_analysis as epa
-    from aguaclara.core.units import unit_registry as u
-    import matplotlib.pyplot as plt
-    import numpy as np
-    # the code below will eventually be in the AguaClara core and should be called directly
 
+  from aguaclara.core.units import unit_registry as u
+  import aguaclara as ac
+  import matplotlib.pyplot as plt
+  import numpy as np
 
-    P_air = 101.3*u.kPa
-    temp = np.linspace(0,40)*u.degC
-    C_Oxygen = epa.O2_sat(P_air,temp)
+  P_air = 101.3*u.kPa
+  temp = np.linspace(0,40)*u.degC
+  C_Oxygen = ac.O2_sat(P_air,temp)
 
-    fig, ax = plt.subplots()
-    ax.plot(temp,C_Oxygen)
-    ax.set(xlabel='Temperature (degrees Celsius)', ylabel='Oxygen concentration (mg/L)')
-    fig.savefig('Gas_Transfer/Images/Oxygen_vs_T')
-    plt.show()
+  fig, ax = plt.subplots()
+  ax.plot(temp,C_Oxygen)
+  ax.set(xlabel='Temperature (degrees Celsius)', ylabel='Oxygen concentration (mg/L)')
+  #fig.savefig('Gas_Transfer/Images/Oxygen_vs_T')
+  plt.show()
 
 
 .. _figure_Oxygen_vs_T:
@@ -187,8 +186,10 @@ If complete deoxygenation is desired a 10\% excess of sulfite can be added. The 
 
   """ importing """
   from aguaclara.core.units import unit_registry as u
+  import aguaclara as ac
   import matplotlib.pyplot as plt
   import numpy as np
+
   O2_C = np.linspace(0,10,10) * u.mg/u.L
   Sample_V = 750 * u.mL
   SulfiteperO2 = 7.875
@@ -199,7 +200,7 @@ If complete deoxygenation is desired a 10\% excess of sulfite can be added. The 
   ax.plot(O2_C,Sulfite_V(O2_C))
   ax.set(xlabel='Oxygen concentration (mg/L)', ylabel='Sulfite stock volume (mL)')
   ax.grid(color='b', linestyle='-', linewidth=0.5)
-  fig.savefig('Gas_Transfer/Images/Sulfite')
+  #fig.savefig('Gas_Transfer/Images/Sulfite')
   plt.show()
 
 
@@ -255,7 +256,7 @@ The reactors are 1 L beakers that will be filled with 750 mL of water (:numref:`
 
 .. _figure_Gas_Schematic:
 
-.. figure:: Images/new_schematic.png
+.. figure:: Images/Schematic.png
     :width: 600px
     :align: center
     :alt: internal figure
