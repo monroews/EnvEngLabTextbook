@@ -347,10 +347,11 @@ The photometer is a flow cell with an optical path length of 19 mm. The flow cel
 
 .. code:: python
 
-   """ importing """
-   from aide_design.play import*
-   b_cell = (3/4 * u.inch).to(u.mm)
-   print(b_cell)
+  """ importing """
+  from aguaclara.core.units import unit_registry as u
+  import aguaclara as ac
+  b_cell = (3/4 * u.inch).to(u.mm)
+  print(b_cell)
 
 .. _figure_Photometer_exploded:
 
