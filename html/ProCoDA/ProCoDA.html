@@ -156,7 +156,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#increment-functions">Increment functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#states">States</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rules-config-edit-rules">Rules </a></li>
-<li class="toctree-l3"><a class="reference internal" href="#outputs">Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#outputs">Outputs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#analog-control-of-pumps">Analog control of pumps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-off-devices">On-off devices</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#process-operation">Process Operation</a><ul>
@@ -168,6 +172,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#experimental-design">Experimental design</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#set-up-a-timed-cycle-of-two-states-run-and-reset">Set up a timed cycle of two states (run and reset)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#set-up-two-pumps">Set up two pumps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-the-end-condition-for-the-experiment">Set the end condition for the experiment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-your-automation-sequence">Test your automation sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#play">Play</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
@@ -327,7 +334,7 @@
 </ol>
 </div></blockquote>
 <p>The distinction between <strong>inputs and outputs</strong> is <strong>critical</strong>. The pump and 24V ports are all outputs. They <strong>control devices</strong>. The sensor ports are inputs that are used to <strong>measure</strong>. Don’t plug sensors into outputs! Don’t plug pumps into 24 volt ports or into sensors! Don’t plug solenoid valves into pump or sensor ports! Don’t confuse in and out!</p>
-<p>In addition to the devices that connect to the ProCoDA hardware it is possible to connect devices on a Modbus network or devices that can connect to a serial or USB port. The Modbus devices (connect to a RS 485 adaptor connected to a serial or USB port) <img alt="RS485_adaptor" src="../_images/RS485_adaptor.png" /></p>
+<p>In addition to the devices that connect to the ProCoDA hardware it is possible to connect devices on a Modbus network or devices that can connect to a serial or USB port. The Modbus devices (connect to a RS 485 adaptor connected to a serial or USB port). <img alt="RS485_adaptor" src="../_images/RS485_adaptor.png" /></p>
 <p>The software combines 3 elements: sensors (inputs from the real world), set points (inputs from the plant operator and calculated values based on sensors and other set points), and logic (rules that govern how the plant should operate given the sensor data and set points). The software contains a graphical user interface where you can edit, save, and open files containing sensor information and files containing the set point and logic information.</p>
 </div>
 </div>
@@ -793,9 +800,10 @@ The volume per revolution can also be obtained using the following python code.<
 <div class="section" id="outputs">
 <span id="heading-procoda-outputs"></span><h3>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h3>
 <p>The ProCoDA hardware is designed and fabricated around an NI USB data acquisition board is used for on/off control of up to six devices and for variable control of up to two peristaltic pumps. The on/off devices are controlled with 24 V outputs that can be used to control solenoid valves, pinch valves, relays, or other low current devices.</p>
-<p>Connecting a pump that is controlled through pump 0 or pump 1 ports using a 4-20 mA control system. Masterflex pumps can be controlled using this system.</p>
+<div class="section" id="analog-control-of-pumps">
+<h4>Analog control of pumps<a class="headerlink" href="#analog-control-of-pumps" title="Permalink to this headline">¶</a></h4>
 <dl class="docutils">
-<dt>There are many ways to connect a pump, I am going to stick to one pump head because it is easier and adding more is fairly straight-forward. I will also be doing it with the code that uses mL/s and tubing ID, but you can use the other codes just make sure that you have the required set points</dt>
+<dt>The older style of analog-controlled Masterflex pumps can be controlled through pump 0 or pump 1 ports using a 4-20 mA control system. There are many ways to connect a pump, I am going to stick to one pump head because it is easier and adding more is fairly straight-forward. I will also be doing it with the code that uses mL/s and tubing ID, but you can use the other external code as long as you ensure that you have the required set points</dt>
 <dd><ol class="first last arabic simple">
 <li>Add a constant set point with the flow in mL/s <img alt="SetPoints_pump_flow_rate" src="../_images/SetPoints_pump_flow_rate.png" /></li>
 <li>Add a constant set point with the tubing size that you will be using <img alt="SetPoints_pump_tubing_ID" src="../_images/SetPoints_pump_tubing_ID.png" /></li>
@@ -813,6 +821,12 @@ The volume per revolution can also be obtained using the following python code.<
 </ol>
 </dd>
 </dl>
+</div>
+<div class="section" id="on-off-devices">
+<span id="heading-procoda-on-off-devices"></span><h4>On-off devices<a class="headerlink" href="#on-off-devices" title="Permalink to this headline">¶</a></h4>
+<p>Devices that are controlled with a 24 volt signal can be cycled on and off using ProCoDA. These devices are connected to ports labeled 24V 2 to 24V 7. These ports can directly control small 24V solenoid valves or they can be used with a 24V relay to provide 110V power to any device that can be safely cycled on and off. The 24V relay is connected to one of the ports and then the AC electrical power for the device is routed through the relay. A common example of this would be to turn the stirrer on and off automatically so that it doesn’t continue to run after an experiment ends. These devices are typically controlled using the setpoints ON and OFF with different values selected for each state to achieve the desired operation. It is also possible to have a device cycle on and off within a state by using feedback control (for example the on-off controller in the feedback control folder). Here is an example of a stirrer that is set to be OFF in the OFF state and is set to be ON in the warmup and run states. Note that the output settings are drop down menus showing all of the setpoint you have defined.
+<img alt="Control_stirrer" src="../_images/Control_stirrer.png" /></p>
+</div>
 </div>
 </div>
 <div class="section" id="process-operation">
@@ -852,28 +866,98 @@ The volume per revolution can also be obtained using the following python code.<
 <p>Your goal is to set up an experiment that has one pump for the flow of water into a floc/sed apparatus and a 2nd pump that sets the coagulant dose. The target upflow velocity for the sedimentation tank is 1 mm/s and the sed tank diameter is 1 inch. Below is the code to design the experimental setup.</p>
 <div class="section" id="experimental-design">
 <h3>Experimental design<a class="headerlink" href="#experimental-design" title="Permalink to this headline">¶</a></h3>
-<p>The water flow rate is 0.5067 milliliter / second
-The volume of water per revolution is 2.8 milliliter / turn
-The water pump rpm is 10.86 revolutions_per_minute for tubing size 17
-The minimum dosing pump rpm is 0.3333 revolutions_per_minute
-The coagulant dosages in the geometric series are [ 0.5, 1.05737126, 2.23606798  4.72870805 10.] mg/L
-The base of the geometric series is 1.821 dimensionless
-The coagulant tubing volume per turn is 0.1488 milliliter / rev
-The minimum coagulant flow is 0.0008269 milliliter / second
-The PACl stock concentration is 300 milligram / liter
-The coagulant flow rate is [0.00084451 0.00178593 0.00377677 0.00798691 0.01689025] mL/s
-The pump rpm for the different flow rates are [0.34042406 0.71990923 1.52242266 3.21953195 6.80848112] revolutions_per_minute</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="k">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">import</span> <span class="nn">aguaclara</span> <span class="k">as</span> <span class="nn">ac</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">D</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">inch</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">area_circle</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="n">v_up</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mm</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span>
+<span class="n">Q_water</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">v_up</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mL</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The water flow rate is&#39;</span><span class="p">,</span><span class="n">Q_water</span><span class="p">)</span>
+
+<span class="c1"># Use an easy-load pump head with tubing codes 14, 16, 17, or 18.</span>
+<span class="c1"># Tubing 14 won&#39;t work because the 50 rpm pump can&#39;t deliver the required flow</span>
+<span class="c1"># The choice of which tubing to use is somewhat arbitrary. High rpm wears out the tubing faster</span>
+<span class="c1">#. Low rpm likely has bigger pulsations. Your choice! Here I compromise...</span>
+<span class="n">Water_tubingcode</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="c1"># find the volume per rev for Masterflex L/S pump heads</span>
+<span class="n">Pump_water_per_rev</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">vol_per_rev_LS</span><span class="p">(</span><span class="n">id_number</span> <span class="o">=</span> <span class="n">Water_tubingcode</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The volume of water per revolution is&#39;</span><span class="p">,</span><span class="n">Pump_water_per_rev</span><span class="p">)</span>
+<span class="n">Pump_water_rpm</span> <span class="o">=</span> <span class="p">(</span><span class="n">Q_water</span><span class="o">/</span><span class="n">Pump_water_per_rev</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">rpm</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The water pump rpm is&#39;</span><span class="p">,</span><span class="n">Pump_water_rpm</span><span class="p">,</span> <span class="s1">&#39;for tubing size&#39;</span><span class="p">,</span> <span class="n">Water_tubingcode</span><span class="p">)</span>
+
+<span class="c1"># The coagulant dose range is 0.5 to 8 mg/L of aluminum.</span>
+<span class="c1"># We need the peristaltic pump pulses to be very fast compared with the residence time of the flocculator</span>
+<span class="c1"># Let&#39;s assume flocculator residence time 5 minutes (300 seconds)</span>
+<span class="c1"># Set max pulse time to be 10% of flocculator residence time (3 seconds)</span>
+<span class="c1"># Ismatec pump heads have 6 rollers, thus 6 pulses per rev</span>
+<span class="c1"># minimum time for a pump revolution is 18 s</span>
+<span class="n">Pump_dosing_min_rpm</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">min</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="mi">6</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">turn</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">rpm</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The minimum dosing pump rpm is&#39;</span><span class="p">,</span><span class="n">Pump_dosing_min_rpm</span><span class="p">)</span>
+<span class="c1"># The coagulant stock has 70 grams/L of aluminum</span>
+<span class="n">C_PACl_super_stock</span> <span class="o">=</span> <span class="mi">70</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">L</span>
+<span class="c1"># Define a set of coagulant dosages over the target range with a logarithmic scaling</span>
+<span class="c1"># the number of coagulant dosages to test. This doesn&#39;t include an extra &quot;free&quot; starting value of 0 to create a control that ProCoDA adds automatically</span>
+<span class="n">Max_x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">dose_min</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">L</span>
+<span class="n">dose_max</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">L</span>
+<span class="n">C_PACl_dose</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">dose_max</span><span class="o">/</span><span class="n">dose_min</span><span class="p">),</span><span class="n">Max_x</span><span class="p">)</span><span class="o">*</span> <span class="n">dose_min</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The coagulant dosages in the geometric series are&#39;</span><span class="p">,</span><span class="n">C_PACl_dose</span><span class="o">.</span><span class="n">magnitude</span><span class="p">,</span> <span class="n">C_PACl_dose</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+<span class="c1"># Find the multiplication factor (the base) between each dose</span>
+<span class="n">base</span> <span class="o">=</span> <span class="p">(</span><span class="n">dose_max</span><span class="o">/</span><span class="n">dose_min</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">Max_x</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The base of the geometric series is&#39;</span><span class="p">,</span><span class="n">base</span><span class="p">)</span>
+<span class="c1"># The coefficient for our increment function is the minimum dose.</span>
+
+<span class="c1"># Use the smallest tubing possible so we can use as high a concentration of PACl as possible.</span>
+<span class="c1"># The smallest diameter tubing that we like to work with is 1.52 mm yellow-blue.</span>
+<span class="n">Pump_coag_per_rev</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">vol_per_rev_3_stop</span><span class="p">(</span><span class="s1">&#39;yellow-blue&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The coagulant tubing volume per turn is&#39;</span><span class="p">,</span><span class="n">Pump_coag_per_rev</span><span class="p">)</span>
+<span class="n">Coag_min_Q</span> <span class="o">=</span> <span class="p">(</span><span class="n">Pump_coag_per_rev</span><span class="o">*</span><span class="n">Pump_dosing_min_rpm</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mL</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The minimum coagulant flow is&#39;</span><span class="p">,</span><span class="n">Coag_min_Q</span><span class="p">)</span>
+
+<span class="c1"># now we can find the maximum coagulant stock concentration using the min dose and min flow rate</span>
+<span class="n">C_PACl_stock</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">floor_step</span><span class="p">(</span><span class="n">dose_min</span><span class="o">*</span><span class="n">Q_water</span><span class="o">/</span><span class="n">Coag_min_Q</span><span class="p">,</span><span class="mi">10</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">mg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">L</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The PACl stock concentration is&#39;</span><span class="p">,</span><span class="n">C_PACl_stock</span><span class="p">)</span>
+
+<span class="c1"># Now find the flow of the PACl stock for these target dosages</span>
+<span class="n">Q_PACl_stock</span> <span class="o">=</span> <span class="n">Q_water</span><span class="o">*</span><span class="n">C_PACl_dose</span><span class="o">/</span><span class="n">C_PACl_stock</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The coagulant flow rate is&#39;</span><span class="p">,</span><span class="n">Q_PACl_stock</span><span class="o">.</span><span class="n">magnitude</span><span class="p">,</span> <span class="s1">&#39;mL/s&#39;</span><span class="p">)</span>
+
+<span class="n">Pump_coag_rpm</span> <span class="o">=</span> <span class="p">(</span><span class="n">Q_PACl_stock</span><span class="o">/</span><span class="n">Pump_coag_per_rev</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">rpm</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The pump rpm for the different flow rates are&#39;</span><span class="p">,</span><span class="n">Pump_coag_rpm</span><span class="o">.</span><span class="n">magnitude</span><span class="p">,</span> <span class="n">Pump_coag_rpm</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Below are the results from the calculations above.</dt>
+<dd><ul class="first last simple">
+<li>The water flow rate is 0.5067 milliliter / second</li>
+<li>The volume of water per revolution is 2.8 milliliter / turn</li>
+<li>The water pump rpm is 10.86 revolutions_per_minute for tubing size 17</li>
+<li>The minimum dosing pump rpm is 0.3333 revolutions_per_minute</li>
+<li>The coagulant dosages in the geometric series are [0.5 1.  2.  4.  8. ] milligram / liter</li>
+<li>The base of the geometric series is 2 dimensionless</li>
+<li>The coagulant tubing volume per turn is 0.1488 milliliter / rev</li>
+<li>The minimum coagulant flow is 0.0008269 milliliter / second</li>
+<li>The PACl stock concentration is 300 milligram / liter</li>
+<li>The coagulant flow rate is [0.00084451 0.00168902 0.00337805 0.0067561  0.0135122 ] mL/s</li>
+<li>The pump rpm for the different flow rates are [0.34042406 0.68084811 1.36169622 2.72339245 5.4467849 ] revolutions_per_minute</li>
+</ul>
+</dd>
+</dl>
 </div>
 <div class="section" id="set-up-a-timed-cycle-of-two-states-run-and-reset">
 <h3>Set up a timed cycle of two states (run and reset)<a class="headerlink" href="#set-up-a-timed-cycle-of-two-states-run-and-reset" title="Permalink to this headline">¶</a></h3>
+<p>We will use the rule editor to set up the <a class="reference internal" href="#heading-procoda-logic"><span class="std std-ref">ProCoDA logic</span></a> for the experiment.</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li>Go to <img alt="config_edit_rules" src="../_images/config_edit_rules1.png" /> on the Configuration tab.</li>
 <li>Go to the Set Points tab</li>
 <li>Delete All Set Points to create a new clean method</li>
 <li>Create a new set point that is the total plant flow (water + coag) with a value of 0.5067 mL/s</li>
-<li>Create a new set point that is the duration of run in seconds with a value of 10</li>
-<li>Create a new set point that is the duration of warmup in seconds with a value of 2 <img alt="Tutorial_timers" src="../_images/Tutorial_timers.png" /></li>
+<li>Create a new set point that is the duration of run in seconds with a value of 5</li>
+<li>Create a new set point that is the duration of warmup in seconds with a value of 1 <img alt="Tutorial_timers" src="../_images/Tutorial_timers.png" /></li>
 <li>Select the Rules and Outputs tab</li>
 <li>Select the Rules tab</li>
 <li>Add State After and call it Run (this is in the state 1 position)</li>
@@ -885,20 +969,22 @@ The pump rpm for the different flow rates are [0.34042406 0.71990923 1.52242266 
 </div>
 <div class="section" id="set-up-two-pumps">
 <h3>Set up two pumps<a class="headerlink" href="#set-up-two-pumps" title="Permalink to this headline">¶</a></h3>
-<p>Use the <a class="reference internal" href="#heading-procoda-golander-peristaltic-pump"><span class="std std-ref">Connect a Golander Peristaltic Pump</span></a> to guide you. When you are done it should look like this.</p>
-<span id="id1"></span><table border="1" class="docutils align-center" id="id11">
-<caption><span class="caption-number">Table 13 </span><span class="caption-text">Pump tubing selection.</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<p><a class="reference internal" href="#heading-procoda-golander-peristaltic-pump"><span class="std std-ref">Connect a Golander Peristaltic Pump</span></a> provides an explanation of how the pumps are controlled. Use the table below as a guide. Go through the table below and add all of these set points. Note that when you load external code it always lists what the required inputs are at the bottom of the dialog box.</p>
+<span id="table-procoda-tutorial-method"></span><table border="1" class="docutils align-center" id="id11">
+<caption><span class="caption-number">Table 13 </span><span class="caption-text">ProCoDA tutorial method to vary coagulant dose for a series of 6 experiments</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Set Point</th>
 <th class="head">unit</th>
 <th class="head">type</th>
 <th class="head">value</th>
+<th class="head">notes</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -906,111 +992,181 @@ The pump rpm for the different flow rates are [0.34042406 0.71990923 1.52242266 
 <td>mL/s</td>
 <td>constant</td>
 <td>0.5067</td>
+<td>total flow of water</td>
 </tr>
 <tr class="row-odd"><td>Duration of run</td>
 <td>s</td>
 <td>constant</td>
 <td>5</td>
+<td>perhaps steady state operation for data collection</td>
 </tr>
 <tr class="row-even"><td>Duration of warmup</td>
 <td>s</td>
 <td>constant</td>
 <td>1</td>
+<td>time required for startup (start with a small value for testing!)</td>
 </tr>
 <tr class="row-odd"><td>data interval</td>
 <td>s</td>
 <td>constant</td>
 <td>5</td>
+<td>used to set data interval for turbidimeters</td>
 </tr>
 <tr class="row-even"><td>com</td>
 <td>none</td>
 <td>constant</td>
 <td>?</td>
+<td>different for each workstation</td>
 </tr>
 <tr class="row-odd"><td>water pump ID</td>
 <td>none</td>
 <td>constant</td>
-<td>1</td>
+<td>2</td>
+<td>change this to match your pumps</td>
 </tr>
 <tr class="row-even"><td>coag pump ID</td>
 <td>none</td>
 <td>constant</td>
-<td>2</td>
+<td>1</td>
+<td>change this to match your pumps</td>
 </tr>
 <tr class="row-odd"><td>on state</td>
 <td>none</td>
 <td>constant</td>
 <td>12</td>
+<td>on for both states 1 and 2 (run and warmup)</td>
 </tr>
 <tr class="row-even"><td>water volume per rev</td>
 <td>mL/rev</td>
 <td>constant</td>
 <td>2.8</td>
+<td>based on #17 tubing</td>
 </tr>
 <tr class="row-odd"><td>coag volume per rev</td>
 <td>mL/rev</td>
 <td>constant</td>
 <td>0.1488</td>
+<td>based on yellow-blue 3 stop tubing</td>
 </tr>
 <tr class="row-even"><td>water flow</td>
 <td>mL/s</td>
 <td>variable</td>
+<td>subtract function</td>
 <td>Plant flow - coag flow</td>
 </tr>
 <tr class="row-odd"><td>coag flow</td>
 <td>mL/s</td>
 <td>variable</td>
 <td>increment by factor rep</td>
+<td>will systematically vary coag flow!</td>
 </tr>
 <tr class="row-even"><td>water pump control</td>
 <td>rpm</td>
 <td>variable</td>
 <td>Golander pump</td>
+<td>controls the water pump</td>
 </tr>
 <tr class="row-odd"><td>coag pump control</td>
 <td>rpm</td>
 <td>variable</td>
 <td>Golander pump</td>
+<td>controls the coagulant pump</td>
 </tr>
 <tr class="row-even"><td>state to increment</td>
 <td>none</td>
 <td>constant</td>
 <td>2 (reset state)</td>
+<td>increment x whenever it enters the run state</td>
 </tr>
 <tr class="row-odd"><td>coefficient</td>
 <td>mL/s</td>
 <td>constant</td>
 <td>0.0008269 (min coag flow)</td>
+<td>sets the first nonzero value of the series</td>
 </tr>
 <tr class="row-even"><td>base</td>
 <td>none</td>
 <td>constant</td>
-<td>2.115</td>
+<td>2</td>
+<td>base that is raised to the power of x</td>
 </tr>
 <tr class="row-odd"><td>max x</td>
 <td>none</td>
 <td>constant</td>
-<td>4</td>
+<td>5</td>
+<td>number of nonzero coagulant dosages</td>
 </tr>
 <tr class="row-even"><td>reps</td>
 <td>none</td>
 <td>constant</td>
 <td>2</td>
+<td>number of times to repeat each test</td>
 </tr>
-<tr class="row-odd"><td>max cycles</td>
+<tr class="row-odd"><td>max x + 1</td>
 <td>none</td>
-<td>constant</td>
-<td>12 (max x + 2) times 2 reps</td>
+<td>variable</td>
+<td>add</td>
+<td>add max x + ON</td>
 </tr>
-<tr class="row-even"><td>cycles</td>
+<tr class="row-even"><td>max cycles</td>
+<td>none</td>
+<td>variable</td>
+<td>multiply</td>
+<td>max x +1 times reps</td>
+</tr>
+<tr class="row-odd"><td>cycles</td>
 <td>none</td>
 <td>variable</td>
 <td>count states</td>
+<td>counts number of times the run state is called</td>
 </tr>
 </tbody>
 </table>
-<p>use the increment function to vary the coagulant dose between experiments
-control a Golander peristaltic pump</p>
+<p>The ProCoDA method file for this setup is available for you to try. Use the <img alt="Open_method" src="../_images/Config_open_save_export2.png" /> on the ProCoDA configuration tab (select the left open folder icon) to load the <a class="reference external" href="https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm">method file for the tutorial</a>.</p>
+</div>
+<div class="section" id="set-the-end-condition-for-the-experiment">
+<h3>Set the end condition for the experiment<a class="headerlink" href="#set-the-end-condition-for-the-experiment" title="Permalink to this headline">¶</a></h3>
+<p>We want ProCoDA to turn everything off after each of the coagulant dosages is tested twice. We can do that by adding a second exit condition for the Warmup state that exits to the OFF state when the total number of times that the Warmup state should execute has been reached.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Open the Rules and Outputs tab</li>
+<li>Select the Warmup state</li>
+<li>Add a new rule to exit to OFF <img alt="Tutorial_rule_end" src="../_images/Tutorial_rule_end.png" /></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="test-your-automation-sequence">
+<h3>Test your automation sequence<a class="headerlink" href="#test-your-automation-sequence" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Close the rule editor</li>
+<li>go to the Process Operation tab</li>
+<li>Change the mode of operation to Automatic</li>
+<li>Select the Warmup state</li>
+<li>Go to the Graphs tab</li>
+<li>Select <em>water pump control (rpm)</em>, <em>water pump control (rpm)</em>, and <em>cycles</em> (use the control key as you select multiple entries)</li>
+<li>Set which axis (left or right) each plot is graphed on by right clicking on the legend where the color of the plot is shown and select y-scale and then select left or right. Use the left axis for the pump rpm and the right axis for the cycles.</li>
+<li>Change the left y axis to log scale <img alt="Tutorial_log_axis" src="../_images/Tutorial_log_axis.png" /> because we are using a geometric series of flow rates</li>
+<li>Return to the Process Operation tab</li>
+<li>Right click on Warmup in the operator selected state to tell ProCoDA to return to that state. (Note that the operator selected state is NOT necessarily the state that ProCoDA is in! It is the state that the operator told ProCoDA to start in!)</li>
+<li>Return to the Graphs tab</li>
+<li>Select Clear graphs</li>
+<li>See if you can create this graph <img alt="Tutorial_graph" src="../_images/Tutorial_graph.png" /></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="play">
+<h3>Play<a class="headerlink" href="#play" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Set up <a class="reference internal" href="#heading-procoda-logging-data"><span class="std std-ref">data logging</span></a> using the method that also creates a state log</li>
+<li>Run your experiment again</li>
+<li>Open the data file and the state file to see what ProCoDA is recording</li>
+<li>Add a  <a class="reference internal" href="#heading-procoda-pressure-measurement"><span class="std std-ref">pressure sensor</span></a> or a <a class="reference internal" href="#heading-procoda-temperature-measurement"><span class="std std-ref">temperature sensor</span></a></li>
+<li>Change the <a class="reference internal" href="#heading-procoda-configure"><span class="std std-ref">sensor data rate</span></a> to be super fast or super slow and then change the graph update interval to see if you can detect the big difference in the sensor data noise.</li>
+<li>Add a device (perhaps a stirrer) that turns <a class="reference internal" href="#heading-procoda-on-off-devices"><span class="std std-ref">on and off depending on the state</span></a>. The <a class="reference external" href="https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm">method file for the tutorial</a> is configured to turn a device on and off on port 24V 2.</li>
+</ol>
+</div></blockquote>
 </div>
 </div>
 <div class="section" id="references">
