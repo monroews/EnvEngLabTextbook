@@ -83,7 +83,7 @@ The hardware consists of box with a National Instruments data acquisition board 
 
 The distinction between **inputs and outputs** is **critical**. The pump and 24V ports are all outputs. They **control devices**. The sensor ports are inputs that are used to **measure**. Don't plug sensors into outputs! Don't plug pumps into 24 volt ports or into sensors! Don't plug solenoid valves into pump or sensor ports! Don't confuse in and out!
 
-In addition to the devices that connect to the ProCoDA hardware it is possible to connect devices on a Modbus network or devices that can connect to a serial or USB port. The Modbus devices (connect to a RS 485 adaptor connected to a serial or USB port) |RS485_adaptor|
+In addition to the devices that connect to the ProCoDA hardware it is possible to connect devices on a Modbus network or devices that can connect to a serial or USB port. The Modbus devices (connect to a RS 485 adaptor connected to a serial or USB port). |RS485_adaptor|
 
 
 The software combines 3 elements: sensors (inputs from the real world), set points (inputs from the plant operator and calculated values based on sensors and other set points), and logic (rules that govern how the plant should operate given the sensor data and set points). The software contains a graphical user interface where you can edit, save, and open files containing sensor information and files containing the set point and logic information.
@@ -544,7 +544,6 @@ Connect an HF Scientific MicroTol turbidimeter
 Connect a Golander Peristaltic Pump
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. |config_set_modbus_ID| image:: Images/config_set_modbus_ID.png
 .. |SetPoints_Golander| image:: Images/SetPoints_Golander.png
 .. |SetPoints_pump_address| image:: Images/SetPoints_pump_address.png
 .. |SetPoints_on_state| image:: Images/SetPoints_on_state.png
@@ -679,9 +678,10 @@ Outputs
 
 The ProCoDA hardware is designed and fabricated around an NI USB data acquisition board is used for on/off control of up to six devices and for variable control of up to two peristaltic pumps. The on/off devices are controlled with 24 V outputs that can be used to control solenoid valves, pinch valves, relays, or other low current devices.
 
-Connecting a pump that is controlled through pump 0 or pump 1 ports using a 4-20 mA control system. Masterflex pumps can be controlled using this system.
+Analog control of pumps
+^^^^^^^^^^^^^^^^^^^^^^^
 
-There are many ways to connect a pump, I am going to stick to one pump head because it is easier and adding more is fairly straight-forward. I will also be doing it with the code that uses mL/s and tubing ID, but you can use the other codes just make sure that you have the required set points
+The older style of analog-controlled Masterflex pumps can be controlled through pump 0 or pump 1 ports using a 4-20 mA control system. There are many ways to connect a pump, I am going to stick to one pump head because it is easier and adding more is fairly straight-forward. I will also be doing it with the code that uses mL/s and tubing ID, but you can use the other external code as long as you ensure that you have the required set points
   #. Add a constant set point with the flow in mL/s |SetPoints_pump_flow_rate|
   #. Add a constant set point with the tubing size that you will be using |SetPoints_pump_tubing_ID|
   #. Add a variable set point and call it something like "pump speed control" |SetPoints_pump_code_inputs|
@@ -695,6 +695,18 @@ There are many ways to connect a pump, I am going to stick to one pump head beca
   #. Select the variable that you created (pump speed control) for the pump speed.
   #. To test the pump go to process operation and change the state to the state that has the pump running
   #. If your pump is not running at the speed ProCoDA displays you can calibrate it using the |config_calibrate_pump| button
+
+.. _heading_ProCoDA_On-off_devices:
+
+On-off devices
+^^^^^^^^^^^^^^
+
+.. |Control_stirrer| image:: Images/Control_stirrer.png
+
+
+Devices that are controlled with a 24 volt signal can be cycled on and off using ProCoDA. These devices are connected to ports labeled 24V 2 to 24V 7. These ports can directly control small 24V solenoid valves or they can be used with a 24V relay to provide 110V power to any device that can be safely cycled on and off. The 24V relay is connected to one of the ports and then the AC electrical power for the device is routed through the relay. A common example of this would be to turn the stirrer on and off automatically so that it doesn't continue to run after an experiment ends. These devices are typically controlled using the setpoints ON and OFF with different values selected for each state to achieve the desired operation. It is also possible to have a device cycle on and off within a state by using feedback control (for example the on-off controller in the feedback control folder). Here is an example of a stirrer that is set to be OFF in the OFF state and is set to be ON in the warmup and run states. Note that the output settings are drop down menus showing all of the setpoint you have defined.
+|Control_stirrer|
+
 
 
 .. _heading_ProCoDA_Process_Operation:
@@ -747,9 +759,7 @@ Tutorial
 .. |Tutorial_rule_end| image:: Images/Tutorial_rule_end.png
 .. |Tutorial_graph| image:: Images/Tutorial_graph.png
 .. |Tutorial_log_axis| image:: Images/Tutorial_log_axis.png
-
-
-
+.. |Open_method| image:: ../ProCoDA/Images/Config_open_save_export.png
 
 
 
@@ -839,6 +849,8 @@ Below are the results from the calculations above.
 Set up a timed cycle of two states (run and reset)
 --------------------------------------------------
 
+We will use the rule editor to set up the :ref:`ProCoDA logic <heading_ProCoDA_Logic>` for the experiment.
+
  #. Go to |config_edit_rules| on the Configuration tab.
  #. Go to the Set Points tab
  #. Delete All Set Points to create a new clean method
@@ -855,7 +867,7 @@ Set up a timed cycle of two states (run and reset)
 Set up two pumps
 ----------------
 
-Use the :ref:`heading_ProCoDA_Golander_Peristaltic_Pump` for an explanation of how the pumps are controlled. Use the table below as a guide. Go through the table below and add all of these set points. Note that when you load external code it always lists what the required inputs are at the bottom of the dialog box.
+:ref:`heading_ProCoDA_Golander_Peristaltic_Pump` provides an explanation of how the pumps are controlled. Use the table below as a guide. Go through the table below and add all of these set points. Note that when you load external code it always lists what the required inputs are at the bottom of the dialog box.
 
 
 .. _table_ProCoDA_tutorial_method:
@@ -915,21 +927,17 @@ Test your automation sequence
  #. Right click on Warmup in the operator selected state to tell ProCoDA to return to that state. (Note that the operator selected state is NOT necessarily the state that ProCoDA is in! It is the state that the operator told ProCoDA to start in!)
  #. Return to the Graphs tab
  #. Select Clear graphs
- #. See if you can create this graph
-|Tutorial_graph|
+ #. See if you can create this graph |Tutorial_graph|
 
 Play
 ----
 
- #. Set up data logging using the method that also creates a state log
+ #. Set up :ref:`data logging <heading_ProCoDA_Logging_Data>` using the method that also creates a state log
  #. Run your experiment again
  #. Open the data file and the state file to see what ProCoDA is recording
- #. Add a pressure sensor or a temperature sensor
-
-
-
-
-
+ #. Add a  :ref:`pressure sensor <heading_ProCoDA_Pressure_Measurement>` or a :ref:`temperature sensor <heading_ProCoDA_Temperature_Measurement>`
+ #. Change the :ref:`sensor data rate <heading_ProCoDA_Configure>` to be super fast or super slow and then change the graph update interval to see if you can detect the big difference in the sensor data noise.
+ #. Add a device (perhaps a stirrer) that turns :ref:`on and off depending on the state <heading_ProCoDA_On-off_devices>`. The `method file for the tutorial <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm>`_ is configured to turn a device on and off on port 24V 2.
 
 
 References
