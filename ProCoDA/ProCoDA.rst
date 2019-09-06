@@ -683,7 +683,7 @@ The ProCoDA hardware is designed and fabricated around an NI USB data acquisitio
 Analog control of pumps
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The older style of analog-controlled Masterflex pumps can be controlled through pump 0 or pump 1 ports using a 4-20 mA control system. There are many ways to connect a pump, I am going to stick to one pump head because it is easier and adding more is fairly straight-forward. I will also be doing it with the code that uses mL/s and tubing ID, but you can use the other external code as long as you ensure that you have the required set points
+The older style of analog-controlled Masterflex pumps can be controlled through pump 0 or pump 1 ports using a 4-20 mA control system. There are many ways to connect a pump, I am going to stick to one pump head because it is easier and adding more is fairly straight-forward. I will also be doing it with the code that uses mL/s and tubing ID, but you can use the other external code as long as you ensure that you have the required set points.
   #. Add a constant set point with the flow in mL/s |SetPoints_pump_flow_rate|
   #. Add a constant set point with the tubing size that you will be using |SetPoints_pump_tubing_ID|
   #. Add a variable set point and call it something like "pump speed control" |SetPoints_pump_code_inputs|
