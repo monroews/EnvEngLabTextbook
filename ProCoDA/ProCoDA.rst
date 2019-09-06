@@ -744,6 +744,11 @@ Tutorial
 
 .. |Tutorial_timers| image:: Images/Tutorial_timers.png
 .. |Tutorial_rule_reset| image:: Images/Tutorial_rule_reset.png
+.. |Tutorial_rule_end| image:: Images/Tutorial_rule_end.png
+.. |Tutorial_graph| image:: Images/Tutorial_graph.png
+.. |Tutorial_log_axis| image:: Images/Tutorial_log_axis.png
+
+
 
 
 
@@ -774,7 +779,7 @@ Experimental design
   Pump_water_rpm = (Q_water/Pump_water_per_rev).to(u.rpm)
   print('The water pump rpm is',Pump_water_rpm, 'for tubing size', Water_tubingcode)
 
-  # The coagulant dose range is 0.5 to 10 mg/L of aluminum.
+  # The coagulant dose range is 0.5 to 8 mg/L of aluminum.
   # We need the peristaltic pump pulses to be very fast compared with the residence time of the flocculator
   # Let's assume flocculator residence time 5 minutes (300 seconds)
   # Set max pulse time to be 10% of flocculator residence time (3 seconds)
@@ -785,13 +790,14 @@ Experimental design
   # The coagulant stock has 70 grams/L of aluminum
   C_PACl_super_stock = 70 * u.g/u.L
   # Define a set of coagulant dosages over the target range with a logarithmic scaling
-  dosis_n = 5
+  # the number of coagulant dosages to test. This doesn't include an extra "free" starting value of 0 to create a control that ProCoDA adds automatically
+  Max_x = 5
   dose_min = 0.5 * u.mg/u.L
-  dose_max = 10 * u.mg/u.L
-  C_PACl_dose = np.logspace(np.log10(1),np.log10(dose_max/dose_min),dosis_n)* dose_min
+  dose_max = 8 * u.mg/u.L
+  C_PACl_dose = np.logspace(np.log10(1),np.log10(dose_max/dose_min),Max_x)* dose_min
   print('The coagulant dosages in the geometric series are',C_PACl_dose.magnitude, C_PACl_dose.units)
   # Find the multiplication factor (the base) between each dose
-  base = (dose_max/dose_min)**(1/dosis_n)
+  base = (dose_max/dose_min)**(1/(Max_x-1))
   print('The base of the geometric series is',base)
   # The coefficient for our increment function is the minimum dose.
 
@@ -799,7 +805,7 @@ Experimental design
   # The smallest diameter tubing that we like to work with is 1.52 mm yellow-blue.
   Pump_coag_per_rev = ac.vol_per_rev_3_stop('yellow-blue')
   print('The coagulant tubing volume per turn is',Pump_coag_per_rev)
-  Coag_min_Q = (Pump_coag__per_rev*Pump_dosing_min_rpm).to(u.mL/u.s)
+  Coag_min_Q = (Pump_coag_per_rev*Pump_dosing_min_rpm).to(u.mL/u.s)
   print('The minimum coagulant flow is',Coag_min_Q)
 
   # now we can find the maximum coagulant stock concentration using the min dose and min flow rate
@@ -815,17 +821,19 @@ Experimental design
   Pump_coag_rpm = (Q_PACl_stock/Pump_coag_per_rev).to(u.rpm)
   print('The pump rpm for the different flow rates are',Pump_coag_rpm.magnitude, Pump_coag_rpm.units)
 
-The water flow rate is 0.5067 milliliter / second
-The volume of water per revolution is 2.8 milliliter / turn
-The water pump rpm is 10.86 revolutions_per_minute for tubing size 17
-The minimum dosing pump rpm is 0.3333 revolutions_per_minute
-The coagulant dosages in the geometric series are [ 0.5, 1.05737126, 2.23606798  4.72870805 10.] mg/L
-The base of the geometric series is 1.821 dimensionless
-The coagulant tubing volume per turn is 0.1488 milliliter / rev
-The minimum coagulant flow is 0.0008269 milliliter / second
-The PACl stock concentration is 300 milligram / liter
-The coagulant flow rate is [0.00084451 0.00178593 0.00377677 0.00798691 0.01689025] mL/s
-The pump rpm for the different flow rates are [0.34042406 0.71990923 1.52242266 3.21953195 6.80848112] revolutions_per_minute
+
+Below are the results from the calculations above.
+ * The water flow rate is 0.5067 milliliter / second
+ * The volume of water per revolution is 2.8 milliliter / turn
+ * The water pump rpm is 10.86 revolutions_per_minute for tubing size 17
+ * The minimum dosing pump rpm is 0.3333 revolutions_per_minute
+ * The coagulant dosages in the geometric series are [0.5 1.  2.  4.  8. ] milligram / liter
+ * The base of the geometric series is 2 dimensionless
+ * The coagulant tubing volume per turn is 0.1488 milliliter / rev
+ * The minimum coagulant flow is 0.0008269 milliliter / second
+ * The PACl stock concentration is 300 milligram / liter
+ * The coagulant flow rate is [0.00084451 0.00168902 0.00337805 0.0067561  0.0135122 ] mL/s
+ * The pump rpm for the different flow rates are [0.34042406 0.68084811 1.36169622 2.72339245 5.4467849 ] revolutions_per_minute
 
 Set up a timed cycle of two states (run and reset)
 --------------------------------------------------
@@ -834,8 +842,8 @@ Set up a timed cycle of two states (run and reset)
  #. Go to the Set Points tab
  #. Delete All Set Points to create a new clean method
  #. Create a new set point that is the total plant flow (water + coag) with a value of 0.5067 mL/s
- #. Create a new set point that is the duration of run in seconds with a value of 10
- #. Create a new set point that is the duration of warmup in seconds with a value of 2 |Tutorial_timers|
+ #. Create a new set point that is the duration of run in seconds with a value of 5
+ #. Create a new set point that is the duration of warmup in seconds with a value of 1 |Tutorial_timers|
  #. Select the Rules and Outputs tab
  #. Select the Rules tab
  #. Add State After and call it Run (this is in the state 1 position)
@@ -846,39 +854,76 @@ Set up a timed cycle of two states (run and reset)
 Set up two pumps
 ----------------
 
-Use the :ref:`heading_ProCoDA_Golander_Peristaltic_Pump` to guide you. When you are done it should look like this.
+Use the :ref:`heading_ProCoDA_Golander_Peristaltic_Pump` for an explanation of how the pumps are controlled. Use the table below as a guide. Go through the table below and add all of these set points. Note that when you load external code it always lists what the required inputs are at the bottom of the dialog box.
 
-.. _table_ProCoDA_pump_tubing:
 
-.. csv-table:: Pump tubing selection.
-    :header:  Set Point , unit , type, value
+.. _table_ProCoDA_tutorial_method:
+
+.. csv-table:: ProCoDA tutorial method to vary coagulant dose for a series of 6 experiments
+    :header:  Set Point , unit , type, value, notes
     :align: center
 
 
-      Plant flow, mL/s, constant, 0.5067
-      Duration of run, s, constant, 5
-      Duration of warmup, s, constant,1
-      data interval, s, constant,5
-      com, none, constant, ?
-      water pump ID, none, constant, 1
-      coag pump ID, none, constant, 2
-      on state, none, constant, 12
-      water volume per rev, mL/rev, constant, 2.8
-      coag volume per rev, mL/rev, constant, 0.1488
-      water flow, mL/s, variable, Plant flow - coag flow
-      coag flow, mL/s, variable, increment by factor rep
-      water pump control, rpm, variable, Golander pump
-      coag pump control, rpm, variable, Golander pump
-      state to increment, none, constant, 2 (reset state)
-      coefficient, mL/s, constant, 0.0008269 (min coag flow)
-      base, none, constant, 2.115
-      max x, none, constant, 4
-      reps, none, constant, 2
-      max cycles, none, constant, 12 (max x + 2) times 2 reps
-      cycles, none, variable, count states
+      Plant flow, mL/s, constant, 0.5067, total flow of water
+      Duration of run, s, constant, 5, perhaps steady state operation for data collection
+      Duration of warmup, s, constant, 1, time required for startup (start with a small value for testing!)
+      data interval, s, constant, 5, used to set data interval for turbidimeters
+      com, none, constant, ?, different for each workstation
+      water pump ID, none, constant, 2, change this to match your pumps
+      coag pump ID, none, constant, 1, change this to match your pumps
+      on state, none, constant, 12, on for both states 1 and 2 (run and warmup)
+      water volume per rev, mL/rev, constant, 2.8, based on #17 tubing
+      coag volume per rev, mL/rev, constant, 0.1488, based on yellow-blue 3 stop tubing
+      water flow, mL/s, variable, subtract function, Plant flow - coag flow
+      coag flow, mL/s, variable, increment by factor rep, will systematically vary coag flow!
+      water pump control, rpm, variable, Golander pump, controls the water pump
+      coag pump control, rpm, variable, Golander pump, controls the coagulant pump
+      state to increment, none, constant, 2 (reset state), increment x whenever it enters the run state
+      coefficient, mL/s, constant, 0.0008269 (min coag flow), sets the first nonzero value of the series
+      base, none, constant, 2, base that is raised to the power of x
+      max x, none, constant, 5, number of nonzero coagulant dosages
+      reps, none, constant, 2, number of times to repeat each test
+      max x + 1, none, variable, add, add max x + ON
+      max cycles, none, variable, multiply, max x +1 times reps
+      cycles, none, variable, count states, counts number of times the run state is called
 
-use the increment function to vary the coagulant dose between experiments
-control a Golander peristaltic pump
+
+The ProCoDA method file for this setup is available for you to try. Use the |Open_Method| on the ProCoDA configuration tab (select the left open folder icon) to load the `method file for the tutorial <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm>`_.
+
+Set the end condition for the experiment
+----------------------------------------
+
+We want ProCoDA to turn everything off after each of the coagulant dosages is tested twice. We can do that by adding a second exit condition for the Warmup state that exits to the OFF state when the total number of times that the Warmup state should execute has been reached.
+
+ #. Open the Rules and Outputs tab
+ #. Select the Warmup state
+ #. Add a new rule to exit to OFF |Tutorial_rule_end|
+
+Test your automation sequence
+-----------------------------
+
+ #. Close the rule editor
+ #. go to the Process Operation tab
+ #. Change the mode of operation to Automatic
+ #. Select the Warmup state
+ #. Go to the Graphs tab
+ #. Select *water pump control (rpm)*, *water pump control (rpm)*, and *cycles* (use the control key as you select multiple entries)
+ #. Set which axis (left or right) each plot is graphed on by right clicking on the legend where the color of the plot is shown and select y-scale and then select left or right. Use the left axis for the pump rpm and the right axis for the cycles.
+ #. Change the left y axis to log scale |Tutorial_log_axis| because we are using a geometric series of flow rates
+ #. Return to the Process Operation tab
+ #. Right click on Warmup in the operator selected state to tell ProCoDA to return to that state. (Note that the operator selected state is NOT necessarily the state that ProCoDA is in! It is the state that the operator told ProCoDA to start in!)
+ #. Return to the Graphs tab
+ #. Select Clear graphs
+ #. See if you can create this graph
+|Tutorial_graph|
+
+Play
+----
+
+ #. Set up data logging using the method that also creates a state log
+ #. Run your experiment again
+ #. Open the data file and the state file to see what ProCoDA is recording
+ #. Add a pressure sensor or a temperature sensor
 
 
 
