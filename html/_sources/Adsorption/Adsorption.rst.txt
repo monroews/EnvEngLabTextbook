@@ -213,7 +213,7 @@ Contactor Procedures
 
 .. _figure_AC_Schematic:
 
-.. figure:: Images/New_Schematic.png
+.. figure:: Images/Schematic.png
     :width: 500px
     :align: center
     :alt: carbon contactor schematic

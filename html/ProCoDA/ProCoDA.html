@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ProCoDA: Process Control and Data Acquisition &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.36 documentation</title>
+  <title>ProCoDA: Process Control and Data Acquisition &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
   
 
   
@@ -56,10 +56,6 @@
 
           
             
-            
-              <div class="version">
-                v.0.0.36
-              </div>
             
           
 
@@ -174,7 +170,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tutorial">Tutorial</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#experimental-design">Experimental design</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#set-up-a-timed-cycle-of-two-states-run-and-reset">Set up a timed cycle of two states (run and reset)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-a-timed-cycle-of-two-states-run-and-warmup">Set up a timed cycle of two states (run and warmup)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#set-up-two-pumps">Set up two pumps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#set-the-end-condition-for-the-experiment">Set the end condition for the experiment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#test-your-automation-sequence">Test your automation sequence</a></li>
@@ -952,8 +948,8 @@ The volume per revolution can also be obtained using the following python code.<
 </dd>
 </dl>
 </div>
-<div class="section" id="set-up-a-timed-cycle-of-two-states-run-and-reset">
-<h3>Set up a timed cycle of two states (run and reset)<a class="headerlink" href="#set-up-a-timed-cycle-of-two-states-run-and-reset" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="set-up-a-timed-cycle-of-two-states-run-and-warmup">
+<h3>Set up a timed cycle of two states (run and warmup)<a class="headerlink" href="#set-up-a-timed-cycle-of-two-states-run-and-warmup" title="Permalink to this headline">¶</a></h3>
 <p>We will use the rule editor to set up the <a class="reference internal" href="#heading-procoda-logic"><span class="std std-ref">ProCoDA logic</span></a> for the experiment.</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -1127,7 +1123,7 @@ The volume per revolution can also be obtained using the following python code.<
 </tr>
 </tbody>
 </table>
-<p>The ProCoDA method file for this setup is available for you to try. Use the <img alt="Open_method" src="../_images/Config_open_save_export2.png" /> on the ProCoDA configuration tab (select the left open folder icon) to load the <a class="reference external" href="https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm">method file for the tutorial</a>.</p>
+<p>The ProCoDA method file for this setup is available for you to try. Use the <img alt="Open_method" src="../_images/Config_open_save_export2.png" /> on the ProCoDA configuration tab (select the left open folder icon) to load the <a class="reference external" href="https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm">method file for the tutorial</a>. Remember to check the com port and the pump ID addresses to make sure they match your setup!</p>
 </div>
 <div class="section" id="set-the-end-condition-for-the-experiment">
 <h3>Set the end condition for the experiment<a class="headerlink" href="#set-the-end-condition-for-the-experiment" title="Permalink to this headline">¶</a></h3>
@@ -1225,7 +1221,7 @@ The volume per revolution can also be obtained using the following python code.<
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v.0.0.36',
+            VERSION:'',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
