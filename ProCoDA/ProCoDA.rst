@@ -759,6 +759,7 @@ Experimental design
 -------------------
 
 .. code:: python
+
   from aguaclara.core.units import unit_registry as u
   import aguaclara as ac
   import numpy as np
