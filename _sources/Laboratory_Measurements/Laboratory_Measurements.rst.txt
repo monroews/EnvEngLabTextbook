@@ -120,19 +120,19 @@ Measure Density
 
 .. code:: python
 
-    """ importing """
-    import aguaclara
-    import aguaclara.core.physchem as pc
-    from aguaclara.core.units import unit_registry as u
-    import numpy as np
-    import matplotlib.pyplot as plt
-    Temp = np.linspace(0,30)*u.degC
-    density = pc.density_water(Temp)
-    fig, ax = plt.subplots()
-    ax.plot(Temp,density)
-    ax.set(xlabel='Temperature (degrees Celsius)', ylabel=r'Density of water (kg/$m^3$)')
-    fig.savefig('Laboratory_Measurements/Images/Density_vs_T')
-    plt.show()
+  """ importing """
+  from aguaclara.core.units import unit_registry as u
+  import aguaclara as ac
+  import matplotlib.pyplot as plt
+  import numpy as np
+
+  Temp = np.linspace(0,30)*u.degC
+  density = ac.density_water(Temp)
+  fig, ax = plt.subplots()
+  ax.plot(Temp,density)
+  ax.set(xlabel='Temperature (degrees Celsius)', ylabel=r'Density of water (kg/$m^3$)')
+  #fig.savefig('Laboratory_Measurements/Images/Density_vs_T')
+  plt.show()
 
 
 .. _figure_Density_vs_T:
@@ -159,7 +159,7 @@ A red dye stock solution of 10 g/L has been prepared.
 Create a standard curve and measure an unknown
 ----------------------------------------------
 
-  #. Create a calibration curve using the standards created above and the :ref:`photometer calibration method <heading_ProCoDA_Photometer>`.
+  #. Create a calibration curve using the standards created above and the :ref:`photometer calibration method <heading_ProCoDA_Photometer>`. Use the Sipper Cell Flow Calibration method. **Tips**: Use black opaque tubing on both ends of the photometer and remember to hold the photometer straight up. If you are getting odd readings on the photometer push the fluid back and forth the photometer using the syringe until the readings stablize. Tap the photometer lightly to remove any air bubbles.
   #. Make sure to both save **AND** export the calibration data from ProCoDA (|photometer_open_save_export|)
   #. Was the calibration linear? If not, which standards caused it to depart from linearity?
      #. The high concentration standards may be beyond the linear range for the sensor. This can occur if the amount of light reaching the sensor is too low to create an output voltage that is proportional to the light. Remember that an absorbance of 2 means that 99% of the light is adsorbed by the dye! If the absorbance for the highest standard isn't in the line of the lower concentration samples, then delete the highest standards sequentially until you get a high correlation coefficient (R) as calculated by the ProCoDA photometer software.
@@ -170,11 +170,11 @@ Create a standard curve and measure an unknown
 Clean Up
 ========
 
- #. Empty and rinse red dye bottles and place them on the drying racks.
- #. Empty and rinse volumetric flasks and place them on the drying racks.
+ #. Empty and rinse red dye bottles and place them on the drying racks
+ #. Empty and rinse volumetric flasks and place them on the drying racks
  #. Place pipette tips in the pipette disposal mini cans
  #. Discard any used weighing boats
- #. Pull DI water through the photometer to rinse it and then place it in your drawer.
+ #. Pull DI water through the photometer to rinse it and then place it in your drawer
  #. Rinse temperature probe and place it in your drawer
  #. Empty and rinse unknown red dye solutions
  #. Place concentrated red dye in your drawer
