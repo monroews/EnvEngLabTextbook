@@ -36,7 +36,7 @@ A core feature of the ProCoDA software is the user programmable feature that fac
 
 Sensor signal wires and power supply connections have been integrated in a single cable to make sensors easy to use in a student laboratory environment. The sensors use a standardized wiring scheme so that a variety of sensors can be used in a connect-calibrate-measure approach. The elimination of power supplies at each experiment location and all of the associated wiring has made sensor use easy for students. The process control software interface for sensors allows adding and configuring sensors while simultaneously collecting data.
 
-The ProCoDA hardware/software can vary the state of on/off devices as well as control devices that require a 4-20 mA signal. The on/off outputs are 24 V with sufficient current to operate small solenoid valves or to switch relays for controlling the power to any number of devices. The 4-20 mA analog outputs are used to control peristaltic pumps. External code is already provided for communication with digital devices including HF scientific turbidimeters, HF scientific AccUView UV meter. We expect to add external code to control digital peristaltic pumps in the near future.
+The ProCoDA hardware/software can vary the state of on/off devices as well as control devices that require a 4-20 mA signal. The on/off outputs are 24 V with sufficient current to operate small solenoid valves or to switch relays for controlling the power to any number of devices. The 4-20 mA analog outputs are used to control peristaltic pumps. External code is already provided for communication with digital devices including HF scientific turbidimeters, HF scientific AccUView UV meter. We also have external code to control digital peristaltic pumps using Modbus. Other Modbus devices can easily be added.
 
 ProCoDA software allows the user to automate data collection and to control many parts of the experimental apparatus. This enables researchers to focus on experimental design and data analysis. Process control software can control the speed of peristaltic pumps, regulate flow through solenoid valves, and measure (or control with feedback) water quality parameters such as temperature, pressure, and dissolved oxygen.
 
@@ -683,7 +683,7 @@ The ProCoDA hardware is designed and fabricated around an NI USB data acquisitio
 Analog control of pumps
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The older style of analog-controlled Masterflex pumps can be controlled through pump 0 or pump 1 ports using a 4-20 mA control system. There are many ways to connect a pump, I am going to stick to one pump head because it is easier and adding more is fairly straight-forward. I will also be doing it with the code that uses mL/s and tubing ID, but you can use the other external code as long as you ensure that you have the required set points
+The older style of analog-controlled Masterflex pumps can be controlled through pump 0 or pump 1 ports using a 4-20 mA control system. There are many ways to connect a pump, I am going to stick to one pump head because it is easier and adding more is fairly straight-forward. I will also be doing it with the code that uses mL/s and tubing ID, but you can use the other external code as long as you ensure that you have the required set points.
   #. Add a constant set point with the flow in mL/s |SetPoints_pump_flow_rate|
   #. Add a constant set point with the tubing size that you will be using |SetPoints_pump_tubing_ID|
   #. Add a variable set point and call it something like "pump speed control" |SetPoints_pump_code_inputs|
@@ -697,6 +697,14 @@ The older style of analog-controlled Masterflex pumps can be controlled through 
   #. Select the variable that you created (pump speed control) for the pump speed.
   #. To test the pump go to process operation and change the state to the state that has the pump running
   #. If your pump is not running at the speed ProCoDA displays you can calibrate it using the |config_calibrate_pump| button
+
+Calibrate peristaltic pump flow rates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  #. If you are using an anolog controlled peristaltic pump and it is not running at full speed when ProCoDA sends it a "1" you can calibrate it using the |config_calibrate_pump| button.
+  #. To make flow calibration easy for both analog and digital pumps, use the external code that has mL per rev as an input. For analog pumps use the **pump control (mL per s, mL per rev).vi** in the **peristaltic** folder and for Modbus pumps use **Golander pump(mL per s, mL per rev).vi** in the **Modbus devices** folder.
+  #. Run the pump at a known and constant rpm and measure the flow obtained. Turn that flow into mL per revolution of the pump based on the pump rpm.
+  #. Enter the measured value of mL/rev as a setpoint input to the external code so that the pump delivers the target flow.
 
 .. _heading_ProCoDA_On-off_devices:
 

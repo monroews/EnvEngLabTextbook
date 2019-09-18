@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ProCoDA: Process Control and Data Acquisition &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.37 documentation</title>
+  <title>ProCoDA: Process Control and Data Acquisition &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.38 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                v.0.0.37
+                v.0.0.38
               </div>
             
           
@@ -162,6 +162,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#rules-config-edit-rules">Rules </a></li>
 <li class="toctree-l3"><a class="reference internal" href="#outputs">Outputs</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#analog-control-of-pumps">Analog control of pumps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calibrate-peristaltic-pump-flow-rates">Calibrate peristaltic pump flow rates</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#on-off-devices">On-off devices</a></li>
 </ul>
 </li>
@@ -274,7 +275,7 @@
 <p>The parallel processes are asynchronous and share data through the use of code objects (LabVIEW SubVIs) that contain both data and methods.</p>
 <p>A core feature of the ProCoDA software is the user programmable feature that facilitates customization of the control logic for specific tasks. The rule editor provides a programming environment for setting up states, control logic, set points, variables defined by links to external code, and selecting which user defined parameter controls each output in each state.</p>
 <p>Sensor signal wires and power supply connections have been integrated in a single cable to make sensors easy to use in a student laboratory environment. The sensors use a standardized wiring scheme so that a variety of sensors can be used in a connect-calibrate-measure approach. The elimination of power supplies at each experiment location and all of the associated wiring has made sensor use easy for students. The process control software interface for sensors allows adding and configuring sensors while simultaneously collecting data.</p>
-<p>The ProCoDA hardware/software can vary the state of on/off devices as well as control devices that require a 4-20 mA signal. The on/off outputs are 24 V with sufficient current to operate small solenoid valves or to switch relays for controlling the power to any number of devices. The 4-20 mA analog outputs are used to control peristaltic pumps. External code is already provided for communication with digital devices including HF scientific turbidimeters, HF scientific AccUView UV meter. We expect to add external code to control digital peristaltic pumps in the near future.</p>
+<p>The ProCoDA hardware/software can vary the state of on/off devices as well as control devices that require a 4-20 mA signal. The on/off outputs are 24 V with sufficient current to operate small solenoid valves or to switch relays for controlling the power to any number of devices. The 4-20 mA analog outputs are used to control peristaltic pumps. External code is already provided for communication with digital devices including HF scientific turbidimeters, HF scientific AccUView UV meter. We also have external code to control digital peristaltic pumps using Modbus. Other Modbus devices can easily be added.</p>
 <p>ProCoDA software allows the user to automate data collection and to control many parts of the experimental apparatus. This enables researchers to focus on experimental design and data analysis. Process control software can control the speed of peristaltic pumps, regulate flow through solenoid valves, and measure (or control with feedback) water quality parameters such as temperature, pressure, and dissolved oxygen.</p>
 <p>The ProCoDA software is designed to allow complete automation of experiments including running a series of tests where a parameter is adjusted to a different value for each test. ProCoDA is a state machine. That means that you can create a series of states. Each state has it’s own logic for which state to go to next and what to do while in that state. A simple example of a state machine is a washing machine. Washing machine states could include</p>
 <span id="table-procoda-washing-machine-states"></span><table border="1" class="colwidths-given docutils align-center" id="id5">
@@ -808,7 +809,7 @@ The volume per revolution can also be obtained using the following python code.<
 <div class="section" id="analog-control-of-pumps">
 <h4>Analog control of pumps<a class="headerlink" href="#analog-control-of-pumps" title="Permalink to this headline">¶</a></h4>
 <dl class="docutils">
-<dt>The older style of analog-controlled Masterflex pumps can be controlled through pump 0 or pump 1 ports using a 4-20 mA control system. There are many ways to connect a pump, I am going to stick to one pump head because it is easier and adding more is fairly straight-forward. I will also be doing it with the code that uses mL/s and tubing ID, but you can use the other external code as long as you ensure that you have the required set points</dt>
+<dt>The older style of analog-controlled Masterflex pumps can be controlled through pump 0 or pump 1 ports using a 4-20 mA control system. There are many ways to connect a pump, I am going to stick to one pump head because it is easier and adding more is fairly straight-forward. I will also be doing it with the code that uses mL/s and tubing ID, but you can use the other external code as long as you ensure that you have the required set points.</dt>
 <dd><ol class="first last arabic simple">
 <li>Add a constant set point with the flow in mL/s <img alt="SetPoints_pump_flow_rate" src="../_images/SetPoints_pump_flow_rate.png" /></li>
 <li>Add a constant set point with the tubing size that you will be using <img alt="SetPoints_pump_tubing_ID" src="../_images/SetPoints_pump_tubing_ID.png" /></li>
@@ -826,6 +827,17 @@ The volume per revolution can also be obtained using the following python code.<
 </ol>
 </dd>
 </dl>
+</div>
+<div class="section" id="calibrate-peristaltic-pump-flow-rates">
+<h4>Calibrate peristaltic pump flow rates<a class="headerlink" href="#calibrate-peristaltic-pump-flow-rates" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ol class="arabic simple">
+<li>If you are using an anolog controlled peristaltic pump and it is not running at full speed when ProCoDA sends it a “1” you can calibrate it using the <img alt="config_calibrate_pump" src="../_images/config_calibrate_pump.png" /> button.</li>
+<li>To make flow calibration easy for both analog and digital pumps, use the external code&nbsp;that has mL per rev as an input. For analog pumps use the <strong>pump control (mL per s, mL per rev).vi</strong> in the <strong>peristaltic</strong> folder and for Modbus pumps use <strong>Golander pump(mL per s, mL per rev).vi</strong> in the <strong>Modbus devices</strong> folder.</li>
+<li>Run the pump at a known and constant rpm and measure the flow obtained. Turn that flow into mL per revolution of the pump based on the pump rpm.</li>
+<li>Enter the measured value of mL/rev as a setpoint input to the external code so that the pump delivers the target flow.</li>
+</ol>
+</div></blockquote>
 </div>
 <div class="section" id="on-off-devices">
 <span id="heading-procoda-on-off-devices"></span><h4>On-off devices<a class="headerlink" href="#on-off-devices" title="Permalink to this headline">¶</a></h4>
@@ -1225,7 +1237,7 @@ The volume per revolution can also be obtained using the following python code.<
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v.0.0.37',
+            VERSION:'v.0.0.38',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
