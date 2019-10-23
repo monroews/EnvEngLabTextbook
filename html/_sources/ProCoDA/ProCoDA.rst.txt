@@ -557,16 +557,17 @@ The Ismatec pump heads are useful for dosing coagulant, clay, fluoride, acid, ba
 .. _table_ProCoDA_pump_tubing:
 
 .. csv-table:: Pump tubing selection.
-    :header:  ,Tubing Size , 14 , 16 , 17 , 18
+    :header:  Tubing Size , 14 , 16 , 17 , 18
     :align: center
 
 
 
-    ,RPM/ID (mm) ,  1.6 , 3 , 6.3 , 8
-    flow, 1,  0.0035 , 0.0133 , 0.0467 , 0.0633
-    rate, 50,  0.1750 , 0.6667 , 2.3333 , 3.1667
-    in, 100,  0.3500 , 1.3333 , 4.6667 , 6.3333
-    mL/s, mL/rev, 0.21 , 0.80 , 2.8 , 3.8
+    Tubing diameter,  1.6 (mm), 3 (mm), 6.3 (mm), 8 (mm)
+    Flow per revolution, 0.21 (mL/rev), 0.80 (mL/rev), 2.8 (mL/rev), 3.8 (mL/rev)
+    1 (rpm),  0.0035 (mL/s), 0.0133 (mL/s), 0.0467 (mL/s), 0.0633 (mL/s)
+    50 (rpm),  0.1750 (mL/s), 0.6667 (mL/s), 2.3333 (mL/s), 3.1667 (mL/s)
+    100 (rpm),  0.3500 (mL/s), 1.3333 (mL/s), 4.6667 (mL/s), 6.3333 (mL/s)
+
 
 A similar table is available for 3-stop tubing used on `Ismatec 6 roller pump heads <http://www.ismatec.com/int_e/pumps/t_mini_s_ms_ca/tubing_msca2.htm>`_.
 The volume per revolution can also be obtained using the following python code.
