@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ProCoDA: Process Control and Data Acquisition &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.39 documentation</title>
+  <title>ProCoDA: Process Control and Data Acquisition &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.40 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                v.0.0.39
+                v.0.0.40
               </div>
             
           
@@ -158,6 +158,11 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#increment-functions">Increment functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feedback-control">Feedback Control</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#on-off-controller">On-Off Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#proportional-integral-derivative-control">Proportional Integral Derivative Control</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#states">States</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rules-config-edit-rules">Rules </a></li>
 <li class="toctree-l3"><a class="reference internal" href="#outputs">Outputs</a><ul>
@@ -278,8 +283,8 @@
 <p>The ProCoDA hardware/software can vary the state of on/off devices as well as control devices that require a 4-20 mA signal. The on/off outputs are 24 V with sufficient current to operate small solenoid valves or to switch relays for controlling the power to any number of devices. The 4-20 mA analog outputs are used to control peristaltic pumps. External code is already provided for communication with digital devices including HF scientific turbidimeters, HF scientific AccUView UV meter. We also have external code to control digital peristaltic pumps using Modbus. Other Modbus devices can easily be added.</p>
 <p>ProCoDA software allows the user to automate data collection and to control many parts of the experimental apparatus. This enables researchers to focus on experimental design and data analysis. Process control software can control the speed of peristaltic pumps, regulate flow through solenoid valves, and measure (or control with feedback) water quality parameters such as temperature, pressure, and dissolved oxygen.</p>
 <p>The ProCoDA software is designed to allow complete automation of experiments including running a series of tests where a parameter is adjusted to a different value for each test. ProCoDA is a state machine. That means that you can create a series of states. Each state has it’s own logic for which state to go to next and what to do while in that state. A simple example of a state machine is a washing machine. Washing machine states could include</p>
-<span id="table-procoda-washing-machine-states"></span><table border="1" class="colwidths-given docutils align-center" id="id5">
-<caption><span class="caption-number">Table 10 </span><span class="caption-text">Washing machine states</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<span id="table-procoda-washing-machine-states"></span><table border="1" class="colwidths-given docutils align-center" id="id8">
+<caption><span class="caption-number">Table 10 </span><span class="caption-text">Washing machine states</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="20%" />
 <col width="40%" />
@@ -347,8 +352,8 @@
 <h2>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Permalink to this headline">¶</a></h2>
 <p>The ProCoDA software is designed to receive data from two types of digital sources. Sensors or meters that have their own digital communication interface can transmit their data to the ProCoDA software through external code that is written specifically for each meter. For example this method is used to acquire data from HF Scientific turbidimeters. Sensors that can be configured to produce an analog voltage such as pressure, pH and dissolved oxygen are monitored with a National Instruments USB data acquisition board.</p>
 <p>Sensors are wired using Category 5 or 6 Ethernet cable using our own <a class="reference internal" href="#table-procoda-sensor-wiring"><span class="std std-ref">analog</span></a> wiring standard. Two wires are used to carry the sensor output voltage designated as S- and S+. Five wires are used for different voltage power supplies, and one wire is used for the power supply ground. Sensors are wired to connect to the power supply that they require. Thus, the sensor is powered and monitored through a single port. This scheme is used for a variety of sensors including pressure, strain gage, pH, dissolved oxygen, photometer, and temperature. For several of the sensors the power supplies are also used to power a signal conditioning circuit to transform the sensor output into a voltage that can easily be monitored with a data acquisition system.</p>
-<span id="table-procoda-sensor-wiring"></span><table border="1" class="colwidths-given docutils align-center" id="id6">
-<caption><span class="caption-number">Table 11 </span><span class="caption-text">Wiring standard used for combining power supplies and analog data acquisition in a Category 5 Ethernet cable</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<span id="table-procoda-sensor-wiring"></span><table border="1" class="colwidths-given docutils align-center" id="id9">
+<caption><span class="caption-number">Table 11 </span><span class="caption-text">Wiring standard used for combining power supplies and analog data acquisition in a Category 5 Ethernet cable</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="33%" />
 <col width="33%" />
@@ -425,7 +430,7 @@
 <span id="heading-procoda-pressure-measurement"></span><h3>Pressure Measurement<a class="headerlink" href="#pressure-measurement" title="Permalink to this headline">¶</a></h3>
 <p>We use 1 psi (7 kPa) and 30 psi (200 kPa) pressure sensors (Omega sensor models PX26-001DV, and PX26-030DV) in our laboratory to measure water depth, reactor volumes, flow rates, and head loss. These sensors have maximum output voltages of 16.7 mV and 100 mV respectively with a power supply of 10 V. We use the differential pressure model since the sensors can be used to measure gage pressure or differential pressure. The sensors can directly measure water pressure although the electrical connections <strong>must be kept dry</strong>.
 The ProCoDA software converts the voltage output from the pressure sensors into the physical units of water column height or pressure using linear conversion algorithms. The sensors can also be zeroed or set to a measured value using a one point calibration.</p>
-<div class="figure align-center" id="id7">
+<div class="figure align-center" id="id10">
 <span id="figure-pressure-sensor"></span><a class="reference internal image-reference" href="../_images/pressure_sensor.jpg"><img alt="Pressure sensor" src="../_images/pressure_sensor.jpg" style="width: 200px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Differential pressure sensors are used to measure water depth, head loss, and air pressure.</span></p>
 </div>
@@ -459,7 +464,7 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <div class="section" id="ph-measurement-sensor-ph">
 <span id="heading-procoda-ph-measurement"></span><h3>pH Measurement <img alt="sensor_pH" src="../_images/sensor_pH.png" /><a class="headerlink" href="#ph-measurement-sensor-ph" title="Permalink to this headline">¶</a></h3>
 <p>pH sensors produce a voltage output in the range that would normally be easy to measure using standard data acquisition hardware. Unfortunately, the impedance requirement for a pH sensor is orders of magnitude higher than the inputs of standard data acquisition hardware and thus a signal conditioning circuit must be used to amplify the pH sensor output. The circuit consists of unity gain amplifiers that have less than 0.1 pA input leakage current.</p>
-<div class="figure align-center" id="id8">
+<div class="figure align-center" id="id11">
 <span id="figure-ph-circuit-png"></span><a class="reference internal image-reference" href="../_images/pH_circuit.png"><img alt="pH circuit" src="../_images/pH_circuit.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Circuit diagram for the signal conditioning circuit that takes the output from a pH (or other ion selective) electrode and amplifies the signal so that it can be measured by the data acquisition system. This is required because pH probes have a very high impedance that is too high for standard data acquisition systems to measure.</span></p>
 </div>
@@ -530,16 +535,16 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <span class="nb">print</span><span class="p">(</span><span class="n">b_cell</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id9">
+<div class="figure align-center" id="id12">
 <span id="figure-photometer-exploded"></span><a class="reference internal image-reference" href="../_images/Photometer_exploded1.jpg"><img alt="Photometer exploded" src="../_images/Photometer_exploded1.jpg" style="width: 300px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">The photometer flow cell is a sealed chamber with round glass plates on both sides. There is a 465 nm LED (blue light) on the right of this image. A photodetector on the left produces a voltage that varies linearly with the intensity of the light that passes through the sample cell.</span></p>
 </div>
-<div class="figure align-center" id="id10">
+<div class="figure align-center" id="id13">
 <span id="figure-photometer-w-signal-conditioning"></span><a class="reference internal image-reference" href="../_images/Photometer_w_signal_conditioning.jpg"><img alt="photometer with signal conditioning" src="../_images/Photometer_w_signal_conditioning.jpg" style="width: 200px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">The photometer must always be held in a vertical orientation to ensure that air bubbles are carried out of the sample cell. The sensor output is conditioned for monitoring by ProCoDA in the black box.</span></p>
 </div>
 <p>To calibrate the photometer, you will need to connect the peristaltic pump, a 1 L bottle, and the photometer in a closed loop. Use enough tubing so that the flow path of the photometer is oriented in the vertical direction with flow <strong>up</strong> through the photometer (this ensures that air bubbles are carried up and out of the photometer). Add 1 L (or a known volume) of tap water to the bottle and turn the pump on at 380 mL/min. The high flow rate is to speed up the response time when the concentration is changed. The goal is to have a known volume of solution circulating through the calibration system.</p>
-<div class="figure align-center" id="id11">
+<div class="figure align-center" id="id14">
 <span id="figure-sensor-photometer-cal-schematic-png"></span><a class="reference internal image-reference" href="../_images/sensor_photometer_cal_schematic.png"><img alt="internal figure" src="../_images/sensor_photometer_cal_schematic.png" style="width: 300px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">Experimental setup for calibrating photometer. Flow must be <strong>up</strong> through the photometer to ensure that any air bubbles are removed. It may be necessary to lightly tap the photometer to help release any trapped air bubbles.</span></p>
 </div>
@@ -606,7 +611,7 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <span id="heading-procoda-logging-data"></span><h2>Logging Data<a class="headerlink" href="#logging-data" title="Permalink to this headline">¶</a></h2>
 <p>ProCoDA offers two distinct methods of logging data. The first method is accessed by selecting a folder (not a file!) where you would like to save data. <img alt="config_data_state_log" src="../_images/config_data_state_log.png" /> In that system ProCoDA automatically creates 3 different types of files (data log, state log, and method file) and saves them. This approach is ideal for long term experiments that span multiple days. Every day at midnight ProCoDA starts a new data log and state log file. The daily saving and closing of the files reduces the risk of data loss due to a power failure or file corruption. The “Datalog File Failure” indicator is the one (and only) red indicator light that can be safely ignored while use ProCoDA! The state logs are particularly useful when ProCoDA is used to cycle through a series of experiments or through a series of states and thus the data may only be of interest in one of those states.</p>
 <p>The second method of saving data only creates a data log file. This can be most convenient for short duration experiments where the researcher is present during the experiment. Data is being logged when the data log icon is green. <img alt="config_Logging_data_short_exp" src="../_images/config_Logging_data_short_exp2.png" /></p>
-<p>The data interval can be set for both data logging methods. The data from the data buffer is averaged according to the user selected data log interval. It is important to recognize that the logged data is <strong>not</strong> the same as the data that is used by ProCoDA to make decisions. The averaging interval used to make decisions and the averaging interval used to log data are both user selected values and are independent.</p>
+<p>The data interval can be set for both data logging methods. The data from the data buffer is averaged according to the user selected data log interval. It is important to recognize that the logged data is <strong>not</strong> the same as the data that is used by ProCoDA to make decisions. The averaging interval used to make decisions and the averaging interval used to log data are both user selected values and are independent. This distinction becomes clear when ProCoDA logic appears to make decisions that are not in agreement with the logged data. This occurs when noisy data is used to make a decision (such as a state transition) and when smoothed data is recorded in the data file.</p>
 </div>
 <div class="section" id="logic-states-and-outputs-config-edit-rules">
 <span id="heading-procoda-logic"></span><h2>Logic, States, and Outputs <img alt="config_edit_rules" src="../_images/config_edit_rules1.png" /><a class="headerlink" href="#logic-states-and-outputs-config-edit-rules" title="Permalink to this headline">¶</a></h2>
@@ -667,8 +672,8 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <span id="heading-procoda-golander-peristaltic-pump"></span><h4>Connect a Golander Peristaltic Pump<a class="headerlink" href="#connect-a-golander-peristaltic-pump" title="Permalink to this headline">¶</a></h4>
 <p>The first step in setting up a pump is to calculate the required flow rate and then select the type of pump head (Easy-Load or 6 roller Ismatec) and the tubing size. For Easy-Load L/S Masterflex pump heads the recommended tubing sizes and corresponding range of flow rates are given below. Note that the #13 tubing is NOT recommended because the Easy-Load pump heads don’t create a seal with this small tubing. There are usually many viable solutions for tubing size. The Golander pumps have a minimum of 0.1 rpm and the maximum rpm is a function of the pump model.
 The Ismatec pump heads are useful for dosing coagulant, clay, fluoride, acid, base, etc. that are used to amend the properties of a primary flow that is pumped with an Easy-Load pump head.</p>
-<span id="table-procoda-pump-tubing"></span><table border="1" class="docutils align-center" id="id12">
-<caption><span class="caption-number">Table 12 </span><span class="caption-text">Pump tubing selection.</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<span id="table-procoda-pump-tubing"></span><table border="1" class="docutils align-center" id="id15">
+<caption><span class="caption-number">Table 12 </span><span class="caption-text">Pump tubing selection.</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="20%" />
 <col width="20%" />
@@ -778,9 +783,37 @@ The volume per revolution can also be obtained using the following python code.<
 <p>The two increment functions are dependent on the state cycles. In the example shown in <a class="reference internal" href="#figure-increment-functions"><span class="std std-numref">Fig. 31</span></a> the state was set to cycle between states 1, 2, and 3 with the exception of a manual reset to state 0 and then to state 1 to illustrate how the increment function is reset. The power law function is useful when it is desirable to explore a larger parameter space. However, care must be taken to ensure that the controlled processes have the ability to deliver the desired range of the varied parameter.</p>
 <p>ProCoDA can be configured to stop an experiment after the reaching the maximum value of the parameter by using the external code called “count states”. Count states counts the number of times a “state to count” has been entered. This can be used to set an exit condition on a state. If no exit condition is created to end an experiment the increment function will reset the parameter to its initial value and begin the increment process again.</p>
 <p>It is possible to systematically vary more than one parameter. To do this it is essential that different copies of the increment function code be used for each parameter. This is because increment function code includes a memory to track its own state and if it is used by ProCoDA to do multiple things it will give unexpected results!</p>
-<div class="figure align-center" id="id13">
+<div class="figure align-center" id="id16">
 <span id="figure-increment-functions"></span><a class="reference internal image-reference" href="../_images/increment_functions.png"><img alt="Increment functions" src="../_images/increment_functions.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Increment functions showing how the output varies as a function of the state. In this example the state cycled between states 1, 2, and 3. The increment state was 2, the number of replicates was 2, the reset state was 0, the y intercept was 200, the slope was 50, and the maximum value of x was 4. The power law relationship used a coefficient of 100 and a base of 1.5.</span></p>
+</div>
+</div>
+<div class="section" id="feedback-control">
+<span id="id4"></span><h3>Feedback Control<a class="headerlink" href="#feedback-control" title="Permalink to this headline">¶</a></h3>
+<p>Feedback control uses a measured value to make a decision in real time and change an output to achieve a desired effect. ProCoDA offers two types of feedback control. ALl of the feedback controller code has a memory and thus if multiple feedback controllers are used at the same time to control different outputs it is necessary to use external code with different names so that each process has its own memory. Different versions of these control codes are already available in the feedback control folder for this purpose.</p>
+<div class="section" id="on-off-controller">
+<span id="id5"></span><h4>On-Off Controller<a class="headerlink" href="#on-off-controller" title="Permalink to this headline">¶</a></h4>
+<p>The on-off controller turns an output on when a measured value is below a threshold and turns the output off when a measured value is above a threshold.
+The “off value” is the output value of the controller when the controller is off and the “on value” is the output value when the controller is on. The minimum and maximum targets can be the same value. The controller turns on when the measured process value drops below the maximum target and then turns off again when the measured process value rises above the maximum target. Under ideal conditions the measured process value will oscillate between the minimum and maximum targets. Depending on the process the measured process value may oscillate far beyond the minimum and maximum targets.</p>
+</div>
+<div class="section" id="proportional-integral-derivative-control">
+<span id="id6"></span><h4>Proportional Integral Derivative Control<a class="headerlink" href="#proportional-integral-derivative-control" title="Permalink to this headline">¶</a></h4>
+<p>Proportional Integral Derivative (PID) Control is a commonly used control strategy that provides an algorithm to adjust an output to produce the desired response in a process. A simple example is cruise control that uses the measured speed of the vehicle and a target setpoint speed to adjust the voltage to an electric motor to minimize the error between the target speed and the measured speed.</p>
+<p>The equation for PID control is given below (<a class="reference external" href="https://en.wikipedia.org/wiki/PID_controller#PID_controller_theory">see the wikipedia article</a>).</p>
+<div class="math notranslate nohighlight" id="equation-procoda-procoda-5">
+<span class="eqno">(134)<a class="headerlink" href="#equation-procoda-procoda-5" title="Permalink to this equation">¶</a></span>\[u(t) = K_{\mathrm{p}} e(t) + K_{\mathrm{i}} \int_{0}^{t} e(\tau) d \tau + K_{\mathrm{d}} \frac{d e(t)}{d t}\]</div>
+<p>where <span class="math notranslate nohighlight">\(u(t)\)</span> is the controller output, <span class="math notranslate nohighlight">\(t\)</span> is the current time, <span class="math notranslate nohighlight">\(e(t)\)</span> is the current error (target value - measured value) <span class="math notranslate nohighlight">\(K_{\mathrm{i}}\)</span> and <span class="math notranslate nohighlight">\(K_{\mathrm{d}}\)</span> have units of minutes as implemented in ProCoDA.</p>
+<p>To establish constants for PID control in ProCoDA, follow the <a class="reference external" href="https://en.wikipedia.org/wiki/PID_controller#Manual_tuning">manual tuning procedure</a>. The steps will be summarized below.</p>
+<p>Select a PID controller that uses either a sensor or a setpoint as the measured process value. For example if a pressure sensor is used as the measured process value then use <em>PID sensor no reset.vi</em> because pressure sensors are handled as sensors by ProCoDA. If a turbidity meter is used as the measured process value then use <em>PID setpoint no reset.vi</em> because the turbidity is handled as a setpoint by ProCoDA. The next step is to create all of the required inputs (target value, P Kc, I Ti (min), D Td (min), Measured process value). Note that the “no reset” designation on this code means that the PID control does NOT reset when ProCoDA changes states. That is normally the preferred behavior. The exception would be if there are some states where PID is not being used to control the process. AguaClara researchers typically use PI control (the value of D is set to zero).</p>
+<ol class="arabic simple">
+<li>Set the I and D set points to zero.</li>
+<li>Set P to a small value and change the target value to provoke a response from the PID control.</li>
+<li>Observe the graph of the variable being controlled for this value of P. If the result is an oscillation that becomes damped (decreasing amplitude), increase the value of P (perhaps by a factor of 5) and repeat the process. If the result is an oscillation that becomes amplified (increasing amplitude), lower the value of P and repeat the process. The objective is to find a value of P for which there is a periodic oscillation of the value with a constant amplitude.</li>
+<li>Record the critical P value, (:math:` K_{mathrm{u}}`), and also record the period of the wave (time between two consecutive crests of the oscillation , (:math:` P_{mathrm{u}}`), in minutes).</li>
+<li>To find the value of P required, use the equation: <span class="math notranslate nohighlight">\(P = \frac{K_{\mathrm{u}}}{2.2}\)</span>.</li>
+<li>To find the value of I required, use the equation: <span class="math notranslate nohighlight">\(I = \frac{P_{\mathrm{u}}}{1.2}\)</span>. This should result in a value in minutes, which is the correct unit for I.</li>
+</ol>
+<p>Change your set points (P and I) to the new values. Ensure that there is less than 10% variation in your variable, and fine tune if necessary. This calibration method may result in oscillatory behavior. To reduce variability in the output, consider reducing P to damp the oscillations. This will reduce the responsiveness of the algorithm and will increase the stability.</p>
 </div>
 </div>
 <div class="section" id="states">
@@ -980,8 +1013,8 @@ The volume per revolution can also be obtained using the following python code.<
 <div class="section" id="set-up-two-pumps">
 <h3>Set up two pumps<a class="headerlink" href="#set-up-two-pumps" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="#heading-procoda-golander-peristaltic-pump"><span class="std std-ref">Connect a Golander Peristaltic Pump</span></a> provides an explanation of how the pumps are controlled. Use the table below as a guide. Go through the table below and add all of these set points. Note that when you load external code it always lists what the required inputs are at the bottom of the dialog box.</p>
-<span id="table-procoda-tutorial-method"></span><table border="1" class="docutils align-center" id="id14">
-<caption><span class="caption-number">Table 13 </span><span class="caption-text">ProCoDA tutorial method to vary coagulant dose for a series of 6 experiments</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
+<span id="table-procoda-tutorial-method"></span><table border="1" class="docutils align-center" id="id17">
+<caption><span class="caption-number">Table 13 </span><span class="caption-text">ProCoDA tutorial method to vary coagulant dose for a series of 6 experiments</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="20%" />
 <col width="20%" />
@@ -1230,7 +1263,7 @@ The volume per revolution can also be obtained using the following python code.<
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v.0.0.39',
+            VERSION:'v.0.0.40',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

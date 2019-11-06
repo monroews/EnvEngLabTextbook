@@ -448,7 +448,7 @@ ProCoDA offers two distinct methods of logging data. The first method is accesse
 
 The second method of saving data only creates a data log file. This can be most convenient for short duration experiments where the researcher is present during the experiment. Data is being logged when the data log icon is green. |config_Logging_data_short_exp|
 
-The data interval can be set for both data logging methods. The data from the data buffer is averaged according to the user selected data log interval. It is important to recognize that the logged data is **not** the same as the data that is used by ProCoDA to make decisions. The averaging interval used to make decisions and the averaging interval used to log data are both user selected values and are independent.
+The data interval can be set for both data logging methods. The data from the data buffer is averaged according to the user selected data log interval. It is important to recognize that the logged data is **not** the same as the data that is used by ProCoDA to make decisions. The averaging interval used to make decisions and the averaging interval used to log data are both user selected values and are independent. This distinction becomes clear when ProCoDA logic appears to make decisions that are not in agreement with the logged data. This occurs when noisy data is used to make a decision (such as a state transition) and when smoothed data is recorded in the data file.
 
 .. _heading_ProCoDA_Logic:
 
@@ -646,6 +646,50 @@ It is possible to systematically vary more than one parameter. To do this it is 
     :alt: Increment functions
 
     Increment functions showing how the output varies as a function of the state. In this example the state cycled between states 1, 2, and 3. The increment state was 2, the number of replicates was 2, the reset state was 0, the y intercept was 200, the slope was 50, and the maximum value of x was 4. The power law relationship used a coefficient of 100 and a base of 1.5.
+
+
+.. _Feedback_Control:
+
+Feedback Control
+----------------
+
+Feedback control uses a measured value to make a decision in real time and change an output to achieve a desired effect. ProCoDA offers two types of feedback control. ALl of the feedback controller code has a memory and thus if multiple feedback controllers are used at the same time to control different outputs it is necessary to use external code with different names so that each process has its own memory. Different versions of these control codes are already available in the feedback control folder for this purpose.
+
+.. _on_off_controller:
+
+On-Off Controller
+^^^^^^^^^^^^^^^^^
+
+The on-off controller turns an output on when a measured value is below a threshold and turns the output off when a measured value is above a threshold.
+The "off value" is the output value of the controller when the controller is off and the "on value" is the output value when the controller is on. The minimum and maximum targets can be the same value. The controller turns on when the measured process value drops below the maximum target and then turns off again when the measured process value rises above the maximum target. Under ideal conditions the measured process value will oscillate between the minimum and maximum targets. Depending on the process the measured process value may oscillate far beyond the minimum and maximum targets.
+
+.. _Proportional_Integral_Derivative_Control:
+
+Proportional Integral Derivative Control
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Proportional Integral Derivative (PID) Control is a commonly used control strategy that provides an algorithm to adjust an output to produce the desired response in a process. A simple example is cruise control that uses the measured speed of the vehicle and a target setpoint speed to adjust the voltage to an electric motor to minimize the error between the target speed and the measured speed.
+
+The equation for PID control is given below (`see the wikipedia article <https://en.wikipedia.org/wiki/PID_controller#PID_controller_theory>`_).
+
+.. math::
+
+    u(t) = K_{\mathrm{p}} e(t) + K_{\mathrm{i}} \int_{0}^{t} e(\tau) d \tau + K_{\mathrm{d}} \frac{d e(t)}{d t}
+
+where :math:`u(t)` is the controller output, :math:`t` is the current time, :math:`e(t)` is the current error (target value - measured value) :math:`K_{\mathrm{i}}` and :math:`K_{\mathrm{d}}` have units of minutes as implemented in ProCoDA.
+
+To establish constants for PID control in ProCoDA, follow the `manual tuning procedure <https://en.wikipedia.org/wiki/PID_controller#Manual_tuning>`_. The steps will be summarized below.
+
+Select a PID controller that uses either a sensor or a setpoint as the measured process value. For example if a pressure sensor is used as the measured process value then use *PID sensor no reset.vi* because pressure sensors are handled as sensors by ProCoDA. If a turbidity meter is used as the measured process value then use *PID setpoint no reset.vi* because the turbidity is handled as a setpoint by ProCoDA. The next step is to create all of the required inputs (target value, P Kc, I Ti (min), D Td (min), Measured process value). Note that the "no reset" designation on this code means that the PID control does NOT reset when ProCoDA changes states. That is normally the preferred behavior. The exception would be if there are some states where PID is not being used to control the process. AguaClara researchers typically use PI control (the value of D is set to zero).
+
+1. Set the I and D set points to zero.
+2. Set P to a small value and change the target value to provoke a response from the PID control.
+3. Observe the graph of the variable being controlled for this value of P. If the result is an oscillation that becomes damped (decreasing amplitude), increase the value of P (perhaps by a factor of 5) and repeat the process. If the result is an oscillation that becomes amplified (increasing amplitude), lower the value of P and repeat the process. The objective is to find a value of P for which there is a periodic oscillation of the value with a constant amplitude.
+4. Record the critical P value, (:math:` K_{\mathrm{u}}`), and also record the period of the wave (time between two consecutive crests of the oscillation , (:math:` P_{\mathrm{u}}`), in minutes).
+5. To find the value of P required, use the equation: :math:`P = \frac{K_{\mathrm{u}}}{2.2}`.
+6. To find the value of I required, use the equation: :math:`I = \frac{P_{\mathrm{u}}}{1.2}`. This should result in a value in minutes, which is the correct unit for I.
+
+Change your set points (P and I) to the new values. Ensure that there is less than 10% variation in your variable, and fine tune if necessary. This calibration method may result in oscillatory behavior. To reduce variability in the output, consider reducing P to damp the oscillations. This will reduce the responsiveness of the algorithm and will increase the stability. 
 
 .. _heading_ProCoDA_States:
 
