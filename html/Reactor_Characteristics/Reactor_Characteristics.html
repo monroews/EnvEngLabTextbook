@@ -236,15 +236,15 @@
 </div>
 <div class="section" id="boundary-conditions">
 <h3>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
-<p>The reactor inlet and outlet boundary conditions significantly affect the reactor response to the addition of a pulse of tracer. If dispersion is possible across a boundary, then the boundary is open. An example of a reactor with open boundaries is a section of a river. If a tracer is added to a section of a river it is possible for some of the tracer to move upstream, illustrating that an arbitrary section of a river is an open reactor (<a class="reference internal" href="#figure-open-boundaries"><span class="std std-numref">Fig. 7</span></a>). This is equivalent to letting the reactor be defined as a section of a long reactor. One of the characteristics of open boundaries is that some of the tracer introduced at the reactor inlet can be carried upstream and thus the residence time for a conservative tracer can be greater than the hydraulic residence time!</p>
+<p>The reactor inlet and outlet boundary conditions significantly affect the reactor response to the addition of a pulse of tracer. If dispersion is possible across a boundary, then the boundary is open. An example of a reactor with open boundaries is a section of a river. If a tracer is added to a section of a river it is possible for some of the tracer to move upstream, illustrating that an arbitrary section of a river is an open reactor (<a class="reference internal" href="#figure-open-boundaries"><span class="std std-numref">Fig. 8</span></a>). This is equivalent to letting the reactor be defined as a section of a long reactor. One of the characteristics of open boundaries is that some of the tracer introduced at the reactor inlet can be carried upstream and thus the residence time for a conservative tracer can be greater than the hydraulic residence time!</p>
 <div class="figure align-center" id="id1">
 <span id="figure-open-boundaries"></span><a class="reference internal image-reference" href="../_images/open_boundaries.png"><img alt="Open boundaries." src="../_images/open_boundaries.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Schematic of a reactor with open boundary conditions.</span></p>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Schematic of a reactor with open boundary conditions.</span></p>
 </div>
-<p>A closed reactor is one where the reactor has a diffusion or dispersion coefficient different than those of the entrance or exit (<a class="reference internal" href="#figure-closed-boundaries"><span class="std std-numref">Fig. 8</span></a>).  Typically exit and entrance diffusion/dispersion are much less than the diffusion/dispersion in the reactor. An example of a reactor with closed boundaries is a tank with small inlet and outlet pipes.</p>
+<p>A closed reactor is one where the reactor has a diffusion or dispersion coefficient different than those of the entrance or exit (<a class="reference internal" href="#figure-closed-boundaries"><span class="std std-numref">Fig. 9</span></a>).  Typically exit and entrance diffusion/dispersion are much less than the diffusion/dispersion in the reactor. An example of a reactor with closed boundaries is a tank with small inlet and outlet pipes.</p>
 <div class="figure align-center" id="id2">
 <span id="figure-closed-boundaries"></span><a class="reference internal image-reference" href="../_images/closed_boundaries.png"><img alt="Open boundaries." src="../_images/closed_boundaries.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Schematic of a reactor with closed boundary conditions.</span></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Schematic of a reactor with closed boundary conditions.</span></p>
 </div>
 </div>
 <div class="section" id="modeling">
@@ -269,10 +269,10 @@
 <p>or in the dimensionless form</p>
 <div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-3">
 <span class="eqno">(54)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-3" title="Permalink to this equation">¶</a></span>\[E_{\left(t^{\star} \right)} =\frac{C_{\left(t^{\star} \right)} \rlap{-} V _{r} }{C_{tr} \rlap{-} V _{tr} } ={\mathop{e}\nolimits^{\left(-t^{\star} \right)}}\]</div>
-<p>where <span class="math notranslate nohighlight">\(E_{\left(t^{\star} \right)}\)</span> is the exit age or residence time distribution curve, <span class="math notranslate nohighlight">\(\rlap{-} V _{r}\)</span> is the reactor volume, <span class="math notranslate nohighlight">\(\rlap{-} V _{tr}\)</span> is the tracer volume, and <span class="math notranslate nohighlight">\(C_{tr}\)</span> is the tracer concentration.  If a reactor has a completely mixed flow regime its response, <span class="math notranslate nohighlight">\(E_{\left(t^{\star} \right)}\)</span>, to a pulse input should plot as a straight line on a semi-logarithmic plot. Response curves for a CMFR are shown in <a class="reference internal" href="#figure-cmfr-e-and-f"><span class="std std-numref">Fig. 9</span></a>.</p>
+<p>where <span class="math notranslate nohighlight">\(E_{\left(t^{\star} \right)}\)</span> is the exit age or residence time distribution curve, <span class="math notranslate nohighlight">\(\rlap{-} V _{r}\)</span> is the reactor volume, <span class="math notranslate nohighlight">\(\rlap{-} V _{tr}\)</span> is the tracer volume, and <span class="math notranslate nohighlight">\(C_{tr}\)</span> is the tracer concentration.  If a reactor has a completely mixed flow regime its response, <span class="math notranslate nohighlight">\(E_{\left(t^{\star} \right)}\)</span>, to a pulse input should plot as a straight line on a semi-logarithmic plot. Response curves for a CMFR are shown in <a class="reference internal" href="#figure-cmfr-e-and-f"><span class="std std-numref">Fig. 10</span></a>.</p>
 <div class="figure align-center" id="id3">
 <span id="figure-cmfr-e-and-f"></span><a class="reference internal image-reference" href="../_images/CMFR_E_and_F.png"><img alt="CMFR_E_and_F" src="../_images/CMFR_E_and_F.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Exit age (E) and Cumulative exit age (F) curves for completely mixed flow reactors.</span></p>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Exit age (E) and Cumulative exit age (F) curves for completely mixed flow reactors.</span></p>
 </div>
 <p>The time for 10% of the pulse to arrive at the effluent of a CMFR is approximately 0.1 <span class="math notranslate nohighlight">\(t^{\star}\)</span>.</p>
 </div>
@@ -281,10 +281,10 @@
 <p>Plug flow regimes are impossible to attain because mass transport must be by advection alone. There can be no differential displacement of tracer relative to the average advective velocity. In practice some mixing will occur due to molecular diffusion, turbulent dispersion, and/or fluid shear. For the case of the plug flow reactor the advection-dispersion equation in 1.7 reduces to:</p>
 <div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-4">
 <span class="eqno">(55)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-4" title="Permalink to this equation">¶</a></span>\[\frac{\partial C}{\partial t} =-U\frac{\partial C}{\partial x}\]</div>
-<p>The velocity, U, serves to transform the directional concentration gradient into a temporal concentration gradient. In other words, a conservative substance moves with the advective flow of the fluid. The solutions to this differential equation for a pulse input and for a step input are shown graphically in <a class="reference internal" href="#figure-pfr-pulse-step"><span class="std std-numref">Fig. 10</span></a>. The time for 10% of the pulse to arrive at the effluent of a PFR is <span class="math notranslate nohighlight">\(t^{\star}\)</span> since all of the pulse arrives at the same time.</p>
+<p>The velocity, U, serves to transform the directional concentration gradient into a temporal concentration gradient. In other words, a conservative substance moves with the advective flow of the fluid. The solutions to this differential equation for a pulse input and for a step input are shown graphically in <a class="reference internal" href="#figure-pfr-pulse-step"><span class="std std-numref">Fig. 11</span></a>. The time for 10% of the pulse to arrive at the effluent of a PFR is <span class="math notranslate nohighlight">\(t^{\star}\)</span> since all of the pulse arrives at the same time.</p>
 <div class="figure align-center" id="id4">
 <span id="figure-pfr-pulse-step"></span><a class="reference internal image-reference" href="../_images/PFR_pulse_step.png"><img alt="PFR_pulse_step" src="../_images/PFR_pulse_step.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Pulse and step input in a plug flow reactor.</span></p>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Pulse and step input in a plug flow reactor.</span></p>
 </div>
 </div>
 <div class="section" id="flow-with-dispersion">
@@ -337,14 +337,14 @@
 <p>The resulting dimensionless form of Equation <a class="reference internal" href="#equation-eq-reactor-advect-disperse">(57)</a> is given in Equation <a class="reference internal" href="#equation-eq-reactor-e-ad">(63)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-e-ad">
 <span class="eqno">(63)<a class="headerlink" href="#equation-eq-reactor-e-ad" title="Permalink to this equation">¶</a></span>\[ E_{\left(t^{\star} \right)} =\sqrt{\frac{Pe}{4\pi t^{\star} } } \exp \left[\frac{-\left(1-t^{\star} \right)^{2} Pe}{4t^{\star} } \right]\]</div>
-<p>Response curves for the advection-dispersion equation are shown in <a class="reference internal" href="#figure-e-f-pe-100"><span class="std std-numref">Fig. 11</span></a> and <a class="reference internal" href="#figure-e-f-pe-4"><span class="std std-numref">Fig. 12</span></a>. The exit age curve is highly skewed for low Pe because tracer that is in the reactor longer has more time for dispersion. As the Peclet number increases the dispersion decreases and the response becomes closer to plug flow.</p>
+<p>Response curves for the advection-dispersion equation are shown in <a class="reference internal" href="#figure-e-f-pe-100"><span class="std std-numref">Fig. 12</span></a> and <a class="reference internal" href="#figure-e-f-pe-4"><span class="std std-numref">Fig. 13</span></a>. The exit age curve is highly skewed for low Pe because tracer that is in the reactor longer has more time for dispersion. As the Peclet number increases the dispersion decreases and the response becomes closer to plug flow.</p>
 <div class="figure align-center" id="id5">
 <span id="figure-e-f-pe-100"></span><a class="reference internal image-reference" href="../_images/E_F_Pe_100.png"><img alt="E_F_Pe_100" src="../_images/E_F_Pe_100.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Exit age (E) and cumulative exit age (F) curves for the advection-dispersion equation with Pe of 100.</span></p>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Exit age (E) and cumulative exit age (F) curves for the advection-dispersion equation with Pe of 100.</span></p>
 </div>
 <div class="figure align-center" id="id6">
 <span id="figure-e-f-pe-4"></span><a class="reference internal image-reference" href="../_images/E_F_Pe_4.png"><img alt="E_F_Pe_4" src="../_images/E_F_Pe_4.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Exit age (E) and cumulative exit age (F) curves for the advection-dispersion equation with Pe of 4.</span></p>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Exit age (E) and cumulative exit age (F) curves for the advection-dispersion equation with Pe of 4.</span></p>
 </div>
 <p>Flow through porous media (such as groundwater through soil) is a type of flow with dispersion. The above equations can be applied by recognizing that the relevant water velocity is the pore water velocity. The pore water velocity is <span class="math notranslate nohighlight">\(U = \frac{Q}{A\phi }\)</span> where A is the cross sectional area of the porous media and <span class="math notranslate nohighlight">\(\phi\)</span> (volume of voids/total volume) is the porosity of the porous media.</p>
 <p>The form of equation <a class="reference internal" href="#equation-eq-reactor-advect-disperse">(57)</a> is exactly like the normal distribution curve:</p>
@@ -371,10 +371,10 @@
 <div class="math notranslate nohighlight" id="equation-reactor-characteristics-reactor-characteristics-10">
 <span class="eqno">(69)<a class="headerlink" href="#equation-reactor-characteristics-reactor-characteristics-10" title="Permalink to this equation">¶</a></span>\[Pe=2N\]</div>
 <p>Equation <a class="reference internal" href="#equation-eq-reactor-c-n-cmfr">(67)</a> is limited to integer values of N. The model can be extended to include non-integer values of N if the factorial function (i.e., (N-1)!) were replaced with the <span class="math notranslate nohighlight">\(\Gamma\)</span> function. This extension is particularly beneficial when fitting data to the models because the <span class="math notranslate nohighlight">\(\Gamma\)</span> function is continuous.</p>
-<p>Response curves for the advection-dispersion equation are shown in <a class="reference internal" href="#figure-e-f-n-2"><span class="std std-numref">Fig. 13</span></a>. Notice that the effluent concentration begins to rise much more quickly in series CMFRs than in the advection-dispersion model for a single CMFR. This distinction between the two models lessens as the number of reactors increases and the <em>Pe</em> increases.</p>
+<p>Response curves for the advection-dispersion equation are shown in <a class="reference internal" href="#figure-e-f-n-2"><span class="std std-numref">Fig. 14</span></a>. Notice that the effluent concentration begins to rise much more quickly in series CMFRs than in the advection-dispersion model for a single CMFR. This distinction between the two models lessens as the number of reactors increases and the <em>Pe</em> increases.</p>
 <div class="figure align-center" id="id7">
 <span id="figure-e-f-n-2"></span><a class="reference internal image-reference" href="../_images/E_F_N_2.png"><img alt="E_F_N_2" src="../_images/E_F_N_2.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Exit age (E) and cumulative exit age (F) curves for series CMFR with N of 2.</span></p>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Exit age (E) and cumulative exit age (F) curves for series CMFR with N of 2.</span></p>
 </div>
 </div>
 </div>
@@ -411,10 +411,10 @@
 <p>For closed systems the relationship is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-sigma-closed">
 <span class="eqno">(75)<a class="headerlink" href="#equation-eq-reactor-sigma-closed" title="Permalink to this equation">¶</a></span>\[ \sigma _{t}^{2} =\left[\frac{2}{Pe} -\frac{2}{Pe^{2} } \cdot \left(1-{\mathop{e}\nolimits^{-Pe}} \right)\right]\cdot \theta ^{2}\]</div>
-<p>The term <span class="math notranslate nohighlight">\(\frac{2}{Pe}\)</span> in equations <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> and <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> is dominant for Peclet numbers much greater than 10 as is shown in <a class="reference internal" href="#figure-pe-open-and-closed"><span class="std std-numref">Fig. 14</span></a>. The additional terms in equations <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> and <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> are corrections for skewedness in the response curve. These skewedness corrections are not very significant for Peclet numbers greater than 10. Thus for Peclet numbers greater than 10 the Peclet number can be determined using equation <a class="reference internal" href="#equation-eq-reactor-sigma-approx">(76)</a> for both open and closed systems.</p>
+<p>The term <span class="math notranslate nohighlight">\(\frac{2}{Pe}\)</span> in equations <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> and <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> is dominant for Peclet numbers much greater than 10 as is shown in <a class="reference internal" href="#figure-pe-open-and-closed"><span class="std std-numref">Fig. 15</span></a>. The additional terms in equations <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> and <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> are corrections for skewedness in the response curve. These skewedness corrections are not very significant for Peclet numbers greater than 10. Thus for Peclet numbers greater than 10 the Peclet number can be determined using equation <a class="reference internal" href="#equation-eq-reactor-sigma-approx">(76)</a> for both open and closed systems.</p>
 <div class="figure align-center" id="id8">
 <span id="figure-pe-open-and-closed"></span><a class="reference internal image-reference" href="../_images/Pe_open_and_closed.png"><img alt="Pe_open_and_closed" src="../_images/Pe_open_and_closed.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Relationship between equations <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> through <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a>.</span></p>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Relationship between equations <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a> through <a class="reference internal" href="#equation-eq-reactor-sigma-open">(74)</a>.</span></p>
 </div>
 <div class="math notranslate nohighlight" id="equation-eq-reactor-sigma-approx">
 <span class="eqno">(76)<a class="headerlink" href="#equation-eq-reactor-sigma-approx" title="Permalink to this equation">¶</a></span>\[ Pe=\frac{2\theta ^{2} }{\sigma _{t}^{2} }\]</div>
@@ -473,12 +473,12 @@
 </div></blockquote>
 <div class="figure align-center" id="id9">
 <span id="figure-reactor-photo-front"></span><a class="reference internal image-reference" href="../_images/Reactor_photo_front.png"><img alt="Reactor photo front" src="../_images/Reactor_photo_front.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Front view of the reactor setup. The smaller diameter peristaltic pump tubing is used to continuously sample from the reactor right next to the reactor effluent.</span></p>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Front view of the reactor setup. The smaller diameter peristaltic pump tubing is used to continuously sample from the reactor right next to the reactor effluent.</span></p>
 </div>
 <p>The reactor setup is designed to maintain a constant depth in the tank with an overflow weir. The second pump channel is used to sample the effluent through the photometer without sending air bubbles into the photometer.</p>
 <div class="figure align-center" id="id10">
 <span id="figure-reactor-photo-top"></span><a class="reference internal image-reference" href="../_images/Reactor_photo_top.png"><img alt="Reactor photo front" src="../_images/Reactor_photo_top.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Top view of the reactor setup.</span></p>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Top view of the reactor setup.</span></p>
 </div>
 </div>
 <div class="section" id="reactor-design">
