@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Adsorption &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
+  <title>Adsorption &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.44 documentation</title>
   
 
   
@@ -57,6 +57,10 @@
 
           
             
+            
+              <div class="version">
+                v.0.0.44
+              </div>
             
           
 
@@ -211,8 +215,8 @@
 <p>The objectives of this experiment are to:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Investigate the breakthrough characteristics of red dye #40 on activated carbon or on coagulant nanoparticles in a continuous-flow carbon contactor at a range of concentrations.</li>
-<li>Determine the equilibrium partitioning of red dye #40 on activated carbon or on coagulant nanoparticles</li>
+<li><p>Investigate the breakthrough characteristics of red dye #40 on activated carbon or on coagulant nanoparticles in a continuous-flow carbon contactor at a range of concentrations.</p></li>
+<li><p>Determine the equilibrium partitioning of red dye #40 on activated carbon or on coagulant nanoparticles</p></li>
 </ol>
 </div></blockquote>
 </div>
@@ -245,7 +249,7 @@
 <p>The mass transfer zone travels at velocity <span class="math notranslate nohighlight">\(v_{mtz}\)</span> through the fixed bed as the absorbent slowly fills to the equilibrium density, <span class="math notranslate nohighlight">\(q_0\)</span>, based on the influent concentration, <span class="math notranslate nohighlight">\(C_0\)</span>.</p>
 <div class="figure align-center" id="id1">
 <span id="figure-mass-transport-zone"></span><a class="reference external image-reference" href="https://youtu.be/ziLug9EEwM4"><img alt="../_images/MTZ.png" src="../_images/MTZ.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Movie illustrating how the effluent concentration of the absorbate changes with time as the mass transfer zone moves through the fixed bed.</span></p>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Movie illustrating how the effluent concentration of the absorbate changes with time as the mass transfer zone moves through the fixed bed.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>The velocity of the mass transfer zone (mtz or the adsorption front) can be obtained by a mass balance on the system. If we set our frame of reference (and our control volume) to be centered on the mass transfer zone, then the average velocity (over the pore fraction of the control surface) of fluid entering the mtz is equal to pore water velocity minus the velocity of the mtz. The fluid phase concentration of the adsorbate entering the control surface is <span class="math notranslate nohighlight">\(C_0\)</span> and the fraction of the control surface where fluid is passing through is the porosity, <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
 <p>The average velocity of the solid phase exiting through the control surface is <span class="math notranslate nohighlight">\(-v_{mtz}\)</span>. The bulk density of the adsorbate is <span class="math notranslate nohighlight">\(\frac{q_0 M_{adsorbent}}{V_{column}}\)</span>. The mass rate of adsorbate passing through the control surface in liquid phase must precisely balance the mass rate of adsorbate passing through the control surface in the solid phase because the mtz is stationary.</p>
@@ -291,9 +295,9 @@
 <div class="math notranslate nohighlight" id="equation-eq-m-ac">
 <span class="eqno">(98)<a class="headerlink" href="#equation-eq-m-ac" title="Permalink to this equation">¶</a></span>\[ M_{adsorbent} = \left(R_{adsorption} - 1\right) \frac{C_0 \phi V_{column}}{q_0}\]</div>
 <p>Different teams can try different masses of activated carbon or could experiment with filling the sand pores with coagulant as an alternative adsorbent.</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="k">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
-<span class="kn">import</span> <span class="nn">aguaclara</span> <span class="k">as</span> <span class="nn">ac</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="kn">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">import</span> <span class="nn">aguaclara</span> <span class="kn">as</span> <span class="nn">ac</span>
 <span class="n">v_a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mm</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span>
 <span class="n">porosity</span> <span class="o">=</span> <span class="mf">0.4</span>
 <span class="n">L_column</span> <span class="o">=</span> <span class="mf">15.2</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">cm</span>
@@ -307,23 +311,23 @@
 <span class="c1"># set the breakthrough time to 30 minutes = 1800 s</span>
 <span class="n">R_adsorption</span> <span class="o">=</span> <span class="n">t_mtz_target</span><span class="o">/</span><span class="n">t_water</span>
 <span class="n">M_ac</span> <span class="o">=</span> <span class="p">((</span><span class="n">R_adsorption</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">C_0</span><span class="o">*</span><span class="n">porosity</span><span class="o">*</span><span class="n">V_column</span><span class="o">/</span><span class="n">q_0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The mass of activated carbon given the dilution with sand should be&#39;</span><span class="p">,</span><span class="n">ac</span><span class="o">.</span><span class="n">round_sig_figs</span><span class="p">(</span><span class="n">M_ac</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The mass of activated carbon given the dilution with sand should be&#39;</span><span class="p">,</span><span class="n">ac</span><span class="o">.</span><span class="n">round_sig_figs</span><span class="p">(</span><span class="n">M_ac</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">Density_AC</span> <span class="o">=</span> <span class="mi">2100</span> <span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
 <span class="c1">#We measured the bulk density in the lab</span>
 <span class="n">Density_bulk_AC</span> <span class="o">=</span> <span class="mi">386</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span>
 <span class="n">V_carbon</span> <span class="o">=</span> <span class="p">(</span><span class="n">M_ac</span><span class="o">/</span><span class="n">Density_bulk_AC</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mL</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The volume of activated carbon is approximately&#39;</span><span class="p">,</span><span class="n">ac</span><span class="o">.</span><span class="n">round_sig_figs</span><span class="p">(</span><span class="n">V_carbon</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The volume of activated carbon is approximately&#39;</span><span class="p">,</span><span class="n">ac</span><span class="o">.</span><span class="n">round_sig_figs</span><span class="p">(</span><span class="n">V_carbon</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">density_sand</span> <span class="o">=</span> <span class="mi">2650</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">kg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span>
 <span class="n">M_sand</span> <span class="o">=</span> <span class="p">((</span><span class="n">V_column</span><span class="o">-</span><span class="n">V_carbon</span><span class="p">)</span><span class="o">*</span><span class="n">density_sand</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">porosity</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The mass of sand is&#39;</span><span class="p">,</span><span class="n">ac</span><span class="o">.</span><span class="n">round_sig_figs</span><span class="p">(</span><span class="n">M_sand</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The mass of sand is&#39;</span><span class="p">,</span><span class="n">ac</span><span class="o">.</span><span class="n">round_sig_figs</span><span class="p">(</span><span class="n">M_sand</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="n">V_reddye</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_a</span><span class="o">*</span><span class="n">A_column</span><span class="o">*</span><span class="n">t_mtz_target</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">L</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The volume of red dye required for one experiment is&#39;</span><span class="p">,</span><span class="n">ac</span><span class="o">.</span><span class="n">round_sig_figs</span><span class="p">(</span><span class="n">V_reddye</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The volume of red dye required for one experiment is&#39;</span><span class="p">,</span><span class="n">ac</span><span class="o">.</span><span class="n">round_sig_figs</span><span class="p">(</span><span class="n">V_reddye</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">Q_reddye</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_a</span><span class="o">*</span><span class="n">A_column</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mL</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The flow rate is&#39;</span><span class="p">,</span><span class="n">ac</span><span class="o">.</span><span class="n">round_sig_figs</span><span class="p">(</span><span class="n">Q_reddye</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The flow rate is&#39;</span><span class="p">,</span><span class="n">ac</span><span class="o">.</span><span class="n">round_sig_figs</span><span class="p">(</span><span class="n">Q_reddye</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">mLperrev_Tubing_17</span> <span class="o">=</span> <span class="mf">2.8</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mL</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">revolution</span>
 <span class="n">Pump_rpm</span> <span class="o">=</span> <span class="p">(</span><span class="n">Q_reddye</span><span class="o">/</span><span class="n">mLperrev_Tubing_17</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">revolution</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The pump rpm is&#39;</span><span class="p">,</span><span class="n">ac</span><span class="o">.</span><span class="n">round_sig_figs</span><span class="p">(</span><span class="n">Pump_rpm</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The pump rpm is&#39;</span><span class="p">,</span><span class="n">ac</span><span class="o">.</span><span class="n">round_sig_figs</span><span class="p">(</span><span class="n">Pump_rpm</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -331,46 +335,46 @@
 <span id="heading-adsorption-contactor-procedures"></span><h2>Contactor Procedures<a class="headerlink" href="#contactor-procedures" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center" id="id2">
 <span id="figure-ac-schematic"></span><a class="reference internal image-reference" href="../_images/New_Schematic.png"><img alt="carbon contactor schematic" src="../_images/New_Schematic.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Proposed design of the carbon column and feed system.</span></p>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Proposed design of the carbon column and feed system.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="carbon-contactor-setup">
 <h3>Carbon Contactor Setup<a class="headerlink" href="#carbon-contactor-setup" title="Permalink to this headline">¶</a></h3>
 <p>Assemble the system shown in <a class="reference internal" href="#figure-ac-schematic"><span class="std std-numref">Fig. 19</span></a>. Use a peristaltic pump with #17 tubing at approximately 10 rpm. Prepare 20 L jerricans with 50 mg/L of Red dye #40. Use reverse osmosis water to dilute the dye. The carbon contactor will be operated in down flow mode. The specifications for the carbon contactors are given in Table <a class="reference internal" href="#table-carbon-contactor-settings"><span class="std std-numref">Table 5</span></a>.</p>
-<span id="table-carbon-contactor-settings"></span><table border="1" class="colwidths-given docutils align-center" id="id3">
+<span id="table-carbon-contactor-settings"></span><table class="colwidths-given docutils align-center" id="id3">
 <caption><span class="caption-number">Table 5 </span><span class="caption-text">Carbon contactor settings.</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Parameter</th>
-<th class="head">Value</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Influent red dye Concentration</td>
-<td>0.050  g/L</td>
+<tbody>
+<tr class="row-even"><td><p>Influent red dye Concentration</p></td>
+<td><p>0.050  g/L</p></td>
 </tr>
-<tr class="row-odd"><td>Mass of red dye/20 L</td>
-<td>1.00 g</td>
+<tr class="row-odd"><td><p>Mass of red dye/20 L</p></td>
+<td><p>1.00 g</p></td>
 </tr>
-<tr class="row-even"><td>Depth of fixed bed</td>
-<td>15 cm</td>
+<tr class="row-even"><td><p>Depth of fixed bed</p></td>
+<td><p>15 cm</p></td>
 </tr>
-<tr class="row-odd"><td>Mass of sand</td>
-<td>120 g (to fill column)</td>
+<tr class="row-odd"><td><p>Mass of sand</p></td>
+<td><p>120 g (to fill column)</p></td>
 </tr>
-<tr class="row-even"><td>Approach velocity (1 mm/s)</td>
-<td>&#160;</td>
+<tr class="row-even"><td><p>Approach velocity (1 mm/s)</p></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td>Column diameter</td>
-<td>2.54 cm</td>
+<tr class="row-odd"><td><p>Column diameter</p></td>
+<td><p>2.54 cm</p></td>
 </tr>
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(q_{(50 mg/L)}\)</span></td>
-<td>0.080  g/g</td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(q_{(50 mg/L)}\)</span></p></td>
+<td><p>0.080  g/g</p></td>
 </tr>
-<tr class="row-odd"><td>Mass of carbon</td>
-<td>2, 5, 10, 20, 50  g</td>
+<tr class="row-odd"><td><p>Mass of carbon</p></td>
+<td><p>2, 5, 10, 20, 50  g</p></td>
 </tr>
 </tbody>
 </table>
@@ -380,43 +384,43 @@
 <p>Work through this procedure twice. For the first test skip the activated carbon and thus measure the F curve (see <a class="reference internal" href="../Reactor_Characteristics/Reactor_Characteristics.html#heading-reactor-modeling"><span class="std std-ref">reactor modeling</span></a>) for the sand column. Rinse the column with RO water, remove the sand, and repeat the procedure with activated carbon or other adsorbent.</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Test column and pump and all tubing to ensure that it is leak tight using reverse osmosis water.</li>
-<li>Remove top from column</li>
-<li>Mix sand and adsorbent (total volume of media adjusted to fill column)</li>
-<li>Wet method</li>
+<li><p>Test column and pump and all tubing to ensure that it is leak tight using reverse osmosis water.</p></li>
+<li><p>Remove top from column</p></li>
+<li><p>Mix sand and adsorbent (total volume of media adjusted to fill column)</p></li>
+<li><p>Wet method</p></li>
 </ol>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Pour mixture of sand and adsorbent into a beaker containing reverse osmosis water (or tap water if using coagulant).</li>
-<li>Swirl until most of the air is released.</li>
-<li>Use a funnel and a reverse osmosis water wash bottle to wash the mixture from the beaker into the column.</li>
-<li>Use a 50 mL syringe to remove excess water from the top of the column if necessary.</li>
-<li>Use a long rod to gently stir activated carbon to help release air bubbles.</li>
-<li>Assemble the column end fitting.</li>
+<li><p>Pour mixture of sand and adsorbent into a beaker containing reverse osmosis water (or tap water if using coagulant).</p></li>
+<li><p>Swirl until most of the air is released.</p></li>
+<li><p>Use a funnel and a reverse osmosis water wash bottle to wash the mixture from the beaker into the column.</p></li>
+<li><p>Use a 50 mL syringe to remove excess water from the top of the column if necessary.</p></li>
+<li><p>Use a long rod to gently stir activated carbon to help release air bubbles.</p></li>
+<li><p>Assemble the column end fitting.</p></li>
 </ol>
 </div></blockquote>
 <ol class="arabic simple" start="4">
-<li>Dry method</li>
+<li><p>Dry method</p></li>
 </ol>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Use a funnel to pour dry mixture of sand and activated carbon into the column</li>
-<li>Assemble the column end fitting.</li>
-<li>Fill the column with water in up flow mode (at 5 mL/min - idea is to do this slowly so that air escapes)</li>
+<li><p>Use a funnel to pour dry mixture of sand and activated carbon into the column</p></li>
+<li><p>Assemble the column end fitting.</p></li>
+<li><p>Fill the column with water in up flow mode (at 5 mL/min - idea is to do this slowly so that air escapes)</p></li>
 </ol>
 </div></blockquote>
 <ol class="arabic simple" start="5">
-<li>In up flow mode (at 0.5 mL/s), discharge the column effluent to waste until most of the fines are removed.</li>
-<li>The turn both directional valves directly on top and bottom of filter perpendicular so that no water goes in or out</li>
-<li>put the bottom directional valve in down flow mode, disconnect the top connection</li>
-<li>Run the pump to remove air out of this line</li>
-<li>After air is removed, reconnect the tubing and run DI water in down flow mode. There may be a small air bubble left. You can put the filter in up flow mode again to remove that air bubble.</li>
-<li>Next, run in down flow mode again and make sure to get all of the air out of the photometer.</li>
-<li>Verify that the photometer is reading approximately 0 mg/L of red dye. This indicates that most of the activated carbon fines are removed from the column.</li>
-<li>Configure ProCoDA to log the concentration of red dye at 5 second intervals</li>
-<li>Start pumping Red Dye #40.</li>
-<li>Measure the flow rate using a balance to get mass of water in approximately 1 minute.</li>
-<li>It is impractical to try and achieve <span class="math notranslate nohighlight">\(C/C_0 = 1\)</span>, but run long enough to attain at least <span class="math notranslate nohighlight">\(C/C_0 = 0.6\)</span>.</li>
+<li><p>In up flow mode (at 0.5 mL/s), discharge the column effluent to waste until most of the fines are removed.</p></li>
+<li><p>The turn both directional valves directly on top and bottom of filter perpendicular so that no water goes in or out</p></li>
+<li><p>put the bottom directional valve in down flow mode, disconnect the top connection</p></li>
+<li><p>Run the pump to remove air out of this line</p></li>
+<li><p>After air is removed, reconnect the tubing and run DI water in down flow mode. There may be a small air bubble left. You can put the filter in up flow mode again to remove that air bubble.</p></li>
+<li><p>Next, run in down flow mode again and make sure to get all of the air out of the photometer.</p></li>
+<li><p>Verify that the photometer is reading approximately 0 mg/L of red dye. This indicates that most of the activated carbon fines are removed from the column.</p></li>
+<li><p>Configure ProCoDA to log the concentration of red dye at 5 second intervals</p></li>
+<li><p>Start pumping Red Dye #40.</p></li>
+<li><p>Measure the flow rate using a balance to get mass of water in approximately 1 minute.</p></li>
+<li><p>It is impractical to try and achieve <span class="math notranslate nohighlight">\(C/C_0 = 1\)</span>, but run long enough to attain at least <span class="math notranslate nohighlight">\(C/C_0 = 0.6\)</span>.</p></li>
 </ol>
 </div></blockquote>
 </div>
@@ -425,9 +429,9 @@
 <p>Spring 2019 is the first time that we are including this experiment. There are always multiple challenges associated with developing a new laboratory experiment and in this case it is possible to anticipate several potential problems with this experimental design.</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Air bubbles! Air in the sand column or in the photometer will result in failure. Surface tension makes it difficult to remove the air bubbles from the activated carbon. The methods may need to be modified if air causes problems.</li>
-<li>Mass transport of the red dye into the activated carbon pores is slow because it is a diffusion process. It is possible that this will result in premature breakthrough of red dye long before the activated carbon reaches equilibrium with the influent concentration of red dye.</li>
-<li>The relatively small amount of activated carbon in the sand column may result in inefficient transport of the red dye to the activated carbon granules. This would also result in inefficient removal of red dye.</li>
+<li><p>Air bubbles! Air in the sand column or in the photometer will result in failure. Surface tension makes it difficult to remove the air bubbles from the activated carbon. The methods may need to be modified if air causes problems.</p></li>
+<li><p>Mass transport of the red dye into the activated carbon pores is slow because it is a diffusion process. It is possible that this will result in premature breakthrough of red dye long before the activated carbon reaches equilibrium with the influent concentration of red dye.</p></li>
+<li><p>The relatively small amount of activated carbon in the sand column may result in inefficient transport of the red dye to the activated carbon granules. This would also result in inefficient removal of red dye.</p></li>
 </ol>
 </div></blockquote>
 <p>An alternative to granular activated carbon is Poly aluminum chloride (PACl - not to be confused with Powdered Activated Carbon or PAC). PACl will remove red dye by adsorption and given that PACl forms nanoparticles (rather than millimeter sized granules for GAC) it is possible that the mass transport of red dye to PACl will be much faster than mass transport of red dye to GAC. This could be tested by substituting PACl for GAC in the column. We would need to develop a method to deliver the PACl flocs to the sand column.</p>
@@ -436,10 +440,10 @@
 <h3>Contactor Results and Analysis<a class="headerlink" href="#contactor-results-and-analysis" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Plot the breakthrough curves showing <span class="math notranslate nohighlight">\(\frac{C}{C_0}\)</span> versus time.</li>
-<li>Find the time when the effluent concentration was 50% of the influent concentration and plot that as a function of the mass of activated carbon used.</li>
-<li>Calculate the retardation coefficient (<span class="math notranslate nohighlight">\(R_{adsorption}\)</span>) based on the time to breakthrough for the columns with and without activated carbon.</li>
-<li>Calculate the <span class="math notranslate nohighlight">\(q_0\)</span> for each of the columns based on equation <a class="reference internal" href="#equation-eq-q-0">(97)</a>. Plot this as a function of the mass of activated carbon used.</li>
+<li><p>Plot the breakthrough curves showing <span class="math notranslate nohighlight">\(\frac{C}{C_0}\)</span> versus time.</p></li>
+<li><p>Find the time when the effluent concentration was 50% of the influent concentration and plot that as a function of the mass of activated carbon used.</p></li>
+<li><p>Calculate the retardation coefficient (<span class="math notranslate nohighlight">\(R_{adsorption}\)</span>) based on the time to breakthrough for the columns with and without activated carbon.</p></li>
+<li><p>Calculate the <span class="math notranslate nohighlight">\(q_0\)</span> for each of the columns based on equation <a class="reference internal" href="#equation-eq-q-0">(97)</a>. Plot this as a function of the mass of activated carbon used.</p></li>
 </ol>
 <p>What did you learn from this analysis? How can you explain the results that you have obtained? What changes to the experimental method do you recommend for next year (or for a project)?</p>
 </div></blockquote>
@@ -448,32 +452,32 @@
 <div class="section" id="prelab-questions">
 <span id="heading-adsorption-pre-laboratory-questions"></span><h2>Prelab Questions<a class="headerlink" href="#prelab-questions" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>A carbon column is packed with 15 cm of activated carbon and then used to remove 50 mg/L of red dye #40. The approach velocity is 1 mm/s, the porosity is 0.8, and the bulk density of the activated carbon is 0.38 <span class="math notranslate nohighlight">\(g/cm^3\)</span>. The mass of red dye per mass of carbon at equilibrium with 50 mg/L of red dye is 0.08. How long will it take for the mass transfer zone to travel to the bottom of the carbon column?</li>
+<li><p>A carbon column is packed with 15 cm of activated carbon and then used to remove 50 mg/L of red dye #40. The approach velocity is 1 mm/s, the porosity is 0.8, and the bulk density of the activated carbon is 0.38 <span class="math notranslate nohighlight">\(g/cm^3\)</span>. The mass of red dye per mass of carbon at equilibrium with 50 mg/L of red dye is 0.08. How long will it take for the mass transfer zone to travel to the bottom of the carbon column?</p></li>
 </ol>
 </div>
 <div class="section" id="lab-prep-notes">
 <span id="heading-adsorption-lab-prep-notes"></span><h2>Lab Prep Notes<a class="headerlink" href="#lab-prep-notes" title="Permalink to this headline">¶</a></h2>
-<span id="table-activated-carbon-reagent-list"></span><table border="1" class="colwidths-given docutils align-center" id="id4">
+<span id="table-activated-carbon-reagent-list"></span><table class="colwidths-given docutils align-center" id="id4">
 <caption><span class="caption-number">Table 6 </span><span class="caption-text">Reagent list.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="40%" />
-<col width="40%" />
-<col width="20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+<col style="width: 20%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Description</th>
-<th class="head">Supplier</th>
-<th class="head">Catalog number</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Description</p></th>
+<th class="head"><p>Supplier</p></th>
+<th class="head"><p>Catalog number</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>activated carbon</td>
-<td>&#160;</td>
-<td>&#160;</td>
+<tbody>
+<tr class="row-even"><td><p>activated carbon</p></td>
+<td></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td>red dye #40</td>
-<td>&#160;</td>
-<td>&#160;</td>
+<tr class="row-odd"><td><p>red dye #40</p></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -481,9 +485,9 @@
 <h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Verify that all necessary supplies are in place for the pumps, tanks, column, valves, and tubing.</li>
-<li>Prepare the Red Dye #40 stock solution.</li>
-<li>Prepare a 5% bleach solution (5 mL bleach diluted to 100 mL with reverse osmosis water) for cleaning the photometer sample cell and sample lines.</li>
+<li><p>Verify that all necessary supplies are in place for the pumps, tanks, column, valves, and tubing.</p></li>
+<li><p>Prepare the Red Dye #40 stock solution.</p></li>
+<li><p>Prepare a 5% bleach solution (5 mL bleach diluted to 100 mL with reverse osmosis water) for cleaning the photometer sample cell and sample lines.</p></li>
 </ol>
 </div></blockquote>
 </div>
@@ -491,15 +495,15 @@
 <h3>Procedure to remove air from the top of the column<a class="headerlink" href="#procedure-to-remove-air-from-the-top-of-the-column" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Close the Red Dye #40 influent valve.</li>
-<li>Open the reverse osmosis water influent valve.</li>
-<li>Wait for the influent line to clear of Red Dye #40.</li>
-<li>Turn off the pump.</li>
-<li>Reverse the column flow direction.</li>
-<li>Turn on the pump until the air is removed.</li>
-<li>Turn off the pump.</li>
-<li>Reverse the column flow direction.</li>
-<li>Turn on the pump and switch the influent to Red Dye #40.</li>
+<li><p>Close the Red Dye #40 influent valve.</p></li>
+<li><p>Open the reverse osmosis water influent valve.</p></li>
+<li><p>Wait for the influent line to clear of Red Dye #40.</p></li>
+<li><p>Turn off the pump.</p></li>
+<li><p>Reverse the column flow direction.</p></li>
+<li><p>Turn on the pump until the air is removed.</p></li>
+<li><p>Turn off the pump.</p></li>
+<li><p>Reverse the column flow direction.</p></li>
+<li><p>Turn on the pump and switch the influent to Red Dye #40.</p></li>
 </ol>
 </div></blockquote>
 </div>
@@ -552,7 +556,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'',
+            VERSION:'v.0.0.44',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -563,6 +567,7 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
       <script type="text/javascript" src="../_static/mathjax_config.js"></script>
 
   
