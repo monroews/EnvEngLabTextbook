@@ -522,6 +522,8 @@ Tips for Modbus success!
    * Even Parity (default on Golander pumps, not default on HF turbidimeters - in the extended configuration)
    * 9600 Baud
    * Modbus RTU (not ASCII)
+ * Use a data interval greater than 1 s for meters because the Modbus read takes a significant fraction of a second **per device**. This will significantly improve ProCoDA's responsiveness
+ * Set the NI Input/Output device to read 25 samples per read so that it is effectively collecting data at 100 Hz. This will also speed up ProCoDA's responsiveness when using Modbus.
 
 Connect an HF Scientific MicroTol turbidimeter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -689,7 +691,7 @@ Select a PID controller that uses either a sensor or a setpoint as the measured 
 5. To find the value of P required, use the equation: :math:`P = \frac{K_{\mathrm{u}}}{2.2}`.
 6. To find the value of I required, use the equation: :math:`I = \frac{P_{\mathrm{u}}}{1.2}`. This should result in a value in minutes, which is the correct unit for I.
 
-Change your set points (P and I) to the new values. Ensure that there is less than 10% variation in your variable, and fine tune if necessary. This calibration method may result in oscillatory behavior. To reduce variability in the output, consider reducing P to damp the oscillations. This will reduce the responsiveness of the algorithm and will increase the stability. 
+Change your set points (P and I) to the new values. Ensure that there is less than 10% variation in your variable, and fine tune if necessary. This calibration method may result in oscillatory behavior. To reduce variability in the output, consider reducing P to damp the oscillations. This will reduce the responsiveness of the algorithm and will increase the stability.
 
 .. _heading_ProCoDA_States:
 
