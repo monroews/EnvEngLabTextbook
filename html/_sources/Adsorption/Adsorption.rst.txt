@@ -240,13 +240,13 @@ Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pu
     Approach velocity (1 mm/s)
     Column diameter, 2.54 cm
     :math:`q_{(50 mg/L)}`, 0.080  g/g
-    Mass of carbon, "2, 5, 10, 20, 50  g"
+    Mass of carbon, "5, 10, 15, 20  g"
 
 
 Set up the Contactor
 --------------------
 
-Work through this procedure twice. For the first test skip the activated carbon and thus measure the F curve (see :ref:`reactor modeling<heading_Reactor_Modeling>`) for the sand column. Rinse the column with RO water, remove the sand, and repeat the procedure with activated carbon or other adsorbent.
+Work through this procedure twice. For the first test skip the activated carbon and thus measure the F curve (see :ref:`reactor modeling<heading_Reactor_Modeling>`) for the sand column. Rinse the column with RO water, remove the sand, and repeat the procedure with a mixture of activated carbon and sand (see Table :numref:`table_carbon_contactor_settings`).
 
  #. Test column and pump and all tubing to ensure that it is leak tight using reverse osmosis water.
  #. Remove top from column
@@ -305,7 +305,7 @@ Contactor Results and Analysis
 Prelab Questions
 ================
 
-#. A carbon column is packed with 15 cm of activated carbon and then used to remove 50 mg/L of red dye \#40. The approach velocity is 1 mm/s, the porosity is 0.8, and the bulk density of the activated carbon is 0.38 :math:`g/cm^3`. The mass of red dye per mass of carbon at equilibrium with 50 mg/L of red dye is 0.08. How long will it take for the mass transfer zone to travel to the bottom of the carbon column?
+#. A carbon column is packed with 15 cm of activated carbon and then used to remove 50 mg/L of red dye \#40. The approach velocity is 1 mm/s, the porosity is 0.8, and the bulk density of the activated carbon is 0.38 :math:`g/cm^3`. The mass of red dye per mass of carbon at equilibrium with 50 mg/L of red dye is 0.08. How long will it take for the mass transfer zone to travel to the bottom of the carbon column? This analysis shows why we use less activated carbon for our experiments in the lab!
 
 .. _heading_Adsorption_Lab_Prep_Notes:
 
