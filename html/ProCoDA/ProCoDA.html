@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ProCoDA: Process Control and Data Acquisition &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
+  <title>ProCoDA: Process Control and Data Acquisition &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.45 documentation</title>
   
 
   
@@ -56,6 +56,10 @@
 
           
             
+            
+              <div class="version">
+                v.0.0.45
+              </div>
             
           
 
@@ -525,7 +529,7 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <span id="heading-procoda-photometer"></span><h3>Photometer <img alt="sensor_photometer" src="../_images/sensor_photometer.png" /><a class="headerlink" href="#photometer-sensor-photometer" title="Permalink to this headline">¶</a></h3>
 <p>The photometer is a flow cell with an optical path length of 19 mm. The flow cell has 1/8 inch NPT threads for connections to experimental or sample streams from processes. The photometer uses a KingBright LED (Digikey part 754-1489-ND) with an emission peak at 465 nm as its light source. The spectral bandwidth defined by 50% of the dominant wavelength is 25 nm.</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="k">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="kn">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
 <span class="kn">import</span> <span class="nn">aguaclara</span> <span class="k">as</span> <span class="nn">ac</span>
 <span class="n">b_cell</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">inch</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mm</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b_cell</span><span class="p">)</span>
@@ -722,7 +726,7 @@ The Ismatec pump heads are useful for dosing coagulant, clay, fluoride, acid, ba
 </table>
 <p>A similar table is available for 3-stop tubing used on <a class="reference external" href="http://www.ismatec.com/int_e/pumps/t_mini_s_ms_ca/tubing_msca2.htm">Ismatec 6 roller pump heads</a>.
 The volume per revolution can also be obtained using the following python code.</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="k">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="kn">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
 <span class="kn">import</span> <span class="nn">aguaclara</span> <span class="k">as</span> <span class="nn">ac</span>
 <span class="c1"># to find the volume per rev for Masterflex L/S pump heads</span>
 <span class="n">ac</span><span class="o">.</span><span class="n">vol_per_rev_LS</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
@@ -907,7 +911,7 @@ The “off value” is the output value of the controller when the controller is
 <p>Your goal is to set up an experiment that has one pump for the flow of water into a floc/sed apparatus and a 2nd pump that sets the coagulant dose. The target upflow velocity for the sedimentation tank is 1 mm/s and the sed tank diameter is 1 inch. Below is the code to design the experimental setup.</p>
 <div class="section" id="experimental-design">
 <h3>Experimental design<a class="headerlink" href="#experimental-design" title="Permalink to this headline">¶</a></h3>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="k">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="kn">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
 <span class="kn">import</span> <span class="nn">aguaclara</span> <span class="k">as</span> <span class="nn">ac</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">D</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">inch</span>
@@ -1261,7 +1265,7 @@ The “off value” is the output value of the controller when the controller is
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'',
+            VERSION:'v.0.0.45',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

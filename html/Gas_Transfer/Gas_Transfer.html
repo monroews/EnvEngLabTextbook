@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gas Transfer &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
+  <title>Gas Transfer &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.45 documentation</title>
   
 
   
@@ -57,6 +57,10 @@
 
           
             
+            
+              <div class="version">
+                v.0.0.45
+              </div>
             
           
 
@@ -227,7 +231,7 @@
 <div class="section" id="theory">
 <span id="heading-gas-transfer-theory"></span><h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h2>
 <p>Oxygen transfer is important in many environmental systems. Oxygen transfer is controlled by the partial pressure of oxygen in the atmosphere (0.21 atm) and the corresponding equilibrium concentration in water (approximately 10 mg/L). According to Henry’s Law, the equilibrium concentration of oxygen in water is proportional to the partial pressure of oxygen in the atmosphere.</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="k">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="kn">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
 <span class="kn">import</span> <span class="nn">aguaclara</span> <span class="k">as</span> <span class="nn">ac</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -326,7 +330,7 @@
 <span class="eqno">(110)<a class="headerlink" href="#equation-gas-transfer-gas-transfer-6" title="Permalink to this equation">¶</a></span>\[\frac{{mole\; O}_{{2}} }{{32000\; mg\; O}_{{2}} } \cdot \frac{{2\; mole\; Na}_{{2}} {SO}_{{3}} }{{mole\; O}_{{2}} } \cdot \frac{{126,000\; mg\; Na}_{{2}} {SO}_{{3}} }{{mole\; Na}_{{2}} {SO}_{{3}} } =\frac{{\; 7.875\; mg\; Na}_{{2}} {SO}_{{3}} }{{mg\; O}_{{2}} }\]</div>
 <p>If complete deoxygenation is desired a 10% excess of sulfite can be added. The sulfite will continue to react with oxygen as oxygen is transferred into the solution. The oxygen concentration can be measured with a dissolved oxygen probe or can be estimated if the temperature is known and equilibrium with the atmosphere assumed (<a class="reference internal" href="#figure-oxygen-vs-t"><span class="std std-numref">Fig. 20</span></a>).</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="k">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="kn">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
 <span class="kn">import</span> <span class="nn">aguaclara</span> <span class="k">as</span> <span class="nn">ac</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -782,7 +786,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'',
+            VERSION:'v.0.0.45',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
