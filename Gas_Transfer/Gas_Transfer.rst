@@ -343,7 +343,7 @@ Complete the following steps.
  #. Set up the graph in the ProCoDA Graphs tab to look similar to :numref:`figure_Airflow_calibration_graph`. Note that you can select multiple data source for plotting by holding down the control key while clicking on the data to plot.
  #. Set both the Accumulator pressure and the Source Pressure plots to use the same left y axis |select_y_axis_scale|. Select the y axis by clicking on the plot of interest in the legend. This will make it easy to observe how the accumulator is behaving relative to the source pressure.
  #. Set the mode of operation |Mode_of_operation| to automatic operation and the *operator selected state* to "prepare to calibrate". The software should quickly cycle through the calibration step and then begin attempting to control the air flow rate to the target value.  Note:  the purpose of the prepare to calibrate state is to vent excess pressure from the accumulator.  The state will not change to calibrate until the pressure drops below a predefined threshold.  To speed this up, you may open the needle valve.
- #. The air slope should have a value of approximately 1.5 E7 to 2.5 E7. To increase the air slope close the :math:`N_1` needle valve slightly and repeat the "Calibrate" step.
+ #. The air slope should have a value of approximately 2 E7. To increase the air slope close the :math:`N_1` needle valve slightly and repeat the "Calibrate" step.
  #. Repeat the "Calibrate" step several times to make sure you understand what ProCoDA is doing and to confirm that the air slope |air_slope| displayed on the ProCoDA "Process Operation" tab is repeatable (within about 5%). Hint: You can tell ProCoDA to go back to "prepare to calibrate" state by right clicking on that state.
  #. Lock the air slope by changing it from a variable to a constant. This will prevent you from accidently losing the air slope by clicking on the calibrate state. Browse to the ProCoDA "Configuration" tab, select |config_edit_rules|, select the variable "air slope", and change it to a constant.  |Change_air_slope_to_constant|
  #. Don't adjust the :math:`N_1` needle valve now that the air flow is calibrated.
@@ -525,7 +525,7 @@ Setup
  #. Provide clamps to mount DO probes on magnetic stirrers.
  #. Determine maximum airflow rate that is reasonable given small reactor volume.
  #. Configure the TA workstation to be measuring the source air pressure and sharing it using this `ProCoDA method <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Gas_Transfer_TAbench_method_file.pcm>`_.
- #. Verify that the source air pressure is close to 100 kPa. If it exceeds 120 kPa then ask the building manager to reduce the air pressure.
+ #. Verify that the source air pressure is between 10 and 20 kPa. The regulator is in the lab and can be adjusted.
 
 
 
