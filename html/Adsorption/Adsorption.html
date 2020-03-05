@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Adsorption &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.45 documentation</title>
+  <title>Adsorption &mdash; Environmental Engineering Laboratory Research Textbook  documentation</title>
   
 
   
@@ -57,10 +57,6 @@
 
           
             
-            
-              <div class="version">
-                v.0.0.45
-              </div>
             
           
 
@@ -296,7 +292,7 @@
 <span class="eqno">(98)<a class="headerlink" href="#equation-eq-m-ac" title="Permalink to this equation">¶</a></span>\[ M_{adsorbent} = \left(R_{adsorption} - 1\right) \frac{C_0 \phi V_{column}}{q_0}\]</div>
 <p>Different teams can try different masses of activated carbon or could experiment with filling the sand pores with coagulant as an alternative adsorbent.</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="kn">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="k">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
 <span class="kn">import</span> <span class="nn">aguaclara</span> <span class="k">as</span> <span class="nn">ac</span>
 <span class="n">v_a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mm</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span>
 <span class="n">porosity</span> <span class="o">=</span> <span class="mf">0.4</span>
@@ -381,44 +377,26 @@
 </div>
 <div class="section" id="set-up-the-contactor">
 <h3>Set up the Contactor<a class="headerlink" href="#set-up-the-contactor" title="Permalink to this headline">¶</a></h3>
-<p>Work through this procedure twice. For the first test skip the activated carbon and thus measure the F curve (see <a class="reference internal" href="../Reactor_Characteristics/Reactor_Characteristics.html#heading-reactor-modeling"><span class="std std-ref">reactor modeling</span></a>) for the sand column. Rinse the column with RO water, remove the sand, and repeat the procedure with a mixture of activated carbon and sand (see Table <a class="reference internal" href="#table-carbon-contactor-settings"><span class="std std-numref">Table 5</span></a>).</p>
+<p>Work through this procedure three times. For the first test skip the activated carbon and thus measure the F curve (see <a class="reference internal" href="../Reactor_Characteristics/Reactor_Characteristics.html#heading-reactor-modeling"><span class="std std-ref">reactor modeling</span></a>) for the sand column. Rinse the column with RO water, remove the sand, and repeat the procedure with a mixture of activated carbon and sand (see Table <a class="reference internal" href="#table-carbon-contactor-settings"><span class="std std-numref">Table 5</span></a> for suggested masses of activated carbon).</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li>Test column and pump and all tubing to ensure that it is leak tight using reverse osmosis water.</li>
+<li>Verify that the photometer reads close to 0 mg/L while pumping reverse osmosis water.</li>
+<li>Turn off pump.</li>
 <li>Remove top from column</li>
 <li>Mix sand and adsorbent (total volume of media adjusted to fill column)</li>
-<li>Wet method</li>
-</ol>
-<blockquote>
-<div><ol class="arabic simple">
 <li>Pour mixture of sand and adsorbent into a beaker containing reverse osmosis water (or tap water if using coagulant).</li>
 <li>Swirl until most of the air is released.</li>
+<li>Use a 50 mL syringe to remove about half of the water from the top of the column.</li>
 <li>Use a funnel and a reverse osmosis water wash bottle to wash the mixture from the beaker into the column.</li>
-<li>Use a 50 mL syringe to remove excess water from the top of the column if necessary.</li>
+<li>Use a 50 mL syringe to remove more water from the top of the column if necessary.</li>
 <li>Use a long rod to gently stir activated carbon to help release air bubbles.</li>
 <li>Assemble the column end fitting.</li>
-</ol>
-</div></blockquote>
-<ol class="arabic simple" start="4">
-<li>Dry method</li>
-</ol>
-<blockquote>
-<div><ol class="arabic simple">
-<li>Use a funnel to pour dry mixture of sand and activated carbon into the column</li>
-<li>Assemble the column end fitting.</li>
-<li>Fill the column with water in up flow mode (at 5 mL/min - idea is to do this slowly so that air escapes)</li>
-</ol>
-</div></blockquote>
-<ol class="arabic simple" start="5">
 <li>In up flow mode (at 0.5 mL/s), discharge the column effluent to waste until most of the fines are removed.</li>
-<li>The turn both directional valves directly on top and bottom of filter perpendicular so that no water goes in or out</li>
-<li>put the bottom directional valve in down flow mode, disconnect the top connection</li>
-<li>Run the pump to remove air out of this line</li>
-<li>After air is removed, reconnect the tubing and run DI water in down flow mode. There may be a small air bubble left. You can put the filter in up flow mode again to remove that air bubble.</li>
 <li>Next, run in down flow mode again and make sure to get all of the air out of the photometer.</li>
 <li>Verify that the photometer is reading approximately 0 mg/L of red dye. This indicates that most of the activated carbon fines are removed from the column.</li>
 <li>Configure ProCoDA to log the concentration of red dye at 5 second intervals</li>
-<li>Start pumping Red Dye #40.</li>
+<li>Switch the source valve from reverse osmosis to red dye solution and record a note that this is time zero.</li>
 <li>Measure the flow rate using a balance to get mass of water in approximately 1 minute.</li>
 <li>It is impractical to try and achieve <span class="math notranslate nohighlight">\(C/C_0 = 1\)</span>, but run long enough to attain at least <span class="math notranslate nohighlight">\(C/C_0 = 0.6\)</span>.</li>
 </ol>
@@ -426,7 +404,7 @@
 </div>
 <div class="section" id="troubleshooting-and-reflections">
 <h3>Troubleshooting and Reflections<a class="headerlink" href="#troubleshooting-and-reflections" title="Permalink to this headline">¶</a></h3>
-<p>Spring 2019 is the first time that we are including this experiment. There are always multiple challenges associated with developing a new laboratory experiment and in this case it is possible to anticipate several potential problems with this experimental design.</p>
+<p>We can anticipate several potential problems with this experimental design.</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li>Air bubbles! Air in the sand column or in the photometer will result in failure. Surface tension makes it difficult to remove the air bubbles from the activated carbon. The methods may need to be modified if air causes problems.</li>
@@ -556,7 +534,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v.0.0.45',
+            VERSION:'',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
