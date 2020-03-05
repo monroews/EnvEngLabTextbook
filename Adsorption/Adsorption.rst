@@ -246,42 +246,32 @@ Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pu
 Set up the Contactor
 --------------------
 
-Work through this procedure twice. For the first test skip the activated carbon and thus measure the F curve (see :ref:`reactor modeling<heading_Reactor_Modeling>`) for the sand column. Rinse the column with RO water, remove the sand, and repeat the procedure with a mixture of activated carbon and sand (see Table :numref:`table_carbon_contactor_settings`).
+Work through this procedure three times. For the first test skip the activated carbon and thus measure the F curve (see :ref:`reactor modeling<heading_Reactor_Modeling>`) for the sand column. Rinse the column with RO water, remove the sand, and repeat the procedure with a mixture of activated carbon and sand (see Table :numref:`table_carbon_contactor_settings` for suggested masses of activated carbon).
 
  #. Test column and pump and all tubing to ensure that it is leak tight using reverse osmosis water.
+ #. Verify that the photometer reads close to 0 mg/L while pumping reverse osmosis water.
+ #. Turn off pump.
  #. Remove top from column
  #. Mix sand and adsorbent (total volume of media adjusted to fill column)
- #. Wet method
-
-   #. Pour mixture of sand and adsorbent into a beaker containing reverse osmosis water (or tap water if using coagulant).
-   #. Swirl until most of the air is released.
-   #. Use a funnel and a reverse osmosis water wash bottle to wash the mixture from the beaker into the column.
-   #. Use a 50 mL syringe to remove excess water from the top of the column if necessary.
-   #. Use a long rod to gently stir activated carbon to help release air bubbles.
-   #. Assemble the column end fitting.
-
- 4. Dry method
-
-   #. Use a funnel to pour dry mixture of sand and activated carbon into the column
-   #. Assemble the column end fitting.
-   #. Fill the column with water in up flow mode (at 5 mL/min - idea is to do this slowly so that air escapes)
-
- 5. In up flow mode (at 0.5 mL/s), discharge the column effluent to waste until most of the fines are removed.
- #. The turn both directional valves directly on top and bottom of filter perpendicular so that no water goes in or out
- #. put the bottom directional valve in down flow mode, disconnect the top connection
- #. Run the pump to remove air out of this line
- #. After air is removed, reconnect the tubing and run DI water in down flow mode. There may be a small air bubble left. You can put the filter in up flow mode again to remove that air bubble.
+ #. Pour mixture of sand and adsorbent into a beaker containing reverse osmosis water (or tap water if using coagulant).
+ #. Swirl until most of the air is released.
+ #. Use a 50 mL syringe to remove about half of the water from the top of the column.
+ #. Use a funnel and a reverse osmosis water wash bottle to wash the mixture from the beaker into the column.
+ #. Use a 50 mL syringe to remove more water from the top of the column if necessary.
+ #. Use a long rod to gently stir activated carbon to help release air bubbles.
+ #. Assemble the column end fitting.
+ #. In up flow mode (at 0.5 mL/s), discharge the column effluent to waste until most of the fines are removed.
  #. Next, run in down flow mode again and make sure to get all of the air out of the photometer.
  #. Verify that the photometer is reading approximately 0 mg/L of red dye. This indicates that most of the activated carbon fines are removed from the column.
  #. Configure ProCoDA to log the concentration of red dye at 5 second intervals
- #. Start pumping Red Dye \#40.
+ #. Switch the source valve from reverse osmosis to red dye solution and record a note that this is time zero.
  #. Measure the flow rate using a balance to get mass of water in approximately 1 minute.
  #. It is impractical to try and achieve :math:`C/C_0 = 1`, but run long enough to attain at least :math:`C/C_0 = 0.6`.
 
 Troubleshooting and Reflections
 -------------------------------
 
-Spring 2019 is the first time that we are including this experiment. There are always multiple challenges associated with developing a new laboratory experiment and in this case it is possible to anticipate several potential problems with this experimental design.
+We can anticipate several potential problems with this experimental design.
 
  #. Air bubbles! Air in the sand column or in the photometer will result in failure. Surface tension makes it difficult to remove the air bubbles from the activated carbon. The methods may need to be modified if air causes problems.
  #. Mass transport of the red dye into the activated carbon pores is slow because it is a diffusion process. It is possible that this will result in premature breakthrough of red dye long before the activated carbon reaches equilibrium with the influent concentration of red dye.
