@@ -937,7 +937,7 @@ Set up two pumps
       cycles, none, variable, count states, counts number of times the run state is called
 
 
-The ProCoDA method file for this setup is available for you to try. Use the |Open_Method| on the ProCoDA configuration tab (select the left open folder icon) to load the `method file for the tutorial </methods/Tutorial_method.pcm>`_. Remember to check the pump ID addresses to make sure they match your setup!
+The ProCoDA method file for this setup is available for you to try. Use the |Open_Method| on the ProCoDA configuration tab (select the left open folder icon) to load the `method file for the tutorial <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm>`_. Remember to check the pump ID addresses to make sure they match your setup!
 
 Set the end condition for the experiment
 ----------------------------------------
