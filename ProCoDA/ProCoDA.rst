@@ -76,7 +76,7 @@ General Notes
 .. |RS485_adaptor| image:: Images/RS485_adaptor.png
 
 The hardware consists of box with a National Instruments data acquisition board that connects to the computer via a USB port. The box has 12 ports.
-|ProCoDA_ports|
+|ProCoDA_ports| 
 
  #. pump 0 and 1: Ports that control on/off, direction, and speed of peristaltic pumps. The on/off and direction controls are based on digital outputs from the data acquisition board. The speed control uses an analog output from the data acquisition board that is converted into a 4-20 mA signal.
  #. sensor 0 to 3 measure voltages from sensors. The ports also contain +5V, -5V, +10V, +15V, -15V power supplies that are used to power sensors (pressure, photometer) or is used to power signal conditioning circuits that are required by some sensors (pH, dissolved oxygen, temperature, photometer).
@@ -1015,23 +1015,23 @@ Sensors are wired using Category 5 or 6 Ethernet cable using our own :ref:`analo
 Modbus
 ------
 
-.. |USB-485| image:: images/USB-485.png
-.. |D-Sub9toEthernet| image:: images/D-Sub9toEthernet.png
-.. |15pintoEthernet| image:: images/15pintoEthernet.png
-.. |femalesocket| image:: images/femalesocket.png
-.. |Ethernetsplitter| image:: images/Ethernetsplitter.png
+.. |USB-485| image:: Images/USB-485.png
+.. |D-Sub9toEthernet| image:: Images/D-Sub9toEthernet.png
+.. |15pintoEthernet| image:: Images/15pintoEthernet.png
+.. |femalesocket| image:: Images/femalesocket.png
+.. |Ethernetsplitter| image:: Images/Ethernetsplitter.png
 
 
 .. csv-table:: Parts for connecting modbus devices together and to USB port
-    :header:  Description, part number, image, purpose
+    :header:  Description, part number, supplier, image, purpose
     :align: center
 
 
-    `USB to RS 485 two wire converter with 9 pin output <http://advdownload.advantech.com/productfile/PIS/BB-485USB9F-2W/Product%20-%20Datasheet/485USB9F-2Wx_485USB9F-4Wx_1017ds20170327234647.pdf>`_, `1165-1024-ND <https://www.digikey.com/products/en?keywords=1165-1024-ND>`_, |USB-485|, convert USB to RS 485
-    `9 pin male to Ethernet <https://www.norcomp.net/rohspdfs/BackShells/RJADK/RJADK09S70808Y1.pdf>`_, `RJADK09P7080831 <https://www.digikey.com/product-detail/en/norcomp-inc/RJADK09P7080831/RJADK09P7080831-ND/1632199>`_, |D-Sub9toEthernet|, convert to Ethernet cable
-    `15 Pin Female to Ethernet <https://www.norcomp.net/rohspdfs/BackShells/RJADK/RJADK15S70808Y1.pdf>`_, `RJADK15S7080831 <https://www.digikey.com/product-detail/en/norcomp-inc/RJADK15S7080831/RJADK15S7080831-ND/1632208>`_,|15pintoEthernet|, Golander pump to Ethernet
-    `D-Sub Contact Female Socket Gold 20-24 AWG Crimp Stamped <http://portal.fciconnect.com/Comergent//fci/drawing/c01-8656-0522.pdf>`_, `609-4423-1-ND <https://www.digikey.com/product-detail/en/amphenol-icc-fci/86566520064LF/609-4423-1-ND/2665621>`_,|femalesocket|, jumper wires for Golander pump
-    Ethernet splitter, `B00OPE3MH0 <https://www.amazon.com/dp/B00OPE3MH0>`_, |Ethernetsplitter|, daisy chain devices
+    `USB to RS 485 two wire converter with 9 pin output <../_static/references/USBto485techsheet.pdf>`_, 1165-1024-ND, Digikey, |USB-485|, convert USB to RS 485
+    `9 pin male to Ethernet <../_static/references/9pinmaletoEthernet.pdf>`_, RJADK09P7080831, Digikey, |D-Sub9toEthernet|, convert to Ethernet cable
+    `15 Pin Female to Ethernet <../_static/references/15pinfemaletoEthernet.pdf>`_, RJADK15S7080831, Digikey, |15pintoEthernet|, Golander pump to Ethernet
+    D-Sub Contact Female Socket Gold 20-24 AWG Crimp Stamped, 609-4423-1-ND, Digikey, |femalesocket|, jumper wires for Golander pump
+    Ethernet splitter, B00OPE3MH0, Amazon , |Ethernetsplitter|, daisy chain devices
 
 
 .. csv-table:: Modbus Ethernet cable standard for either A or B Ethernet cables.
@@ -1044,15 +1044,15 @@ Modbus
     B, 5, White with blue stripe, Green, 3
     ground, 8, Brown, white, 4
 
-.. csv-table:: Device datasheets.
-    :header:  Device, modbus manual
+.. csv-table:: Meter and Pump Manuals.
+    :header:  Device Manual, Modbus Manual
     :align: center
 
 
-    `Golander Pump <http://golanderpump.com/pub/media/updown/manuals/BT-SV2_manual.pdf>`_, `modbus manual <http://golanderpump.com/pub/media/updown/manuals/Peristaltic_Pump_MODBUS.pdf>`_
-    `HF turbidimeter old series <http://www.hfscientific.com/DAMP/OM-24031_MicroTOL_Online_turbidimeter_manual-rev2-7(Old-series).pdf>`_, page 23
-    `HF UV meter <http://media.wattswater.com/OM-24031_MicroTOL_Online_turbidimeter_manual-rev2-7(Old-series).pdf>`_, page 24
-    `ChemTrac HydroACT <https://chemtrac.com/wp-content/uploads/HydroACT-Series-Handout-062317.pdf>`_, `modbus manual <https://github.com/monroews/About/raw/master/ChemTrac%20HydroACT%20ModbusMap%20(2).pdf>`_
+    `Golander Pump <../_static/references/Golander_BT-SV2_manual.pdf>`_, `modbus manual <../_static/references/Golander_MODBUS.pdf>`_
+    `HF turbidimeter <../_static/references/HF_MicroTol_Turbidimeter_manual.pdf>`_, `Modbus <../_static/references/HF_MicroTOL_MODBUS_Manual.PDF>`_
+    `HF UV meter <../_static/references/HFAccUViewManual.PDF>`_,   `Modbus <../_static/references/HFAccUView_MODBUS_Manual.PDF>`_
+    `ChemTrac HydroACT <../_static/references/ChemTrac_HydroACT_Manual.pdf>`_, `Modbus <../_static/references/ChemTrac_HydroACT_Modbus.pdf>`_
 
 
 .. csv-table:: Golander pump pinout.
