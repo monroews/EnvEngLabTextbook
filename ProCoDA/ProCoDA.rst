@@ -76,7 +76,7 @@ General Notes
 .. |RS485_adaptor| image:: Images/RS485_adaptor.png
 
 The hardware consists of box with a National Instruments data acquisition board that connects to the computer via a USB port. The box has 12 ports.
-|ProCoDA_ports| 
+|ProCoDA_ports|
 
  #. pump 0 and 1: Ports that control on/off, direction, and speed of peristaltic pumps. The on/off and direction controls are based on digital outputs from the data acquisition board. The speed control uses an analog output from the data acquisition board that is converted into a 4-20 mA signal.
  #. sensor 0 to 3 measure voltages from sensors. The ports also contain +5V, -5V, +10V, +15V, -15V power supplies that are used to power sensors (pressure, photometer) or is used to power signal conditioning circuits that are required by some sensors (pH, dissolved oxygen, temperature, photometer).
@@ -490,6 +490,8 @@ Meters and Modbus
 .. |config_set_modbus_ID| image:: Images/config_set_modbus_ID.png
 .. |Modbus_ID| image:: Images/MB_Set_ID.png
 .. |Select_Modbus| image:: Images/SelectModbus.png
+.. |Pick_visa_modbus| image:: Images/Pick_visa_modbus.png
+
 
 
 Turbidimeters, particle counters, peristaltic pumps, and many industrial devices, can communicate with ProCoDA through a Modbus network. These devices are treated like functions and their data is accessed with an external function call in the set point list (Accessed through |config_edit_rules|).
@@ -507,12 +509,12 @@ Tips for Modbus success!
    * 9600 Baud
    * Modbus RTU (not ASCII)
  * Use a data interval greater than 1 s for meters because the Modbus read takes a significant fraction of a second **per device**.
+ * Go to the Configuration tab and select |Pick_visa_modbus| to connect to the serial port that is used for modbus communication before configuring individual devices. This port will be used by all modbus devices. If no ports are available it means that no USB to serial converter is connected to your computer. If multiple ports are available you may need to use trial and error to figure out which port is the correct one. Select Exit to close the dialog.
+
 
 Connect an HF Scientific MicroTol turbidimeter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- #. Go to the Configuration tab and select |Select_Modbus|
- #. Select a serial port. If no ports are available it means that no USB to serial converer is connected to your computer. If multiple ports are available you may need to use trial and error to figure out which port is the correct one. Select Exit to close the dialog.
  #. Go to |config_edit_rules| on the Configuration tab.
  #. Add a set point for the data rate (the time interval that ProCoDA will request a turbidity update from the meter). 1 second would be very fast, 60 s would be slow.|SetPoints_turbidimeter_datarate|
  #. Add a second set point for the Turbidimeter address |SetPoints_turbidimeter_address|
@@ -580,12 +582,9 @@ The model BT50S Golander pumps do not have the ability to change the unit ID usi
  #. Turn off the device and turn it back on again!!!!!!! This is REQUIRED because otherwise the change you made won't be implemented by the device and communication will fail!
  #. Golander 50S pumps display the unit ID on startup.
 
-Now you can configure a Golander pump using the Rule Editor. The external code for Golander pumps require 5 inputs: com port, pump address, on state, pump (ml/rev), and flow (mL/s).
+Now you can configure a Golander pump using the Rule Editor. The external code for Golander pumps require 4 inputs: pump address, on state, pump (ml/rev), and flow (mL/s).
 
- #. Go to the Configuration tab and select |config_set_modbus_ID|
- #. Select the serial port on |Modbus_ID| to see which com ports are available to know how to correctly select the com port number for configuring the Modbus communication. Select Exit to close the dialog.
  #. Go to |config_edit_rules| on the Configuration tab.
- #. Add a set point for the com port |SetPoints_turbidimeter_com_port|
  #. Add a set point for the pump ID (or pump address) |SetPoints_pump_address|
  #. Add a set point for the states that you want the pump to run |SetPoints_on_state|. The states are identified as integers with the OFF state having a value of 0. To have the pump run in more than one state simple enter the digits. The assumption here is that ProCoDA won't have more than 10 states. Thus the on state 134 means that the pump should run in states 1, 3, and 4.
  #. Add a set point for the volume of water pumped per revolution with unis of mL/rev.
@@ -598,7 +597,7 @@ Now you can configure a Golander pump using the Rule Editor. The external code f
 
 Note that the pump control is the pump rpm. The pump control will only display the correct rpm if ProCoDA is in one of the states that you have defined as an on state. Otherwise the pump control will be 0. If you want the pump to turn in a counterclockwise direction, simple set the flow rate to have a negative value.
 
-Below is an example of a ProCoDA method that has 3 pumps and two turbidimeters. The set points are defined in an order that makes it easy to select them in the right order for each pump and turbidity meter and yet keeps the list neatly organized.
+Below is an example of a ProCoDA method that has 2 pumps. The set points are defined in an order that makes it easy to select them in the right order for each pump and keeps the list neatly organized.
 |SetPoints_Golander|
 
 
@@ -663,16 +662,16 @@ where :math:`u(t)` is the controller output, :math:`t` is the current time, :mat
 
 To establish constants for PID control in ProCoDA, follow the `manual tuning procedure <https://en.wikipedia.org/wiki/PID_controller#Manual_tuning>`_. The steps will be summarized below.
 
-Select a PID controller that uses either a sensor or a setpoint as the measured process value. For example if a pressure sensor is used as the measured process value then use *PID sensor no reset.vi* because pressure sensors are handled as sensors by ProCoDA. If a turbidity meter is used as the measured process value then use *PID setpoint no reset.vi* because the turbidity is handled as a setpoint by ProCoDA. The next step is to create all of the required inputs (target value, P Kc, I Ti (min), D Td (min), Measured process value). Note that the "no reset" designation on this code means that the PID control does NOT reset when ProCoDA changes states. That is normally the preferred behavior. The exception would be if there are some states where PID is not being used to control the process. AguaClara researchers typically use PI control (the value of D is set to zero).
+Select a PID controller that uses either a sensor or a setpoint as the measured process value. For example if a pressure sensor is used as the measured process value then use *PID sensor no reset.vi* because pressure sensors are handled as sensors by ProCoDA. If a turbidity meter is used as the measured process value then use *PID setpoint no reset.vi* because the turbidity is handled as a setpoint by ProCoDA. The next step is to create all of the required inputs (target value, P Kc, I Ti (s), D Td (s), Measured process value). Note that the "no reset" designation on this code means that the PID control does NOT reset when ProCoDA changes states. That is normally the preferred behavior. The exception would be if there are some states where PID is not being used to control the process. AguaClara researchers typically use PI control (the value of D is set to zero).
 
 1. Set the I and D set points to zero.
 2. Set P to a small value and change the target value to provoke a response from the PID control.
-3. Observe the graph of the variable being controlled for this value of P. If the result is an oscillation that becomes damped (decreasing amplitude), increase the value of P (perhaps by a factor of 5) and repeat the process. If the result is an oscillation that becomes amplified (increasing amplitude), lower the value of P and repeat the process. The objective is to find a value of P for which there is a periodic oscillation of the value with a constant amplitude.
-4. Record the critical P value, (:math:` K_{\mathrm{u}}`), and also record the period of the wave (time between two consecutive crests of the oscillation , (:math:` P_{\mathrm{u}}`), in minutes).
+3. Observe the graph of the variable being controlled for this value of P. If the result is an oscillation that becomes damped (decreasing amplitude), increase the value of P (perhaps by a factor of 5) and repeat the process. If the result is an oscillation that becomes amplified or that generates a control output that is out of range for the device, lower the value of P by a factor of 10 and repeat the process. Note that if you are controlling a pump and the pump cycles between off and full speed, then decrease P by a factor of 10 and try again! The objective is to find a value of P for which there is a periodic oscillation of the value with a constant amplitude.
+4. Record the critical P value, (:math:` K_{\mathrm{u}}`), and also record the period of the wave (time between two consecutive crests of the oscillation , (:math:` P_{\mathrm{u}}`), in seconds).
 5. To find the value of P required, use the equation: :math:`P = \frac{K_{\mathrm{u}}}{2.2}`.
 6. To find the value of I required, use the equation: :math:`I = \frac{P_{\mathrm{u}}}{1.2}`. This should result in a value in minutes, which is the correct unit for I.
 
-Change your set points (P and I) to the new values. Ensure that there is less than 10% variation in your variable, and fine tune if necessary. This calibration method may result in oscillatory behavior. To reduce variability in the output, consider reducing P to damp the oscillations. This will reduce the responsiveness of the algorithm and will increase the stability.
+Change your set points (P and I) to the new values. This calibration method may result in oscillatory behavior. To reduce variability in the output, consider reducing P to damp the oscillations. This will reduce the responsiveness of the algorithm and will increase the stability.
 
 .. _heading_ProCoDA_States:
 
@@ -919,7 +918,6 @@ Set up two pumps
       Duration of run, s, constant, 5, perhaps steady state operation for data collection
       Duration of warmup, s, constant, 1, time required for startup (start with a small value for testing!)
       data interval, s, constant, 5, used to set data interval for turbidimeters
-      com, none, constant, ?, different for each workstation
       water pump ID, none, constant, 2, change this to match your pumps
       coag pump ID, none, constant, 1, change this to match your pumps
       on state, none, constant, 12, on for both states 1 and 2 (run and warmup)
@@ -939,7 +937,7 @@ Set up two pumps
       cycles, none, variable, count states, counts number of times the run state is called
 
 
-The ProCoDA method file for this setup is available for you to try. Use the |Open_Method| on the ProCoDA configuration tab (select the left open folder icon) to load the `method file for the tutorial <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm>`_. Remember to check the com port and the pump ID addresses to make sure they match your setup!
+The ProCoDA method file for this setup is available for you to try. Use the |Open_Method| on the ProCoDA configuration tab (select the left open folder icon) to load the `method file for the tutorial </methods/Tutorial_method.pcm>`_. Remember to check the pump ID addresses to make sure they match your setup!
 
 Set the end condition for the experiment
 ----------------------------------------
@@ -975,7 +973,7 @@ Play
  #. Open the data file and the state file to see what ProCoDA is recording
  #. Add a  :ref:`pressure sensor <heading_ProCoDA_Pressure_Measurement>` or a :ref:`temperature sensor <heading_ProCoDA_Temperature_Measurement>`
  #. Change the :ref:`sensor data rate <heading_ProCoDA_Configure>` to be super fast or super slow and then change the graph update interval to see if you can detect the big difference in the sensor data noise.
- #. Add a device (perhaps a stirrer) that turns :ref:`on and off depending on the state <heading_ProCoDA_On-off_devices>`. The `method file for the tutorial <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm>`_ is configured to turn a device on and off on port 24V 2.
+ #. Add a device (perhaps a stirrer) that turns :ref:`on and off depending on the state <heading_ProCoDA_On-off_devices>`.
 
 Wiring
 ======
