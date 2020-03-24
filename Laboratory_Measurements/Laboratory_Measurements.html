@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Laboratory Measurements and Procedures &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.46 documentation</title>
+  <title>Laboratory Measurements and Procedures &mdash; Environmental Engineering Laboratory Research Textbook v.0.0.48 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                v.0.0.46
+                v.0.0.48
               </div>
             
           
@@ -228,7 +228,7 @@
 <p>In this lab we will use a simple photometer with a 465 nm LED (blue light) and a detector that is used in smart phones to measure ambient light.</p>
 <div class="figure align-center" id="id4">
 <span id="figure-spectrophotometer"></span><a class="reference internal image-reference" href="../_images/Photometer_exploded.jpg"><img alt="Photometer light path" src="../_images/Photometer_exploded.jpg" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Exploded view of the photometer. The LED is on the right and the sensor is on the red square printed circuit board. The flow path is through the gray PVC. Glass ports allow optical access to the sample.</span></p>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Exploded view of the photometer. The LED is on the right and the sensor is on the red square printed circuit board. The flow path is through the gray PVC. Glass ports allow optical access to the sample.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="experimental-objectives">
@@ -236,12 +236,12 @@
 <p>To gain proficiency in:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Calibrating and using electronic balances</li>
-<li>Using signal conditioning boxes and data acquisition software</li>
-<li>Digital pipetting</li>
-<li>Preparing a solution of known concentration</li>
-<li>Preparing dilutions</li>
-<li>Measuring concentrations using a photometer</li>
+<li><p>Calibrating and using electronic balances</p></li>
+<li><p>Using signal conditioning boxes and data acquisition software</p></li>
+<li><p>Digital pipetting</p></li>
+<li><p>Preparing a solution of known concentration</p></li>
+<li><p>Preparing dilutions</p></li>
+<li><p>Measuring concentrations using a photometer</p></li>
 </ol>
 </div></blockquote>
 </div>
@@ -253,11 +253,11 @@
 <p>The environmental laboratory is equipped with 200 g balances.  As part of this exercise, we will calibrate the 200 g as follows:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Make sure the balance is stable and level using the bubble indicator</li>
-<li>Press and hold the cal button until the screen shows ‘cal’ briefly</li>
-<li>Wait until the screen flashes continually 100.000 g.</li>
-<li>Place the 100 g calibration mass on the pan (handle the calibration mass using a cotton glove or tissue paper)</li>
-<li>The scale is calibrated when it reads 100.000 g.</li>
+<li><p>Make sure the balance is stable and level using the bubble indicator</p></li>
+<li><p>Press and hold the cal button until the screen shows ‘cal’ briefly</p></li>
+<li><p>Wait until the screen flashes continually 100.000 g.</p></li>
+<li><p>Place the 100 g calibration mass on the pan (handle the calibration mass using a cotton glove or tissue paper)</p></li>
+<li><p>The scale is calibrated when it reads 100.000 g.</p></li>
 </ol>
 </div></blockquote>
 <p>Dry chemicals can be weighed in disposable plastic “weighing boats” or other suitable containers. It is often desirable to subtract the weight of the container in which the chemical is being weighed. The weight of the chemical can be obtained either by weighing the container first and then subtracting, or by “zeroing” the balance with the container on the balance.</p>
@@ -268,9 +268,9 @@
 <p>Use a thermistor to measure the temperature of reverse osmosis water. The thermistors are usually hanging on the rack to the right of the fume hoods (you should have one on your bench today). The thermistor has a 4-mm diameter metallic probe. Plug the thermistor into the red signal-conditioning box. The conditioned signal is connected to the ProCoDA box using a red cable. Connect the red cable to one of the sensor ports on the top row of the ProCoDA box.</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Open ProCoDA II and <a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-temperature-measurement"><span class="std std-ref">configure temperature monitoring</span></a></li>
-<li>Place the temperature probe in a 100-mL plastic beaker full of reverse osmosis water. Wait at least 15 seconds to allow the probe to equilibrate with the solution.</li>
-<li>Record this temperature in the attached <a class="reference external" href="../_static/Datasheet.xlsx">spreadsheet</a>.</li>
+<li><p>Open ProCoDA II and <a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-temperature-measurement"><span class="std std-ref">configure temperature monitoring</span></a></p></li>
+<li><p>Place the temperature probe in a 100-mL plastic beaker full of reverse osmosis water. Wait at least 15 seconds to allow the probe to equilibrate with the solution.</p></li>
+<li><p>Record this temperature in the attached <a class="reference external" href="../_static/Datasheet.xlsx">spreadsheet</a>.</p></li>
 </ol>
 </div></blockquote>
 </div>
@@ -278,23 +278,23 @@
 <h3>Pipette Technique<a class="headerlink" href="#pipette-technique" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Use <a class="reference internal" href="#figure-density-vs-t"><span class="std std-numref">Fig. 3</span></a> or <code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">=</span> <span class="pre">pc.density_water(Temp)</span></code> to estimate the mass of 990 <span class="math notranslate nohighlight">\(\mu L\)</span> of reverse osmosis water (at the measured temperature).</li>
-<li>Use a 100-1000 <span class="math notranslate nohighlight">\(\mu L\)</span> digital pipette to transfer 990 <span class="math notranslate nohighlight">\(\mu L\)</span> of reverse osmosis water to a tared weighing boat on a balance with mg resolution. Record the mass of the water and compare with the expected value (see <a class="reference internal" href="#figure-density-vs-t"><span class="std std-numref">Fig. 3</span></a>). Repeat this step if necessary until your pipetting error is less than 2%, then measure the mass of 5 replicate 990 <span class="math notranslate nohighlight">\(\mu L\)</span> pipette samples. Calculate the mean (<span class="math notranslate nohighlight">\(\bar{x}\)</span>), standard deviation (s), and coefficient of variation, <span class="math notranslate nohighlight">\(\frac{s}{\bar{x}}\)</span>, for your measurements. The coefficient of variation (c.v.) is a good measure of the precision of your technique. For this test a c.v. <span class="math notranslate nohighlight">\(\mathrm{&lt;}\)</span> 1% should be achievable.</li>
+<li><p>Use <a class="reference internal" href="#figure-density-vs-t"><span class="std std-numref">Fig. 3</span></a> or <code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">=</span> <span class="pre">pc.density_water(Temp)</span></code> to estimate the mass of 990 <span class="math notranslate nohighlight">\(\mu L\)</span> of reverse osmosis water (at the measured temperature).</p></li>
+<li><p>Use a 100-1000 <span class="math notranslate nohighlight">\(\mu L\)</span> digital pipette to transfer 990 <span class="math notranslate nohighlight">\(\mu L\)</span> of reverse osmosis water to a tared weighing boat on a balance with mg resolution. Record the mass of the water and compare with the expected value (see <a class="reference internal" href="#figure-density-vs-t"><span class="std std-numref">Fig. 3</span></a>). Repeat this step if necessary until your pipetting error is less than 2%, then measure the mass of 5 replicate 990 <span class="math notranslate nohighlight">\(\mu L\)</span> pipette samples. Calculate the mean (<span class="math notranslate nohighlight">\(\bar{x}\)</span>), standard deviation (s), and coefficient of variation, <span class="math notranslate nohighlight">\(\frac{s}{\bar{x}}\)</span>, for your measurements. The coefficient of variation (c.v.) is a good measure of the precision of your technique. For this test a c.v. <span class="math notranslate nohighlight">\(\mathrm{&lt;}\)</span> 1% should be achievable.</p></li>
 </ol>
 </div></blockquote>
 </div>
 <div class="section" id="measure-density">
 <h3>Measure Density<a class="headerlink" href="#measure-density" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>Weigh a 100 mL volumetric flask with its cap (use 200 g balance with resolution of 0.001 g}.</li>
-<li>Prepare 100 mL of a 1 M solution of sodium chloride in the weighed flask. You can also dissolve the NaCl in a clean beaker and transfer to the volumetric flask.  Make sure to mix the solution and then verify that you have <strong>exactly 100 mL</strong> of solution. Note that the combined <strong>volume of NaCl and water decreases</strong> as the salt dissolves.</li>
-<li>Weigh the flask (with its cap) plus the sodium chloride solution and calculate the density of the 1 M NaCl solution.</li>
+<li><p>Weigh a 100 mL volumetric flask with its cap (use 200 g balance with resolution of 0.001 g}.</p></li>
+<li><p>Prepare 100 mL of a 1 M solution of sodium chloride in the weighed flask. You can also dissolve the NaCl in a clean beaker and transfer to the volumetric flask.  Make sure to mix the solution and then verify that you have <strong>exactly 100 mL</strong> of solution. Note that the combined <strong>volume of NaCl and water decreases</strong> as the salt dissolves.</p></li>
+<li><p>Weigh the flask (with its cap) plus the sodium chloride solution and calculate the density of the 1 M NaCl solution.</p></li>
 </ol>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="k">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
-<span class="kn">import</span> <span class="nn">aguaclara</span> <span class="k">as</span> <span class="nn">ac</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; importing &quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">aguaclara.core.units</span> <span class="kn">import</span> <span class="n">unit_registry</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">import</span> <span class="nn">aguaclara</span> <span class="kn">as</span> <span class="nn">ac</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="n">Temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">degC</span>
 <span class="n">density</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">density_water</span><span class="p">(</span><span class="n">Temp</span><span class="p">)</span>
@@ -307,7 +307,7 @@
 </div>
 <div class="figure align-center" id="id5">
 <span id="figure-density-vs-t"></span><a class="reference internal image-reference" href="../_images/Density_vs_T.png"><img alt="Density of water vs. temperature." src="../_images/Density_vs_T.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Density of water vs. temperature.</span></p>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Density of water vs. temperature.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="prepare-red-dye-standards-of-several-concentrations">
@@ -315,9 +315,9 @@
 <p>A red dye stock solution of 10 g/L has been prepared.</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Use the red dye stock solution to prepare 100 mL of each of the following concentrations: 1 mg/L, 2 mg/L, 5 mg/L, 10 mg/L, 20 mg/L, 50 mg/L, and 100 mg/L.  Record your calculations in the attached <a class="reference external" href="../_static/Datasheet.xlsx">spreadsheet</a>. Use pipettes and volumetric flasks to create accurate dilutions.</li>
-<li>Check all of the push to connect fittings in the photometer sample system. To obtain a water tight connection it is necessary to twist and push so that the o’ring slides over the outside of the tube to create a seal.</li>
-<li>Note any errors in transfer of mass as you prepare these dilutions (the color will make it easy to see). Make sure to transfer every drop!</li>
+<li><p>Use the red dye stock solution to prepare 100 mL of each of the following concentrations: 1 mg/L, 2 mg/L, 5 mg/L, 10 mg/L, 20 mg/L, 50 mg/L, and 100 mg/L.  Record your calculations in the attached <a class="reference external" href="../_static/Datasheet.xlsx">spreadsheet</a>. Use pipettes and volumetric flasks to create accurate dilutions.</p></li>
+<li><p>Check all of the push to connect fittings in the photometer sample system. To obtain a water tight connection it is necessary to twist and push so that the o’ring slides over the outside of the tube to create a seal.</p></li>
+<li><p>Note any errors in transfer of mass as you prepare these dilutions (the color will make it easy to see). Make sure to transfer every drop!</p></li>
 </ol>
 </div></blockquote>
 </div>
@@ -325,13 +325,13 @@
 <h3>Create a standard curve and measure an unknown<a class="headerlink" href="#create-a-standard-curve-and-measure-an-unknown" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Create a calibration curve using the standards created above and the <a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-photometer"><span class="std std-ref">photometer calibration method</span></a>. Use the Sipper Cell Flow Calibration method. <strong>Tips</strong>: Use black opaque tubing on both ends of the photometer and remember to hold the photometer straight up. If you are getting odd readings on the photometer push the fluid back and forth the photometer using the syringe until the readings stablize. Tap the photometer lightly to remove any air bubbles.</li>
-<li>Make sure to both save <strong>AND</strong> export the calibration data from ProCoDA (<img alt="photometer_open_save_export" src="../_images/photometer_open_save_export.png" />)</li>
-<li>Was the calibration linear? If not, which standards caused it to depart from linearity?
+<li><p>Create a calibration curve using the standards created above and the <a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-photometer"><span class="std std-ref">photometer calibration method</span></a>. Use the Sipper Cell Flow Calibration method. <strong>Tips</strong>: Use black opaque tubing on both ends of the photometer and remember to hold the photometer straight up. If you are getting odd readings on the photometer push the fluid back and forth the photometer using the syringe until the readings stablize. Tap the photometer lightly to remove any air bubbles.</p></li>
+<li><p>Make sure to both save <strong>AND</strong> export the calibration data from ProCoDA (<img alt="photometer_open_save_export" src="../_images/photometer_open_save_export.png" />)</p></li>
+<li><p>Was the calibration linear? If not, which standards caused it to depart from linearity?
 #. The high concentration standards may be beyond the linear range for the sensor. This can occur if the amount of light reaching the sensor is too low to create an output voltage that is proportional to the light. Remember that an absorbance of 2 means that 99% of the light is adsorbed by the dye! If the absorbance for the highest standard isn’t in the line of the lower concentration samples, then delete the highest standards sequentially until you get a high correlation coefficient (R) as calculated by the ProCoDA photometer software.
-#. If the correlation coefficient is less than 0.99 then it suggests that your standards weren’t accurately prepared. See if you can identify what you did incorrectly with your pipette or dilution technique and consider (talk with a TA) preparing new standards.</li>
-<li>Save <strong>AND</strong> export the calibration data from ProCoDA (<img alt="photometer_open_save_export" src="../_images/photometer_open_save_export.png" />). These calibration curves will be useful later in this course!</li>
-<li>Measure the concentration of the unknown concentration of red dye. Note that you can do this directly in ProCoDA in the Graphs tab.</li>
+#. If the correlation coefficient is less than 0.99 then it suggests that your standards weren’t accurately prepared. See if you can identify what you did incorrectly with your pipette or dilution technique and consider (talk with a TA) preparing new standards.</p></li>
+<li><p>Save <strong>AND</strong> export the calibration data from ProCoDA (<img alt="photometer_open_save_export" src="../_images/photometer_open_save_export.png" />). These calibration curves will be useful later in this course!</p></li>
+<li><p>Measure the concentration of the unknown concentration of red dye. Note that you can do this directly in ProCoDA in the Graphs tab.</p></li>
 </ol>
 </div></blockquote>
 </div>
@@ -340,14 +340,14 @@
 <h2>Clean Up<a class="headerlink" href="#clean-up" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Empty and rinse red dye bottles and place them on the drying racks</li>
-<li>Empty and rinse volumetric flasks and place them on the drying racks</li>
-<li>Place pipette tips in the pipette disposal mini cans</li>
-<li>Discard any used weighing boats</li>
-<li>Pull DI water through the photometer to rinse it and then place it in your drawer</li>
-<li>Rinse temperature probe and place it in your drawer</li>
-<li>Empty and rinse unknown red dye solutions</li>
-<li>Place concentrated red dye in your drawer</li>
+<li><p>Empty and rinse red dye bottles and place them on the drying racks</p></li>
+<li><p>Empty and rinse volumetric flasks and place them on the drying racks</p></li>
+<li><p>Place pipette tips in the pipette disposal mini cans</p></li>
+<li><p>Discard any used weighing boats</p></li>
+<li><p>Pull DI water through the photometer to rinse it and then place it in your drawer</p></li>
+<li><p>Rinse temperature probe and place it in your drawer</p></li>
+<li><p>Empty and rinse unknown red dye solutions</p></li>
+<li><p>Place concentrated red dye in your drawer</p></li>
 </ol>
 </div></blockquote>
 </div>
@@ -355,8 +355,8 @@
 <span id="heading-laboratory-measurements-and-procedures-pre-laboratory-questions"></span><h2>Prelab Questions<a class="headerlink" href="#prelab-questions" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ol class="arabic simple">
-<li>You need 100 mL of a 1 <span class="math notranslate nohighlight">\(\mu M\)</span> solution of zinc that you will use as a standard to calibrate an atomic adsorption spectrophotometer. Find a source of zinc ions combined either with chloride or nitrate (you can use the internet or any other source of information). What is the molecular formula of the compound that you found? Zinc disposal down the sanitary sewer is restricted at Cornell and the solutions you prepare may need to be disposed of as hazardous waste. As an environmental engineering student you strive to minimize waste production. How would you prepare this standard using techniques readily available in the environmental laboratory so that you minimize the production of solutions that you don’t need? Note that we have pipettes that can dispense volumes between 10 <span class="math notranslate nohighlight">\(\mu L\)</span> and 1 mL and that we have 100 mL and 1 L volumetric flasks. Include enough information so that you could prepare the standard without doing any additional calculations. Consider your ability to accurately weigh small masses. Explain your procedure for any dilutions. Note that the stock solution concentration should be an easy multiple of your desired solution concentration so you don’t have to attempt to pipette a volume that the digital pipettes can’t be set for such as 13.6 <span class="math notranslate nohighlight">\(\mu L\)</span>.</li>
-<li>The density of sodium chloride solutions as a function of concentration is approximately <span class="math notranslate nohighlight">\(0.6985C + \rho_{water}\)</span>. What is the density of a 1 M solution of sodium chloride?</li>
+<li><p>You need 100 mL of a 1 <span class="math notranslate nohighlight">\(\mu M\)</span> solution of zinc that you will use as a standard to calibrate an atomic adsorption spectrophotometer. Find a source of zinc ions combined either with chloride or nitrate (you can use the internet or any other source of information). What is the molecular formula of the compound that you found? Zinc disposal down the sanitary sewer is restricted at Cornell and the solutions you prepare may need to be disposed of as hazardous waste. As an environmental engineering student you strive to minimize waste production. How would you prepare this standard using techniques readily available in the environmental laboratory so that you minimize the production of solutions that you don’t need? Note that we have pipettes that can dispense volumes between 10 <span class="math notranslate nohighlight">\(\mu L\)</span> and 1 mL and that we have 100 mL and 1 L volumetric flasks. Include enough information so that you could prepare the standard without doing any additional calculations. Consider your ability to accurately weigh small masses. Explain your procedure for any dilutions. Note that the stock solution concentration should be an easy multiple of your desired solution concentration so you don’t have to attempt to pipette a volume that the digital pipettes can’t be set for such as 13.6 <span class="math notranslate nohighlight">\(\mu L\)</span>.</p></li>
+<li><p>The density of sodium chloride solutions as a function of concentration is approximately <span class="math notranslate nohighlight">\(0.6985C + \rho_{water}\)</span>. What is the density of a 1 M solution of sodium chloride?</p></li>
 </ol>
 </div></blockquote>
 </div>
@@ -365,15 +365,15 @@
 <p>Submit the <a class="reference external" href="../_static/Datasheet.xlsx">spreadsheet</a> containing the data sheet, and a markdown file containing graphs and answers to the questions.</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Fill out the attached <a class="reference external" href="../_static/Datasheet.xlsx">spreadsheet</a>. Make sure that all calculated values are entered in the spreadsheet as equations. All remaining analysis for the course will be done in Atom using Python!</li>
-<li>Create a graph of absorbance vs. concentration of red dye <code class="docutils literal notranslate"><span class="pre">\#40</span></code> in Atom/Markdown using the exported data file. Does absorbance increase linearly with concentration of the red dye? Remove data points from the graph that are outside of the linear region (absorbance too high for the detector to measure accurately).</li>
-<li>What is the value of the extinction coefficient, <span class="math notranslate nohighlight">\(\varepsilon\)</span>? Use the slope of the absorbance vs concentration to calculate the absorbance. The pathlength for the sample cell is given in the  <a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-photometer"><span class="std std-ref">photometer section</span></a>.</li>
-<li>Did you use interpolation or extrapolation to get the concentration of the unknown?</li>
-<li>What measurement controls the accuracy of the density measurement for the NaCl solution?</li>
-<li>What density did you expect (see prelab 2)?</li>
-<li>Approximately what should the accuracy be for the density measurement?</li>
-<li>Don’t forget to write a brief paragraph on conclusions and on suggestions using Markdown.</li>
-<li>Verify that your report and graphs meet the requirements as outlined on the <a class="reference external" href="https://github.com/monroews/CEE4530/wiki/Lab-Reports">course website</a>.</li>
+<li><p>Fill out the attached <a class="reference external" href="../_static/Datasheet.xlsx">spreadsheet</a>. Make sure that all calculated values are entered in the spreadsheet as equations. All remaining analysis for the course will be done in Atom using Python!</p></li>
+<li><p>Create a graph of absorbance vs. concentration of red dye <code class="docutils literal notranslate"><span class="pre">\#40</span></code> in Atom/Markdown using the exported data file. Does absorbance increase linearly with concentration of the red dye? Remove data points from the graph that are outside of the linear region (absorbance too high for the detector to measure accurately).</p></li>
+<li><p>What is the value of the extinction coefficient, <span class="math notranslate nohighlight">\(\varepsilon\)</span>? Use the slope of the absorbance vs concentration to calculate the absorbance. The pathlength for the sample cell is given in the  <a class="reference internal" href="../ProCoDA/ProCoDA.html#heading-procoda-photometer"><span class="std std-ref">photometer section</span></a>.</p></li>
+<li><p>Did you use interpolation or extrapolation to get the concentration of the unknown?</p></li>
+<li><p>What measurement controls the accuracy of the density measurement for the NaCl solution?</p></li>
+<li><p>What density did you expect (see prelab 2)?</p></li>
+<li><p>Approximately what should the accuracy be for the density measurement?</p></li>
+<li><p>Don’t forget to write a brief paragraph on conclusions and on suggestions using Markdown.</p></li>
+<li><p>Verify that your report and graphs meet the requirements as outlined on the <a class="reference external" href="https://github.com/monroews/CEE4530/wiki/Lab-Reports">course website</a>.</p></li>
 </ol>
 </div></blockquote>
 </div>
@@ -384,11 +384,11 @@
 <span id="heading-laboratory-measurements-and-procedures-setup"></span><h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Prepare stock red dye #40 solution (10 g/L) and distribute to student workstations in 20 mL vials.</li>
-<li>Prepare 1 L of unknown in concentration range of standards. Divide into six 150 mL bottles (one for each student bench (teams/2)).</li>
-<li>Verify that balances calibrate easily.</li>
-<li>Disassemble, clean, and lubricate all pipettes.</li>
-<li>Distribute all supplies needed for the lab.</li>
+<li><p>Prepare stock red dye #40 solution (10 g/L) and distribute to student workstations in 20 mL vials.</p></li>
+<li><p>Prepare 1 L of unknown in concentration range of standards. Divide into six 150 mL bottles (one for each student bench (teams/2)).</p></li>
+<li><p>Verify that balances calibrate easily.</p></li>
+<li><p>Disassemble, clean, and lubricate all pipettes.</p></li>
+<li><p>Distribute all supplies needed for the lab.</p></li>
 </ol>
 </div></blockquote>
 </div>
@@ -436,7 +436,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v.0.0.46',
+            VERSION:'v.0.0.48',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -447,6 +447,7 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
       <script type="text/javascript" src="../_static/mathjax_config.js"></script>
 
   

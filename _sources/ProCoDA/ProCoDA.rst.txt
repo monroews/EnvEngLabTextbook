@@ -22,13 +22,14 @@ The guiding principle in developing the ProCoDA code was to create an applicatio
 
 The `ProCoDA software <https://github.com/monroews/LabVIEW/wiki/ProCoDA>`_ was written using LabVIEW. The high level predefined functions, the ease of developing graphical user interfaces, and the integration with input and output devices made LabVIEW the preferred programming environment. In addition to the software we designed hardware interfaces to simplify the use of sensors and controls.
 
-The `ProCoDA software <https://github.com/monroews/LabVIEW/wiki/ProCoDA>`_ runs five parallel processes during normal operation. The five processes are:
+The `ProCoDA software <https://github.com/monroews/LabVIEW/wiki/ProCoDA>`_ runs six parallel processes during normal operation. The six processes are:
 
   #. Data acquisition from the ProCoDA hardware
   #. Calculation of output values, processing of rules to determine state changes, sending commands to the ProCoDA hardware, and logging of state changes and the rule that caused the state to change
   #. Data logging of sensor data as well as all user defined variables
   #. Graphical display of all sensor data as well as all user defined variables
   #. An event loop that responds to 20 user events to initiate processes such as sensor configuration, rule editing, pump calibration, and hardware selection.
+  #. Modbus director loop that manages reading and writing to modbus devices.
 
 The parallel processes are asynchronous and share data through the use of code objects (LabVIEW SubVIs) that contain both data and methods.
 
@@ -36,7 +37,7 @@ A core feature of the ProCoDA software is the user programmable feature that fac
 
 Sensor signal wires and power supply connections have been integrated in a single cable to make sensors easy to use in a student laboratory environment. The sensors use a standardized wiring scheme so that a variety of sensors can be used in a connect-calibrate-measure approach. The elimination of power supplies at each experiment location and all of the associated wiring has made sensor use easy for students. The process control software interface for sensors allows adding and configuring sensors while simultaneously collecting data.
 
-The ProCoDA hardware/software can vary the state of on/off devices as well as control devices that require a 4-20 mA signal. The on/off outputs are 24 V with sufficient current to operate small solenoid valves or to switch relays for controlling the power to any number of devices. The 4-20 mA analog outputs are used to control peristaltic pumps. External code is already provided for communication with digital devices including HF scientific turbidimeters, HF scientific AccUView UV meter. We also have external code to control digital peristaltic pumps using Modbus. Other Modbus devices can easily be added.
+The ProCoDA hardware/software can vary the state of on/off devices as well as control devices that require a 4-20 mA signal. The on/off outputs are 24 V with sufficient current to operate small solenoid valves or to switch relays for controlling the power to any number of devices. The 4-20 mA analog outputs are used to control peristaltic pumps. External code is already provided for communication with digital devices including HF scientific turbidimeters, HF scientific AccUView UV meter, and Chemtrac meters. We also have external code to control digital peristaltic pumps using Modbus. Other Modbus devices can easily be added.
 
 ProCoDA software allows the user to automate data collection and to control many parts of the experimental apparatus. This enables researchers to focus on experimental design and data analysis. Process control software can control the speed of peristaltic pumps, regulate flow through solenoid valves, and measure (or control with feedback) water quality parameters such as temperature, pressure, and dissolved oxygen.
 
@@ -63,7 +64,7 @@ The ProCoDA software is designed to allow complete automation of experiments inc
 General Notes
 -------------
 
-- When you input a value that it a decimal it will convert it into a form without the decimal (i.e. 0.3 will become 300m)
+- When you input a value that is a decimal it will convert it into a form without the decimal (i.e. 0.3 will become 300m)
 - The default unit of time is seconds and we recommend using seconds consistently.
 - ProCoDA doesn't actually use units internally. The units are only used for documentation. It is the users responsibility to make sure that you are using a consistent set of units.
 - The required set points give the order of the set points and the set points must be in the same order when you input them. The set points do not need to be contiguous! They just need to be in the correct order.
@@ -93,23 +94,6 @@ Data Acquisition
 
 The ProCoDA software is designed to receive data from two types of digital sources. Sensors or meters that have their own digital communication interface can transmit their data to the ProCoDA software through external code that is written specifically for each meter. For example this method is used to acquire data from HF Scientific turbidimeters. Sensors that can be configured to produce an analog voltage such as pressure, pH and dissolved oxygen are monitored with a National Instruments USB data acquisition board.
 
-Sensors are wired using Category 5 or 6 Ethernet cable using our own :ref:`analog <table_ProCoDA_sensor_wiring>` wiring standard. Two wires are used to carry the sensor output voltage designated as S- and S+. Five wires are used for different voltage power supplies, and one wire is used for the power supply ground. Sensors are wired to connect to the power supply that they require. Thus, the sensor is powered and monitored through a single port. This scheme is used for a variety of sensors including pressure, strain gage, pH, dissolved oxygen, photometer, and temperature. For several of the sensors the power supplies are also used to power a signal conditioning circuit to transform the sensor output into a voltage that can easily be monitored with a data acquisition system.
-
-.. _table_ProCoDA_sensor_wiring:
-
-.. csv-table:: Wiring standard used for combining power supplies and analog data acquisition in a Category 5 Ethernet cable
-   :header: T-568B standard, T-568A standard, voltage
-   :widths: 20, 20, 20
-   :align: center
-
-   white/orange,	white/green,	S-
-   white/green,	white/orange,	ground
-   white/brown,	white/brown,	-15 V
-   white/blue,	white/blue,	+5 V
-   orange,	green,	S+
-   green,	orange,	+10 V
-   brown,	brown,	+15V
-   blue,	blue,	-5 V
 
 
 .. _heading_ProCoDA_Configure:
@@ -505,6 +489,9 @@ Meters and Modbus
 .. |Device_manager_USB_com| image:: Images/Device_manager_USB_com.png
 .. |config_set_modbus_ID| image:: Images/config_set_modbus_ID.png
 .. |Modbus_ID| image:: Images/MB_Set_ID.png
+.. |Select_Modbus| image:: Images/SelectModbus.png
+.. |Pick_visa_modbus| image:: Images/Pick_visa_modbus.png
+
 
 
 Turbidimeters, particle counters, peristaltic pumps, and many industrial devices, can communicate with ProCoDA through a Modbus network. These devices are treated like functions and their data is accessed with an external function call in the set point list (Accessed through |config_edit_rules|).
@@ -517,26 +504,22 @@ Tips for Modbus success!
  * Make sure all devices that are connected to the Modbus network are turned on (have power)! Otherwise the entire network will fail.
  * When changing the unit ID on a device it is necessary to turn the device off and back on again to ensure that it has switched to the new unit ID.
  * Make sure that all devices have unique unit IDs. (Double check this!!!)
- * Use the |Modbus_ID| to see which com ports are available to know how to correctly select the com port number for configuring the Modbus communication.
  * Make sure that the communication protocol for all devices is
    * Even Parity (default on Golander pumps, not default on HF turbidimeters - in the extended configuration)
    * 9600 Baud
    * Modbus RTU (not ASCII)
- * Use a data interval greater than 1 s for meters because the Modbus read takes a significant fraction of a second **per device**. This will significantly improve ProCoDA's responsiveness
- * Set the NI Input/Output device to read 25 samples per read so that it is effectively collecting data at 100 Hz. This will also speed up ProCoDA's responsiveness when using Modbus.
+ * Use a data interval greater than 1 s for meters because the Modbus read takes a significant fraction of a second **per device**.
+ * Go to the Configuration tab and select |Pick_visa_modbus| to connect to the serial port that is used for modbus communication before configuring individual devices. This port will be used by all modbus devices. If no ports are available it means that no USB to serial converter is connected to your computer. If multiple ports are available you may need to use trial and error to figure out which port is the correct one. Select Exit to close the dialog.
+
 
 Connect an HF Scientific MicroTol turbidimeter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- #. Go to the Configuration tab and select |config_set_modbus_ID|
- #. Select the serial port on |Modbus_ID| to see which com ports are available to know how to correctly select the com port number for configuring the Modbus communication. Select Exit to close the dialog.
  #. Go to |config_edit_rules| on the Configuration tab.
  #. Add a set point for the data rate (the time interval that ProCoDA will request a turbidity update from the meter). 1 second would be very fast, 60 s would be slow.|SetPoints_turbidimeter_datarate|
- #. Add a second setpoint for the com port on the computer that the turbidity meter is connected to. |SetPoints_turbidimeter_com_port|
- #. Enter the com port number that you discovered in step 2.
- #. Add a third set point for the Turbidimeter address |SetPoints_turbidimeter_address|
+ #. Add a second set point for the Turbidimeter address |SetPoints_turbidimeter_address|
  #. Check the unit ID on the turbidimeter (press |HF_mode_exit| twice to select the config option. Then press |HF_return| twice to select ADDR. You can adjust the unit ID using the up or down arrows. Press |HF_mode_exit| once more to exit and return to the turbidity view screen.)
- #. Add a fourth setpoint that will be the measured turbidity.
+ #. Add a third setpoint that will be the measured turbidity.
  #. Change the setpoint from a constant to a variable
  #. Now more options will appear click on the folder icon which will open a dialog box
  #. Select *Modbus devices* and then select *HF turbidimeter*
@@ -599,12 +582,9 @@ The model BT50S Golander pumps do not have the ability to change the unit ID usi
  #. Turn off the device and turn it back on again!!!!!!! This is REQUIRED because otherwise the change you made won't be implemented by the device and communication will fail!
  #. Golander 50S pumps display the unit ID on startup.
 
-Now you can configure a Golander pump using the Rule Editor. The external code for Golander pumps require 5 inputs: com port, pump address, on state, pump (ml/rev), and flow (mL/s).
+Now you can configure a Golander pump using the Rule Editor. The external code for Golander pumps require 4 inputs: pump address, on state, pump (ml/rev), and flow (mL/s).
 
- #. Go to the Configuration tab and select |config_set_modbus_ID|
- #. Select the serial port on |Modbus_ID| to see which com ports are available to know how to correctly select the com port number for configuring the Modbus communication. Select Exit to close the dialog.
  #. Go to |config_edit_rules| on the Configuration tab.
- #. Add a set point for the com port |SetPoints_turbidimeter_com_port|
  #. Add a set point for the pump ID (or pump address) |SetPoints_pump_address|
  #. Add a set point for the states that you want the pump to run |SetPoints_on_state|. The states are identified as integers with the OFF state having a value of 0. To have the pump run in more than one state simple enter the digits. The assumption here is that ProCoDA won't have more than 10 states. Thus the on state 134 means that the pump should run in states 1, 3, and 4.
  #. Add a set point for the volume of water pumped per revolution with unis of mL/rev.
@@ -617,7 +597,7 @@ Now you can configure a Golander pump using the Rule Editor. The external code f
 
 Note that the pump control is the pump rpm. The pump control will only display the correct rpm if ProCoDA is in one of the states that you have defined as an on state. Otherwise the pump control will be 0. If you want the pump to turn in a counterclockwise direction, simple set the flow rate to have a negative value.
 
-Below is an example of a ProCoDA method that has 3 pumps and two turbidimeters. The set points are defined in an order that makes it easy to select them in the right order for each pump and turbidity meter and yet keeps the list neatly organized.
+Below is an example of a ProCoDA method that has 2 pumps. The set points are defined in an order that makes it easy to select them in the right order for each pump and keeps the list neatly organized.
 |SetPoints_Golander|
 
 
@@ -682,16 +662,16 @@ where :math:`u(t)` is the controller output, :math:`t` is the current time, :mat
 
 To establish constants for PID control in ProCoDA, follow the `manual tuning procedure <https://en.wikipedia.org/wiki/PID_controller#Manual_tuning>`_. The steps will be summarized below.
 
-Select a PID controller that uses either a sensor or a setpoint as the measured process value. For example if a pressure sensor is used as the measured process value then use *PID sensor no reset.vi* because pressure sensors are handled as sensors by ProCoDA. If a turbidity meter is used as the measured process value then use *PID setpoint no reset.vi* because the turbidity is handled as a setpoint by ProCoDA. The next step is to create all of the required inputs (target value, P Kc, I Ti (min), D Td (min), Measured process value). Note that the "no reset" designation on this code means that the PID control does NOT reset when ProCoDA changes states. That is normally the preferred behavior. The exception would be if there are some states where PID is not being used to control the process. AguaClara researchers typically use PI control (the value of D is set to zero).
+Select a PID controller that uses either a sensor or a setpoint as the measured process value. For example if a pressure sensor is used as the measured process value then use *PID sensor no reset.vi* because pressure sensors are handled as sensors by ProCoDA. If a turbidity meter is used as the measured process value then use *PID setpoint no reset.vi* because the turbidity is handled as a setpoint by ProCoDA. The next step is to create all of the required inputs (target value, P Kc, I Ti (s), D Td (s), Measured process value). Note that the "no reset" designation on this code means that the PID control does NOT reset when ProCoDA changes states. That is normally the preferred behavior. The exception would be if there are some states where PID is not being used to control the process. AguaClara researchers typically use PI control (the value of D is set to zero).
 
 1. Set the I and D set points to zero.
 2. Set P to a small value and change the target value to provoke a response from the PID control.
-3. Observe the graph of the variable being controlled for this value of P. If the result is an oscillation that becomes damped (decreasing amplitude), increase the value of P (perhaps by a factor of 5) and repeat the process. If the result is an oscillation that becomes amplified (increasing amplitude), lower the value of P and repeat the process. The objective is to find a value of P for which there is a periodic oscillation of the value with a constant amplitude.
-4. Record the critical P value, (:math:` K_{\mathrm{u}}`), and also record the period of the wave (time between two consecutive crests of the oscillation , (:math:` P_{\mathrm{u}}`), in minutes).
+3. Observe the graph of the variable being controlled for this value of P. If the result is an oscillation that becomes damped (decreasing amplitude), increase the value of P (perhaps by a factor of 5) and repeat the process. If the result is an oscillation that becomes amplified or that generates a control output that is out of range for the device, lower the value of P by a factor of 10 and repeat the process. Note that if you are controlling a pump and the pump cycles between off and full speed, then decrease P by a factor of 10 and try again! The objective is to find a value of P for which there is a periodic oscillation of the value with a constant amplitude.
+4. Record the critical P value, (:math:` K_{\mathrm{u}}`), and also record the period of the wave (time between two consecutive crests of the oscillation , (:math:` P_{\mathrm{u}}`), in seconds).
 5. To find the value of P required, use the equation: :math:`P = \frac{K_{\mathrm{u}}}{2.2}`.
 6. To find the value of I required, use the equation: :math:`I = \frac{P_{\mathrm{u}}}{1.2}`. This should result in a value in minutes, which is the correct unit for I.
 
-Change your set points (P and I) to the new values. Ensure that there is less than 10% variation in your variable, and fine tune if necessary. This calibration method may result in oscillatory behavior. To reduce variability in the output, consider reducing P to damp the oscillations. This will reduce the responsiveness of the algorithm and will increase the stability.
+Change your set points (P and I) to the new values. This calibration method may result in oscillatory behavior. To reduce variability in the output, consider reducing P to damp the oscillations. This will reduce the responsiveness of the algorithm and will increase the stability.
 
 .. _heading_ProCoDA_States:
 
@@ -938,7 +918,6 @@ Set up two pumps
       Duration of run, s, constant, 5, perhaps steady state operation for data collection
       Duration of warmup, s, constant, 1, time required for startup (start with a small value for testing!)
       data interval, s, constant, 5, used to set data interval for turbidimeters
-      com, none, constant, ?, different for each workstation
       water pump ID, none, constant, 2, change this to match your pumps
       coag pump ID, none, constant, 1, change this to match your pumps
       on state, none, constant, 12, on for both states 1 and 2 (run and warmup)
@@ -958,7 +937,7 @@ Set up two pumps
       cycles, none, variable, count states, counts number of times the run state is called
 
 
-The ProCoDA method file for this setup is available for you to try. Use the |Open_Method| on the ProCoDA configuration tab (select the left open folder icon) to load the `method file for the tutorial <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm>`_. Remember to check the com port and the pump ID addresses to make sure they match your setup!
+The ProCoDA method file for this setup is available for you to try. Use the |Open_Method| on the ProCoDA configuration tab (select the left open folder icon) to load the `method file for the tutorial <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm>`_. Remember to check the pump ID addresses to make sure they match your setup!
 
 Set the end condition for the experiment
 ----------------------------------------
@@ -994,8 +973,96 @@ Play
  #. Open the data file and the state file to see what ProCoDA is recording
  #. Add a  :ref:`pressure sensor <heading_ProCoDA_Pressure_Measurement>` or a :ref:`temperature sensor <heading_ProCoDA_Temperature_Measurement>`
  #. Change the :ref:`sensor data rate <heading_ProCoDA_Configure>` to be super fast or super slow and then change the graph update interval to see if you can detect the big difference in the sensor data noise.
- #. Add a device (perhaps a stirrer) that turns :ref:`on and off depending on the state <heading_ProCoDA_On-off_devices>`. The `method file for the tutorial <https://github.com/monroews/EnvEngLabTextbook/raw/master/ProCoDA/methods/Tutorial_method.pcm>`_ is configured to turn a device on and off on port 24V 2.
+ #. Add a device (perhaps a stirrer) that turns :ref:`on and off depending on the state <heading_ProCoDA_On-off_devices>`.
 
+Wiring
+======
+
+Sensors
+-------
+
+Sensors are wired using Category 5 or 6 Ethernet cable using our own :ref:`analog <table_ProCoDA_sensor_wiring>` wiring standard. Two wires are used to carry the sensor output voltage designated as S- and S+. Five wires are used for different voltage power supplies, and one wire is used for the power supply ground. Sensors are wired to connect to the power supply that they require. Thus, the sensor is powered and monitored through a single port. This scheme is used for a variety of sensors including pressure, strain gage, pH, dissolved oxygen, photometer, and temperature. For several of the sensors the power supplies are also used to power a signal conditioning circuit to transform the sensor output into a voltage that can easily be monitored with a data acquisition system.
+
+.. _figure_Ethernet:
+
+.. figure:: Images/Ethernet.png
+    :width: 600px
+    :align: center
+    :alt: Increment functions
+
+    Two Ethernet wiring schemes.
+
+
+.. _table_ProCoDA_sensor_wiring:
+
+.. csv-table:: Sensor wiring scheme using Ethernet cable
+    :header:  Pin, Ethernet A, Ethernet B, voltage
+    :align: center
+
+
+
+      1, white/green,	white/orange, S-
+      2, green,	orange, S+
+      3, white/orange, white/green,	ground
+      4, blue, blue,	-5 V
+      5, white/blue, white/blue,	+5 V
+      6, orange, green,	+10V
+      7, white/brown,	white/brown, -15 V
+      8, brown,	brown, +15 V
+
+Modbus
+------
+
+.. |USB-485| image:: Images/USB-485.png
+.. |D-Sub9toEthernet| image:: Images/D-Sub9toEthernet.png
+.. |15pintoEthernet| image:: Images/15pintoEthernet.png
+.. |femalesocket| image:: Images/femalesocket.png
+.. |Ethernetsplitter| image:: Images/Ethernetsplitter.png
+
+
+.. csv-table:: Parts for connecting modbus devices together and to USB port
+    :header:  Description, part number, supplier, image, purpose
+    :align: center
+
+
+    `USB to RS 485 two wire converter with 9 pin output <../_static/references/USBto485techsheet.pdf>`_, 1165-1024-ND, Digikey, |USB-485|, convert USB to RS 485
+    `9 pin male to Ethernet <../_static/references/9pinmaletoEthernet.pdf>`_, RJADK09P7080831, Digikey, |D-Sub9toEthernet|, convert to Ethernet cable
+    `15 Pin Female to Ethernet <../_static/references/15pinfemaletoEthernet.pdf>`_, RJADK15S7080831, Digikey, |15pintoEthernet|, Golander pump to Ethernet
+    D-Sub Contact Female Socket Gold 20-24 AWG Crimp Stamped, 609-4423-1-ND, Digikey, |femalesocket|, jumper wires for Golander pump
+    Ethernet splitter, B00OPE3MH0, Amazon , |Ethernetsplitter|, daisy chain devices
+
+
+.. csv-table:: Modbus Ethernet cable standard for either A or B Ethernet cables.
+    :header:  RS485 signal, RJ45 pin, Ethernet color, DB 9 and 15 wires, DB pins
+    :align: center
+
+
+
+    A, 4, Blue, Red, 2
+    B, 5, White with blue stripe, Green, 3
+    ground, 8, Brown, white, 4
+
+.. csv-table:: Meter and Pump Manuals.
+    :header:  Device Manual, Modbus Manual
+    :align: center
+
+
+    `Golander Pump <../_static/references/Golander_BT-SV2_manual.pdf>`_, `modbus manual <../_static/references/Golander_MODBUS.pdf>`_
+    `HF turbidimeter <../_static/references/HF_MicroTol_Turbidimeter_manual.pdf>`_, `Modbus <../_static/references/HF_MicroTOL_MODBUS_Manual.PDF>`_
+    `HF UV meter <../_static/references/HFAccUViewManual.PDF>`_,   `Modbus <../_static/references/HFAccUView_MODBUS_Manual.PDF>`_
+    `ChemTrac HydroACT <../_static/references/ChemTrac_HydroACT_Manual.pdf>`_, `Modbus <../_static/references/ChemTrac_HydroACT_Modbus.pdf>`_
+
+
+.. csv-table:: Golander pump pinout.
+    :header:  DB15 pin, description, connect to
+    :align: center
+
+    2,B,red wire
+    3,A,green wire
+    4,Power input, 10
+    8,Ground of external power, "11, white wire"
+    10, + 12V power supply,4
+    11, ground of power supply,8
 
 References
 ==========
