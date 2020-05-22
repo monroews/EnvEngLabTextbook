@@ -263,6 +263,18 @@ The reactors are 1 L beakers that will be filled with 750 mL of water (:numref:`
 
     Apparatus used to measure reaeration rate.
 
+A 3-D model created by Shania Fang and Emily Wood (2020) provides more detail of the completed reactor assembly.
+
+.. _figure_Gas_Model:
+
+.. figure:: Images/Onshape_GasTransfer.png
+    :width: 600px
+    :align: center
+    :alt: internal figure
+
+    `3-D model of aeration apparatus <https://cad.onshape.com/documents/68c352592164ef9c7520cf9f/w/6da0f92b6434e2e534c235dd/e/aaf2cef3b9e961a194b9a5ba>`_ created by Shania Fang and Emily Wood (2020).
+
+
 The ProCoDA II software will be used to control the air flow rate for the aeration experiment. The software will use external code to calculate the calibration constant for the flow restriction, to control valve 1 (the air supply valve), and to regulate the flow of air into the accumulator. The calibration uses the ideal gas law to determine the flow rate as a function of the difference in pressure between the source and the accumulator. Once this calibration is obtained a separate code will set the fraction of time that valve 1 needs to be open to obtain the desired flow rate of air into the accumulator.
 
 Initial Setup

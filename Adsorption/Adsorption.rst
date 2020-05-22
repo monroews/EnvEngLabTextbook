@@ -211,14 +211,18 @@ Different teams can try different masses of activated carbon or could experiment
 Contactor Procedures
 ====================
 
+The carbon contactor is set up to enable upflow or downflow and to select red dye or reverse osmosis water feeds. The flow directions are set using 3-way-valves. A 3-D model created by Ellie Beaudry, Harry Fuller, and Moriah Gilkey (2020) provides detail of the completed reactor assembly.
+
+
 .. _figure_AC_Schematic:
 
-.. figure:: Images/New_Schematic.png
+.. figure:: Images/Onshape_Adsorption_setup.png
+    :target: https://cad.onshape.com/documents/4494d0d4c68ff33d8400c6a4/w/a17baf961191969c8e1bd216/e/badbf02bbdb2693648f81700
     :width: 500px
     :align: center
     :alt: carbon contactor schematic
 
-    Proposed design of the carbon column and feed system.
+    Proposed design of the carbon column and feed system. The `3-D model <https://cad.onshape.com/documents/4494d0d4c68ff33d8400c6a4/w/a17baf961191969c8e1bd216/e/badbf02bbdb2693648f81700>`_ is can be manipulated including setting the 3-way valves (Ellie Beaudry, Harry Fuller, and Moriah Gilkey 2020).
 
 Carbon Contactor Setup
 ----------------------
