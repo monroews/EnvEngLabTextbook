@@ -206,7 +206,7 @@ The Environmental Protection Agency (EPA) classifies wastes by their reaction ch
 
 The handling of reaction byproducts, surplus and waste chemicals, and contaminated materials is an important part of laboratory safety procedures. Each laboratory worker is responsible for ensuring that wastes are handled in a manner that minimizes personal hazard and recognizes the potential for environmental contamination.
 
-Most instructional laboratories will have clear procedures for students to follow in order to minimize the generation of waste materials. Typically reaction byproducts and surplus chemicals will be neutralized or deactivated as part of the experimental procedure. Waste materials must be handled in specific ways as designated by federal and local regulations. University guidelines for waste disposal can be found in Chapter 7 of the Cornell University `Chemical Hygiene Plan <https://sp.ehs.cornell.edu/lab-research-safety/laboratory-safety-manual/Pages/index.aspx>`_.
+Most instructional laboratories will have clear procedures for students to follow in order to minimize the generation of waste materials. Typically reaction byproducts and surplus chemicals will be neutralized or deactivated as part of the experimental procedure. Waste materials must be handled in specific ways as designated by federal and local regulations. University guidelines for waste disposal can be found in Chapter 7 of the Cornell University `Chemical Hygiene Plan <https://ehs.cornell.edu/manuals/laboratory-safety-manual-and-chemical-hygiene-plan>`_.
 
 Some general guidelines are:
 
@@ -216,10 +216,6 @@ Some general guidelines are:
  #. Put ordinary waste paper in a wastepaper basket separate from the chemical wastes. If a piece of paper is contaminated, such as paper toweling used to clean up a spill, put the contaminated paper in the special container that is marked for this use. It must be treated as a chemical waste.
  #. Broken glass belongs in its own marked waste container. Broken thermometers may contain mercury in the fragments and these belong in their own special sealed "broken thermometer" container.
  #. Peroxides, because of their reactivity, and the unpredictable nature of their formation in laboratory chemicals, have attracted considerable attention. The disposal of large quantities (25 g or more) of peroxides requires expert assistance. Consider each case individually for handling and disposal.
-
-
-A complete list of compounds considered safe for drain disposal can be found in Chapter 7 of the Cornell University `Chemical Hygiene Plan <https://sp.ehs.cornell.edu/lab-research-safety/laboratory-safety-manual/Pages/index.aspx>`_.  Disposal techniques for chemicals not found in this list must be disposed of using techniques approved of by Cornell Environmental Health and Safety. When possible, hazardous chemicals can be neutralized and then disposed. When chemicals are produced that cannot be disposed of using the sanitary sewer, techniques to decrease the volume of the waste should be considered.
-
 
 
 .. _heading_Laboratory_Safety_References:

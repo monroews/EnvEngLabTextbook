@@ -385,7 +385,7 @@
 The ProCoDA software converts the voltage output from the pressure sensors into the physical units of water column height or pressure using linear conversion algorithms. The sensors can also be zeroed or set to a measured value using a one point calibration.</p>
 <div class="figure align-center" id="id11">
 <span id="figure-pressure-sensor"></span><a class="reference internal image-reference" href="../_images/pressure_sensor.jpg"><img alt="Pressure sensor" src="../_images/pressure_sensor.jpg" style="width: 200px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Differential pressure sensors are used to measure water depth, head loss, and air pressure.</span></p>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Differential pressure sensors are used to measure water depth, head loss, and air pressure.</span></p>
 </div>
 <p>Steps to set up a pressure sensor.</p>
 <blockquote>
@@ -419,7 +419,7 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 <p>pH sensors produce a voltage output in the range that would normally be easy to measure using standard data acquisition hardware. Unfortunately, the impedance requirement for a pH sensor is orders of magnitude higher than the inputs of standard data acquisition hardware and thus a signal conditioning circuit must be used to amplify the pH sensor output. The circuit consists of unity gain amplifiers that have less than 0.1 pA input leakage current.</p>
 <div class="figure align-center" id="id12">
 <span id="figure-ph-circuit-png"></span><a class="reference internal image-reference" href="../_images/pH_circuit.png"><img alt="pH circuit" src="../_images/pH_circuit.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Circuit diagram for the signal conditioning circuit that takes the output from a pH (or other ion selective) electrode and amplifies the signal so that it can be measured by the data acquisition system. This is required because pH probes have a very high impedance that is too high for standard data acquisition systems to measure.</span></p>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Circuit diagram for the signal conditioning circuit that takes the output from a pH (or other ion selective) electrode and amplifies the signal so that it can be measured by the data acquisition system. This is required because pH probes have a very high impedance that is too high for standard data acquisition systems to measure.</span></p>
 </div>
 <p>pH measurements require calibration in known buffers.</p>
 <blockquote>
@@ -490,16 +490,16 @@ The ProCoDA software converts the voltage output from the pressure sensors into 
 </div>
 <div class="figure align-center" id="id13">
 <span id="figure-photometer-exploded"></span><a class="reference internal image-reference" href="../_images/Photometer_exploded1.jpg"><img alt="Photometer exploded" src="../_images/Photometer_exploded1.jpg" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">The photometer flow cell is a sealed chamber with round glass plates on both sides. There is a 465 nm LED (blue light) on the right of this image. A photodetector on the left produces a voltage that varies linearly with the intensity of the light that passes through the sample cell.</span></p>
+<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">The photometer flow cell is a sealed chamber with round glass plates on both sides. There is a 465 nm LED (blue light) on the right of this image. A photodetector on the left produces a voltage that varies linearly with the intensity of the light that passes through the sample cell.</span></p>
 </div>
 <div class="figure align-center" id="id14">
 <span id="figure-photometer-w-signal-conditioning"></span><a class="reference internal image-reference" href="../_images/Photometer_w_signal_conditioning.jpg"><img alt="photometer with signal conditioning" src="../_images/Photometer_w_signal_conditioning.jpg" style="width: 200px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">The photometer must always be held in a vertical orientation to ensure that air bubbles are carried out of the sample cell. The sensor output is conditioned for monitoring by ProCoDA in the black box.</span></p>
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">The photometer must always be held in a vertical orientation to ensure that air bubbles are carried out of the sample cell. The sensor output is conditioned for monitoring by ProCoDA in the black box.</span></p>
 </div>
 <p>To calibrate the photometer, you will need to connect the peristaltic pump, a 1 L bottle, and the photometer in a closed loop. Use enough tubing so that the flow path of the photometer is oriented in the vertical direction with flow <strong>up</strong> through the photometer (this ensures that air bubbles are carried up and out of the photometer). Add 1 L (or a known volume) of tap water to the bottle and turn the pump on at 380 mL/min. The high flow rate is to speed up the response time when the concentration is changed. The goal is to have a known volume of solution circulating through the calibration system.</p>
 <div class="figure align-center" id="id15">
 <span id="figure-sensor-photometer-cal-schematic-png"></span><a class="reference internal image-reference" href="../_images/sensor_photometer_cal_schematic.png"><img alt="internal figure" src="../_images/sensor_photometer_cal_schematic.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Experimental setup for calibrating photometer. Flow must be <strong>up</strong> through the photometer to ensure that any air bubbles are removed. It may be necessary to lightly tap the photometer to help release any trapped air bubbles.</span></p>
+<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Experimental setup for calibrating photometer. Flow must be <strong>up</strong> through the photometer to ensure that any air bubbles are removed. It may be necessary to lightly tap the photometer to help release any trapped air bubbles.</span></p>
 </div>
 <div class="section" id="calibration-steps">
 <h4>Calibration steps<a class="headerlink" href="#calibration-steps" title="Permalink to this headline">¶</a></h4>
@@ -727,12 +727,12 @@ The volume per revolution can also be obtained using the following python code.<
 <span class="eqno">(132)<a class="headerlink" href="#equation-procoda-procoda-3" title="Permalink to this equation">¶</a></span>\[y_{linear} = slope \cdot x + intercept\]</div>
 <div class="math notranslate nohighlight" id="equation-procoda-procoda-4">
 <span class="eqno">(133)<a class="headerlink" href="#equation-procoda-procoda-4" title="Permalink to this equation">¶</a></span>\[y_{power} = coefficient \cdot base^x\]</div>
-<p>The two increment functions are dependent on the state cycles. In the example shown in <a class="reference internal" href="#figure-increment-functions"><span class="std std-numref">Fig. 32</span></a> the state was set to cycle between states 1, 2, and 3 with the exception of a manual reset to state 0 and then to state 1 to illustrate how the increment function is reset. The power law function is useful when it is desirable to explore a larger parameter space. However, care must be taken to ensure that the controlled processes have the ability to deliver the desired range of the varied parameter.</p>
+<p>The two increment functions are dependent on the state cycles. In the example shown in <a class="reference internal" href="#figure-increment-functions"><span class="std std-numref">Fig. 33</span></a> the state was set to cycle between states 1, 2, and 3 with the exception of a manual reset to state 0 and then to state 1 to illustrate how the increment function is reset. The power law function is useful when it is desirable to explore a larger parameter space. However, care must be taken to ensure that the controlled processes have the ability to deliver the desired range of the varied parameter.</p>
 <p>ProCoDA can be configured to stop an experiment after the reaching the maximum value of the parameter by using the external code called “count states”. Count states counts the number of times a “state to count” has been entered. This can be used to set an exit condition on a state. If no exit condition is created to end an experiment the increment function will reset the parameter to its initial value and begin the increment process again.</p>
 <p>It is possible to systematically vary more than one parameter. To do this it is essential that different copies of the increment function code be used for each parameter. This is because increment function code includes a memory to track its own state and if it is used by ProCoDA to do multiple things it will give unexpected results!</p>
 <div class="figure align-center" id="id17">
 <span id="figure-increment-functions"></span><a class="reference internal image-reference" href="../_images/increment_functions.png"><img alt="Increment functions" src="../_images/increment_functions.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Increment functions showing how the output varies as a function of the state. In this example the state cycled between states 1, 2, and 3. The increment state was 2, the number of replicates was 2, the reset state was 0, the y intercept was 200, the slope was 50, and the maximum value of x was 4. The power law relationship used a coefficient of 100 and a base of 1.5.</span></p>
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">Increment functions showing how the output varies as a function of the state. In this example the state cycled between states 1, 2, and 3. The increment state was 2, the number of replicates was 2, the reset state was 0, the y intercept was 200, the slope was 50, and the maximum value of x was 4. The power law relationship used a coefficient of 100 and a base of 1.5.</span></p>
 </div>
 </div>
 <div class="section" id="feedback-control">
@@ -1160,7 +1160,7 @@ The “off value” is the output value of the controller when the controller is
 <p>Sensors are wired using Category 5 or 6 Ethernet cable using our own <a class="reference internal" href="#table-procoda-sensor-wiring"><span class="std std-ref">analog</span></a> wiring standard. Two wires are used to carry the sensor output voltage designated as S- and S+. Five wires are used for different voltage power supplies, and one wire is used for the power supply ground. Sensors are wired to connect to the power supply that they require. Thus, the sensor is powered and monitored through a single port. This scheme is used for a variety of sensors including pressure, strain gage, pH, dissolved oxygen, photometer, and temperature. For several of the sensors the power supplies are also used to power a signal conditioning circuit to transform the sensor output into a voltage that can easily be monitored with a data acquisition system.</p>
 <div class="figure align-center" id="id19">
 <span id="figure-ethernet"></span><a class="reference internal image-reference" href="../_images/Ethernet.png"><img alt="Increment functions" src="../_images/Ethernet.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">Two Ethernet wiring schemes.</span></p>
+<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">Two Ethernet wiring schemes.</span></p>
 </div>
 <span id="table-procoda-sensor-wiring"></span><table border="1" class="docutils align-center" id="id20">
 <caption><span class="caption-number">Table 13 </span><span class="caption-text">Sensor wiring scheme using Ethernet cable</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
