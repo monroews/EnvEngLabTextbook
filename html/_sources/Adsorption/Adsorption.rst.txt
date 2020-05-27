@@ -181,7 +181,7 @@ Different teams can try different masses of activated carbon or could experiment
   A_column = ac.area_circle(D_column)
   V_column = A_column * L_column
   C_0 = 50 * u.mg/u.L
-  q_0 = 0.08
+  q_0 = 0.0014
   t_water = (L_column*porosity/v_a).to(u.s)
   t_mtz_target = 1800*u.s
   # set the breakthrough time to 30 minutes = 1800 s
@@ -243,7 +243,7 @@ Assemble the system shown in :numref:`figure_AC_Schematic`. Use a peristaltic pu
     Mass of sand, 120 g (to fill column)
     Approach velocity (1 mm/s)
     Column diameter, 2.54 cm
-    :math:`q_{(50 mg/L)}`, 0.080  g/g
+    :math:`q_{(50 mg/L)}`, 0.0014  g/g
     Mass of carbon, "5, 10, 15, 20  g"
 
 
@@ -299,7 +299,7 @@ Contactor Results and Analysis
 Prelab Questions
 ================
 
-#. A carbon column is packed with 15 cm of activated carbon and then used to remove 50 mg/L of red dye \#40. The approach velocity is 1 mm/s, the porosity is 0.8, and the bulk density of the activated carbon is 0.38 :math:`g/cm^3`. The mass of red dye per mass of carbon at equilibrium with 50 mg/L of red dye is 0.08. How long will it take for the mass transfer zone to travel to the bottom of the carbon column? This analysis shows why we use less activated carbon for our experiments in the lab!
+#. A carbon column is packed with 15 cm of activated carbon and then used to remove 50 mg/L of red dye \#40. The approach velocity is 1 mm/s, the porosity is 0.8, and the bulk density of the activated carbon is 0.38 :math:`g/cm^3`. The mass of red dye per mass of carbon at equilibrium with 50 mg/L of red dye is 0.0014. How long will it take for the mass transfer zone to travel to the bottom of the carbon column? This analysis shows why we use less activated carbon for our experiments in the lab!
 
 .. _heading_Adsorption_Lab_Prep_Notes:
 
