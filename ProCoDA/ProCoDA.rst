@@ -582,11 +582,15 @@ The model BT50S Golander pumps do not have the ability to change the unit ID usi
  #. Turn off the device and turn it back on again!!!!!!! This is REQUIRED because otherwise the change you made won't be implemented by the device and communication will fail!
  #. Golander 50S pumps display the unit ID on startup.
 
-Now you can configure a Golander pump using the Rule Editor. The external code for Golander pumps require 4 inputs: pump address, on state, pump (ml/rev), and flow (mL/s).
+Now you can configure a Golander pump using the Rule Editor. The external code for Golander pumps require 4 inputs: pump address, on state, pump (ml/rev), and flow (mL/s). The "on state" provides a way to control which states the pump is on or off. The pump logic uses the following rules to process which states to turn on. Pumps NEVER run in the off state (state = 0). The values entered in the "on state" are interpreted as follows:
+
+ #. If the value of "on state" is *0* that is interpreted to mean that the pump should run in *all* states except the off state.
+ #. If the value of the "on state" is a *positive* integer then the pump will run in the states that are equal to any of the digits in that integer. Thus the "on state" 134 means that the pump should run in states 1, 3, and 4.
+ #. If the value of the "on state" is a *negative* integer then the pump will *not* run in the states that are equal to any of the digits in that integer. Thus the "on state" -25 means that the pump should run in all states *except* 0, 2, 5.
 
  #. Go to |config_edit_rules| on the Configuration tab.
  #. Add a set point for the pump ID (or pump address) |SetPoints_pump_address|
- #. Add a set point for the states that you want the pump to run |SetPoints_on_state|. The states are identified as integers with the OFF state having a value of 0. To have the pump run in more than one state simple enter the digits. The assumption here is that ProCoDA won't have more than 10 states. Thus the on state 134 means that the pump should run in states 1, 3, and 4.
+ #. Add a set point to provide the code indicating which states the pump should run |SetPoints_on_state|.
  #. Add a set point for the volume of water pumped per revolution with unis of mL/rev.
  #. Add a set point for the desired flow rate with units of mL/s.
  #. Add a set point for the pump control
