@@ -700,12 +700,15 @@ The volume per revolution can also be obtained using the following python code.<
 <li>Golander 50S pumps display the unit ID on startup.</li>
 </ol>
 </div></blockquote>
-<p>Now you can configure a Golander pump using the Rule Editor. The external code for Golander pumps require 4 inputs: pump address, on state, pump (ml/rev), and flow (mL/s).</p>
+<p>Now you can configure a Golander pump using the Rule Editor. The external code for Golander pumps require 4 inputs: pump address, on state, pump (ml/rev), and flow (mL/s). The “on state” provides a way to control which states the pump is on or off. The pump logic uses the following rules to process which states to turn on. Pumps NEVER run in the off state (state = 0). The values entered in the “on state” are interpreted as follows:</p>
 <blockquote>
 <div><ol class="arabic simple">
+<li>If the value of “on state” is <em>0</em> that is interpreted to mean that the pump should run in <em>all</em> states except the off state.</li>
+<li>If the value of the “on state” is a <em>positive</em> integer then the pump will run in the states that are equal to any of the digits in that integer. Thus the “on state” 134 means that the pump should run in states 1, 3, and 4.</li>
+<li>If the value of the “on state” is a <em>negative</em> integer then the pump will <em>not</em> run in the states that are equal to any of the digits in that integer. Thus the “on state” -25 means that the pump should run in all states <em>except</em> 0, 2, 5.</li>
 <li>Go to <img alt="config_edit_rules" src="../_images/config_edit_rules1.png" /> on the Configuration tab.</li>
 <li>Add a set point for the pump ID (or pump address) <img alt="SetPoints_pump_address" src="../_images/SetPoints_pump_address.png" /></li>
-<li>Add a set point for the states that you want the pump to run <img alt="SetPoints_on_state" src="../_images/SetPoints_on_state.png" />. The states are identified as integers with the OFF state having a value of 0. To have the pump run in more than one state simple enter the digits. The assumption here is that ProCoDA won’t have more than 10 states. Thus the on state 134 means that the pump should run in states 1, 3, and 4.</li>
+<li>Add a set point to provide the code indicating which states the pump should run <img alt="SetPoints_on_state" src="../_images/SetPoints_on_state.png" />.</li>
 <li>Add a set point for the volume of water pumped per revolution with unis of mL/rev.</li>
 <li>Add a set point for the desired flow rate with units of mL/s.</li>
 <li>Add a set point for the pump control</li>

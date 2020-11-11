@@ -206,7 +206,7 @@ The Environmental Protection Agency (EPA) classifies wastes by their reaction ch
 
 The handling of reaction byproducts, surplus and waste chemicals, and contaminated materials is an important part of laboratory safety procedures. Each laboratory worker is responsible for ensuring that wastes are handled in a manner that minimizes personal hazard and recognizes the potential for environmental contamination.
 
-Most instructional laboratories will have clear procedures for students to follow in order to minimize the generation of waste materials. Typically reaction byproducts and surplus chemicals will be neutralized or deactivated as part of the experimental procedure. Waste materials must be handled in specific ways as designated by federal and local regulations. University guidelines for waste disposal can be found in Chapter 7 of the Cornell University `Chemical Hygiene Plan <https://ehs.cornell.edu/manuals/laboratory-safety-manual-and-chemical-hygiene-plan>`_.
+Most instructional laboratories will have clear procedures for students to follow in order to minimize the generation of waste materials. Typically reaction byproducts and surplus chemicals will be neutralized or deactivated as part of the experimental procedure. Waste materials must be handled in specific ways as designated by federal and local regulations. University guidelines for waste disposal can be found in Chapter 7 of the Cornell University `Chemical Hygiene Plan <https://ehs.cornell.edu/research-safety/chemical-safety/chemical-hygiene-plan>`_.
 
 Some general guidelines are:
 
