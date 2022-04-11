@@ -1022,6 +1022,7 @@ Modbus
 .. |15pintoEthernet| image:: Images/15pintoEthernet.png
 .. |femalesocket| image:: Images/femalesocket.png
 .. |Ethernetsplitter| image:: Images/Ethernetsplitter.png
+.. |Crimper| image:: Images/Crimper.png
 
 
 .. csv-table:: Parts for connecting modbus devices together and to USB port
@@ -1034,6 +1035,7 @@ Modbus
     `15 Pin Female to Ethernet <../_static/references/15pinfemaletoEthernet.pdf>`_, RJADK15S7080831, Digikey, |15pintoEthernet|, Golander pump to Ethernet
     D-Sub Contact Female Socket Gold 20-24 AWG Crimp Stamped, 609-4423-1-ND, Digikey, |femalesocket|, jumper wires for Golander pump
     Ethernet splitter, B00OPE3MH0, Amazon , |Ethernetsplitter|, daisy chain devices
+    Crimping tool, WM17552-ND, Digikey, |Crimper| , crimp jumper wire to 609-4423-1-ND
 
 
 .. csv-table:: Modbus Ethernet cable standard for either A or B Ethernet cables.
